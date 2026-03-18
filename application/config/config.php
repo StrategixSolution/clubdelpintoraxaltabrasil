@@ -1,0 +1,67 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+if (!defined('APP_URL')){ define('APP_URL', ($_SERVER['SERVER_PORT'] == 443 ? 'https' : 'http') . "://{$_SERVER['SERVER_NAME']}".str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME'])); };
+$config['base_url']                 = APP_URL;
+$config['index_page']               = '';
+$config['uri_protocol']             = 'REQUEST_URI';
+$config['url_suffix']               = '.html';
+$config['language']                 = 'portuguese';
+$config['charset']                  = 'UTF-8';
+$config['enable_hooks']             = FALSE;
+$config['subclass_prefix']          = 'Base_';
+$config['composer_autoload']        = FALSE;
+$config['permitted_uri_chars']      = 'a-z 0-9~%.:_\-';
+$config['enable_query_strings']     = FALSE;
+$config['controller_trigger']       = 'c';
+$config['function_trigger']         = 'm';
+$config['directory_trigger']        = 'd';
+$config['allow_get_array']          = TRUE;
+$config['log_threshold'] = 0;
+$config['log_path']                 = '';
+$config['log_file_extension']       = '';
+$config['log_file_permissions']     = 0644;
+$config['log_date_format']          = 'Y-m-d H:i:s';
+$config['error_views_path']         = '';
+$config['cache_path']               = '';
+$config['cache_query_string']       = FALSE;
+$config['encryption_key']           = '';
+$config['sess_driver']              = 'files';
+$config['sess_cookie_name']         = 'ci_session';
+$config['sess_expiration']          = 7200;
+$config['sess_save_path']           = NULL;
+$config['sess_match_ip']            = FALSE;
+$config['sess_time_to_update']      = 300;
+$config['sess_regenerate_destroy']  = FALSE;
+$config['cookie_prefix']            = '';
+$config['cookie_domain']            = '';
+$config['cookie_path']              = '/';
+$config['cookie_secure']            = FALSE;
+$config['cookie_httponly']          = FALSE;
+$config['standardize_newlines']     = FALSE;
+$config['global_xss_filtering']     = TRUE;
+$config['csrf_protection']          = FALSE;
+$config['csrf_token_name']          = 'csrf_test_name';
+$config['csrf_cookie_name']         = 'csrf_cookie_name';
+$config['csrf_expire']              = 7200;
+$config['csrf_regenerate']          = TRUE;
+$config['csrf_exclude_uris']        = array('');
+$config['compress_output']          = FALSE;
+$config['time_reference']           = 'local';
+$config['rewrite_short_tags']       = FALSE;
+$config['proxy_ips']                = '';
+/**********************STRATEGIX CONFIG******************************* $this->config->item('google_key') */
+$config['site_title']               = 'CLUB DEL PINTOR AXALTA';
+//  $config['bcc']                      = "luis.rangel@strategix.com.mx,luis.rivera@strategix.com.mx,patricia.carteno@strategix.com.mx";
+$config['bcc']                      = "luis.rangel@strategix.com.mx";
+/**********************STRATEGIX COOKIE*******************************/
+$config['cookie_name']              = "CDPBR20250401COOKIE";
+$config['cookie_value']             = "B1GFR84B18918BT9RB4TRYHY";
+/**********************STRATEGIX GOOGLE*******************************/
+$config['google_key']               = '6LeDaRErAAAAAETcjJxldNJHMhnApdKVAVtm4cvi';
+$config['google_secret']            = '6LeDaRErAAAAAHKDHrED4mz9eqwOeMVuU7nnuo58';
+$config['google_url']               = 'https://www.google.com/recaptcha/api/siteverify';
+/**********************STRATEGIX INFOBIT*******************************/
+$config['infobip_key']              = 'App 1f1a18f035453f6cce53fbbc469e9a1d-d38bd0e4-efa4-4e5c-87c5-bec171304cf6';
+$config['infobip_url_sms']          = 'https://xrrxle.api.infobip.com/sms/2/text/advanced';
+$config['infobip_url_whatsapp']     = 'https://xrrxle.api.infobip.com/whatsapp/1/message/template';
+$config['infobip_phone_whatsapp']   = '5215527452226';

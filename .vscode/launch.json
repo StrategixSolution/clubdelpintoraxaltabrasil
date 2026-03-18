@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug (IIS)",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "C:/inetpub/wwwroot/strategix/php-7.4.27/clubdelpintoraxaltabrasil": "${workspaceFolder}"
+            },
+            "log": false,
+            "ignore": [
+                "**/vendor/**/*.php",
+                "**/system/**/*.php"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+<?php
+
+/* 
+ * Sistema Web Responsivo CDPMEX                    *
+ * @author	Strategic Solutions S.A. de C.V             * 
+ * @programmer  Luis Felipe Rangel                          * 
+ * @CreateDate 01 MARZO 2026 09:00:00                        * 
+ */
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+?>
+
+<section id="actualizadatosusuario">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-title txt-center">
+                <img src="application/views/template/sistema/imagenes/logo3.png" alt="" width="150px">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel-conti mt-30">
+            <div class="row">
+                <div class="col-lg-12 txt-center">
+                    <p style="font-size:18px; font-weight:700; color:#000 !important;"><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_mail_valido') ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

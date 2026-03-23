@@ -22,10 +22,10 @@ $route['Reglas']                                = 'reglas/reglas_controller';
 $route['Productos']                             = 'productos/productos_controller';
 $route['Contacto']                              = 'contacto/contacto_controller';
 $route['UsuariosActualizarDatos']               = 'usuarios/usuarios_actualizar_datos/usuarios_actualizar_datos_controller';
-$route['Registromaestropintorinterno']          = 'usuarios/usuarios_registro_mp_interno/usuarios_registro_mp_interno_controller';
 $route['UsuariosRecuperaClaveNueva']            = 'usuarios/usuarios_recupera_clave/usuarios_recupera_clave_nueva_controller';
-
-
+$route['Registromaestropintorinterno']         = 'usuarios/usuarios_maestro_pintor_registro/usuarios_maestro_pintor_registro_controller';
+$route['Tarjetas']                              = 'tarjetas/tarjetas_controller'; 
+$route['TarjetasAltas']                         = 'tarjetas/tarjetas_altas/tarjetas_altas_controller'; 
 
 
 /*

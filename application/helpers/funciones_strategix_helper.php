@@ -277,3 +277,7 @@ function funciones_strategix_convertir_fecha_primer_dia($fechaBD) {
     // Devolver la fecha formateada
     return $nuevaFecha;
 }
+
+function creatUserName($txt_nom,$txt_ap,$Id) {        
+    return funciones_strategix_normalizar_cadena(mb_strtolower(substr($txt_nom, 0, 1).substr(str_replace(" ", "_", $txt_ap),0,3))).$Id;  
+}

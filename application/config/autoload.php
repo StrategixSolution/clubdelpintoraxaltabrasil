@@ -42,6 +42,8 @@ $autoload['language']   = array(
     'ventas_personal_top_controller_lang',
 	'ventas_reporte_ganadores_controller_lang',
     'contacto_controller_lang',
-    'usuarios_registro_mp_interno_controller_lang'
+    'usuarios_maestro_pintor_registro_controller_lang',
+    'reportes_tarjetas_controller_lang',
+    'tarjetas_altas_controller_lang'
     );
 $autoload['model']      = array();

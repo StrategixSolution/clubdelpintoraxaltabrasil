@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 Jun. 2024 09:00:00                        * 
+ * @programmer Luis Felipe Rangel                          * 
+ * @CreateDate 01 Mar. 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -21,12 +21,11 @@ class Tarjetas_model extends Base_Model
         return $query->result();
     }
     public function tarjetas_model_lista($where){
-        $SQL    = "SELECT Tarjetas.PaisId, Tarjetas.DivisionId,Divisiones.DivisionNombre ,Tarjetas.TarjetaId, Tarjetas.TarjetaNumero, Tarjetas.DistribuidorId, Tarjetas.UsuarioId, Tarjetas.TarjetaEstatusId, Tarjetas.TarjetaFechaRegistro, Tarjetas.TarjetaUsuarioIdCaptura, Tarjetas.TarjetaFechaBaja, Tarjetas.TarjetaUsuarioIdBaja, Tarjetas.TarjetaFechaAsigno, Tarjetas.TarjetaUsuarioIdAsigno, Tarjetas.PaisId, TarjetasEstatus.TarjetaEstatusDescripcion, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleFechaBaja, UsuariosDetalles.UsuarioDetalleFechaBaja, UsuariosDetalles.UsuarioDetalleNombre,UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidoPaterno, UsuariosDetalles.UsuarioDetalleApellidoMaterno 
+        $SQL    = "SELECT Tarjetas.TarjetaId, Tarjetas.TarjetaNumero, Tarjetas.DistribuidorId, Tarjetas.UsuarioId, Tarjetas.TarjetaEstatusId, Tarjetas.TarjetaFechaRegistro, Tarjetas.TarjetaUsuarioIdCaptura, Tarjetas.TarjetaFechaBaja, Tarjetas.TarjetaUsuarioIdBaja, Tarjetas.TarjetaFechaAsigno, Tarjetas.TarjetaUsuarioIdAsigno,  TarjetasEstatus.TarjetaEstatusDescripcion, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleFechaBaja, UsuariosDetalles.UsuarioDetalleFechaBaja, UsuariosDetalles.UsuarioDetalleNombre,UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidoPaterno, UsuariosDetalles.UsuarioDetalleApellidoMaterno 
         FROM Tarjetas 
         INNER JOIN TarjetasEstatus ON Tarjetas.TarjetaEstatusId = TarjetasEstatus.TarjetaEstatusId 
         LEFT OUTER JOIN DistribuidoresDetalles ON Tarjetas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
         LEFT OUTER JOIN UsuariosDetalles ON Tarjetas.UsuarioId = UsuariosDetalles.UsuarioId 
-        LEFT OUTER JOIN Divisiones  on Divisiones.DivisionId = Tarjetas.DivisionId  
         WHERE DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL AND UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL $where";
         $query    = $this->db->query($SQL);
           //      echo  $this->db->last_query()."<br>"; 

@@ -3,7 +3,7 @@
 /* 
  * Sistema Web Responsivo CDPMEX                            *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
+ * @programmer Luis Felipe Rangel                          * 
  * @CreateDate 01 ABRIL 2025 09:00:00                       * 
  */
 

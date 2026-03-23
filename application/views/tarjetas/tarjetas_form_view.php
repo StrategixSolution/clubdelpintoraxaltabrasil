@@ -3,21 +3,23 @@
 /* 
  * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 Jun. 2024 09:00:00                        * 
+ * @programmer Luis Felipe Rangel                          * 
+ * @CreateDate 01 Mar. 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
-<section id="distribuidores">
-    <div style="background: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.50)), url(<?php echo funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/tarjetas/" . $this->session->userdata(funciones_strategix_sitio_alias('s_segmento_id')) . "/bg-title.jpg") ?>)  center center / cover no-repeat;">
-        <div class="container">
-            <div class="title-modulo">
-                <h2><?=$this->lang->line('tarjetas_controller_lang_titulo')?></h2>
+<section id="tarjetas">
+    <div class="panel-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2><?= $this->lang->line('tarjetas_controller_lang_titulo') ?></h2>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     <div class="container">    
         <div class="panel-white">
             <div class="row">

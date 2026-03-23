@@ -44,6 +44,7 @@ $autoload['language']   = array(
     'contacto_controller_lang',
     'usuarios_maestro_pintor_registro_controller_lang',
     'reportes_tarjetas_controller_lang',
-    'tarjetas_altas_controller_lang'
+    'tarjetas_altas_controller_lang',
+    'tarjetas_controller_lang'
     );
 $autoload['model']      = array();

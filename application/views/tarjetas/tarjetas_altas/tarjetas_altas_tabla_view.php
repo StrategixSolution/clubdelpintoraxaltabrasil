@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 Jun. 2024 09:00:00                        * 
+ * @programmer Luis Felipe Rangel                          * 
+ * @CreateDate 01 Mar. 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') or exit('No direct script access allowed');
@@ -26,8 +26,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <th><?= $this->lang->line('tarjetas_altas_controller_lang_tabla_maestro_pintor') ?></th>
                     <th><?= $this->lang->line('tarjetas_altas_controller_lang_tabla_fecha_registro') ?></th>
                     <th><?= $this->lang->line('tarjetas_altas_controller_lang_tabla_estatus_tarjeta') ?></th>
-                    <th><?= $this->lang->line('tarjetas_altas_controller_lang_tabla_pais') ?></th>
-                    <th><?= $this->lang->line('tarjetas_altas_controller_lang_tabla_division') ?></th>
                     <th><?= $this->lang->line('tarjetas_altas_controller_lang_tabla_estatus_accion') ?></th>
                 </thead>
                 <tbody>
@@ -45,12 +43,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
             Swal.fire({
                 icon: 'error',
                 allowOutsideClick: false,
-                text: "EL RANGO DE NÚMEROS YA ESTÁN REGISTRADOS"
+                text: '<?= $this->lang->line('tarjetas_altas_controller_lang_etiqueta_rango_registrados') ?>',
             });
         } else {
             Swal.fire({
                 title: '',
-                html: 'TARJETAS REGISTRADAS SATISFACTORIAMENTE',
+                html: '<?= $this->lang->line('tarjetas_altas_controller_lang_etiqueta_rango_registrados_success') ?>',
                 icon: 'success',
                 showCancelButton: false,
                 confirmButtonColor: '#fd7e14',

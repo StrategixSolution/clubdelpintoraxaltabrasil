@@ -88,8 +88,6 @@
             <table class="table table-bordered table-striped table-axalta" id="tarjetas_tabla_view_lista" style="width: 100%;">
                 <thead>
                     <th><?= $this->lang->line('tarjetas_controller_lang_tabla_titulo_folio') ?></th>
-                    <th><?= $this->lang->line('tarjetas_controller_lang_tabla_titulo_pais') ?></th>
-                    <th><?= $this->lang->line('tarjetas_controller_lang_tabla_titulo_division') ?></th>
                     <th><?= $this->lang->line('tarjetas_controller_lang_tabla_titulo_distribuidor_codigo') ?></th>
                     <th><?= $this->lang->line('tarjetas_controller_lang_tabla_titulo_distribuidor_razon_social') ?></th>
                     <th><?= $this->lang->line('tarjetas_controller_lang_tabla_titulo_usuario_nombre') ?></th>

@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 Jun. 2024 09:00:00                        * 
+ * @programmer Luis Felipe Rangel                          * 
+ * @CreateDate 01 Mar. 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -28,8 +28,13 @@ $lang['tarjetas_altas_controller_lang_tabla_estatus_tarjeta']                   
 $lang['tarjetas_altas_controller_lang_tabla_estatus_accion']                    = 'OBSERVACIÓN';
 $lang['tarjetas_altas_controller_lang_tabla_combo_distribuidor_selecciona']     = 'SELECCIONE UN DISTRIBUIDOR';
 $lang['tarjetas_altas_controller_lang_tabla_combo_distribuidor_sin']            = 'SIN DISTRIBUIDOR';
-$lang['tarjetas_altas_controller_lang_js_error_combos']                         = 'SELECCIONE EL PAÍS Y EL DISTRIBUIDOR';
+$lang['tarjetas_altas_controller_lang_js_error_combos']                         = 'SELECCIONE EL DISTRIBUIDOR';
 $lang['tarjetas_altas_controller_lang_btn_regresar']                            = 'REGRESAR';
 $lang['tarjetas_altas_controller_lang_tabla_pais']                              = 'PAÍS';
 $lang['tarjetas_altas_controller_lang_tabla_combo_division_selecciona']         = 'SELECCIONE UNA DIVISIÓN';
 $lang['tarjetas_altas_controller_lang_tabla_division']                          = 'DIVISIÓN';
+$lang['tarjetas_altas_controller_lang_etiqueta_no_inicial']                          = 'INGRESE NUMERO INICIAL';
+$lang['tarjetas_altas_controller_lang_etiqueta_no_final']                          = 'INGRESE NUMERO FINAL';
+$lang['tarjetas_altas_controller_lang_etiqueta_valida_numero']                          = 'EL NUMERO FINAL TIENE QUE SER MAYOR O IGUAL QUE EL INICIAL';
+$lang['tarjetas_altas_controller_lang_etiqueta_rango_registrados']                          = 'EL RANGO DE NÚMEROS YA ESTÁN REGISTRADOS';
+$lang['tarjetas_altas_controller_lang_etiqueta_rango_registrados_success']                          = 'TARJETAS REGISTRADAS SATISFACTORIAMENTE';

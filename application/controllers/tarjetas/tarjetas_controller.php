@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 Jun. 2024 09:00:00                        * 
+ * @programmer Luis Felipe Rangel                          * 
+ * @CreateDate 01 Mar. 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -54,8 +54,6 @@ class Tarjetas_controller extends Base_Controller {
             $nombre_usuario = $row->UsuarioDetalleNombre." ".$row->UsuarioDetalleSegundoNombre." ".$row->UsuarioDetalleApellidoPaterno." ".$row->UsuarioDetalleApellidoMaterno;
             $lista.= '<tr id="id-tarjeta-td-'.$row->TarjetaId.'">
                         <td>'.utf8_encode(strtoupper($row->TarjetaNumero)).'</td>
-                        <td>'.utf8_encode(strtoupper($row->PaisNombre)).'</td>
-                        <td>'.utf8_encode(strtoupper($row->DivisionNombre)).'</td>
                         <td>'.utf8_encode(strtoupper($row->DistribuidorDetalleCodigo)).'</td>
                         <td>'.utf8_encode(strtoupper($row->DistribuidorDetalleRazonSocial)).'</td> 
                         <td>'.utf8_encode(strtoupper($nombre_usuario)).'</td>

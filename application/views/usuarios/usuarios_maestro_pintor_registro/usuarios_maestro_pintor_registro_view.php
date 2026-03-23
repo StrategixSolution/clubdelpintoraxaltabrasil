@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 Jun. 2024 09:00:00                        * 
+ * @programmer Luis Felipe Rangel                          * 
+ * @CreateDate 01 Mar. 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') or exit('No direct script access allowed');
@@ -401,11 +401,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </div>
             </div>
           </div>
-
-
-        </div>
-        <div class="col-lg-3 no-cel"
-          style=" margin-top: -20px; margin-bottom: -20px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background: url(<?php echo funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/usuarios/registro_mp/bg-form.jpg") ?>)  center center / cover no-repeat;">
         </div>
       </div>
     </div>

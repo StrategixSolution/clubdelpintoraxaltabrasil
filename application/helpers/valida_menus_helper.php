@@ -28,13 +28,13 @@ function valida_menus($pagina,$perfilId){
             $seguridad_menu = array('Cero','Reportes_distribuidores_admin1_controller');
             break; //EJECUTIVOS
         case 6: 
-            $seguridad_menu = array('Cero','Ventas_registro_ticket_controller','Ventas_auditoria_rechazados_controller','Ventas_promociones_controller','Productos_reposicion_captura_controller','Reporte_reposicion_productos_controller');
+            $seguridad_menu = array('Cero','Ventas_registro_controller','Ventas_auditoria_rechazados_controller','Ventas_promociones_controller','Productos_reposicion_captura_controller','Reporte_reposicion_productos_controller','Ventas_registro_controller');
             break; //ADMINISTRADOR DE DISTRIBUIDOR
         case 7: 
-            $seguridad_menu = array('Cero','Ventas_registro_ticket_controller','Ventas_auditoria_rechazados_controller','Ventas_promociones_controller','Productos_reposicion_captura_controller','Reporte_reposicion_productos_controller');
+            $seguridad_menu = array('Cero','Ventas_registro_controller','Ventas_auditoria_rechazados_controller','Ventas_promociones_controller','Productos_reposicion_captura_controller','Reporte_reposicion_productos_controller','Ventas_registro_controller');
             break; //PERSONAL DE TIENDA
         case 8: 
-            $seguridad_menu = array('Cero','Usuarios_participantes_cargar_cartas_controller','Ventas_registro_ticket_controller','Ventas_auditoria_rechazados_controller','Ventas_promociones_controller','Productos_reposicion_captura_controller','Reporte_reposicion_productos_controller');
+            $seguridad_menu = array('Cero','Usuarios_participantes_cargar_cartas_controller','Ventas_registro_controller','Ventas_auditoria_rechazados_controller','Ventas_promociones_controller','Productos_reposicion_captura_controller','Reporte_reposicion_productos_controller','Ventas_registro_controller');
             break; //RESPONSABLE DE TIENDA 
         case 9: 
             $seguridad_menu = array('Cero');

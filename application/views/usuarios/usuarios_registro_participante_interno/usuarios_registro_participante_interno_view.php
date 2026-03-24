@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 pt-40">
-                        <h2>REGISTRO DE MAESTRO PINTOR0000</h2>
+                        <h2>REGISTRO DE MAESTRO PINTOR</h2>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@ $autoload['language']   = array(
     'recompensas_controller_lang',
     'productos_reposicion_carga_controller_lang',
     'productos_reposicion_relacion_premios_productos_contoller_lang',
-    'ventas_registro_ticket_controller_lang',
+    'ventas_registro_controller_lang',
     'ventas_auditoria_primera_controller_lang',
     'data_table_js_lang',
     'ventas_auditoria_envio_correos_controller_lang',
@@ -45,6 +45,7 @@ $autoload['language']   = array(
     'usuarios_maestro_pintor_registro_controller_lang',
     'reportes_tarjetas_controller_lang',
     'tarjetas_altas_controller_lang',
-    'tarjetas_controller_lang'
+    'tarjetas_controller_lang',
+    'ventas_registro_controller_lang'
     );
 $autoload['model']      = array();

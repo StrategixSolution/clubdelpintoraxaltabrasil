@@ -26,6 +26,7 @@ $route['UsuariosRecuperaClaveNueva']            = 'usuarios/usuarios_recupera_cl
 $route['Registromaestropintorinterno']         = 'usuarios/usuarios_maestro_pintor_registro/usuarios_maestro_pintor_registro_controller';
 $route['Tarjetas']                              = 'tarjetas/tarjetas_controller'; 
 $route['TarjetasAltas']                         = 'tarjetas/tarjetas_altas/tarjetas_altas_controller'; 
+$route['RegistroTickets']                  = 'ventas/ventas_registro/ventas_registro_controller';
 
 
 /*
@@ -50,7 +51,7 @@ $route['CorteAuditoriaVentas']                  = 'ventas/ventas_cortes/ventas_c
 $route['CorteGanadoresVentas']                  = 'ventas/ventas_cortes/ventas_cortes_ganadores/ventas_cortes_ganadores_contoller';
 $route['CorteVentasBimestral']                  = 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller';
 $route['DescargaReposicionProductos']           = 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller';
-$route['RegistroTickets']                       = 'ventas/ventas_registro_ticket/ventas_registro_ticket_controller';
+
 $route['RegistroVentasPromocion']               = 'ventas/ventas_promociones/ventas_promociones_controller';
 $route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
 $route['EnvioCorreos']                          = 'ventas/ventas_auditoria/ventas_auditoria_envio_correos/ventas_auditoria_envio_correos_controller';

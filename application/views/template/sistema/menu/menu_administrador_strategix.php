@@ -20,7 +20,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             </ul>
         </li> -->
-        <li class="nav-item dropdown" id="nav_catalogos">
+     <!--   <li class="nav-item dropdown" id="nav_catalogos">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_reportes')?></a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteVentasPersonalTop"); ?>"><?=$this->lang->line('menu_submenu_ventas_personal_top')?></a></li> 
@@ -31,4 +31,4 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteReposicionProductoZonas"); ?>">REPORTE DE REPOSICIÓN DE PRODUCTOS POR ZONA </a></li>
 				  <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteDistribuidoresAdmin1"); ?>">REPORTE DISTRIBUIDORES ADMINISTRADOR 1</a></li>
             </ul>
-        </li>
+        </li>-->

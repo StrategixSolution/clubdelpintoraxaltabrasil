@@ -9,9 +9,9 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['login_controller_lang_input_usuario']                                    = 'USUARIO:';
-$lang['login_controller_lang_input_placeholder_usuario']                        = 'USUARIO';
-$lang['login_controller_lang_input_tooltip_usuario']                            = '*El CAMPO ES OBLIGATORIO *MAYOR A CUATRO DÍGITOS *SIN ESPACIOS';
+$lang['login_controller_lang_input_usuario']                                    = 'CORREO ELECTRONICO:';
+$lang['login_controller_lang_input_placeholder_usuario']                        = 'CORREO ELECTRONICO';
+$lang['login_controller_lang_input_tooltip_usuario']                            = '*El CAMPO ES OBLIGATORIO *TIENE QUE SER UN CORREO ELECTRONICO VALIDO';
 $lang['login_controller_lang_input_clave']                                      = 'CONTRASEÑA:';
 $lang['login_controller_lang_input_placeholder_clave']                          = 'CONTRASEÑA';
 $lang['login_controller_lang_input_tooltip_clave']                              = '*El CAMPO ES OBLIGATORIO *MAYOR A SEIS DÍGITOS *SIN ESPACIOS';

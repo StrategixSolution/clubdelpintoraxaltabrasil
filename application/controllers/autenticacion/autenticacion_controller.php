@@ -17,7 +17,7 @@ class Autenticacion_controller extends Base_Controller {
     }
     public function index(){
         $json_txt_usuario = $json_txt_clave = $json_captcha = array();
-        $this->form_validation->set_rules('txt_usuario', $this->lang->line('login_input_placeholder_usuario'), 'required|min_length[4]');
+        $this->form_validation->set_rules('txt_usuario', $this->lang->line('login_input_placeholder_usuario'), 'required|valid_email|xss_clean|min_length[4]|max_length[100]'); 
         $this->form_validation->set_rules('txt_clave', $this->lang->line('login_input_placeholder_clave'), 'required|min_length[5]');
         $token      = $this->input->post('token');
         $action      = $this->input->post('action');        

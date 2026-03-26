@@ -29,6 +29,9 @@ $lang['ventas_auditoria_primera_controller_lang_tabla_distribuidor']            
 $lang['ventas_auditoria_primera_controller_lang_tabla_nombre']                                          = 'NOMBRE';
 $lang['ventas_auditoria_primera_controller_lang_tabla_numero_ticket']                                   = 'No DE TICKET';
 $lang['ventas_auditoria_primera_controller_lang_tabla_monto_ticket']                                    = 'MONTO DE TICKET';
+$lang['ventas_auditoria_primera_controller_lang_tabla_monto_ticket_capturado']                          = 'MONTO DE TICKET CAPTURADO';
+$lang['ventas_auditoria_primera_controller_lang_tabla_cantidad_productos']                              = 'CANTIDAD DE PRODUCTOS';
+$lang['ventas_auditoria_primera_controller_lang_tabla_total_cantidad_productos']                        = 'CANTIDAD TOTAL DE PRODUCTOS';
 $lang['ventas_auditoria_primera_controller_lang_tabla_fecha_registro']                                  = 'FECHA REGISTRO';
 $lang['ventas_auditoria_primera_controller_lang_tabla_ticket']                                          = 'TICKET';
 $lang['ventas_auditoria_primera_controller_lang_tabla_estatus_auditoria']                               = 'ESTATUS AUDITORÍA';

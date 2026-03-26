@@ -27,7 +27,7 @@ $route['Registromaestropintorinterno']         = 'usuarios/usuarios_maestro_pint
 $route['Tarjetas']                              = 'tarjetas/tarjetas_controller'; 
 $route['TarjetasAltas']                         = 'tarjetas/tarjetas_altas/tarjetas_altas_controller'; 
 $route['RegistroTickets']                  = 'ventas/ventas_registro/ventas_registro_controller';
-
+$route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
 
 /*
 

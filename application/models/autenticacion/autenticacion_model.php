@@ -25,13 +25,13 @@ class Autenticacion_model extends Base_Model {
                     u.UsuarioTipoRegistroId, u.PerfilId, u.UsuarioSessionId,
                     ud.UsuarioDetalleNombre, ud.UsuarioDetalleSegundoNombre,
                     ud.UsuarioDetalleApellidoPaterno, ud.UsuarioDetalleApellidoMaterno,
-                    ud.UsuarioDetalleUsuario, ud.UsuarioDetalleClave,
+                    ud.UsuarioDetalleClave,
                     ud.UsuarioDetalleEmail, ud.UsuarioDetalleTelefono, ud.UsuarioDetalleExtension,
                     p.PerfilDescripcion
                 FROM UsuariosDetalles ud
                 INNER JOIN Usuarios u  ON ud.UsuarioId  = u.UsuarioId
                 INNER JOIN Perfiles  p ON u.PerfilId    = p.PerfilId
-                WHERE ud.UsuarioDetalleUsuario       = ?
+                WHERE ud.UsuarioDetalleEmail       = ?
                   AND ud.UsuarioDetalleClave         = ?
                   AND ud.UsuarioDetalleFechaBaja      IS NULL
                   AND u.UsuarioFechaBajaParticipante  IS NULL

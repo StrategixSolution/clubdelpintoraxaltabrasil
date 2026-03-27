@@ -22,7 +22,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
     <div class="container">
         <div class="row panel-white panel-white-alt">
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <div class="form-pr">
                     <div class="row">
                         <div class="col-lg-4">
@@ -33,9 +33,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div id="error"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label
                                     for="lbl_txt"><?= $this->lang->line('tarjetas_altas_controller_lang_etiqueta_no_inicial') ?></label>
@@ -44,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div id="error"></div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label
                                     for="lbl_txt"><?= $this->lang->line('tarjetas_altas_controller_lang_etiqueta_no_final') ?></label>
@@ -65,8 +63,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <?= $this->lang->line('tarjetas_altas_controller_lang_btn_regresar') ?></button>
                         </div>
                         <div class="col-lg-2 col-6">
-                            <button type="button" id="tarjetas_altas_form_view_btn_buscar" class="btn btn-axalta"><i
-                                    class="far fa-save pr-5"></i><?= $this->lang->line('tarjetas_altas_controller_lang_etiqueta_boton') ?></button>
+                            <button type="button" id="tarjetas_altas_form_view_btn_buscar" class="btn btn-axalta btn-buscar-ancho"><i
+                                    class="far fa-save pr-5"></i><span class="btn-buscar-texto"><?= $this->lang->line('tarjetas_altas_controller_lang_etiqueta_boton') ?></span> </button>
                         </div>
                     </div>
                     <div id="tablaAltaTarjetas"></div>
@@ -78,11 +76,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script>
     var fecha_inicio;
     var fecha_fin;
-    $(document).ready(function () {
-      tarjetas_altas_form_view_js_combo_distribuidor();
-        $("#tarjetas_altas_form_view_btn_buscar").click(function () {
+    $(document).ready(function() {
+        tarjetas_altas_form_view_js_combo_distribuidor();
+        $("#tarjetas_altas_form_view_btn_buscar").click(function() {
             var cmb_distribuidor = $('#cmb_distribuidor').val();
-            if (parseInt(cmb_distribuidor) == -1 || cmb_distribuidor > 0)  {
+            if (parseInt(cmb_distribuidor) == -1 || cmb_distribuidor > 0) {
                 tarjetas_altas_form_view_js_crear_tabla();
             } else {
                 Swal.fire({
@@ -93,7 +91,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         });
     });
-function tarjetas_altas_form_view_js_combo_distribuidor() {
+
+    function tarjetas_altas_form_view_js_combo_distribuidor() {
         $.ajax({
             type: 'POST',
             url: 'tarjetas/tarjetas_altas/tarjetas_altas_controller/tarjetas_altas_controller_combo_distribuidor',
@@ -108,7 +107,7 @@ function tarjetas_altas_form_view_js_combo_distribuidor() {
             complete: function() {}
         });
     }
-   
+
 
     function tarjetas_altas_form_view_js_crear_tabla() {
         var cmb_distribuidor = $('#cmb_distribuidor').val();
@@ -153,13 +152,13 @@ function tarjetas_altas_form_view_js_combo_distribuidor() {
                     cmb_pais: cmb_pais,
                     cmb_division: cmb_division
                 },
-                success: function (data) {
+                success: function(data) {
                     $('#tablaAltaTarjetas').html(data);
                 },
-                error: function (data) {
+                error: function(data) {
                     console.log(data);
                 },
-                complete: function () {
+                complete: function() {
                     $('#loader_panel').hide();
                 }
             });

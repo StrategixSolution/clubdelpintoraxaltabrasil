@@ -1,0 +1,6 @@
+/nbproject/private/
+application/config/database.php
+uploads/
+vendors/
+application/config/config.php
+application/core/Base_Controller.php

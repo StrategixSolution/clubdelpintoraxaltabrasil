@@ -51,7 +51,7 @@ class Tarjetas_controller extends Base_Controller {
                 $btn_edicion    ='';
                 $btn_baja       ='';
             }            
-            $nombre_usuario = $row->UsuarioDetalleNombre." ".$row->UsuarioDetalleSegundoNombre." ".$row->UsuarioDetalleApellidoPaterno." ".$row->UsuarioDetalleApellidoMaterno;
+            $nombre_usuario = $row->UsuarioDetalleNombre." ".$row->UsuarioDetalleSegundoNombre." ".$row->UsuarioDetalleApellidos;
             $lista.= '<tr id="id-tarjeta-td-'.$row->TarjetaId.'">
                         <td>'.utf8_encode(strtoupper($row->TarjetaNumero)).'</td>
                         <td>'.utf8_encode(strtoupper($row->DistribuidorDetalleCodigo)).'</td>

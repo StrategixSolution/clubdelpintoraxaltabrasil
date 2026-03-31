@@ -69,7 +69,7 @@ class Tarjetas_altas_controller extends Base_Controller
                     $TarjetaDis     = $datos->DistribuidorId;
                     $TarjetaRS      = $datos->DistribuidorDetalleRazonSocial;
                     $TarjetaUsId    = ($datos->UsuarioId)?$datos->UsuarioId:"&nbsp";
-                    $nombreMP       = $datos->UsuarioDetalleNombre . ' ' . $datos->UsuarioDetalleSegundoNombre . ' ' . $datos->UsuarioDetalleApellidoPaterno . ' ' . $datos->UsuarioDetalleApellidoMaterno;
+                    $nombreMP       = $datos->UsuarioDetalleNombre . ' ' . $datos->UsuarioDetalleSegundoNombre . ' ' . $datos->UsuarioDetalleApellidos ;
                     $TarjetaNombre  = ($datos->UsuarioDetalleNombre) ? $nombreMP : "&nbsp";
                     $Tarjetafecha   = $datos->TarjetaFechaRegistro;
                     $TarjetaStatus  = $datos->TarjetaEstatusDescripcion;

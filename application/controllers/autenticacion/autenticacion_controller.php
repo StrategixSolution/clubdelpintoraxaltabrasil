@@ -50,7 +50,7 @@ class Autenticacion_controller extends Base_Controller {
             $info = $this->base_controller_datos_usuario_web();
             $this->autenticacion_model->autenticacion_model_registro_accesos("'".$usuario->UsuarioId."','".$info['ip_address']."','".$info['sitemaOperativo']."'");
             $this->autenticacion_model->autenticacion_model_registro_cookie("'".$usuario->UsuarioId."','".$info['ip_address']."','".$info['sitemaOperativo']."','".date('Y-m-d\TH:i:s')."','".$this->config->item('cookie_name')."'",$usuario->UsuarioId,$this->config->item('cookie_name'));             
-            $nombre = utf8_encode($usuario->UsuarioDetalleNombre).' '.utf8_encode($usuario->UsuarioDetalleApellidoPaterno).' '.utf8_encode($usuario->UsuarioDetalleApellidoMaterno);
+            $nombre = utf8_encode($usuario->UsuarioDetalleNombre).' '.utf8_encode($usuario->UsuarioDetalleApellidos);
             $popup_array = $this->authentication_popups($usuario->PerfilId);
             $control_array = $this->control_modulos();
             $session_data = array(                

@@ -63,7 +63,7 @@ class Ventas_registro_controller extends Base_Controller {
         if (empty($maestro_pintor)){           
             return '';
         } else {            
-            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleSegundoNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidoPaterno)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidoMaterno);
+            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleSegundoNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidos));
                 $maestro_pintor_texto = $this->lang->line('ventas_registro_controller_lang_etiqueta_maestro_pintor')." ".$nombre;
             return $maestro_pintor_texto;
         }        

@@ -28,6 +28,7 @@ $route['Tarjetas']                              = 'tarjetas/tarjetas_controller'
 $route['TarjetasAltas']                         = 'tarjetas/tarjetas_altas/tarjetas_altas_controller'; 
 $route['RegistroTickets']                  = 'ventas/ventas_registro/ventas_registro_controller';
 $route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
+$route['EnvioCorreos']                          = 'ventas/ventas_auditoria/ventas_auditoria_envio_correos/ventas_auditoria_envio_correos_controller';
 
 /*
 
@@ -54,7 +55,7 @@ $route['DescargaReposicionProductos']           = 'productos/productos_reposicio
 
 $route['RegistroVentasPromocion']               = 'ventas/ventas_promociones/ventas_promociones_controller';
 $route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
-$route['EnvioCorreos']                          = 'ventas/ventas_auditoria/ventas_auditoria_envio_correos/ventas_auditoria_envio_correos_controller';
+
 $route['AuditoriaSegunda']                      = 'ventas/ventas_auditoria/ventas_auditoria_segunda/ventas_auditoria_segunda_controller';
 $route['TicketsRechazados']                     = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller';
 $route['TicketsActualiza']                      = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_actualiza_venta';

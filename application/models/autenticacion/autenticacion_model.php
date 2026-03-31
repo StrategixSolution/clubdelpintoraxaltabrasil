@@ -24,7 +24,7 @@ class Autenticacion_model extends Base_Model {
                     u.UsuarioBajaParticipanteUsuarioId, u.UsuarioBajaDistribuidoraUsuarioId,
                     u.UsuarioTipoRegistroId, u.PerfilId, u.UsuarioSessionId,
                     ud.UsuarioDetalleNombre, ud.UsuarioDetalleSegundoNombre,
-                    ud.UsuarioDetalleApellidoPaterno, ud.UsuarioDetalleApellidoMaterno,
+                    ud.UsuarioDetalleApellidos,
                     ud.UsuarioDetalleClave,
                     ud.UsuarioDetalleEmail, ud.UsuarioDetalleTelefono, ud.UsuarioDetalleExtension,
                     p.PerfilDescripcion

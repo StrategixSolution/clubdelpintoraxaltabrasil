@@ -217,7 +217,7 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
         */
     }    
     public function ventas_auditoria_primera_controller_aprobada() {
-        $idventa      = $this->input->post('VentasId',true);
+        $idventa      = $this->input->post('VentaAuditoriaId',true);
         $usuario       = $this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
         $status = 1;
         $act_status = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_status_aprobado($status,$idventa,$usuario);
@@ -233,7 +233,7 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
         $usuario         = $this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
         $status = 2;
         $data['fechacambio']   = date('Y-m-d');
-        $data['Observacion']   = utf8_encode(strtoupper($observaciones));
+        $data['Observacion']   = strtoupper($observaciones);
         $data['idventa']    = $this->input->post('VentaAuditoriaId',true);
         $data['status']        = 'REJEITADO';
         $act_status = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_status_rechazado($status,$idventa,$usuario,$Observacionid);

@@ -31,7 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="col-lg-9">
           <div class="form-pr">
             <div class="row row-validator">
-              <div class="dyncol col-lg-3">
+              <div class="dyncol col-lg-4">
                 <div class="form-group">
                   <label
                     for="txt_nombre"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_nombre') ?><span
@@ -44,7 +44,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <div id="error"></div>
                 </div>
               </div>
-              <div class="dyncol col-lg-3" id="div_segundo_nombre">
+              <div class="dyncol col-lg-4" id="div_segundo_nombre">
                 <div class="form-group">
                   <label
                     for="txt_segundo_nombre"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_segundo_nombre') ?><span
@@ -57,21 +57,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <div id="error"></div>
                 </div>
               </div>
-              <div class="dyncol col-lg-3">
+              <div class="dyncol col-lg-4">
                 <div class="form-group">
                   <label
-                    for="txt_apellido_paterno"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_apaterno') ?><span
+                    for="txt_apellidos"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_apaterno') ?><span
                       data-toggle='tooltip'
                       title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_apaterno') ?>'><i
                         class="fas fa-question-circle"></i></span></label>
-                  <input type="text" name="txt_apellido_paterno" id="txt_apellido_paterno"
+                  <input type="text" name="txt_apellidos" id="txt_apellidos"
                     class="form-control txt-mayus"
                     placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_apaterno') ?>"
                     onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
                   <div id="error"></div>
                 </div>
               </div>
-              <div class="dyncol col-lg-3">
+             <!-- <div class="dyncol col-lg-3">
                 <div class="form-group">
                   <label
                     for="txt_apellido_materno"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_amaterno') ?><span
@@ -84,7 +84,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
                   <div id="error"></div>
                 </div>
-              </div>
+              </div>-->
             </div>
             <div class="row row-validator">
               <div class="dyncol col-lg-4">
@@ -109,7 +109,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         class="fas fa-question-circle"></i></span></label>
                   <input type="text" name="txt_telefono" id="txt_telefono" class="form-control"
                     placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_telefono') ?>"
-                    maxlength="20">
+                    maxlength="10">
                   <div id="error"></div>
                 </div>
               </div>
@@ -150,7 +150,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         class="fas fa-question-circle"></i></span></label>
                   <input type="text" name="txt_celular" id="txt_celular" class="form-control"
                     placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_celular') ?>"
-                    onKeyPress="return js_general_solo_numeros(event)" maxlength="15">
+                    onKeyPress="return js_general_solo_numeros(event)" maxlength="10">
                   <div id="error"></div>
                 </div>
               </div>

@@ -24,8 +24,8 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
         $data = array();
         $data['txt_nombre']             = utf8_encode($this->participante->UsuarioDetalleNombre);
         $data['txt_segundo_nombre']     = utf8_encode($this->participante->UsuarioDetalleSegundoNombre);
-        $data['txt_apellido_paterno']   = utf8_encode($this->participante->UsuarioDetalleApellidoPaterno);
-        $data['txt_apellido_materno']   = utf8_encode($this->participante->UsuarioDetalleApellidoMaterno);
+        $data['txt_apellidos']   = utf8_encode($this->participante->UsuarioDetalleApellidos);
+       // $data['txt_apellido_materno']   = utf8_encode($this->participante->UsuarioDetalleApellidoMaterno);
         $data['txt_telefono']           = utf8_encode($this->participante->UsuarioDetalleTelefono);              
         $data['txt_email']              = utf8_encode($this->participante->UsuarioDetalleEmail);
         $data['txt_celular']            = utf8_encode(strtoupper($this->participante->UsuarioDetalleCelular));
@@ -47,7 +47,7 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
     private function usuarios_actualizar_datos_controller_set_rules() {
         $this->form_validation->set_rules('txt_nombre', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_nombre'), 'required|xss_clean|min_length[1]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');
         $this->form_validation->set_rules('txt_segundo_nombre', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_segundo_nombre'), 'trim|xss_clean|min_length[1]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');
-        $this->form_validation->set_rules('txt_apellido_paterno', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_apellido_paterno'), 'required|xss_clean|trim|min_length[1]|max_length[50]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');        
+        $this->form_validation->set_rules('txt_apellidos', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_apellido_paterno'), 'required|xss_clean|trim|min_length[1]|max_length[50]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');        
         $this->form_validation->set_rules('txt_apellido_materno', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_apellido_materno'), 'required|xss_clean|trim|min_length[1]|max_length[50]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');        
         $this->form_validation->set_rules('txt_email', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_email'), 'required|valid_email|xss_clean|min_length[10]|max_length[50]|callback_usuarios_actualizar_datos_controller_valida_email_repetido');
         $this->form_validation->set_rules('txt_telefono', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_telefono'), 'numeric|xss_clean|exact_length[10]');
@@ -62,7 +62,7 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
         if (!$this->form_validation->run()) {
             if (!empty(form_error('txt_nombre')))           { $json_nombre              =  array('txt_nombre' => form_error('txt_nombre', '<small class="mt-3 text-danger">', '</small>')); }
             if (!empty(form_error('txt_segundo_nombre')))   { $json_segundo_nombre      =  array('txt_segundo_nombre' => form_error('txt_segundo_nombre', '<small class="mt-3 text-danger">', '</small>')); }
-            if (!empty(form_error('txt_apellido_paterno'))) { $json_apellido_paterno    =  array('txt_apellido_paterno' => form_error('txt_apellido_paterno', '<small class="mt-3 text-danger">', '</small>')); }                
+            if (!empty(form_error('txt_apellidos'))) { $json_apellido_paterno    =  array('txt_apellidos' => form_error('txt_apellidos', '<small class="mt-3 text-danger">', '</small>')); }                
             if (!empty(form_error('txt_apellido_materno'))) { $txt_apellido_materno     =  array('txt_apellido_materno' => form_error('txt_apellido_materno', '<small class="mt-3 text-danger">', '</small>')); }                
             if (!empty(form_error('txt_email')))            { $json_email               =  array('txt_email' => form_error('txt_email', '<small class="mt-3 text-danger">', '</small>')); }
             if (!empty(form_error('txt_telefono')))         { $json_telefono            =  array('txt_telefono' => form_error('txt_telefono', '<small class="mt-3 text-danger">', '</small>')); }
@@ -136,15 +136,15 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
         $txt_rfc_trim   = trim($this->input->post('txt_rfc',TRUE)); $txt_rfc_utf8_decode = utf8_encode($txt_rfc_trim); $txt_rfc = strtoupper($txt_rfc_utf8_decode);
         $cp = (empty($this->participante->UsuarioDetalleCP))?"NULL":$this->participante->UsuarioDetalleCP;
         if ($this->session->userdata(funciones_strategix_sitio_alias("s_perfil_id"))<=5){
-                            //UsuarioDetalleNombre,                         UsuarioDetalleSegundoNombre,                            UsuarioDetalleApellidoPaterno,                      UsuarioDetalleApellidoMaterno,                           UsuarioDetalleClave,                           UsuarioDetalleEmail,                    UsuarioDetalleTelefono,                         UsuarioDetalleCelular,          UsuarioDetalleSessionId
-            $datos = "'". utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellido_paterno',TRUE))."','".utf8_decode($this->input->post('txt_apellido_materno',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."'";
+                            //UsuarioDetalleNombre,                         UsuarioDetalleSegundoNombre,                            UsuarioDetalleApellidos,                      UsuarioDetalleApellidoMaterno,                           UsuarioDetalleClave,                           UsuarioDetalleEmail,                    UsuarioDetalleTelefono,                         UsuarioDetalleCelular,          UsuarioDetalleSessionId
+            $datos = "'". utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellidos',TRUE))."','".utf8_decode($this->input->post('txt_apellido_materno',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."'";
         } else {
-                            //UsuarioDetalleNombre,                         UsuarioDetalleSegundoNombre,                            UsuarioDetalleApellidoPaterno,                      UsuarioDetalleApellidoMaterno,                           UsuarioDetalleClave,                           UsuarioDetalleEmail,                    UsuarioDetalleTelefono,                         UsuarioDetalleCelular,          UsuarioDetalleSessionId,             UsuarioDetalleRFC
-            $datos = "'".utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellido_paterno',TRUE))."','".utf8_decode($this->input->post('txt_apellido_materno',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."','".$this->input->post('$txt_rfc',TRUE)."'";
+                            //UsuarioDetalleNombre,                         UsuarioDetalleSegundoNombre,                            UsuarioDetalleApellidos,                      UsuarioDetalleApellidoMaterno,                           UsuarioDetalleClave,                           UsuarioDetalleEmail,                    UsuarioDetalleTelefono,                         UsuarioDetalleCelular,          UsuarioDetalleSessionId,             UsuarioDetalleRFC
+            $datos = "'".utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellidos',TRUE))."','".utf8_decode($this->input->post('txt_apellido_materno',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."','".$this->input->post('$txt_rfc',TRUE)."'";
         }        
         $resultado_update = $this->usuarios_actualizar_datos_model->usuarios_actualizar_datos_model_update_usaurio($this->participante->UsuarioDetalleId,$datos,$this->input->post('txt_email',TRUE),$this->uniqueId);
         if ($resultado_update==1){ 
-            $nombre_usuario = $this->input->post('txt_nombre',TRUE)." ".$this->input->post('txt_segundo_nombre',TRUE)." ".$this->input->post('txt_apellido_paterno',TRUE)." ".$this->input->post('txt_apellido_materno',TRUE);
+            $nombre_usuario = $this->input->post('txt_nombre',TRUE)." ".$this->input->post('txt_segundo_nombre',TRUE)." ".$this->input->post('txt_apellidos',TRUE)." ".$this->input->post('txt_apellido_materno',TRUE);
             $this->session->set_userdata(funciones_strategix_sitio_alias('s_actualiza_datos'),1); 
             $this->session->set_userdata(funciones_strategix_sitio_alias('s_usuario_nombre'),$nombre_usuario);
             return 1; 

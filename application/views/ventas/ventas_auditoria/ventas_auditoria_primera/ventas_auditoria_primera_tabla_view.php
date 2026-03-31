@@ -220,11 +220,10 @@ function ventas_auditoria_primera_form_view_js_aprobada(VentaAuditoriaId){
                     dataType: 'json',
                     data: {VentaAuditoriaId:VentaAuditoriaId},
                     success: function(data){
-                        console.log(data);
-                        $('#idstatus'+data.VentaAuditoriaId).html(data.status);
-                        $('#fechaauditoria'+data.VentaAuditoriaId).html(data.fechacambio);
-                        $('#ida'+data.VentaAuditoriaId).html('');
-                        $('#idr'+data.VentaAuditoriaId).html('');
+                        $('#idstatus' + data.idventa).html(data.status);
+                        $('#fechaauditoria' + data.idventa).html(data.fechacambio);
+                        $('#ida' + data.idventa).html('');
+                        $('#idr' + data.idventa).html('');
                         Swal.fire('','<?=$this->lang->line('ventas_auditoria_primera_controller_lang_alerta_respuesta_aprobada')?>','success');},
                     error: function(data){ },
                     complete: function(){ $('#loader_panel').hide(); }
@@ -237,19 +236,19 @@ async function ventas_auditoria_primera_form_view_js_rechazo(VentaAuditoriaId){
   // get your data and pass it to resolve()
     setTimeout(function(){$.getJSON("ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller/ventas_auditoria_primera_controller_combo_observaciones", function(data) { resolve(data);});}, 200);});
     const { value: Observacionid } = await Swal.fire({
-                title: 'OBSERVACIONES',
+                title: 'OBSERVAÇÕES',
                 input: 'select',
                 inputOptions: inputOptionsPromise,
-                inputPlaceholder: 'SELECCIONA UNA OBSERVACIÓN',
+                inputPlaceholder: 'SELECIONE UMA OBSERVAÇÃO',
                 showCancelButton: true,
-                confirmButtonText:'ACEPTAR',
+                confirmButtonText:'ACEITAR',
                 cancelButtonText:'CANCELAR',
                 inputValidator: (value) => {
                   return new Promise((resolve) => {           
                     if (value !== '') {
                         resolve();
                     } else {
-                        resolve('ELIGE UNA OPCIÓN');
+                        resolve('ESCOLHA UMA OPÇÃO');
                     }
                   });
                 }
@@ -262,11 +261,11 @@ async function ventas_auditoria_primera_form_view_js_rechazo(VentaAuditoriaId){
             dataType: 'json',
             data: {VentaAuditoriaId:VentaAuditoriaId,Observacionid:Observacionid},
             success: function(data){
-                $('#idstatus'+data.VentaAuditoriaId).html(data.status);
-                $('#fechaauditoria'+data.VentaAuditoriaId).html(data.fechacambio);
-                $('#observaciones'+data.VentaAuditoriaId).html(data.Observacion);
-                $('#ida'+data.VentaAuditoriaId).html('');
-                $('#idr'+data.VentaAuditoriaId).html('');
+                $('#idstatus' + data.idventa).html(data.status);
+                    $('#fechaauditoria' + data.idventa).html(data.fechacambio);
+                    $('#observaciones' + data.idventa).html(data.Observacion);
+                    $('#ida' + data.idventa).html('');
+                    $('#idr' + data.idventa).html('');
                 Swal.fire('','<?=$this->lang->line('ventas_auditoria_primera_controller_lang_alerta_respuesta_rechazo')?>','success');
             },
             error: function(data){},

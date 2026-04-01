@@ -1279,8 +1279,15 @@ table.dataTable th, table.dataTable td{
 /********************************************
    REGLAS STYLE
 ********************************************/
-#reglas .imagenreglas img{
+/* #reglas .imagenreglas img{
     width: 100%;
+} */
+#reglas .imagenreglas{
+    text-align: center;
+    padding: 40px 0px;
+}
+#reglas .imagenreglas img{
+    width: 750px;
 }
 
 /********************************************

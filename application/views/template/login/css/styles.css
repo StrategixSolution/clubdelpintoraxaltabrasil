@@ -296,7 +296,7 @@ body {
     Login Style
 ***********************************************/
 #login {
-    background-image: url(../imagenes/bgmain.jpg);
+    background-image: url(../imagenes/bgmain-br.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -316,7 +316,7 @@ body {
     text-align: center;
 }
 #login .logo-main img{
-    width: 15rem;
+    width: 35rem;
     margin: 0 auto;
 }
 #login .form-login label{
@@ -1193,4 +1193,16 @@ nav{
 }
 #confirmacionRegistroMaestroPintor a{
     text-decoration: none;;
+}
+
+/****************************************************
+    Estilos login
+*****************************************************/
+/* .pll-5 {
+    padding-left: 3rem;
+} */
+@media screen and (min-width: 991px){
+    .pll-5 {
+    padding-left: 3rem;
+}
 }

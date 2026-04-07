@@ -46,7 +46,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </section>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg bg-mobile home-content padding-3p" id="menu-home">
+        <nav class="navbar navbar-expand-lg bg-mobile home-content" id="menu-home">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars" style="color: #fff;"></span>

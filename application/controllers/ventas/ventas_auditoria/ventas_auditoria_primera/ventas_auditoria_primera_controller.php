@@ -219,7 +219,7 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
     public function ventas_auditoria_primera_controller_aprobada() {
         $idventa      = $this->input->post('VentaAuditoriaId',true);
         $usuario       = $this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
-        $status = 1;
+        $status = 2;
         $act_status = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_status_aprobado($status,$idventa,$usuario);
         $dato['fechacambio']   = date('Y-m-d');
         $dato['idventa'] = $idventa;
@@ -231,7 +231,7 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
         $observaciones = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_observacion_descripcion($Observacionid);
         $idventa                 = $this->input->post('VentaAuditoriaId',true);
         $usuario         = $this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
-        $status = 2;
+        $status = 3;
         $data['fechacambio']   = date('Y-m-d');
         $data['Observacion']   = strtoupper($observaciones);
         $data['idventa']    = $this->input->post('VentaAuditoriaId',true);

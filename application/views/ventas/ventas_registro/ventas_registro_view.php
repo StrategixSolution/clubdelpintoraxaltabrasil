@@ -146,12 +146,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                             <div class="col-lg-2 col-6" style="display: none;" id="div_btn_limpiar">
                                 <div class="form-group">
-                                    <button type="button" id="ventas_registro_boton_limpiar_carito" class="btn btn-gray btn-buscar-ancho" style="margin-top:20px;"><i class="fas fa-trash" style="margin-right:10px;"></i><?= $this->lang->line('ventas_registro_controller_lang_boton_limpiar_carrito') ?></button>
+                                    <button type="button" id="ventas_registro_boton_limpiar_carito" class="btn btn-gray  btn-buscar-ancho" style="margin-top:20px;"><i class="fas fa-trash"></i><span class="btn-buscar-texto"><?= $this->lang->line('ventas_registro_controller_lang_boton_limpiar_carrito') ?></span></button>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-6" style="display: none;" id="div_btn_agregar">
                                 <div class="form-group">
-                                    <button type="button" id="ventas_registro_boton_agregar" class="btn btn-axalta btn-buscar-ancho" style="margin-top:20px;"><i class="fas fa-plus" style="margin-right:10px;"></i> <?= $this->lang->line('ventas_registro_controller_lang_boton_agregar') ?></button>
+                                    <button type="button" id="ventas_registro_boton_agregar" class="btn btn-axalta btn-buscar-ancho" style="margin-top:20px;"><i class="fas fa-plus"></i> <span class="btn-buscar-texto"><?= $this->lang->line('ventas_registro_controller_lang_boton_agregar') ?></span></button>
                                 </div>
                             </div>
                         </div>
@@ -178,10 +178,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <hr class="separador">
                 <div class="row" style="margin-top:20px; text-align:center;">
                     <div class="col-lg-2 offset-lg-8 col-6">
-                        <button type="button" class="btn btn-gray btn-buscar-ancho" onclick="window.location.href='<?= funciones_strategix_version_url_random_base_url("Distribuidores") ?>'"><i class="far fa-caret-square-left"></i> <?= $this->lang->line('ventas_registro_controller_lang_boton_regresar') ?></button>
+                        <button type="button" class="btn btn-gray btn-buscar-texto btn-buscar-ancho" onclick="window.location.href='<?= funciones_strategix_version_url_random_base_url("Distribuidores") ?>'"><i class="far fa-caret-square-left"></i> <span class="btn-buscar-texto"><?= $this->lang->line('ventas_registro_controller_lang_boton_regresar') ?></span></button>
                     </div>
                     <div class="col-lg-2 col-6">
-                        <button type="button" id="ventas_registro_boton_buscar" class="btn btn-axalta btn-buscar-ancho"><i class="far fa-save"></i> <?= $this->lang->line('ventas_registro_controller_lang_boton_guardar') ?></button>
+                        <button type="button" id="ventas_registro_boton_buscar" class="btn btn-axalta btn-buscar-texto btn-buscar-ancho"><i class="far fa-save"></i> <span class="btn-buscar-texto"><?= $this->lang->line('ventas_registro_controller_lang_boton_guardar') ?></span></button>
                     </div>
                 </div>
             </div>

@@ -71,20 +71,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <div id="error"></div>
                                 </div>
                             </div>
-                            <!-- <div class="dyncol col-lg-3">
-                <div class="form-group">
-                  <label
-                    for="txt_apellido_materno"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_amaterno') ?><span
-                      data-toggle='tooltip'
-                      title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_amaterno') ?>'><i
-                        class="fas fa-question-circle"></i></span></label>
-                  <input type="text" name="txt_apellido_materno" id="txt_apellido_materno"
-                    class="form-control txt-mayus"
-                    placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_amaterno') ?>"
-                    onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
-                  <div id="error"></div>
-                </div>
-              </div>-->
                         </div>
                         <div class="row row-validator">
                             <div class="dyncol col-lg-4">
@@ -166,13 +152,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <label for="" class="form-check-label"> <?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_enviar_por_mail') ?></label>
                                 </div>
                             </div>
-                            <!-- <div class="col-lg-3">
-                <div class="form-check mt-0">
-                  <input type="checkbox" id="usuarios_registro_maestro_pintor_view_chk_whatsapp"
-                    name="usuarios_registro_maestro_pintor_view_chk_whatsapp" value="1" class="form-check-input">
-                  <label for="chk_archivo" class="form-check-label"> WHATSAPP</label><br>
-                </div>
-              </div>-->
                         </div>
                         <div>
                             <hr class="separador" style="margin-top: 0; margin-bottom: 2rem">
@@ -456,7 +435,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $("#ext_file_identificacion").val(ext);
         });
         frm_usuarios_maestro_pintor_registro_view_js_combo_puesto();
-        //frm_usuarios_maestro_pintor_registro_view_js_combo_compania();
         frm_usuarios_maestro_pintor_registro_view_js_combo_talla();
         $('#chk_camara').on('change', function() {
             if ($('#chk_camara').prop('checked', true)) {
@@ -636,26 +614,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         });
     }
-
-    /*function frm_usuarios_maestro_pintor_registro_view_js_combo_compania() {
-      $('#loader_panel').show();
-      $.ajax({
-        type: 'POST',
-        url: 'usuarios/usuarios_maestro_pintor_registro/usuarios_maestro_pintor_registro_controller/usuarios_maestro_pintor_registro_controller_combo_compania',
-        dataType: 'json',
-        data: {
-          id: 0
-        },
-        success: function (data) {
-          $('#cmb_compania').html(data);
-        },
-        error: function (data) { },
-        complete: function () {
-          $('#loader_panel').hide();
-        }
-      });
-    }*/
-
     function frm_usuarios_maestro_pintor_registro_view_js_combo_talla() {
         $('#loader_panel').show();
         $.ajax({

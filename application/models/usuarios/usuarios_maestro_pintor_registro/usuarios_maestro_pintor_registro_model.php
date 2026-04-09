@@ -17,12 +17,6 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
 //         echo  $this->db->last_query()."<br>"; 
         return $query->result();    
     }
-   /* public function usuarios_maestro_pintor_registro_model_compania() {
-        $SQL = "SELECT UsuarioDetalleCompaniaCelularId,UsuarioDetalleCompaniaCelularDescripcion FROM UsuariosDetallesCompaniasCelulares WHERE PaisId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_pais_id'));
-        $query	= $this->db->query($SQL);
-//         echo  $this->db->last_query()."<br>"; 
-        return $query->result();    
-    }*/
     public function usuarios_maestro_pintor_registro_model_tallas() {
         $SQL = "SELECT UsuarioDetalleTallaId, UsuarioDetalleTallaDescripcion, UsuarioDetalleTallaClave FROM UsuariosDetallesTallas";
         $query	= $this->db->query($SQL);
@@ -112,16 +106,4 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
         $id     = $res[0]->last_id;
         return $id;
     }
-
-
-
-    /*public function usuarios_maestro_pintor_registro_model_get_division($UsuarioId){
-      //  print_r($UsuarioId);die;
-        $sql= "SELECT DISTINCT Distribuidores.DivisionId from Distribuidores 
-        inner join UsuariosDistribuidores on Distribuidores.DistribuidorId = UsuariosDistribuidores.DistribuidorId
-        where UsuariosDistribuidores.UsuarioId =$UsuarioId";
-        $query	=  $this->db->query($sql);
-     //  echo  $this->db->last_query()."<br>";         
-        return $query->row()->DivisionId;
-    }*/
 }

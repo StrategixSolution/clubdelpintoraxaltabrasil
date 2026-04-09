@@ -6,24 +6,7 @@
   <meta name="x-apple-disable-message-reformatting">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content="telephone=no" name="format-detection">
-  <title>Registro CDP MX 2026</title><!--[if (mso 16)]>
-    <style type="text/css">
-    a {text-decoration: none;}
-    </style>
-    <![endif]--><!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--><!--[if gte mso 9]>
-<noscript>
-         <xml>
-           <o:OfficeDocumentSettings>
-           <o:AllowPNG></o:AllowPNG>
-           <o:PixelsPerInch>96</o:PixelsPerInch>
-           </o:OfficeDocumentSettings>
-         </xml>
-      </noscript>
-<![endif]--><!--[if mso]><xml>
-    <w:WordDocument xmlns:w="urn:schemas-microsoft-com:office:word">
-      <w:DontUseAdvancedTypographyReadingMail/>
-    </w:WordDocument>
-    </xml><![endif]-->
+  <title>Registro CDP MX 2026</title>
   <style type="text/css">.rollover:hover .rollover-first {
   max-height:0px!important;
   display:none!important;

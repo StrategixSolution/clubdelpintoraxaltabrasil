@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo CDPMEX                    *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 ABRIL 2025 09:00:00                        * 
+ * @programmer  Luis Felipe Rangel                          * 
+ * @CreateDate 01 ABRIL 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');

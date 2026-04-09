@@ -4,7 +4,7 @@
  * Sistema Web Responsivo Club Del Pintor Axalta Guatemala
  * @author	Strategic Solutions S.A. de C.V  * 
  * @programmer  Luis Felipe Rangel  * 
- * @CreateDate 29 jun. 2022 23:35:28 * 
+ * @CreateDate 29 jun. 2026 23:35:28 * 
  */
 
 class Productos_controller extends Base_Controller {

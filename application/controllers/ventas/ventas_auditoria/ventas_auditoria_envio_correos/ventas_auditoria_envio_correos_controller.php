@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo CDPMEX                    *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 ABRIL 2025 09:00:00                        * 
+ * @programmer  Luis Felipe Rangel                          * 
+ * @CreateDate 01 ABRIL 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -47,7 +47,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
                     <td>'.$rows["VentaNumeroTicket"].'</td> <td>'.$rows["VentaMontoTicket"].'</td>                       
                     <td>'.$rows["fecharegistro"].'</td> <td>'.$rows["distribuidora"].'</td>
                     <td class="txt-center">'.$rows["link_modal_ticket"].'</td>
-                    <td>'.$rows["VentaAuditoriaTipoDescripcion"].'</td> <td>'.$rows["tickets_repetidos"].'</td>  
+                    <td>'.$rows["VentaAuditoriaTipoDescripcion"].'</td> 
                     <td id="idstatus'.$rows["VentaAuditoriaId"].'">'.$rows["VentaAuditoriaEstatusDescripcion"].'</td>
                     <td id="observaciones'.$rows["VentaAuditoriaId"].'">'.$rows["VentaAuditoriaObservacionDescripcion"].'</td>
                     <td>'.$rows["fechaauditoria"].'</td>
@@ -63,11 +63,10 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
     private function ventas_auditoria_envio_correos_controller_tabla_rows($venta,$cmbAnio,$cmbMes) {
             $registroventa = new DateTime($venta->VentaFechaRegistro); $data["fecharegistro"] = $registroventa->format('Y-m-d');
             $data["distribuidora"] = $venta->DistribuidorId . " - " . utf8_encode(strtoupper($venta->DistribuidorDetalleCodigo)) . " - " . utf8_encode(strtoupper($venta->DistribuidorDetalleNombreComercial));
-            $data["tickets_repetidos"] = ($venta->VentaAuditoriaTipoId==1)? $this->ventas_auditoria_envio_correos_model->ventas_auditoria_envio_correos_model_tickets_repetidos($venta->VentaId,$cmbAnio,$cmbMes,$venta->DistribuidorId,$venta->VentaUsuarioIdMP,$venta->VentaMontoTicket):"";
             $fechaauditoriaformato = new DateTime($venta->VentaAuditoriaFechaAudito);
             $data["fechaauditoria"] = $fechaauditoriaformato->format('Y-m-d');
             $data["VentaId"] = $venta->VentaId;
-            $data["VentaUsuarioNombreMP"] = utf8_encode(strtoupper($venta->VentaUsuarioNombreMP));
+            $data["VentaUsuarioNombreMP"] = utf8_encode(strtoupper($venta->NombreMP));
             $data["VentaNumeroTicket"] = utf8_encode(strtoupper($venta->VentaNumeroTicket));
             $data["VentaMontoTicket"] = "$ ".number_format($venta->VentaMontoTicket,2);
             $data["VentaAuditoriaTipoDescripcion"] = utf8_encode(strtoupper($venta->VentaAuditoriaTipoDescripcion));
@@ -89,7 +88,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
         $fecharegistro = $registroventa->format('Y-m-d');
         $data['tabla_datos'] = '<tr>'
                 . '<td>'.$id.'</td>'
-                . '<td>'.utf8_encode(strtoupper($row->VentaUsuarioNombreMP)).'</td>'
+                . '<td>'.utf8_encode(strtoupper($row->NombreMP)).'</td>'
                 . '<td class="txt-center">'.utf8_encode(strtoupper($row->VentaNumeroTicket)).'</td>'
                 . '<td class="txt-center">$'.number_format($row->VentaMontoTicket,2).'</td>'
                 . '<td class="txt-center">'.utf8_encode(strtoupper($fecharegistro)).'</td>'
@@ -130,7 +129,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
         $datos_tabla = $this->ventas_auditoria_envio_correos_controller_envio_correo_tabla($VentaId);$correo='';
         $distirbuidores = $this->ventas_auditoria_envio_correos_model->ventas_auditoria_envio_correos_model_datos_distribuidor($datos_tabla["DistribuidorId"]);
         foreach ($distirbuidores as $row) {
-            $nombre = utf8_encode(strtoupper($row->UsuarioDetalleNombre)) . " " . utf8_encode(strtoupper($row->UsuarioDetalleApellidoPaterno)) . " " . utf8_encode(strtoupper($row->UsuarioDetalleApellidoMaterno));
+            $nombre = utf8_encode(strtoupper($row->UsuarioDetalleNombre)) . " " . utf8_encode(strtoupper($row->UsuarioDetalleSegundoNombre)) . " " . utf8_encode(strtoupper($row->UsuarioDetalleApellidos));
             $correo .= $row->UsuarioDetalleEmail.',';            
         }
         $correo = substr ($correo, 0, strlen($correo) - 1);  
@@ -189,7 +188,6 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
         foreach ($correo as $key => $value) {
             $mail_string .=$value->UsuarioDetalleEmail.",";
         }
-       //  print_r($mail_string);die;
         $nom_dist = $cuerpo_mail->DistribuidorId . " - " . utf8_encode(strtoupper($cuerpo_mail->DistribuidorDetalleCodigo)) . " - " . utf8_encode(strtoupper($cuerpo_mail->DistribuidorDetalleNombreComercial));
             $dat     = array('distribuidora' => "$nom_dist", 'tabla' => $lista, 'mestxt' => $mestxt,'nombre' => $mail_string);
             $mail       = $this->load->view('mails/mails_ventas/mails_ventas_auditoria/mails_ventas_auditoria_envio_correos/mails_ventas_auditoria_envio_correos_view' ,$dat, TRUE);

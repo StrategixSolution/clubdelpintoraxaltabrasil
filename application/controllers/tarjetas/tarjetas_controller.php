@@ -36,18 +36,15 @@ class Tarjetas_controller extends Base_Controller {
            $where .= " AND DistribuidoresDetalles.DistribuidorId in ($txtDistribuidor)";
            $where .=($cmb_estatus==0)?"":" AND Tarjetas.TarjetaEstatusId = ".$cmb_estatus;
         }
-        /*$cmb_estatus            = $this->input->post('cmb_estatus',TRUE);
-        $where                 .=($cmb_estatus==0)?"":" AND Tarjetas.TarjetaEstatusId = ".$cmb_estatus;*/
         $resultados_tabla_tarjetas = $this->tarjetas_model->tarjetas_model_lista($where); 
         foreach ($resultados_tabla_tarjetas as $row) {
 
             if ($row->TarjetaFechaBaja==""){
-//                $estatus = $this->lang->line('distribuidores_controller_lang_tabla_estatus_activo');
+
                 $btn_edicion    = "edicion";
                 $btn_baja       = '<a href="javascript:tarjetas_tabla_view_js_eliminar('.$row->TarjetaId.',\''.$row->TarjetaNumero.'\')"><i class="fas fa-trash"></i>';
-             //   $btn_baja       = '<a href="javascript:tarjetas_tabla_view_js_eliminar('.$row->TarjetaId.',\''.$row->TarjetaNumero.'\''.',\''.$row->PaisNombre.'\')"><i class="fas fa-trash"></i>';
             } else {
-//                $estatus = $this->lang->line('distribuidores_controller_lang_tabla_estatus_baja');
+
                 $btn_edicion    ='';
                 $btn_baja       ='';
             }            

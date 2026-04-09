@@ -26,8 +26,6 @@
     });
     function tarjetas_tabla_view_js_eliminar(tarjetaid, tarjeta) {
         var datos = '<?= $this->lang->line('tarjetas_controller_lang_lang_tabla_js_confirm_texto') ?> "' + tarjeta + '"';
-   // function tarjetas_tabla_view_js_eliminar(tarjetaid, tarjeta,PaisNombre) {
-    //    var datos = '<?= $this->lang->line('tarjetas_controller_lang_lang_tabla_js_confirm_texto') ?> "' + tarjeta + '" DEL PAÍS: ' + PaisNombre.toUpperCase();
         Swal.fire({
             title: '',
             text: datos,

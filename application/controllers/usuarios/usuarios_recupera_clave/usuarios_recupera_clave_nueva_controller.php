@@ -25,7 +25,6 @@ class Usuarios_recupera_clave_nueva_controller extends Base_Controller {
     }
     private function usuarios_recupera_clave_nueva_controller_pagina($id) {
         $URL = "";
-//        echo $id;
         switch ($id) {
             case 1: $URL = "usuarios/usuarios_recuperar_clave/usuarios_recupera_clave_nueva_sin_acceso_view"; break;
             case 2: $URL = "usuarios/usuarios_recuperar_clave/usuarios_recupera_clave_nueva_tiempo_caduco_view"; break;

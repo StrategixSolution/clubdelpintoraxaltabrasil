@@ -3,33 +3,22 @@
 /* 
  * Sistema Web Responsivo CDPMEX                    *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 ABRIL 2025 09:00:00                        * 
+ * @programmer  Luis Felipe Rangel                          * 
+ * @CreateDate 01 ABRIL 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="es">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="pt-BR">
  <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta name="x-apple-disable-message-reformatting">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content="telephone=no" name="format-detection">
-  <title>Recupera Clave CDP MX</title><!--[if (mso 16)]>
-    <style type="text/css">
-    a {text-decoration: none;}
-    </style>
-    <![endif]--><!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--><!--[if gte mso 9]>
-<xml>
-    <o:OfficeDocumentSettings>
-    <o:AllowPNG></o:AllowPNG>
-    <o:PixelsPerInch>96</o:PixelsPerInch>
-    </o:OfficeDocumentSettings>
-</xml>
-<![endif]-->
+  <title>Auditoria CDP BR</title>
   <style type="text/css">#outlook a {
 	padding:0;
 }
@@ -58,11 +47,7 @@ a[x-apple-data-detectors] {
 @media screen and (max-width:384px) {.mail-message-content { width:414px!important } }</style>
  </head>
  <body style="width:100%;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
-  <div dir="ltr" class="es-wrapper-color" lang="es" style="background-color:#E9EAE7"><!--[if gte mso 9]>
-			<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
-				<v:fill type="tile" color="#e9eae7"></v:fill>
-			</v:background>
-		<![endif]-->
+  <div dir="ltr" class="es-wrapper-color" lang="pt-BR" style="background-color:#E9EAE7">
    <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:100%;background-repeat:repeat;background-position:center top;background-color:#E9EAE7">
      <tr>
       <td valign="top" style="padding:0;Margin:0">
@@ -85,7 +70,7 @@ a[x-apple-data-detectors] {
                        </table></td>
                      </tr>
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://clubdelpintoraxalta.com.mx/multimedia/header.jpg" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="800"></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="<?= base_url(funciones_strategix_version_url_random("application/views/template/sistema/imagenes/mails_ventas_auditoria_envio_correos/header1.jpg")) ?>" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="800"></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -111,10 +96,10 @@ a[x-apple-data-detectors] {
         <td colspan="8"><br/><strong>Estimad@:  <?=$nombre?></strong><br/></td>
       </tr>-->
       <tr>
-        <td colspan="8" style="text-align: justify;"><br/>Le informamos acerca del resultado de la auditoria del mes de <strong><?=$mestxt?></strong>, se encontraron que el/los siguientes tickets que ingresaron están siendo rechazados, le recordamos que los ingresos de los tickets deben de ser legibles para que tengan la oportunidad de participar en nuestras promociones.<br/></td>
+        <td colspan="8" style="text-align: justify;"><br/>Informamos sobre o resultado da auditoria do m&ecirc;s de <strong><?=$mestxt?></strong>. Foram identificados ticket(s) que foram rejeitados. Lembramos que os registros dos tickets devem ser leg&iacute;veis para que tenham a oportunidade de participar em nossas promo&ccedil;&otilde;es.<br/></td>
       </tr>
       <tr>
-        <td colspan="8" style="text-align: justify;"><br/>En caso de contar con las evidencias de los tickets indicados de manera legible, favor de ingresar al sistema en el apartado de Tickets->Rechazados para realizar las correcciones necesarias para que sean revisados nuevamente y aprobados si cumplen con los requisitos.</td>
+        <td colspan="8" style="text-align: justify;"><br/>Caso possua as evid&ecirc;ncias dos tickets indicados de forma leg&iacute;vel, favor acessar o sistema no campo Tickets-&gt;Rejeitados para realizar as corre&ccedil;&otilde;es necess&aacute;rias, a fim de que sejam revisados novamente e aprovados, caso atendam aos requisitos.</td>
       </tr>
       <tr>
         <td colspan="8" style="text-align: center; padding-top:20px;">
@@ -123,11 +108,11 @@ a[x-apple-data-detectors] {
               <th>Id</th>
               <th>Pintor</th>
               <th>Ticket</th>
-              <th>Monto Ticket</th>
-              <th>Fecha Registro</th>
+              <th>Valor do Ticket</th>
+              <th>Data de Registro</th>
               <th>Distribuidor</th>
               <th>Status</th>
-              <th>Observaci&oacute;n</th>
+              <th>Observa&ccedil;&atilde;o</th>
             </thead>
             <tbody style="font-size:10px;">            
               <tr style="border:1px solid #000; background-color:#f9f9f9;">
@@ -138,16 +123,16 @@ a[x-apple-data-detectors] {
         </td>
       </tr>
       <tr>
-        <td colspan="8" style="text-align: center; padding-top: 10px;"><br/><strong>Las evidencias podr&aacute; ingresarlas a partir de este momento y dentro de un m&aacute;ximo de 48 hrs o 2 d&iacute;as h&aacute;biles, despu&eacute;s de este plazo lamentablemente ya no ser&aacute;n consideradas para su cuantificaci&oacute;n.</strong></td>
+        <td colspan="8" style="text-align: center; padding-top: 10px;"><br/><strong>As evid&ecirc;ncias poder&atilde;o ser enviadas a partir deste momento e dentro de um prazo m&aacute;ximo de 48 horas ou 2 dias &uacute;teis. Ap&oacute;s este prazo, lamentavelmente n&atilde;o ser&atilde;o consideradas para sua quantifica&ccedil;&atilde;o.</strong></td>
       </tr>
       <tr>
-        <td colspan="8" style="text-align: center; padding-top: 10px;">El desglose de los tickets es lo &uacute;nico que actualizamos de acuerdo a cada distribuidor</td>
+        <td colspan="8" style="text-align: center; padding-top: 10px;">O detalhamento dos tickets &eacute; o &uacute;nico que atualizamos de acordo com cada distribuidor</td>
       </tr>
       <tr>
-        <td colspan="8" style="text-align: center;"><br/>Cualquier duda favor de comunicarse al n&uacute;mero abajo indicado.</td>
+        <td colspan="8" style="text-align: center;"><br/>Qualquer d&uacute;vida, favor entrar em contato pelo n&uacute;mero indicado abaixo.</td>
       </tr>
       <tr>
-        <td colspan="8" style="text-align: center; padding-bottom: 10px;"><br/>Saludos cordiales.<br/></td>
+        <td colspan="8" style="text-align: center; padding-bottom: 10px;"><br/>Atenciosamente.<br/></td>
       </tr>      
     </table></td>
                  </tr>
@@ -157,7 +142,7 @@ a[x-apple-data-detectors] {
                 <td align="left" style="padding:0;Margin:0;width:800px">
                   <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                     <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://clubdelpintoraxalta.com.mx/multimedia/footer.jpg" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="800"></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="<?= base_url(funciones_strategix_version_url_random("application/views/template/sistema/imagenes/mails_ventas_auditoria_envio_correos/footer.jpg")) ?>" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="800"></td>
                     </tr>
                   </table>
                 </td>

@@ -26,8 +26,8 @@ class Usuarios_recupera_clave_controller extends Base_Controller {
         $this->usuarios_recupera_clave_controller_valida_usuario_set_rules();
         $res_errors = $this->usuarios_recupera_clave_controller_valida_usuario_form_error();
         if ($res_errors==1){
-            $inputCaptcha = "RECAPTCHAV3";// $this->input->post('txt_captcha',true);
-            $sessCaptcha = "RECAPTCHAV3";// $this->session->userdata('s_captcha_code');            
+            $inputCaptcha = "RECAPTCHAV3";
+            $sessCaptcha = "RECAPTCHAV3";           
             $txt_email      = $this->input->post('usuarios_crea_clave_view_txt_email',true);
             $usuarios_crea_clave_view_txt_whatsapp      = $this->input->post('usuarios_crea_clave_view_txt_whatsapp',true);
             $token      = $this->input->post('token');
@@ -40,7 +40,6 @@ class Usuarios_recupera_clave_controller extends Base_Controller {
                 $resEmail = $this->usuarios_recupera_clave_controller_envio_correo_recupera_clave($res);
                 $data['tipo']=1;
             }
-            //$template_id, $phone_to, $temeplate_name, $body_texto, $lang, $body_url
             if($usuarios_crea_clave_view_chk_whatsapp==1){ 
                 $res = $this->usuarios_recupera_clave_model->usuarios_recupera_clave_model_data_whatsapp($usuarios_crea_clave_view_txt_whatsapp); 
                 $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre . " ". $res->UsuarioDetalleSegundoNombre. " ". $res->UsuarioDetalleApellidos));
@@ -106,7 +105,6 @@ class Usuarios_recupera_clave_controller extends Base_Controller {
         $data       = array('nombre'=> "$nombre","perfil"=>$res->PerfilDescripcion,'sessionId'=>$this->uniqueId);
         $mail       = $this->load->view('mails/mails_usuarios/mails_usuarios_recupera_clave/mails_usuarios_recupera_clave_view' ,$data, TRUE);
         $to         = array('to' => "$res->UsuarioDetalleEmail",'cc'=>0,'bcc'=>$this->config->item('bcc'));
-        //$to         = array('to' => "luis.rangel@strategix.com.mx",'cc'=>0,'bcc'=>$this->BCC);
         $status_msg = $this->base_controller_envio_correos($to,$this->lang->line('usuarios_recupera_clave_controller_lang_titulo'), $mail, '');
         return $status_msg;  
     }

@@ -45,9 +45,6 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
         $ventasPorcentaje           = floor($ventastotales *.2);
         $lista=$where="";        
         $where .= ($cmb_anio!=0)?" AND YEAR(VentaFechaRegistro) = $cmb_anio":"";
-        $where .= ($cmb_mes!=0)?" AND MONTH(VentaFechaRegistro) = $cmb_mes":"";
-       // $where .= ($cmb_pais!=0)?" AND Distribuidores.PaisId = $cmb_pais":"";
-        //print_r($ventasValidasAuditoria.'<'.$ventasPorcentaje);die;
         if($ventasValidasAuditoria<$ventasPorcentaje){
            $limite = round($ventasPorcentaje)-$ventasValidasAuditoria;
            $newRamdoms      = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_crea_tabla_sin_validar($where,$limite);
@@ -58,8 +55,7 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
         $totalauditorias = $totalauditadas = $totalrechazadas = $totalpendientes =0;
         $ventas      = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_crea_tabla($where);
         foreach ($ventas as $venta) { 
-          //  $moneda =  $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_pais_moneda($venta->PaisId);
-            $registroventa = new DateTime($venta->VentaFechaRegistro);
+          $registroventa = new DateTime($venta->VentaFechaRegistro);
             $fecharegistro = $registroventa->format('Y-m-d');
             $registrofechaauditoria = new DateTime($venta->VentaAuditoriaFechaRegistro);
             if(empty($venta->VentaAuditoriaFechaRegistro)){$fechacapturaauditoria = "";}else{$fechacapturaauditoria = $registrofechaauditoria->format('Y-m-d');}
@@ -100,56 +96,9 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
         $tablaauditoriafx = $this->load->view('ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_tabla_view', $data, true);
         echo json_encode($tablaauditoriafx);
     }    
-
-   /* public function ventas_auditoria_primera_controller_tabla() {
-        $cmbAnio     = $this->input->post('anio',true);
-        $cmbMes      = $this->input->post('mes',true); $i=1;$lista ="";
-        $ventas      = $this->ventas_auditoria_primera_model->Ventas_auditoria_primera_model_crea_tabla($cmbAnio,$cmbMes);
-        foreach ($ventas["auditoria_tabla"] as $venta) { 
-            $registroventa = new DateTime($venta->VentaFechaRegistro);
-            $fecharegistro = $registroventa->format('Y-m-d');
-            $distribuidora = $venta->DistribuidorId . " - " . utf8_encode(strtoupper($venta->DistribuidorDetalleCodigo)) . " - " . utf8_encode(strtoupper($venta->DistribuidorDetalleNombreComercial));
-            if ($venta->VentaAuditoriaTipoId==1){
-                $tickets_repetidos = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_tickets_repetidos($venta->VentaId,$cmbAnio,$cmbMes,$venta->DistribuidorId,$venta->VentaUsuarioIdMP,$venta->VentaMontoTicket);
-            } else {
-                $tickets_repetidos = "&nbsp;";
-            }
-                
-            $lista.= '<tr id="id-comercio-td-'.$venta->VentaId.'">
-                    <td>'.$i.'</td>
-                    <td>'.utf8_encode(strtoupper($venta->VentaId)).'</td>
-                    <td>'.utf8_encode(strtoupper($venta->VentaUsuarioNombreMP)).'</td>
-                    <td>'.utf8_encode(strtoupper($venta->VentaNumeroTicket)).'</td>
-                    <td>$ '.number_format($venta->VentaMontoTicket,2).'</td>                       
-                    <td>'.utf8_encode(strtoupper($fecharegistro)).'</td>
-                    <td>'.$distribuidora.'</td>
-                    <td class="txt-center"><a href= "javascript:ventas_auditoria_primera_form_view_js_modal_ticket('.$venta->VentaId.');"><i class="fas fa-ticket-alt"></i></a></td>
-                    <td>'.utf8_encode(strtoupper($venta->VentaAuditoriaTipoDescripcion)).'</td>
-                    <td>'.$tickets_repetidos.'</td>  
-                    <td id="idstatus'.$venta->VentaAuditoriaId.'">'.utf8_encode(strtoupper($venta->VentaAuditoriaEstatusDescripcion)).'</td>
-                    <td id="observaciones'.$venta->VentaAuditoriaId.'">'.utf8_encode(strtoupper($venta->VentaAuditoriaObservacionDescripcion)).'&nbsp;</td>';
-                    if($venta->VentaAuditoriaEstatusId == 1){
-                        $lista.=    '<td class="txt-center" id="ida'.$venta->VentaAuditoriaId.'"><i onClick="javascript:ventas_auditoria_primera_form_view_js_aprobada('.$venta->VentaAuditoriaId.');" class="fas fa-check" id="aprobada"></i></td>
-                                     <td class="txt-center" id="idr'.$venta->VentaAuditoriaId.'"><i onClick="javascript:ventas_auditoria_primera_form_view_js_rechazo('.$venta->VentaAuditoriaId.');" class="fas fa-times" id="rechazada"></i></td>
-                                  </tr>' ;
-                    }else{
-                        $lista.=    '<td>&nbsp;</td>
-                                     <td>&nbsp;</td>
-                                  </tr>' ;
-                    }   
-            $i++;
-        }         
-        $data['totalauditoria']           = $ventas["auditoria_total"];
-        $data['totalauditadas']           = $ventas["auditoria_no_pendientes"];
-        $data['totalsinauditar']          = $ventas["auditoria_pendientes"];
-        $data['tabla']                    = $lista;
-        $tablaauditoriafx = $this->load->view('ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_tabla_view', $data, true);
-        echo json_encode($tablaauditoriafx);
-    }*/
     public function ventas_auditoria_primera_controller_ticket_modal() {
           $id                 = $this->input->post('id',true);
         $row                = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_fila($id);
-       // $moneda =  $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_pais_moneda($row->PaisId);
         $lista=$lista2="";
         $registroventa      = new DateTime($row->VentaFechaRegistro);
         $fecharegistro      = $registroventa->format('Y-m-d');        
@@ -200,21 +149,6 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
         
         $pag = $this->load->view('modals/modals_ventas/modals_ventas_auditoria/modals_ventas_auditoria_view', $data, true);
         echo json_encode($pag);   
-      /*  $id                 = $this->input->post('id',true);
-        $row                = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_ticket_modal($id);
-        $registroventa = new DateTime($row->VentaFechaRegistro);
-        $fecharegistro = $registroventa->format('Y-m-d');
-        $data['tabla_datos'] = '<tr>'
-                . '<td>'.$id.'</td>'
-                . '<td>'.utf8_encode(strtoupper($row->VentaUsuarioNombreMP)).'</td>'
-                . '<td class="txt-center">'.utf8_encode(strtoupper($row->VentaNumeroTicket)).'</td>'
-                . '<td class="txt-center">$'.number_format($row->VentaMontoTicket,2).'</td>'
-                . '<td class="txt-center">'.utf8_encode(strtoupper($fecharegistro)).'</td>'
-                . '</tr>';
-        $data['archivo'] = $row->VentaFotoTicket;
-        $pag = $this->load->view('modals/modals_ventas/modals_ventas_auditoria/modals_ventas_auditoria_view', $data, true);
-        echo json_encode($pag);   
-        */
     }    
     public function ventas_auditoria_primera_controller_aprobada() {
         $idventa      = $this->input->post('VentaAuditoriaId',true);

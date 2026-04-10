@@ -144,14 +144,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <select id="cmb_marca_litros" name="cmb_marca_litros" class="form-select"></select>
                                 </div>
                             </div>
-                            <div class="col-lg-2 col-6" style="display: none;" id="div_btn_limpiar">
-                                <div class="form-group">
-                                    <button type="button" id="ventas_registro_boton_limpiar_carito" class="btn btn-gray  btn-buscar-ancho" style="margin-top:20px;"><i class="fas fa-trash"></i><span class="btn-buscar-texto"><?= $this->lang->line('ventas_registro_controller_lang_boton_limpiar_carrito') ?></span></button>
-                                </div>
-                            </div>
                             <div class="col-lg-2 col-6" style="display: none;" id="div_btn_agregar">
                                 <div class="form-group">
-                                    <button type="button" id="ventas_registro_boton_agregar" class="btn btn-axalta btn-buscar-ancho" style="margin-top:20px;"><i class="fas fa-plus"></i> <span class="btn-buscar-texto"><?= $this->lang->line('ventas_registro_controller_lang_boton_agregar') ?></span></button>
+                                    <button type="button" id="ventas_registro_boton_agregar" class="btn btn-gray  btn-buscar-ancho" style="margin-top:20px;"><i class="fas fa-trash"></i><span class="btn-buscar-texto"><?= $this->lang->line('ventas_registro_controller_lang_boton_agregar') ?></span></button>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-6" style="display: none;" id="div_btn_limpiar">
+                                <div class="form-group">
+                                    <button type="button" id="ventas_registro_boton_limpiar_carito" class="btn btn-axalta btn-buscar-ancho" style="margin-top:20px;"><i class="fas fa-plus"></i> <span class="btn-buscar-texto"><?= $this->lang->line('ventas_registro_controller_lang_boton_limpiar_carrito') ?></span></button>
                                 </div>
                             </div>
                         </div>

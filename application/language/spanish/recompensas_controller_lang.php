@@ -4,7 +4,7 @@
  * Sistema Web Responsivo Club Del Pintor Axalta Guatemala
  * @author	Strategic Solutions S.A. de C.V  * 
  * @programmer  Amaury Leon Jimenez  * 
- * @CreateDate  15 junio 2022 1:03:17 *  
+ * @CreateDate  15 junio 2026 1:03:17 *  
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');

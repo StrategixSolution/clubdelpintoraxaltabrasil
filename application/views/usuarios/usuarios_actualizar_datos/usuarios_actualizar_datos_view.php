@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </div>
         <div class="container">
-            <div class="row panel-white panel-white-alt">
+            <div class="row panel-gray">
                 <div class="col-lg-12">
                     <div class="form-rf-1 form-pr" id="form-rf-1">
                         <div class="line-dashed-gray"></div>
@@ -113,8 +113,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 } ?>
                                 <button type="button" onclick="window.location.href='<?= funciones_strategix_version_url_random_base_url($pag) ?>'" class="btn btn-gray"><i class="far fa-caret-square-left"></i> <?= $regresar ?></button>
                             </div>
+
                             <div class="col-lg-2 col-6">
-                                <button type="button" id="usuarios_actualizar_datos_admin_boton_guardar" class="btn btn-axalta"><i class="far fa-save"></i> <?= $this->lang->line('usuarios_actualizar_datos_controller_lang_boton_guardar') ?></button>
+                                <div class="d-grid gap-2">
+                                    <button type="button" id="usuarios_actualizar_datos_admin_boton_guardar" class="btn btn-axalta"><i class="far fa-save"></i> <?= $this->lang->line('usuarios_actualizar_datos_controller_lang_boton_guardar') ?></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -217,18 +220,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     case 2:
                         $('#validar_email').html('<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_validado') ?>');
                         break;
-                }
-                //                switch (data.validar_celular) {
-                //                    case 0:
-                //                        $('#validar_celular').html('<a href="javascript:()"><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_validar') ?></a>');
-                //                        break;
-                //                    case 1:
-                //                        $('#validar_celular').html('<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_espera') ?>');
-                //                        break;
-                //                    case 2:
-                //                        $('#validar_celular').html('<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_validado') ?>');
-                //                        break;                        
-                //                }                
+                }             
                 usuarios_actualizar_datos_admin_js_validar_campos();
             },
             error: function() {},

@@ -23,12 +23,18 @@ $route['Productos']                             = 'productos/productos_controlle
 $route['Contacto']                              = 'contacto/contacto_controller';
 $route['UsuariosActualizarDatos']               = 'usuarios/usuarios_actualizar_datos/usuarios_actualizar_datos_controller';
 $route['UsuariosRecuperaClaveNueva']            = 'usuarios/usuarios_recupera_clave/usuarios_recupera_clave_nueva_controller';
-$route['Registromaestropintorinterno']         = 'usuarios/usuarios_maestro_pintor_registro/usuarios_maestro_pintor_registro_controller';
+$route['Registromaestropintorinterno']          = 'usuarios/usuarios_maestro_pintor_registro/usuarios_maestro_pintor_registro_controller';
 $route['Tarjetas']                              = 'tarjetas/tarjetas_controller'; 
 $route['TarjetasAltas']                         = 'tarjetas/tarjetas_altas/tarjetas_altas_controller'; 
-$route['RegistroTickets']                  = 'ventas/ventas_registro/ventas_registro_controller';
+$route['RegistroTickets']                       = 'ventas/ventas_registro/ventas_registro_controller';
 $route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
 $route['EnvioCorreos']                          = 'ventas/ventas_auditoria/ventas_auditoria_envio_correos/ventas_auditoria_envio_correos_controller';
+$route['TicketsRechazados']                     = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller';
+$route['TicketsActualiza']                      = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_actualiza_venta';
+$route['AuditoriaSegunda']                      = 'ventas/ventas_auditoria/ventas_auditoria_segunda/ventas_auditoria_segunda_controller';
+$route['VentasRegistroVentasPromocion']         = 'ventas/ventas_promociones/ventas_promociones_controller';
+
+
 
 /*
 
@@ -53,10 +59,10 @@ $route['CorteGanadoresVentas']                  = 'ventas/ventas_cortes/ventas_c
 $route['CorteVentasBimestral']                  = 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller';
 $route['DescargaReposicionProductos']           = 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller';
 
-$route['RegistroVentasPromocion']               = 'ventas/ventas_promociones/ventas_promociones_controller';
+
 $route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
 
-$route['AuditoriaSegunda']                      = 'ventas/ventas_auditoria/ventas_auditoria_segunda/ventas_auditoria_segunda_controller';
+
 $route['TicketsRechazados']                     = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller';
 $route['TicketsActualiza']                      = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_actualiza_venta';
 $route['AuditoriaPromociones']                  = 'ventas/ventas_auditoria/ventas_auditoria_promociones/ventas_auditoria_promociones_controller';

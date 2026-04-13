@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo CDPMEX                    *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 ABRIL 2025 09:00:00                        * 
+ * @programmer  Luis Felipe Rangel                          * 
+ * @CreateDate 01 ABRIL 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -28,11 +28,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </tbody>
                 </table>
             </div>
-           <!-- <div class="col-lg-1" style="text-align: right; margin-top:20px;">
+           <div class="col-lg-1" style="text-align: right; margin-top:20px;">
                 <div class="form-group">
                     <button type="button" id="auditoria_ventas_btn_crea_random" class="btn btn-axalta">CREAR RANDOM</button>
                 </div>
-            </div>-->
+            </div>
         </div>
     </div>
     <div class="panel-white">
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script>
 $(document).ready( function () {
-    // $("#auditoria_ventas_btn_crea_random").click(function(){ ventas_auditoria_primera_form_view_js_crea_random(); }); // botón y función JS comentados
+     $("#auditoria_ventas_btn_crea_random").click(function(){ ventas_auditoria_primera_form_view_js_crea_random(); }); // botón y función JS comentados
     $('#TbVentasAuditoria').DataTable( {
             "scrollX": 3500,
             "scrollY": 350,     
@@ -149,7 +149,7 @@ $(document).ready( function () {
     $('.dataTables_length').addClass('bs-select');
 });
 
-/*function ventas_auditoria_primera_form_view_js_crea_random(){
+function ventas_auditoria_primera_form_view_js_crea_random(){
     var mes = $('#mes').val();
     var anio = $('#anio').val();
     $('#loader_panel').show();
@@ -162,12 +162,12 @@ $(document).ready( function () {
             console.log(data);
             switch (data) {
                 case 0:
-                    Swal.fire('','NO SE GENERARON AUDITORIAS RANDOM','warning');
+                    Swal.fire('','NENHUMA AUDITORIA ALEATÓRIA FOI GERADA','warning');
                     break;
                 case 1:
                     Swal.fire({
                         title: '',
-                        text: "SE GENERARON AUDITORIAS RANDOM",
+                        text: "AUDITORIAS ALEATÓRIAS FORAM GERADAS COM SUCESSO",
                         icon: 'success',
                         showCancelButton: false,
                         confirmButtonColor: '#fd7e14',
@@ -185,7 +185,7 @@ $(document).ready( function () {
         error: function(data){ },
         complete: function(){ $('#loader_panel').hide();}
     });
-}*/
+}
 function ventas_auditoria_tabla_view_js_modal_ticket(id){
     $('#loader_panel').show();
     $.ajax({

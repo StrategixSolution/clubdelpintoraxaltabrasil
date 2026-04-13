@@ -37,6 +37,7 @@ $lang['ventas_auditoria_envio_correos_controller_lang_tabla_observaciones']     
 $lang['ventas_auditoria_primera_controller_lang_tabla_accion']                                                = 'AÇÃO';
 $lang['ventas_auditoria_primera_controller_lang_tabla_fecha_auditoria']                                       = 'DATA DE AUDITORIA';
 $lang['ventas_auditoria_primera_controller_lang_tabla_fecha_envio_correo']                                    = 'DATA ENVIO DE E-MAIL';
+$lang['ventas_auditoria_primera_controller_lang_tabla_fecha_limite_correo']                                    = 'DATA LIMITE DE CORREÇÃO';
 $lang['ventas_auditoria_envio_correos_controller_lang_tabla_motivo']                                          = 'MOTIVO';
 $lang['ventas_auditoria_envio_correos_controller_lang_tabla_ticket_monto_repetido']                           = 'TICKETS COM VALOR REPETIDO';
 $lang['ventas_auditoria_envio_correos_controller_lang_alerta_pregunta_aceptar']                               = 'DESEJA APROVAR A VENDA?';

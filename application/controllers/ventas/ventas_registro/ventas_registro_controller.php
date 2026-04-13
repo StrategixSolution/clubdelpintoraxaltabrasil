@@ -59,11 +59,10 @@ class Ventas_registro_controller extends Base_Controller {
     }
     private function ventas_registro_maestro_pintor_informacion($TarjetaNumero) {   
         $maestro_pintor = $this->ventas_registro_model->ventas_registro_model_maestro_pintor_informacion(trim($TarjetaNumero));
-        // $array_Division = $this->session->userdata(funciones_strategix_sitio_alias('control_division'));
         if (empty($maestro_pintor)){           
             return '';
         } else {            
-            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleSegundoNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidos));
+            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleSegundoNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidos);
                 $maestro_pintor_texto = $this->lang->line('ventas_registro_controller_lang_etiqueta_maestro_pintor')." ".$nombre;
             return $maestro_pintor_texto;
         }        
@@ -186,12 +185,11 @@ class Ventas_registro_controller extends Base_Controller {
     private function ventas_registro_entra_auditoria($UsuarioId,$monto) {        
         $total_ventas_mismo_monto = $this->ventas_registro_model->ventas_registro_model_auditoria_monto($UsuarioId,funciones_strategix_formato_fecha_hora_actual(),$monto);
         if ($total_ventas_mismo_monto!=0){ $this->ventas_registro_model->ventas_registro_model_auditoria_monto_update($UsuarioId,funciones_strategix_formato_fecha_hora_actual(),$monto); return 1; }
-        if ($this->ventas_registro_entra_auditoria_pais($monto)==1){ return 1; }
+        if ($this->ventas_registro_entra_auditoria_monto($monto)==1){ return 1; }
         return 0;
     }
-    private function ventas_registro_entra_auditoria_pais($monto) {     
+    private function ventas_registro_entra_auditoria_monto($monto) {     
                 if($monto>=5000.00 AND $monto<=6000.00){ return 1; }
-               // if($monto>=101122.89 AND $monto<=168538.16){ return 1; }
                 if($monto>=8000.00){ return 1; }     
     }    
     private function ventas_registro_valida_set_rules() {
@@ -225,7 +223,6 @@ class Ventas_registro_controller extends Base_Controller {
         $id = md5(uniqid(rand(), TRUE));
         $data = array('id' => $id,'name' => 0,'price' => 0,'qty' => $this->input->post('txt_marca_cantidad'),'clase' => $this->input->post('cmd_clase'),'marca' => $this->input->post('cmb_marca'),'monto' => $this->input->post('txt_marca_monto'),'litros'=>$this->input->post('cmb_marca_litros'));        
         $this->cart->insert($data);
-        //print_r($this->cart->contents());  
         $tabla = $this->ventas_registro_controller_cart_tabla();
         echo json_encode($tabla);
     } 

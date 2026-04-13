@@ -25,7 +25,6 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
         $data['txt_nombre']             = utf8_encode($this->participante->UsuarioDetalleNombre);
         $data['txt_segundo_nombre']     = utf8_encode($this->participante->UsuarioDetalleSegundoNombre);
         $data['txt_apellidos']   = utf8_encode($this->participante->UsuarioDetalleApellidos);
-       // $data['txt_apellido_materno']   = utf8_encode($this->participante->UsuarioDetalleApellidoMaterno);
         $data['txt_telefono']           = utf8_encode($this->participante->UsuarioDetalleTelefono);              
         $data['txt_email']              = utf8_encode($this->participante->UsuarioDetalleEmail);
         $data['txt_celular']            = utf8_encode(strtoupper($this->participante->UsuarioDetalleCelular));
@@ -33,10 +32,7 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
         echo json_encode($data);
     }
     public function usuarios_actualizar_datos_controller_guardar() {
-//        $correo = $this->usuarios_actualizar_datos_model->usuarios_actualizar_datos_model_valida_email($this->participante->UsuarioDetalleId,$this->participante->UsuarioDetalleEmail);
-//        if (!isset($correo)){ echo 4; return false; }
-//        if ($this->input->post('txt_celular',TRUE)!=""){if ($this->usuarios_actualizar_datos_model->usuarios_actualizar_datos_model_valida_celular($this->participante->UsuarioDetalleId,$this->participante->UsuarioDetalleCelular)==0) { echo 5; return false; }}
-        $this->usuarios_actualizar_datos_controller_set_rules();
+    $this->usuarios_actualizar_datos_controller_set_rules();
         $res_errors = $this->usuarios_actualizar_datos_controller_form_error();
         if ($res_errors==1){
             echo json_encode($this->usuarios_actualizar_datos_controller_guardar_participante());
@@ -136,11 +132,9 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
         $txt_rfc_trim   = trim($this->input->post('txt_rfc',TRUE)); $txt_rfc_utf8_decode = utf8_encode($txt_rfc_trim); $txt_rfc = strtoupper($txt_rfc_utf8_decode);
         $cp = (empty($this->participante->UsuarioDetalleCP))?"NULL":$this->participante->UsuarioDetalleCP;
         if ($this->session->userdata(funciones_strategix_sitio_alias("s_perfil_id"))<=5){
-                            //UsuarioDetalleNombre,                         UsuarioDetalleSegundoNombre,                            UsuarioDetalleApellidos,                      UsuarioDetalleApellidoMaterno,                           UsuarioDetalleClave,                           UsuarioDetalleEmail,                    UsuarioDetalleTelefono,                         UsuarioDetalleCelular,          UsuarioDetalleSessionId
-            $datos = "'". utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellidos',TRUE))."','".utf8_decode($this->input->post('txt_apellido_materno',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."'";
+           $datos = "'". utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellidos',TRUE))."','".utf8_decode($this->input->post('txt_apellido_materno',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."'";
         } else {
-                            //UsuarioDetalleNombre,                         UsuarioDetalleSegundoNombre,                            UsuarioDetalleApellidos,                      UsuarioDetalleApellidoMaterno,                           UsuarioDetalleClave,                           UsuarioDetalleEmail,                    UsuarioDetalleTelefono,                         UsuarioDetalleCelular,          UsuarioDetalleSessionId,             UsuarioDetalleRFC
-            $datos = "'".utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellidos',TRUE))."','".utf8_decode($this->input->post('txt_apellido_materno',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."','".$this->input->post('$txt_rfc',TRUE)."'";
+           $datos = "'".utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellidos',TRUE))."','".utf8_decode($this->input->post('txt_apellido_materno',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."','".$this->input->post('$txt_rfc',TRUE)."'";
         }        
         $resultado_update = $this->usuarios_actualizar_datos_model->usuarios_actualizar_datos_model_update_usaurio($this->participante->UsuarioDetalleId,$datos,$this->input->post('txt_email',TRUE),$this->uniqueId);
         if ($resultado_update==1){ 

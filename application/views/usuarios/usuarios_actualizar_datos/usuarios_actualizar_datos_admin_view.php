@@ -192,18 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     case 2:
                         $('#validar_email').html('<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_validado') ?>');
                         break;                        
-                }
-//                switch (data.validar_celular) {
-//                    case 0:
-//                        $('#validar_celular').html('<a href="javascript:()"><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_validar') ?></a>');
-//                        break;
-//                    case 1:
-//                        $('#validar_celular').html('<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_espera') ?>');
-//                        break;
-//                    case 2:
-//                        $('#validar_celular').html('<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_validado') ?>');
-//                        break;                        
-//                }                
+                }            
                 usuarios_actualizar_datos_admin_js_validar_campos();
             },
             error: function() {},

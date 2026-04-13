@@ -3,8 +3,8 @@
 /* 
  * Sistema Web Responsivo CDPMEX                    *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 ABRIL 2025 09:00:00                        * 
+ * @programmer  Luis Felipe Rangel                          * 
+ * @CreateDate 01 ABRIL 2026 09:00:00                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div>
             <p style="text-align: right;">
                 <img src="<?= funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/iconos/email.png") ?>" width="30"> &nbsp;
-                <button id="ventas_auditoria_envio_correos_tabla_view_btn_envio" class="btn btn-dark btn-sm" style="color: #FFFFFF">ENVIAR CORREOS</button>
+                <button id="ventas_auditoria_envio_correos_tabla_view_btn_envio" class="btn btn-dark btn-sm" style="color: #FFFFFF">ENVIAR E-MAILS</button>
             </p>
         </div>
     <?php } ?>
@@ -35,12 +35,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_distribuidor')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_ticket')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_motivo')?></th>
-                            <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_ticket_monto_repetido')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_estatus_auditoria')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_observaciones')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_fecha_auditoria')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_fecha_envio_correo')?></th>
-                            <th>FECHA LÍMITE DE CORRECCIÓN</th>
+                            <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_fecha_limite_correo')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_accion')?></th>
                         </thead>
                         <tbody>
@@ -79,9 +78,9 @@ $(document).ready( function () {
             exportOptions: {columns: [0,1,2,3,4,5,6,8,9,10,11]},
             text: '<?=$this->lang->line('data_table_js_lang_btn_descarga')?> <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
             className:'btn btn-axalta',
-            title: 'AUDITORIA_RECHAZADAS',
-            filename: 'AUDITORIA_RECHAZADAS',
-            sheetName: 'AUDITORIA_RECHAZADAS',
+            title: 'AUDITORIA_REJEITADA',
+            filename: 'AUDITORIA_REJEITADA',
+            sheetName: 'AUDITORIA_REJEITADA',
             excelStyles: 
             [
                 {
@@ -142,11 +141,6 @@ function ventas_auditoria_envio_correos_tabla_view_js_envios_correos(){
         data: {mes:mes,anio:anio},
         success: function(data){
             ventas_auditoria_envio_correos_form_tabla();
-         /*   $.each(data.VentaId, function(key, value) {
-                $('#IdFechaEnvioCorreo'+value).html(data.FechaEnvioCorreo);
-                $('#AccionEnvioCorreo'+value).html('');
-            });
-            Swal.fire({icon: 'success',title: '',text: 'CORREOS ENVIADOS'});*/
         },
         error: function(data){ },
         complete: function(){ }
@@ -160,9 +154,7 @@ function ventas_auditoria_envio_correos_tabla_view_js_envio_correo(id){
         dataType: 'json',
         data: {id:id},
         success: function(data){
-            $('#IdFechaEnvioCorreo'+data.id).html(data.FechaEnvioCorreo);
-            $('#AccionEnvioCorreo'+data.id).html('');
-            Swal.fire({icon: 'success',title: '',text: 'CORREO ENVIADO'});
+             ventas_auditoria_envio_correos_form_tabla();
         },
         error: function(data){ },
         complete: function(){ $('#loader_panel').hide();}
@@ -179,7 +171,7 @@ function ventas_auditoria_envio_correos_form_tabla(){
             data: {mes:mes,anio:anio},
             success: function(data){
                 $('#tabla_auditoria_ventas').html(data);
-                Swal.fire({icon: 'success',title: '',text: 'CORREOS ENVIADOS'});
+                Swal.fire({icon: 'success',title: '',text: 'E-MAILS ENVIADOS'});
             },
             error: function(data){ },
             complete: function(){ $('#loader_panel').hide(); }

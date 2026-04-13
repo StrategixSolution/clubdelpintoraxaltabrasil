@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_tickets')?></a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("RegistroTickets"); ?>"><?=$this->lang->line('menu_submenu_tickets_registro_ventas')?></a></li> 
-       <!-- <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("TicketsRechazados"); ?>"><?=$this->lang->line('menu_submenu_tickets_rechazados')?></a></li> -->
+        <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("TicketsRechazados"); ?>"><?=$this->lang->line('menu_submenu_tickets_rechazados')?></a></li>
     </ul>
 </li>
 <!--<li class="nav-item dropdown" id="nav_catalogos">

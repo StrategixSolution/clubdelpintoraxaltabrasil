@@ -126,7 +126,6 @@ class Ventas_auditoria_primera_controller extends Base_Controller {
         }
                 $lista2.= '<tr>
                     <td></td>
-                    <td></td>
                     <td class="txt-center">TOTAL PRODUCTOS:</td>
                     <td class="txt-center">'.$total_cantidad_producto.'</td>   
                     <td class="txt-center"></td>

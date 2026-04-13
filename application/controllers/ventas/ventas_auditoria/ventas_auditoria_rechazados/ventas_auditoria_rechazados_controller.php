@@ -15,6 +15,7 @@ class Ventas_auditoria_rechazados_controller extends Base_Controller {
         valida_menus(get_class(),$this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')));
         $this->uniqueId = md5(uniqid(rand(), TRUE));
         $this->load->model('ventas/ventas_registro/ventas_registro_model');
+        $this->load->model('ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_model');
         $this->load->model('ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_model');
     }    
     public function index(){//Pagina de Inicio
@@ -65,18 +66,54 @@ $tabla_participante['tabla'] = $this->load->view('ventas/ventas_auditoria/ventas
      }
     }
     public function ventas_auditoria_rechazados_controller_ticket_modal() {
-        $id                 = $this->input->post('id',true);
-        $row                = $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_ticket_modal($id);
-        $registroventa = new DateTime($row->VentaFechaRegistro);
-        $fecharegistro = $registroventa->format('Y-m-d');
-        $data['tabla_datos'] = '<tr>'
-                . '<td>'.$id.'</td>'
-                . '<td>'.utf8_encode(strtoupper($row->VentaUsuarioNombreMP)).'</td>'
-                . '<td class="txt-center">'.utf8_encode(strtoupper($row->VentaNumeroTicket)).'</td>'
-                . '<td class="txt-center">$'.number_format($row->VentaMontoTicket,2).'</td>'
-                . '<td class="txt-center">'.utf8_encode(strtoupper($fecharegistro)).'</td>'
-                . '</tr>';
-        $data['archivo'] = $row->VentaFotoTicket;
+         $id                 = $this->input->post('id',true);
+        $row                = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_fila($id);
+        $lista=$lista2="";
+        $registroventa      = new DateTime($row->VentaFechaRegistro);
+        $fecharegistro      = $registroventa->format('Y-m-d');        
+        $data['id']         = $id;$total_monto = $total_cantidad_producto=0;
+        $data['archivo']    = $row->VentaFotoTicket;
+        $data['tabla_datos'] = '<tr>
+        <td>'.$id.'</td>
+        <td>'.utf8_encode(strtoupper($row->nombrepax)).'</td>
+        <td class="txt-center">'.utf8_encode(strtoupper($row->VentaNumeroTicket)).'</td>
+        <td class="txt-center">'.utf8_encode(strtoupper($row->VentaMontoTicketCapturado)).'</td>
+        <td class="txt-center">'.utf8_encode(strtoupper($fecharegistro)).'</td></tr>';
+        $resultados_tabla_detalle_ventas = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_detalle_ventas($id); 
+        foreach ($resultados_tabla_detalle_ventas as $row) {  
+            $total_producto =$row->VentaDetalleCantidad * $row->VentaDetalleMonto;
+            $total_cantidad_producto = $total_cantidad_producto + $row->VentaDetalleCantidad;
+                $lista2.= '<tr>
+                    <td>'.utf8_encode(strtoupper($row->ProductoClaseDescripcion)).'</td>
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->ProductoMarcaDescripcion)).'</td>
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleCantidad)).'</td>   
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleLitros)).'</td>
+                    <td class="txt-center">'.utf8_encode(strtoupper(number_format($row->VentaDetalleMonto,2))).'</td>
+                    <td class="txt-center">'.utf8_encode(number_format($total_producto,2)).'</td>
+                </tr>' ;
+                $total_monto = $total_monto + $total_producto;
+        }
+                $lista2.= '<tr>
+                    <td></td>
+                    <td class="txt-center">TOTAL PRODUCTOS:</td>
+                    <td class="txt-center">'.$total_cantidad_producto.'</td>   
+                    <td class="txt-center"></td>
+                    <td class="txt-center">TOTAL TICKET:</td>
+                    <td class="txt-center">'.utf8_encode(number_format($total_monto,2)).'</td>
+                </tr>' ;         
+        $data['tabla_productos'] = $lista2;     
+        $resultados_tabla_promociones = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_promociones($id); 
+        foreach ($resultados_tabla_promociones as $row) {  
+                $lista.= '<tr>
+                    <td>'.utf8_encode(strtoupper($row->VentaPromocionNombre)).'</td>
+                    <td>'.utf8_encode(strtoupper($row->VentaPromocionDetalleDescripcion)).'</td>
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaPromocionDetalleGMC)).'</td>
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaPromocionDetalleCodigo)).'</td>   
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaPromocionDetallePresentacion)).'</td>
+                    <td class="txt-center" style="margin: auto auto;">'.$row->VentaUsuarioPromocionCantidad.'</td>
+                </tr>' ;
+        }
+        $data['tabla_productos_promocion'] = $lista;        
         $pag = $this->load->view('modals/modals_ventas/modals_ventas_auditoria/modals_ventas_auditoria_view', $data, true);
         echo json_encode($pag);   
     }

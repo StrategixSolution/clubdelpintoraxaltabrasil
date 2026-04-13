@@ -77,8 +77,38 @@ class ventas_auditoria_envio_correos_model extends Base_Model {
     }  
     public function ventas_auditoria_envio_correos_model_ticket_modal($VentaId){
         $VentaId_clean = $this->security->xss_clean($VentaId);
-        $SQL = "SELECT Ventas.VentaId, Ventas.TarjetaId, Ventas.TarjetaNumero, Ventas.VentaUsuarioIdMP, Ventas.VentaUsuarioNombreMP, Ventas.DistribuidorId, Ventas.DistribuidorDetalleId, Ventas.DistribuidorDetalleCodigo, Ventas.DistribuidorDetalleRazonSocial, Ventas.DistribuidorDetalleNombreComercial, Ventas.UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, VentasAuditorias.VentaAuditoriaEstatusId, VentasAuditorias.VentaAuditoriaTipoId, VentasAuditorias.VentaAuditoriaEstatusOportunidadId, VentasAuditorias.VentaAuditoriaObservacionId, VentasAuditoriasEstatus.VentaAuditoriaEstatusDescripcion, VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadDescripcion, VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion, VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion FROM Ventas INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId
-        WHERE Ventas.VentaId = ?";
+        $SQL = "SELECT 
+Ventas.VentaId, 
+Ventas.TarjetaNumero, 
+UsuariosDetalles.UsuarioId as VentaUsuarioIdMP, 
+CONCAT_WS(' ', UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos ) AS NombreMP, 
+DistribuidoresDetalles.DistribuidorId ,
+DistribuidoresDetalles.DistribuidorDetalleCodigo,
+DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
+DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
+Ventas.UsuarioDetalleId, 
+Ventas.VentaNumeroTicket, 
+Ventas.VentaMontoTicket, 
+Ventas.VentaFotoTicket, 
+Ventas.VentaFechaRegistro, 
+VentasAuditorias.VentaAuditoriaEstatusId, 
+VentasAuditorias.VentaAuditoriaTipoId, 
+VentasAuditorias.VentaAuditoriaEstatusOportunidadId, 
+VentasAuditorias.VentaAuditoriaObservacionId, 
+VentasAuditoriasEstatus.VentaAuditoriaEstatusDescripcion, 
+VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadDescripcion, 
+VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion, 
+VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion 
+FROM Ventas 
+INNER JOIN DistribuidoresDetalles on DistribuidoresDetalles.DistribuidorDetalleId = Ventas.DistribuidorDetalleId 
+INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
+INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId 
+INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId 
+INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId 
+ INNER JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId 
+LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId
+WHERE  (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)
+AND Ventas.VentaId = ?";
         $query	= $this->db->query($SQL,array($VentaId_clean));
         //echo  $this->db->last_query()."<br>"; 
         return $query->row();

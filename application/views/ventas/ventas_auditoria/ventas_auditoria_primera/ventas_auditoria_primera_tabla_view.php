@@ -162,12 +162,12 @@ function ventas_auditoria_primera_form_view_js_crea_random(){
             console.log(data);
             switch (data) {
                 case 0:
-                    Swal.fire('','NO SE GENERARON AUDITORIAS RANDOM','warning');
+                    Swal.fire('','NENHUMA AUDITORIA ALEATÓRIA FOI GERADA','warning');
                     break;
                 case 1:
                     Swal.fire({
                         title: '',
-                        text: "SE GENERARON AUDITORIAS RANDOM",
+                        text: "AUDITORIAS ALEATÓRIAS FORAM GERADAS COM SUCESSO",
                         icon: 'success',
                         showCancelButton: false,
                         confirmButtonColor: '#fd7e14',

@@ -83,8 +83,8 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
             return $data;
     }
     public function ventas_auditoria_envio_correos_controller_ticket_modal() {
-          $id                 = $this->input->post('id',true);
-        $row                = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_fila($id);
+           $id                 = $this->input->post('id',true);
+        $row                = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_ticket_modal($id);
         $lista=$lista2="";
         $registroventa      = new DateTime($row->VentaFechaRegistro);
         $fecharegistro      = $registroventa->format('Y-m-d');        
@@ -92,9 +92,9 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
         $data['archivo']    = $row->VentaFotoTicket;
         $data['tabla_datos'] = '<tr>
         <td>'.$id.'</td>
-        <td>'.utf8_encode(strtoupper($row->nombrepax)).'</td>
+        <td>'.utf8_encode(strtoupper($row->VentaUsuarioNombreMP)).'</td>
         <td class="txt-center">'.utf8_encode(strtoupper($row->VentaNumeroTicket)).'</td>
-        <td class="txt-center">'.utf8_encode(strtoupper($row->VentaMontoTicketCapturado)).'</td>
+        <td class="txt-center">'.utf8_encode(strtoupper($row->VentaMontoTicket)).'</td>
         <td class="txt-center">'.utf8_encode(strtoupper($fecharegistro)).'</td></tr>';
         $resultados_tabla_detalle_ventas = $this->ventas_auditoria_primera_model->ventas_auditoria_primera_model_detalle_ventas($id); 
         foreach ($resultados_tabla_detalle_ventas as $row) {  
@@ -130,7 +130,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
                     <td class="txt-center" style="margin: auto auto;">'.$row->VentaUsuarioPromocionCantidad.'</td>
                 </tr>' ;
         }
-        $data['tabla_productos_promocion'] = $lista;        
+        $data['tabla_productos_promocion'] = $lista;     
         $pag = $this->load->view('modals/modals_ventas/modals_ventas_auditoria/modals_ventas_auditoria_view', $data, true);
         echo json_encode($pag);   
     }    

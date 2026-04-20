@@ -33,9 +33,9 @@ $route['TicketsRechazados']                     = 'ventas/ventas_auditoria/venta
 $route['TicketsActualiza']                      = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_actualiza_venta';
 $route['AuditoriaSegunda']                      = 'ventas/ventas_auditoria/ventas_auditoria_segunda/ventas_auditoria_segunda_controller';
 $route['VentasRegistroVentasPromocion']         = 'ventas/ventas_promociones/ventas_promociones_controller';
+$route['AuditoriaPromociones']                  = 'ventas/ventas_auditoria/ventas_auditoria_promociones/ventas_auditoria_promociones_controller';
 
-
-
+ 
 /*
 
 
@@ -65,7 +65,7 @@ $route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/venta
 
 $route['TicketsRechazados']                     = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller';
 $route['TicketsActualiza']                      = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_actualiza_venta';
-$route['AuditoriaPromociones']                  = 'ventas/ventas_auditoria/ventas_auditoria_promociones/ventas_auditoria_promociones_controller';
+
 $route['ReposicionProductoCaptura']             = 'productos/productos_reposicion/productos_reposicion_captura/productos_reposicion_captura_controller';
 $route['ReporteVentasPersonalTop']             = 'reportes/ventas/ventas_personal_top_controller';
 $route['ReporteGanadores']                      = 'reportes/ventas/ventas_reporte_ganadores_controller';

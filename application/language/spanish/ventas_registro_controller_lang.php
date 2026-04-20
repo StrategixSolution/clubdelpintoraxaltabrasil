@@ -8,7 +8,7 @@
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+ 
 $lang['ventas_registro_controller_lang_titulo']                                      = 'REGISTRO DE VENTAS';
 $lang['ventas_registro_controller_lang_etiqueta_etiqueta_msg_ticket']                = 'SELECCIONA UNA OPCIÓN PARA AGREGAR TU TICKET:';
 $lang['ventas_registro_controller_lang_etiqueta_camara']                             = 'CÁMARA';
@@ -80,3 +80,4 @@ $lang['ventas_registro_controller_lang_btn_si']                                 
 $lang['ventas_registro_controller_lang_btn_no']                                      = 'NO';
 $lang['ventas_registro_controller_lang_etiqueta_aviso']                                      = 'Recuerda que debes registrar las ventas en el mes que se generan, de lo contrario serán rechazadas en auditoría.<br>Asegúrate de ingresar siempre el precio unitario, este monto es el que suma para tus Maestros Pintores.<br>';
 $lang['ventas_registro_controller_lang_etiqueta_aviso_2']                                      = 'Agrega todos los productos de tu ticket dando click en el botón +AGREGAR y al terminar da click en el botón GUARDAR.';
+$lang['ventas_registro_controller_lang_input_distribuidor']                          = 'DISTRIBUIDOR:';

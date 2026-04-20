@@ -3,7 +3,7 @@
 /* 
  * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
+ * @programmer  Luis Felipe Rangel                           * 
  * @CreateDate 01 Mar. 2026 09:00:00                        * 
  */
 
@@ -80,3 +80,4 @@ $lang['ventas_registro_controller_lang_btn_si']                                 
 $lang['ventas_registro_controller_lang_btn_no']                                      = 'NÃO';
 $lang['ventas_registro_controller_lang_etiqueta_aviso']                                      = 'Lembre-se de que você deve registrar as vendas no mês em que são geradas, caso contrário, serão rejeitadas na auditoria.<br>Certifique-se de sempre inserir o preço unitário, este valor é o que soma para seus Maestros Pintores.<br>';
 $lang['ventas_registro_controller_lang_etiqueta_aviso_2']                                      = 'Adicione todos os produtos do seu bilhete clicando no botão +ADICIONAR e, ao terminar, clique no botão SALVAR.';
+$lang['ventas_registro_controller_lang_input_distribuidor']                          = 'DISTRIBUIDOR:';

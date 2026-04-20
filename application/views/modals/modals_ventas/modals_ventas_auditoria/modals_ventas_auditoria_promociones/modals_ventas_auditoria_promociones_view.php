@@ -13,13 +13,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><?=$this->lang->line('ventas_promociones_titulo')?></h5>
+        <h5 class="modal-title" id="exampleModalLabel"><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_modal_ticket_titulo')?></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <?=$this->lang->line('ventas_promociones_js_msg_validar_productos_capturados')?>
+                <?=$this->lang->line('ventas_auditoria_promociones_controller_lang_js_msg_validar_productos_capturados')?>
             </div>
             <div class="col-lg-10">
                 <div class="table-responsive">
@@ -27,12 +27,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <table class='table table-lg table-bordered table-axalta' id="mi-tabla" style="margin:20px 0px;">
                             <thead>
                                 <tr>
-                                    <th><?=$this->lang->line('ventas_promociones_tabla_titulo_promocion')?></th>
-                                    <th><?=$this->lang->line('ventas_promociones_tabla_titulo_descripcion')?></th>
-                                    <th><?=$this->lang->line('ventas_promociones_tabla_titulo_gms')?></th>   
-                                    <th><?=$this->lang->line('ventas_promociones_tabla_titulo_codigo')?></th>  
-                                    <th><?=$this->lang->line('ventas_promociones_tabla_titulo_presentacion')?></th>
-                                    <th><?=$this->lang->line('ventas_promociones_tabla_titulo_cantidad')?></th>                
+                                    <th><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_model_tabla_titulo_promocion')?></th>
+                                    <th><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_model_tabla_titulo_descripcion')?></th>
+                                    <th><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_model_tabla_titulo_gms')?></th>   
+                                    <th><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_model_tabla_titulo_codigo')?></th>  
+                                    <th><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_model_tabla_titulo_presentacion')?></th>
+                                    <th><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_model_tabla_titulo_cantidad')?></th>                
                                 </tr>
                             </thead>
                             <tbody>

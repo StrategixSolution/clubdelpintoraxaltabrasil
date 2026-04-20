@@ -103,7 +103,7 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
     } 
     public function ventas_auditoria_rechazados_model_tickets_repetidos($VentaId,$anio,$mes,$DistribuidorId,$VentaUsuarioIdMP,$VentaMontoTicket){
         $tickets = "";
-        $SQL    = "SELECT VentaId FROM Ventas WHERE VentaId <> ? AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)= ? AND MONTH(VentaFechaRegistro) = ? AND DistribuidorId = ? AND VentaUsuarioIdMP = ? AND VentaMontoTicket = ?";
+        $SQL    = "SELECT VentaId FROM Ventas WHERE VentaId <> ? AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)= ? AND MONTH(VentaFechaRegistro) = ? AND DistribuidorDetalleId = ? AND UsuarioDetalleId = ? AND VentaMontoTicket = ?";
         $query	= $this->db->query($SQL,array($VentaId,$anio,$mes,$DistribuidorId,$VentaUsuarioIdMP,$VentaMontoTicket));
         //echo  $this->db->last_query()."<br>"; 
         foreach ($query->result() as $row) {
@@ -167,9 +167,7 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
     public function ventas_auditoria_rechazados_model_guardar_venta($VentaId,$numero_ticket,$monto_ticket,$imagen,$session_id,$cargaarchivo){
         $numero_ticket_clean = $this->security->xss_clean($numero_ticket);
         $monto_ticket_clean = $this->security->xss_clean($monto_ticket);
-        $this->db->query("INSERT INTO VentasHistoricosRechazos (VentaId, TarjetaNumero, DistribuidorDetalleId, UsuarioDetalleId, UsuarioIdCapturo, VentaNumeroTicket, VentaMontoTicketCapturado, VentaMontoTicket, VentaCantidadProdcutos, VentaTotalCantidadProdcutos, VentaFotoTicket, VentaFechaRegistro, VentaFechaBaja, VentaHistoricoRechazoFechaRegistro, VentaHistoricoRechazoUsuarioIdRegistro, VentaHistoricoRechazoSessionId) 
-        SELECT VentaId, TarjetaNumero, DistribuidorDetalleId, UsuarioDetalleId, UsuarioIdCapturo, VentaNumeroTicket, VentaMontoTicketCapturado, VentaMontoTicket, VentaCantidadProdcutos, VentaTotalCantidadProdcutos, VentaFotoTicket, VentaFechaRegistro, VentaFechaBaja, 
-        GETDATE(),".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",'$session_id' FROM Ventas WHERE VentaId = $VentaId");
+        $this->db->query("INSERT INTO VentasHistoricosRechazos (VentaId,TarjetaId,TarjetaNumero,VentaUsuarioIdMP,VentaUsuarioNombreMP,DistribuidorId,DistribuidorDetalleId,DistribuidorDetalleCodigo,DistribuidorDetalleRazonSocial,DistribuidorDetalleNombreComercial,UsuarioDetalleId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaFechaRegistro,VentaUsuarioIdRegistro,VentaUsuarioNombreRegistro,VentaFechaBaja,VentaUsuarioIdBaja,VentaSessionId,VentaHistoricoRechazoFechaRegistro,VentaHistoricoRechazoUsuarioIdRegistro,VentaHistoricoRechazoSessionId) SELECT VentaId,TarjetaId,TarjetaNumero,VentaUsuarioIdMP,VentaUsuarioNombreMP,DistribuidorId,DistribuidorDetalleId,DistribuidorDetalleCodigo,DistribuidorDetalleRazonSocial,DistribuidorDetalleNombreComercial,UsuarioDetalleId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaFechaRegistro,VentaUsuarioIdRegistro,VentaUsuarioNombreRegistro,VentaFechaBaja,VentaUsuarioIdBaja,VentaSessionId,GETDATE(),".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",'$session_id' FROM Ventas WHERE VentaId = $VentaId");
              if($cargaarchivo == 1){
         $this->db->query("UPDATE Ventas SET VentaNumeroTicket = '$numero_ticket_clean',VentaMontoTicket = '$monto_ticket_clean',VentaFotoTicket = '$imagen' WHERE VentaId = $VentaId");
             }else{

@@ -35,7 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <table class='table table-lg table-bordered table-axalta' id="mi-tabla3" style="margin:20px 0px;">
                             <thead>
                                 <tr>
-                                    <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_modal_tabla_titulo_sector')?></th>
                                     <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_modal_tabla_titulo_clase')?></th>
                                     <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_modal_tabla_titulo_marca')?></th>   
                                     <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_modal_tabla_titulo_cantidad')?></th>    

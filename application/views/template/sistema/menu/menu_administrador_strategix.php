@@ -16,8 +16,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("AuditoriaPrimera"); ?>"><?=$this->lang->line('menu_submenu_auditorias_primera')?></a></li> 
                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("EnvioCorreos"); ?>"><?=$this->lang->line('menu_submenu_auditorias_envio_correos')?></a></li> 
-               <!--  <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("AuditoriaSegunda"); ?>"><?=$this->lang->line('menu_submenu_auditorias_segunda')?></a></li>-->
-
+                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("AuditoriaSegunda"); ?>"><?=$this->lang->line('menu_submenu_auditorias_segunda')?></a></li>
+                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("AuditoriaPromociones"); ?>"><?=$this->lang->line('menu_submenu_auditorias_promociones')?></a></li> 
             </ul>
         </li> 
      <!--   <li class="nav-item dropdown" id="nav_catalogos">

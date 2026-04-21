@@ -24,6 +24,20 @@ class Ventas_registro_controller extends Base_Controller {
         $pag = $this->load->view('modals/modals_ventas/modals_ventas_registro/modals_ventas_registro_qr_view', '', true);
         echo json_encode($pag);   
     }
+
+    public function ventas_registro_controller_cmb_distribuidor() {  
+        $cmb_dist ="";
+        $distribuidor =  $this->ventas_registro_model->ventas_registro_model_cmb_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))); 
+        foreach ($distribuidor as $dist) {   
+            if($dist->DistribuidorDetalleNombreComercial!=NULL){
+                $nombre = utf8_encode($dist->DistribuidorDetalleNombreComercial);
+            } else {
+                $nombre = utf8_encode($dist->DistribuidorDetalleRazonSocial);
+            }     
+            $cmb_dist .="<option value=$dist->DistribuidorId>".$nombre."</option>";
+        }
+        echo json_encode($cmb_dist);
+    }
     public function ventas_registro_controller_ajax_combo_lista_clase() {
         $cmb_sector = $this->input->post('cmb_sector',TRUE);
         $combo_clase = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_clase')."</option>";
@@ -142,17 +156,19 @@ class Ventas_registro_controller extends Base_Controller {
     }
     private function ventas_registro_guardar_venta() {
         $this->ventas_registro_guardar_venta_valida_carpetas();$total_monto_detalle=$total=$total_cantidad=0;  
-        $maestro_pintor = $this->ventas_registro_model->ventas_registro_model_maestro_pintor_informacion($this->input->post('txt_qr',TRUE));
-        $ditribuidor = $this->ventas_registro_model->ventas_registro_model_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')));        
+        $datos_maestro_pintor = $this->ventas_registro_model->ventas_registro_model_maestro_pintor_informacion($this->input->post('txt_qr',TRUE));
+        $ditribuidor = $this->ventas_registro_model->ventas_registro_model_distribuidor($this->input->post('cmb_distribuidor',TRUE));        
         if($this->input->post('chk_camara')){ $imagen_ticket = $this->ventas_registro_guardar_venta_foto(); }
         if($this->input->post('chk_archivo')){ $imagen_ticket = $this->ventas_registro_guardar_venta_archivo(); }
         $VentaCantidadProdcutos = count($this->cart->contents());
         foreach ($this->cart->contents() as $items) { $total = $items['monto'] * $items['qty']; $total_monto_detalle = $total_monto_detalle + $total; $total_cantidad = $total_cantidad + $items['qty']; }     
-        $entra_auditoria = $this->ventas_registro_entra_auditoria($maestro_pintor->UsuarioId,$total_monto_detalle);
-        $data = trim($this->input->post('txt_qr',TRUE)).",".$ditribuidor->DistribuidorDetalleId.",".$maestro_pintor->UsuarioDetalleId.",".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",'".utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE))))."','".strtoupper(trim($this->input->post('txt_monto_ticket',TRUE)))."','".$total_monto_detalle."',".$VentaCantidadProdcutos.",".$total_cantidad.",'".$imagen_ticket."',".$entra_auditoria.",'".$this->uniqueId."'";              
-        $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta($data);
+      //  $entra_auditoria = $this->ventas_registro_entra_auditoria($maestro_pintor->UsuarioId,$total_monto_detalle);
+      //  $data = trim($this->input->post('txt_qr',TRUE)).",".$ditribuidor->DistribuidorDetalleId.",".$maestro_pintor->UsuarioDetalleId.",".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",'".utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE))))."','".strtoupper(trim($this->input->post('txt_monto_ticket',TRUE)))."','".$total_monto_detalle."',".$VentaCantidadProdcutos.",".$total_cantidad.",'".$imagen_ticket."','".$this->uniqueId."'";              
+       // $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta($data);
+        $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta(trim($this->input->post('txt_qr',TRUE)),utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE)))),strtoupper(trim($this->input->post('txt_monto_ticket',TRUE))),$imagen_ticket,$this->uniqueId,$datos_maestro_pintor,$this->input->post('cmb_distribuidor',TRUE));
         $this->ventas_registro_guardar_venta_detalle($VentaId);
-        $this->ventas_registro_controller_distribuidor_activo($ditribuidor->DistribuidorId,$ditribuidor->DistribuidorDetalleId);
+        $this->ventas_registro_controller_entra_auditoria($VentaId,$datos_maestro_pintor->UsuarioId,$this->input->post('txt_monto_ticket',TRUE),$this->input->post('cmb_distribuidor',TRUE));
+      //  $this->ventas_registro_controller_distribuidor_activo($ditribuidor->DistribuidorId,$ditribuidor->DistribuidorDetalleId);
         return $VentaId;
     }
     private function ventas_registro_guardar_venta_valida_carpetas() {
@@ -182,6 +198,25 @@ class Ventas_registro_controller extends Base_Controller {
         }
         $this->ventas_registro_controller_cart_limpiar();
     } 
+
+    private function ventas_registro_controller_entra_auditoria($VentaId,$VentaUsuarioIdMP,$VentaMontoTicket,$DistribuidorId) {  
+        $total_auditorias_calculos = $this->ventas_registro_model->ventas_registro_model_auditorias_calculos();
+        if($total_auditorias_calculos["porcentaje"]>$total_auditorias_calculos["ventas_total_auditorias"]){
+            if($total_auditorias_calculos["ventas_total_monto_repetido"] < $total_auditorias_calculos["porcentaje_monto_repetido"]){      
+                if($this->ventas_registro_model->ventas_registro_model_venta_monto_repetido($DistribuidorId,$VentaUsuarioIdMP,$VentaMontoTicket,$VentaId)!=0){  
+                    $this->ventas_registro_model->ventas_registro_model_crea_auditorias($VentaId,1);
+                    return false;        
+                }
+            }
+            if($total_auditorias_calculos["ventas_total_cantidad_maxima"] < $total_auditorias_calculos["porcentaje_monto_maximo"]){    
+                if($VentaMontoTicket>=10000){
+                    $this->ventas_registro_model->ventas_registro_model_crea_auditorias($VentaId,2);
+                    return false;
+                }  
+            }
+        }
+    }
+
     private function ventas_registro_entra_auditoria($UsuarioId,$monto) {        
         $total_ventas_mismo_monto = $this->ventas_registro_model->ventas_registro_model_auditoria_monto($UsuarioId,funciones_strategix_formato_fecha_hora_actual(),$monto);
         if ($total_ventas_mismo_monto!=0){ $this->ventas_registro_model->ventas_registro_model_auditoria_monto_update($UsuarioId,funciones_strategix_formato_fecha_hora_actual(),$monto); return 1; }
@@ -259,7 +294,7 @@ class Ventas_registro_controller extends Base_Controller {
         $this->ventas_registro_model->ventas_registro_model_venta_promocion($VentaId);
         echo $VentaId;
     }    
-    public function ventas_registro_controller_distribuidor_activo($ditribuidorid,$ditribuidordetalleid) {
+/*    public function ventas_registro_controller_distribuidor_activo($ditribuidorid,$ditribuidordetalleid) {
         $distribuidor_activo = $this->ventas_registro_model->ventas_registro_model_distribuidor_activo($ditribuidorid,date('Y'),date('m'));
         $Ventas_totales = $this->ventas_registro_model->ventas_registro_model_ventas_totales($ditribuidordetalleid,date('Y'),date('m'));
         if(empty($distribuidor_activo)){
@@ -269,5 +304,5 @@ class Ventas_registro_controller extends Base_Controller {
             }    
         }        
        return 1;
-    }    
+    }    */
 }

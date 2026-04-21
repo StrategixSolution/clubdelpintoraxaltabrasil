@@ -109,6 +109,8 @@ class Ventas_registro_model extends Base_Model {
         public function ventas_registro_model_venta_promocion($VentaId){
         $SQL    = "UPDATE Ventas SET VentaTienePromocion = 1 WHERE VentaId = $VentaId";
         $this->db->query($SQL);
+         $SQL2    = "INSERT INTO VentasAuditoriasPromociones (VentaId, UsuarioIdCapturo) VALUES($VentaId, ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).");";
+        $this->db->query($SQL2);
         return 1;
     }
     public function ventas_registro_model_valida_promocion(){

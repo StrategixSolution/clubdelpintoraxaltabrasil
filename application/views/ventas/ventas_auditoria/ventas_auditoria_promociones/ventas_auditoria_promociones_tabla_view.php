@@ -46,7 +46,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_ticket')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_promocion')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_motivo')?></th>
-                            <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_ticket_monto_repetido')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_estatus_auditoria')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_observaciones')?></th>
                             <th><?=$this->lang->line('ventas_auditoria_primera_controller_lang_tabla_aprovar')?></th>
@@ -85,12 +84,12 @@ $(document).ready( function () {
         buttons: [
         {
             extend: 'excelHtml5',
-            exportOptions: {columns: [0,1,2,3,4,5,6,8,9,10,11]},
+            exportOptions: {columns: [0,1,2,3,4,5,6,9,10,11]},
             text: '<?=$this->lang->line('data_table_js_lang_btn_descarga')?> <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
             className:'btn btn-axalta',
-            title: 'AUDITORIA',
-            filename: 'AUDITORIA',
-            sheetName: 'AUDITORIA',
+            title: 'AUDITORIA DE PROMOÇÕES',
+            filename: 'AUDITORIA DE PROMOÇÕES',
+            sheetName: 'AUDITORIA DE PROMOÇÕES',
             excelStyles: 
             [
                 {
@@ -170,7 +169,7 @@ function ventas_auditoria_primera_form_view_js_aprobada(VentaAuditoriaId){
                 $('#loader_panel').show();
                 $.ajax({
                     type: 'POST',
-                    url: 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller/ventas_auditoria_primera_controller_aprobada',
+                    url: 'ventas/ventas_auditoria/ventas_auditoria_promociones/ventas_auditoria_promociones_controller/ventas_auditoria_promociones_controller_aprobada',
                     dataType: 'json',
                     data: {VentaAuditoriaId:VentaAuditoriaId},
                     success: function(data){
@@ -189,21 +188,21 @@ function ventas_auditoria_primera_form_view_js_aprobada(VentaAuditoriaId){
 async function ventas_auditoria_primera_form_view_js_rechazo(VentaAuditoriaId){
     var inputOptionsPromise = new Promise(function(resolve) {
   // get your data and pass it to resolve()
-    setTimeout(function(){$.getJSON("ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller/ventas_auditoria_primera_controller_combo_observaciones", function(data) { resolve(data);});}, 200);});
+    setTimeout(function(){$.getJSON("ventas/ventas_auditoria/ventas_auditoria_promociones/ventas_auditoria_promociones_controller/ventas_auditoria_promociones_controller_combo_observaciones", function(data) { resolve(data);});}, 200);});
     const { value: Observacionid } = await Swal.fire({
-                title: 'OBSERVACIONES',
+                title: 'OBSERVAÇÕES',
                 input: 'select',
                 inputOptions: inputOptionsPromise,
-                inputPlaceholder: 'SELECCIONA UNA OBSERVACIÓN',
+                inputPlaceholder: 'SELECIONE UMA OBSERVAÇÃO',
                 showCancelButton: true,
-                confirmButtonText:'ACEPTAR',
+                confirmButtonText:'ACEITAR',
                 cancelButtonText:'CANCELAR',
                 inputValidator: (value) => {
                   return new Promise((resolve) => {           
                     if (value !== '') {
                         resolve();
                     } else {
-                        resolve('ELIGE UNA OPCIÓN');
+                        resolve('ESCOLHA UMA OPÇÃO');
                     }
                   });
                 }
@@ -212,7 +211,7 @@ async function ventas_auditoria_primera_form_view_js_rechazo(VentaAuditoriaId){
         $('#loader_panel').show();
         $.ajax({
             type: 'POST',
-            url: 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller/ventas_auditoria_primera_controller_rechazada',
+            url: 'ventas/ventas_auditoria/ventas_auditoria_promociones/ventas_auditoria_promociones_controller/ventas_auditoria_promociones_controller_rechazada',
             dataType: 'json',
             data: {VentaAuditoriaId:VentaAuditoriaId,Observacionid:Observacionid},
             success: function(data){

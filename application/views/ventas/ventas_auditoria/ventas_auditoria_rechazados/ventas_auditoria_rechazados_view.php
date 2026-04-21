@@ -7,7 +7,7 @@
  * @CreateDate 01 MARZO 2026 09:00:00                        * 
  */
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 ?>
 <section class="auditoria_ventas">
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div class="form-rf-1" id="form-rf-1">
                     <div class="row row-validator">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="cmb_distribuidor">Distribuidor:</label><br>
                                 <select id="cmb_distribuidor" name="cmb_distribuidor" class="form-select"></select>
@@ -34,18 +34,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-lg-2" style="text-align: right; margin-top:20px;" id="div_buscar">
                             <div class="form-group">
                                 <button type="button" id="ventas_auditoria_rechazados_btn_buscar"
-                                    class="btn btn-axalta"><i class="fas fa-search"></i></button>
+                                    class="btn btn-axalta btn-buscar-ancho"><i class="fas fa-search"></i><span class="btn-buscar-texto">PESQUISAR</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-             <div id="ventas_auditoria_rechazados_tabla_view"></div>
         </div>
+        <div id="ventas_auditoria_rechazados_tabla_view"></div>
     </div>
 </section>
 <script>
- $(document).ready(function() {
+    $(document).ready(function() {
         ventas_auditoria_rechazados_controller_combo_distribuidor();
         $("#ventas_auditoria_rechazados_btn_buscar").click(function() {
             ventas_auditoria_rechazados_controller_buscar_tabla();
@@ -58,10 +58,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             type: 'POST',
             url: 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_combo_distribuidor',
             dataType: 'json',
-            data: {id: 0},
-            success: function(data){ $('#cmb_distribuidor').html(data);},
+            data: {
+                id: 0
+            },
+            success: function(data) {
+                $('#cmb_distribuidor').html(data);
+            },
             error: function(data) {},
-            complete: function() {$('#loader_panel').hide();}
+            complete: function() {
+                $('#loader_panel').hide();
+            }
         });
     }
 
@@ -72,7 +78,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             type: 'POST',
             url: 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_tabla',
             dataType: 'json',
-            data: { cmb_distribuidor: cmb_distribuidor  },
+            data: {
+                cmb_distribuidor: cmb_distribuidor
+            },
             success: function(data) {
                 $('#ventas_auditoria_rechazados_tabla_view').html(data.tabla);
             },
@@ -82,5 +90,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         });
     }
-
 </script>

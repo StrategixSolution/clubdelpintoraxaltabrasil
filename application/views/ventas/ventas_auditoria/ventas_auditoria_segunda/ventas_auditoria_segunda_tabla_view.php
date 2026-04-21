@@ -89,9 +89,9 @@ $(document).ready( function () {
             exportOptions: {columns: [0,1,2,3,4,5,6,8,9,10,11]},
             text: '<?=$this->lang->line('data_table_js_lang_btn_descarga')?> <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
             className:'btn btn-axalta',
-            title: 'AUDITORÍA SEGUNDA VUELTA',
-            filename: 'AUDITORÍA SEGUNDA VUELTA',
-            sheetName: 'AUDITORÍA SEGUNDA VUELTA',
+            title: 'SEGUNDA RODADA DE AUDITORIA',
+            filename: 'SEGUNDA RODADA DE AUDITORIA',
+            sheetName: 'SEGUNDA RODADA DE AUDITORIA',
             excelStyles: 
             [
                 {
@@ -194,19 +194,19 @@ async function ventas_auditoria_primera_form_view_js_rechazo(VentaAuditoriaId){
   // get your data and pass it to resolve()
     setTimeout(function(){$.getJSON("ventas/ventas_auditoria/ventas_auditoria_segunda/ventas_auditoria_segunda_controller/ventas_auditoria_segunda_controller_combo_observaciones", function(data) { resolve(data);});}, 200);});
     const { value: Observacionid } = await Swal.fire({
-                title: 'OBSERVACIONES',
+                title: 'OBSERVAÇÕES',
                 input: 'select',
                 inputOptions: inputOptionsPromise,
-                inputPlaceholder: 'SELECCIONA UNA OBSERVACIÓN',
+                inputPlaceholder: 'SELECIONE UMA OBSERVAÇÃO',
                 showCancelButton: true,
-                confirmButtonText:'ACEPTAR',
+                confirmButtonText:'ACEITAR',
                 cancelButtonText:'CANCELAR',
                 inputValidator: (value) => {
                   return new Promise((resolve) => {           
                     if (value !== '') {
                         resolve();
                     } else {
-                        resolve('ELIGE UNA OPCIÓN');
+                        resolve('ESCOLHA UMA OPÇÃO');
                     }
                   });
                 }

@@ -45,11 +45,11 @@ class Ventas_auditoria_promociones_controller extends Base_Controller {
             $registroventa = new DateTime($venta->VentaFechaRegistro);
             $fecharegistro = $registroventa->format('Y-m-d');
             $distribuidora = $venta->DistribuidorId . " - " . utf8_encode(strtoupper($venta->DistribuidorDetalleCodigo)) . " - " . utf8_encode(strtoupper($venta->DistribuidorDetalleNombreComercial));
-            if ($venta->VentaAuditoriaTipoId==1){
+           /* if ($venta->VentaAuditoriaTipoId==1){
                 $tickets_repetidos = $this->ventas_auditoria_promociones_model->ventas_auditoria_promociones_model_tickets_repetidos($venta->VentaId,$cmbAnio,$cmbMes,$venta->DistribuidorId,$venta->VentaUsuarioIdMP,$venta->VentaMontoTicket);
             } else {
                 $tickets_repetidos = "";
-            }
+            }*/
                 
             $lista.= '<tr id="id-comercio-td-'.$venta->VentaId.'">
                     <td>'.$i.'</td>
@@ -62,12 +62,11 @@ class Ventas_auditoria_promociones_controller extends Base_Controller {
                     <td class="txt-center"><a href= "javascript:ventas_auditoria_primera_form_view_js_modal_ticket('.$venta->VentaId.');"><i class="fas fa-ticket-alt"></i></a></td>
                     <td class="txt-center"><a href= "javascript:ventas_auditoria_primera_form_view_js_modal_promocion('.$venta->VentaId.');"><i class="fas fa-ticket-alt"></i></a></td>                    
                     <td>'.utf8_encode(strtoupper($venta->VentaAuditoriaTipoDescripcion)).'</td>
-                    <td>'.$tickets_repetidos.'</td>  
-                    <td id="idstatus'.$venta->VentaAuditoriaId.'">'.utf8_encode(strtoupper($venta->VentaAuditoriaEstatusDescripcion)).'</td>
-                    <td id="observaciones'.$venta->VentaAuditoriaId.'">'.utf8_encode(strtoupper($venta->VentaAuditoriaObservacionDescripcion)).'</td>';
-                    if($venta->VentaAuditoriaEstatusId == 1){
-                        $lista.=    '<td class="txt-center" id="ida'.$venta->VentaAuditoriaId.'"><i onClick="javascript:ventas_auditoria_primera_form_view_js_aprobada('.$venta->VentaAuditoriaId.');" class="fas fa-check" id="aprobada"></i></td>
-                                     <td class="txt-center" id="idr'.$venta->VentaAuditoriaId.'"><i onClick="javascript:ventas_auditoria_primera_form_view_js_rechazo('.$venta->VentaAuditoriaId.');" class="fas fa-times" id="rechazada"></i></td>
+                    <td id="idstatus'.$venta->VentaAuditoriaPromocionesId.'">'.utf8_encode(strtoupper($venta->VentaAuditoriaEstatusPromosionesDescripcion)).'</td>
+                    <td id="observaciones'.$venta->VentaAuditoriaPromocionesId.'">'.utf8_encode(strtoupper($venta->VentaAuditoriaPromosionesObservacionDescripcion)).'</td>';
+                    if($venta->VentaAuditoriaPromocionesEstatusId == 1){
+                        $lista.=    '<td class="txt-center" id="ida'.$venta->VentaAuditoriaPromocionesId.'"><i onClick="javascript:ventas_auditoria_primera_form_view_js_aprobada('.$venta->VentaAuditoriaPromocionesId.');" class="fas fa-check" id="aprobada"></i></td>
+                                     <td class="txt-center" id="idr'.$venta->VentaAuditoriaPromocionesId.'"><i onClick="javascript:ventas_auditoria_primera_form_view_js_rechazo('.$venta->VentaAuditoriaPromocionesId.');" class="fas fa-times" id="rechazada"></i></td>
                                   </tr>' ;
                     }else{
                         $lista.=    '<td></td>
@@ -172,11 +171,11 @@ class Ventas_auditoria_promociones_controller extends Base_Controller {
     public function ventas_auditoria_promociones_controller_combo_observaciones() {
         $observaciones = $this->ventas_auditoria_promociones_model->ventas_auditoria_promociones_model_observaciones();
         foreach ($observaciones as $observacion) {
-            $cmb_observacion[$observacion->VentaAuditoriaObservacionId] = utf8_encode(strtoupper($observacion->VentaAuditoriaObservacionDescripcion));         
+            $cmb_observacion[$observacion->VentaAuditoriaPromosionesObservacionId] = utf8_encode(strtoupper($observacion->VentaAuditoriaPromosionesObservacionDescripcion));         
         }
         echo json_encode($cmb_observacion);
     }
-    public function ventas_auditoria_promociones_controller_crea_random(){
+   /* public function ventas_auditoria_promociones_controller_crea_random(){
         $cmbAnio     = $this->input->post('anio',true);
         $cmbMes      = $this->input->post('mes',true);
         $auditorias_random = $this->ventas_auditoria_promociones_model->ventas_auditoria_promociones_model_auditorias_random($cmbAnio,$cmbMes);
@@ -186,5 +185,5 @@ class Ventas_auditoria_promociones_controller extends Base_Controller {
             $this->ventas_auditoria_promociones_model->ventas_auditoria_promociones_model_genera_randoms($auditorias_random["auditorias_random_faltantes"],$cmbAnio,$cmbMes);
             echo json_encode(1);
         }
-    }
+    }*/
 }

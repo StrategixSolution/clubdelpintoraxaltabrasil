@@ -178,7 +178,7 @@ function ventas_auditoria_primera_form_view_js_aprobada(VentaAuditoriaId){
                         $('#fechaauditoria'+data.VentaAuditoriaId).html(data.fechacambio);
                         $('#ida'+data.VentaAuditoriaId).html('');
                         $('#idr'+data.VentaAuditoriaId).html('');
-                        Swal.fire('','<?=$this->lang->line('ventas_auditoria_primera_controller_lang_alerta_respuesta_aprobada')?>','success');},
+                        Swal.fire('','PROMOÇÃO DE VENDA APROVADA','success');},
                     error: function(data){ },
                     complete: function(){ $('#loader_panel').hide(); }
                 });
@@ -220,7 +220,7 @@ async function ventas_auditoria_primera_form_view_js_rechazo(VentaAuditoriaId){
                 $('#observaciones'+data.VentaAuditoriaId).html(data.Observacion);
                 $('#ida'+data.VentaAuditoriaId).html('');
                 $('#idr'+data.VentaAuditoriaId).html('');
-                Swal.fire('','<?=$this->lang->line('ventas_auditoria_primera_controller_lang_alerta_respuesta_rechazo')?>','success');
+                Swal.fire('','PROMOÇÃO DE VENDA REJEITADA','success');
             },
             error: function(data){},
             complete: function(){ $('#loader_panel').hide(); }

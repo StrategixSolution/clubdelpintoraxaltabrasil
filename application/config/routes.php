@@ -34,7 +34,7 @@ $route['TicketsActualiza']                      = 'ventas/ventas_auditoria/venta
 $route['AuditoriaSegunda']                      = 'ventas/ventas_auditoria/ventas_auditoria_segunda/ventas_auditoria_segunda_controller';
 $route['VentasRegistroVentasPromocion']         = 'ventas/ventas_promociones/ventas_promociones_controller';
 $route['AuditoriaPromociones']                  = 'ventas/ventas_auditoria/ventas_auditoria_promociones/ventas_auditoria_promociones_controller';
-
+$route['CargaMultimedios']                      = 'multimedios/multimedios_cargas_controller';
  
 /*
 
@@ -72,7 +72,7 @@ $route['ReporteGanadores']                      = 'reportes/ventas/ventas_report
 $route['ReporteVentasRegistradas']             = 'reportes/ventas/ventas_registradas_controller/index';
 $route['ReporteAuditoriaVentas']               = 'reportes/ventas/reportes_ventas_auditoria_controller';
 $route['ReporteReposicionProductos']           = 'reportes/reposicion_productos/reporte_reposicion_productos_controller';
-$route['CargaMultimedios']        = 'multimedios/multimedios_cargas_controller';
+
 $route['DistribuidorasAdjsExcel']                   = 'distribuidora/adjs/cargas_adjs_excel_controller';
 $route['DistribuidorasAdjsMail']                   = 'distribuidora/adjs/cargas_adjs_mail_controller';
 $route['ReporteReposicionProductoZonas']= 'reportes/reposicion_productos/reporte_reposicion_producto_zona_controller';

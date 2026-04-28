@@ -46,6 +46,7 @@ $autoload['language']   = array(
     'reportes_tarjetas_controller_lang',
     'tarjetas_altas_controller_lang',
     'tarjetas_controller_lang',
-    'ventas_registro_controller_lang'
+    'ventas_registro_controller_lang',
+    'multimedios_cargas_controller_lang'
     );
 $autoload['model']      = array();

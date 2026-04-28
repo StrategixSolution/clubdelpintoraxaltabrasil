@@ -42,7 +42,7 @@ $lang['menu_submenu_admin_asesores_comerciales']                                
 $lang['menu_submenu_admin_usuarios']                                            = 'USUÁRIOS';
 $lang['menu_submenu_admin_tarjetas']                                            = 'CARTÕES';
 $lang['menu_submenu_admin_participantes']                                       = 'PARTICIPANTES';
-$lang['menu_submenu_admin_carga_multimedia']                                    = 'CARGA DE MULTIMÍDIA';
+$lang['menu_submenu_admin_carga_multimedia']                                    = 'CARREGAMENTO MULTIMÍDIA';
 $lang['menu_submenu_admin_cortes']                                              = 'CORTES';
 $lang['menu_submenu_admin_documentos']                                          = 'DOCUMENTOS';
 $lang['menu_submenu_admin_recompensas']                                         = 'FAIXAS DE RECOMPENSAS';

@@ -156,14 +156,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             }
                         }
                     }, 
-                    {
-                        cells: "K:K",
-                        style: {
-                            alignment: {
-                                wrapText: true
-                            }
-                        }
-                    }
+                    // {
+                    //     cells: "K:K",
+                    //     style: {
+                    //         alignment: {
+                    //             wrapText: true
+                    //         }
+                    //     }
+                    // }
                 ]
             }]
         });

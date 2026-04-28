@@ -23,21 +23,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container">
     <div class="panel-white">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-5">
                 <div class="form-group">
                     <label for="anio"><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_etiqueta_anio')?></label>
                     <select name="anio" id="anio" class="form-select"></select>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-5">
                 <div class="form-group" style="display: none;" id="div_mes">
                     <label for="mes"><?=$this->lang->line('ventas_auditoria_promociones_controller_lang_etiqueta_mes')?></label>
                     <select name="mes" id="mes" class="form-select"></select>
                 </div>
             </div>
-            <div class="col-lg-1" style="text-align: right; margin-top:20px; display: none;" id="div_buscar">
+            <div class="col-lg-2" style="text-align: right; margin-top:20px; display: none;" id="div_buscar">
                 <div class="form-group">
-                    <button type="button" id="auditoria_ventas_btn_buscar" class="btn btn-axalta"><i class="fas fa-search"></i></button>
+                    <button type="button" id="auditoria_ventas_btn_buscar" class="btn btn-axalta btn-buscar-ancho"><i class="fas fa-search"></i><span class="btn-buscar-texto">PESQUISAR</span></button>
                 </div>
             </div>
         </div> 

@@ -96,6 +96,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
             dom: '<"row"<"col-xs-4 col-md-4"l><"col-xs-4 col-md-4 botones"B><"col-md-4"f>>rt<"row"<"col-md-6"i><"col-md-6"p>>',
             buttons: [{
                 extend: 'excelHtml5',
+                customizeData: function(data) {
+                    for (var i = 0; i < data.body.length; i++) {
+                        for (var j = 0; j < data.body[i].length; j++) {
+                            if (data.body[i][j] === null || data.body[i][j] === "") {
+                                data.body[i][j] = " "; // fuerza celda vacía
+                            }
+                        }
+                    }
+                },
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11]
                 },
@@ -146,7 +155,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 right: "thin"
                             }
                         }
-                    }
+                    }, 
+                    // {
+                    //     cells: "K:K",
+                    //     style: {
+                    //         alignment: {
+                    //             wrapText: true
+                    //         }
+                    //     }
+                    // }
                 ]
             }]
         });
@@ -298,7 +315,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     $('#ida' + data.VentaAuditoriaId).html('');
                     $('#idr' + data.VentaAuditoriaId).html('');
 
-                    $('#TbVentasAuditoria').DataTable().columns.adjust().draw();
+                    // $('#TbVentasAuditoria').DataTable().columns.adjust().draw();
                     Swal.fire('', '<?= $this->lang->line('ventas_auditoria_primera_controller_lang_alerta_respuesta_rechazo') ?>', 'success');
                 },
                 error: function(data) {},

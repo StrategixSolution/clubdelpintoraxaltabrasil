@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['multimedios_cargas_controller_lang_titulo']                                       = 'CARREGAMENTO MULTIMÍDIA';
 $lang['multimedios_cargas_controller_lang_etiqueta_modulos']                             = 'MÓDULO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_tipos']                               = 'TIPO:';
-$lang['multimedios_cargas_controller_lang_etiqueta_tipo_video']                          = 'TIPO VIDEO:';
+$lang['multimedios_cargas_controller_lang_etiqueta_tipo_video']                          = 'TIPO DE VÍDEO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_archvivo_multimedia_principal']       = 'ARQUIVO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_archvivo_multimedia_secundario']      = 'THUMBNAIL:';
 $lang['multimedios_cargas_controller_lang_etiqueta_texto']                               = 'TEXTO:';
@@ -52,12 +52,12 @@ $lang['multimedios_cargas_controller_lang_js_aceptar']                          
 $lang['multimedios_cargas_controller_lang_js_cancelar']                          = 'CANCELAR';
 $lang['multimedios_cargas_controller_lang_js_baja_exitosa']                          = 'BAIXA EFETUADA COM SUCESSO';
 $lang['multimedios_cargas_controller_lang_tabla_js_all']                            = 'TODOS';
-$lang['multimedios_cargas_controller_lang_tabla_js_lengthMenu']                          = 'MOSTRANDO _MENU_ REGISTROS POR PÁGINA';
+$lang['multimedios_cargas_controller_lang_tabla_js_lengthMenu']                          = 'EXIBINDO _MENU_ REGISTROS POR PÁGINA';
 $lang['multimedios_cargas_controller_lang_tabla_js_zeroRecords']                         = 'NENHUM REGISTRO ENCONTRADO';
 $lang['multimedios_cargas_controller_lang_tabla_js_info']                                = 'PÁGINA _PAGE_ DE _PAGES_';
 $lang['multimedios_cargas_controller_lang_tabla_js_infoEmpty']                           = 'REGISTROS NÃO DISPONÍVEIS';
 $lang['multimedios_cargas_controller_lang_tabla_js_infoFiltered']                        = '(FILTRADO DE _MAX_ REGISTROS)';
-$lang['multimedios_cargas_controller_lang_tabla_js_search']                              = 'BUSCAR:';
+$lang['multimedios_cargas_controller_lang_tabla_js_search']                              = 'PESQUISAR:';
 $lang['multimedios_cargas_controller_lang_tabla_js_first']                               = 'PRIMEIRO';
 $lang['multimedios_cargas_controller_lang_tabla_js_last']                                = 'ÚLTIMO';
 $lang['multimedios_cargas_controller_lang_tabla_js_next']                                = 'PRÓXIMO';
@@ -70,8 +70,8 @@ $lang['multimedios_cargas_controller_lang_etiqueta_popup_creado']               
 $lang['multimedios_cargas_controller_lang_etiqueta_si']                               = 'SIM';
 $lang['multimedios_cargas_controller_lang_etiqueta_no']                               = 'NÃO';
 $lang['multimedios_cargas_controller_lang_etiqueta_todos']                               = 'TODOS';
-$lang['multimedios_cargas_controller_lang_etiqueta_descarga']                               = 'DOWNLOAD';
-$lang['multimedios_cargas_controller_lang_tabla_titulo_descarga']                               = 'DOWNLOAD';
+$lang['multimedios_cargas_controller_lang_etiqueta_descarga']                               = 'DESCARGAR';
+$lang['multimedios_cargas_controller_lang_tabla_titulo_descarga']                               = 'DESCARGAR';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_ver']                               = 'VER';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_estatus']                               = 'STATUS';
 

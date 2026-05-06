@@ -41,7 +41,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
     <div class="col-lg-2 col-12">
         <div class="form-group">
-            <button type="submit" id="multimedios_cargas_popup_form_view_btn_guardar" class="btn btn-axalta btn-buscar-ancho" style="margin-top:20px;"><i class="far fa-save pr-5"></i> GUARDAR</button>
+            <button type="submit" id="multimedios_cargas_popup_form_view_btn_guardar" class="btn btn-axalta btn-buscar-ancho" style="margin-top:20px;"><i class="far fa-save pr-5"></i><span class="btn-buscar-texto">SALVAR</span></button>
         </div>
     </div>
 </span>

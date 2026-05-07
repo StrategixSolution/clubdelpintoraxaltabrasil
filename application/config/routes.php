@@ -35,7 +35,14 @@ $route['AuditoriaSegunda']                      = 'ventas/ventas_auditoria/venta
 $route['VentasRegistroVentasPromocion']         = 'ventas/ventas_promociones/ventas_promociones_controller';
 $route['AuditoriaPromociones']                  = 'ventas/ventas_auditoria/ventas_auditoria_promociones/ventas_auditoria_promociones_controller';
 $route['CargaMultimedios']                      = 'multimedios/multimedios_cargas_controller';
- 
+$route['Recompensas']                           = 'recompensas/recompensas_controller';
+$route['CargaProductosPremios']                 = 'productos/productos_reposicion/productos_reposicion_carga_controller';
+$route['RelacionPremiosProductos']              = 'productos/productos_reposicion/productos_reposicion_relacion_premios_productos_contoller';
+$route['CargaPromociones']                      = 'ventas/ventas_promociones/ventas_promociones_cargas/ventas_promociones_cargas_controller';
+$route['CorteAuditoriaVentas']                  = 'ventas/ventas_cortes/ventas_cortes_auditoria_ventas/ventas_cortes_auditoria_ventas_controller';
+$route['CorteGanadoresVentas']                  = 'ventas/ventas_cortes/ventas_cortes_ganadores/ventas_cortes_ganadores_contoller';
+$route['CorteVentasBimestral']                  = 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller';
+
 /*
 
 
@@ -50,13 +57,13 @@ $route['Registromaestropintorexterno']          = 'usuarios/usuarios_registro_mp
 $route['Registroexitoso']                       = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/registro_exitoso_maestro_pintor';
 $route['Registromaestropintorexternodatos']     = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_datosregistro_controller';
 $route['Registromaestropintorinterno']          = 'usuarios/usuarios_registro_mp_interno/usuarios_registro_mp_interno_controller';
-$route['Recompensas']                           = 'recompensas/recompensas_controller';
-$route['CargaProductosPremios']                 = 'productos/productos_reposicion/productos_reposicion_carga_controller';
-$route['RelacionPremiosProductos']              = 'productos/productos_reposicion/productos_reposicion_relacion_premios_productos_contoller';
-$route['CargaPromociones']                      = 'ventas/ventas_promociones/ventas_promociones_cargas/ventas_promociones_cargas_controller';
-$route['CorteAuditoriaVentas']                  = 'ventas/ventas_cortes/ventas_cortes_auditoria_ventas/ventas_cortes_auditoria_ventas_controller';
-$route['CorteGanadoresVentas']                  = 'ventas/ventas_cortes/ventas_cortes_ganadores/ventas_cortes_ganadores_contoller';
-$route['CorteVentasBimestral']                  = 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller';
+
+
+
+
+
+
+
 $route['DescargaReposicionProductos']           = 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller';
 
 

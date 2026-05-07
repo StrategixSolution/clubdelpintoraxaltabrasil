@@ -57,6 +57,7 @@ $lang['menu_submenu_admin_reposicion_prodcutos_generacion_ganadores']           
 $lang['menu_submenu_admin_corte_auditoria_ventas']                              = 'CORTE AUDITORIA DE VENTAS';
 $lang['menu_submenu_admin_cortes_promociones']                                  = 'CORTE DE VENTAS DE PROMOCIONES';
 $lang['menu_submenu_admin_cortes_bimestral']                                    = 'TARJETAS';
+$lang['menu_submenu_admin_carga_producto_premios']                              = 'CARGA DE PRODUCTOS DE PREMIOS';
 
 /**************************AUDITORIAS****************************************************/
 $lang['menu_submenu_auditorias_primera']                                        = 'PRIMERA VUELTA';

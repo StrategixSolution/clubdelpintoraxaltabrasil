@@ -40,8 +40,13 @@ $route['CargaProductosPremios']                 = 'productos/productos_reposicio
 $route['RelacionPremiosProductos']              = 'productos/productos_reposicion/productos_reposicion_relacion_premios_productos_contoller';
 $route['CargaPromociones']                      = 'ventas/ventas_promociones/ventas_promociones_cargas/ventas_promociones_cargas_controller';
 $route['CorteAuditoriaVentas']                  = 'ventas/ventas_cortes/ventas_cortes_auditoria_ventas/ventas_cortes_auditoria_ventas_controller';
-$route['CorteGanadoresVentas']                  = 'ventas/ventas_cortes/ventas_cortes_ganadores/ventas_cortes_ganadores_contoller';
+$route['CorteGanadoresVentas']                  = 'ventas/ventas_cortes/ventas_cortes_ganadores/ventas_cortes_ganadores_contoller/index';
 $route['CorteVentasBimestral']                  = 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller';
+$route['ReposicionProductoCaptura']             = 'productos/productos_reposicion/productos_reposicion_captura/productos_reposicion_captura_controller';
+$route['DescargaReposicionProductos']           = 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller';
+$route['AperturaCierreRepProd']                 = 'ventas/ventas_cortes/ventas_cortes_apertura_cierre/ventas_cortes_apertura_cierre_controller';
+
+
 
 /*
 
@@ -64,7 +69,7 @@ $route['Registromaestropintorinterno']          = 'usuarios/usuarios_registro_mp
 
 
 
-$route['DescargaReposicionProductos']           = 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller';
+
 
 
 $route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
@@ -73,7 +78,7 @@ $route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/venta
 $route['TicketsRechazados']                     = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller';
 $route['TicketsActualiza']                      = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_actualiza_venta';
 
-$route['ReposicionProductoCaptura']             = 'productos/productos_reposicion/productos_reposicion_captura/productos_reposicion_captura_controller';
+
 $route['ReporteVentasPersonalTop']             = 'reportes/ventas/ventas_personal_top_controller';
 $route['ReporteGanadores']                      = 'reportes/ventas/ventas_reporte_ganadores_controller';
 $route['ReporteVentasRegistradas']             = 'reportes/ventas/ventas_registradas_controller/index';

@@ -32,6 +32,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <hr class="separador">
                         </div>
                     </div>
+                    <div class="row row-validator"> 
+                    <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="cmb_distribuidor"><?=$this->lang->line('ventas_registro_controller_lang_input_distribuidor')?></label><br>
+                                <select id="cmb_distribuidor" name="cmb_distribuidor" class="form-select"></select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row row-validator">
                         <div class="col-sm-4 align-self-center">
                             <div><?= $this->lang->line('ventas_registro_controller_lang_etiqueta_etiqueta_msg_ticket') ?></div>
@@ -194,6 +202,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     $(document).ready(function() {
         ventas_registro_view_js_combo_clase();
         ventas_registro_view_js_combo_litros();
+        ventas_registro_view_js_combo_distribuidor();
         /********************************************ON CLICK******************************************************************************************/
         $("#ventas_registros_view_btn_qr").click(function() {
             ventas_registro_view_js_modal_qr();
@@ -378,6 +387,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
             js_general_limpiar_errores(this);
         });
     });
+
+    function ventas_registro_view_js_combo_distribuidor(){
+        $('#loader_panel').show();
+        $.ajax({
+            type: 'POST',
+            url: 'ventas/ventas_registro/ventas_registro_controller/ventas_registro_controller_cmb_distribuidor',
+            dataType: 'json',
+            data: {id:0},
+            success: function(data){ $('#cmb_distribuidor').html(data);},
+            error: function(data){ },
+            complete: function(){ $('#loader_panel').hide(); }
+        });
+    }
 
     function ventas_registro_view_js_limpiar_carito() {
         Swal.fire({

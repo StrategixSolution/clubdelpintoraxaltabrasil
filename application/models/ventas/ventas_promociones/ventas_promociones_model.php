@@ -39,10 +39,9 @@ WHERE (VentasPromociones.VentaPromocionFechaBaja IS NULL) AND ('". date('Y-m-d')
 //        echo  $this->db->last_query()."<br>"; 
         return $query->result();
     }
-    public function ventas_promociones_model_guardar_promocion($data,$VentaId,$VentaPromocionId) {
+    public function ventas_promociones_model_guardar_promocion($data) {
         $SQL    = "INSERT INTO VentasUsuariosPromociones (VentaId,VentaPromocionDetalleId,VentaUsuarioPromocionCantidad) VALUES ($data)";
         $query	= $this->db->query($SQL);
-        $SQL2    = "UPDATE Ventas SET VentaPromocionId = $VentaPromocionId WHERE VentaId = $VentaId";
-        $this->db->query($SQL2);        
+        //echo  $this->db->last_query()."<br>"; 
     }
 }

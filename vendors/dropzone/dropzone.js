@@ -440,56 +440,56 @@ function (_Emitter) {
         /**
          * The text used before any files are dropped.
          */
-        dictDefaultMessage: "Arrastra los archivos o da click aquí para subirlos",
+        dictDefaultMessage: "Arraste os arquivos ou clique aqui para enviá-los",
 
         /**
          * The text that replaces the default message text it the browser is not supported.
          */
-        dictFallbackMessage: "Tu navegador no admite la carga de archivos mediante la función de arrastrar y soltar.",
+        dictFallbackMessage: "Seu navegador não suporta o upload de arquivos com arrastar e soltar.",
 
         /**
          * The text that will be added before the fallback form.
          * If you provide a  fallback element yourself, or if this option is `null` this will
          * be ignored.
          */
-        dictFallbackText: "Utilice el formulario de respaldo a continuación para cargar sus archivos como en los viejos tiempos.",
+        dictFallbackText: "Use o formulário alternativo abaixo para carregar seus arquivos como nos velhos tempos.",
 
         /**
          * If the filesize is too big.
          * `{{filesize}}` and `{{maxFilesize}}` will be replaced with the respective configuration values.
          */
-        dictFileTooBig: "El archivo excede el limite ({{filesize}}MiB). Tamaño máximo: {{maxFilesize}}MiB.",
+        dictFileTooBig: "O arquivo excede o limite ({{filesize}}MiB). Tamanho máximo: {{maxFilesize}}MiB.",
 
         /**
          * If the file doesn't match the file type.
          */
-        dictInvalidFileType: "No puedes subir archivos de este tipo.",
+        dictInvalidFileType: "Você não pode enviar arquivos deste tipo.",
 
         /**
          * If the server response was invalid.
          * `{{statusCode}}` will be replaced with the servers status code.
          */
-        dictResponseError: "El servidor envio el código {{statusCode}}.",
+        dictResponseError: "O servidor enviou o código {{statusCode}}.",
 
         /**
          * If `addRemoveLinks` is true, the text to be used for the cancel upload link.
          */
-        dictCancelUpload: "Cancel upload",
+        dictCancelUpload: "Cancelar envio",
 
         /**
          * The text that is displayed if an upload was manually canceled
          */
-        dictUploadCanceled: "Upload canceled.",
+        dictUploadCanceled: "Envio cancelado.",
 
         /**
          * If `addRemoveLinks` is true, the text to be used for confirmation when cancelling upload.
          */
-        dictCancelUploadConfirmation: "¿Estás segura de que deseas cancelar esta carga?",
+        dictCancelUploadConfirmation: "Tem certeza de que deseja cancelar este envio?",
 
         /**
          * If `addRemoveLinks` is true, the text to be used to remove a file.
          */
-        dictRemoveFile: "Remover archivo",
+        dictRemoveFile: "Remover arquivo",
 
         /**
          * If this is not null, then the user will be prompted before removing a file.
@@ -500,7 +500,7 @@ function (_Emitter) {
          * Displayed if `maxFiles` is st and exceeded.
          * The string `{{maxFiles}}` will be replaced by the configuration value.
          */
-        dictMaxFilesExceeded: "You can not upload any more files.",
+        dictMaxFilesExceeded: "Você não pode enviar mais arquivos.",
 
         /**
          * Allows you to translate the different units. Starting with `tb` for terabytes and going down to
@@ -1215,7 +1215,7 @@ function (_Emitter) {
       }
 
       if (this.element.classList.contains("dropzone") && !this.element.querySelector(".dz-message")) {
-        this.element.appendChild(Dropzone.createElement("<div class=\"dz-default dz-message\"><label for=\"files\" class=\"dropzone-container\"><div class=\"file-icon\"><i class=\"far fa-file txt-rojo\"></i></div><div class=\"text-center pt-3 px-5\"><p class=\"w-80 h5 text-dark fw-bold\">Arrastra tus imágenes o documentos aquí para cargarlos.</p></label></div>"));
+        this.element.appendChild(Dropzone.createElement("<div class=\"dz-default dz-message\"><label for=\"files\" class=\"dropzone-container\"><div class=\"file-icon\"><i class=\"far fa-file txt-rojo\"></i></div><div class=\"text-center pt-3 px-5\"><p class=\"w-80 h5 text-dark fw-bold\">Arraste suas imagens ou documentos aqui para carregá-los.</p></label></div>"));
     }
 
       if (this.clickableElements.length) {

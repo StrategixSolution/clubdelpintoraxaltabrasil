@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("TicketsRechazados"); ?>"><?=$this->lang->line('menu_submenu_tickets_rechazados')?></a></li>
     </ul>
 </li> 
-<!--<li class="nav-item dropdown" id="nav_catalogos">
+<li class="nav-item dropdown" id="nav_catalogos">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_reposicion_prodcutos')?></a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
     <?php 
@@ -26,6 +26,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         if($control_array[1]['ControlModuloEstatus']==1){?> 
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReposicionProductoCaptura"); ?>"><?=$this->lang->line('menu_submenu_reposicion_productos_captura')?></a></li>
     <?php } ?> 
-      <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteReposicionProductos"); ?>">REPORTE DE REPOSICIÓN DE PRODUCTOS </a></li> 
+      <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("DescargaReposicionProductos"); ?>"><?=$this->lang->line('menu_submenu_reposicion_productos_descarga')?></a></li> 
     </ul>
-</li> -->
+</li>

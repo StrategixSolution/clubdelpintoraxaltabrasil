@@ -42,7 +42,7 @@ $lang['menu_submenu_admin_asesores_comerciales']                                
 $lang['menu_submenu_admin_usuarios']                                            = 'USUÁRIOS';
 $lang['menu_submenu_admin_tarjetas']                                            = 'CARTÕES';
 $lang['menu_submenu_admin_participantes']                                       = 'PARTICIPANTES';
-$lang['menu_submenu_admin_carga_multimedia']                                    = 'CARGA DE MULTIMÍDIA';
+$lang['menu_submenu_admin_carga_multimedia']                                    = 'CARREGAMENTO MULTIMÍDIA';
 $lang['menu_submenu_admin_cortes']                                              = 'CORTES';
 $lang['menu_submenu_admin_documentos']                                          = 'DOCUMENTOS';
 $lang['menu_submenu_admin_recompensas']                                         = 'FAIXAS DE RECOMPENSAS';
@@ -57,6 +57,8 @@ $lang['menu_submenu_admin_reposicion_prodcutos_generacion_ganadores']           
 $lang['menu_submenu_admin_corte_auditoria_ventas']                              = 'CORTE AUDITORIA DE VENDAS';
 $lang['menu_submenu_admin_cortes_promociones']                                  = 'CORTE DE VENDAS DE PROMOÇÕES';
 $lang['menu_submenu_admin_cortes_bimestral']                                    = 'CORTE DE VENDAS BIMESTRAL';
+$lang['menu_submenu_admin_carga_producto_premios']                              = 'CARREGANDO PRODUTOS PRÊMIOS';
+$lang['menu_submenu_admin_apertura_cierre_reposicion_producto']                 = 'ABERTURA E FECHAMENTO DE REPOSIÇÃO DE PRODUTOS';
 /**************************AUDITORIAS****************************************************/
 $lang['menu_submenu_auditorias_primera']                                        = 'PRIMEIRA RODADA';
 $lang['menu_submenu_auditorias_envio_correos']                                  = 'ENVIO DE E-MAILS';
@@ -80,4 +82,5 @@ $lang['menu_submenu_tickets_registro_ventas']                                   
 $lang['menu_submenu_tickets_rechazados']                                        = 'RECUSADOS';
 /**************************REPOSIÇÃO DE PRODUTOS********************************/
 $lang['menu_submenu_reposicion_productos_captura']                              = 'CAPTURA DE REPOSIÇÃO';
-
+$lang['menu_submenu_reposicion_productos_reporte']                              = 'RELATÓRIO DE REPOSIÇÃO DE PRODUTOS';
+$lang['menu_submenu_reposicion_productos_descarga']                             = 'DOWNLOAD DE ARQUIVOS DE REPOSIÇÃO DE PRODUTOS';

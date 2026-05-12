@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col-lg-2 btn-buscar-posicion" style="display: none;" id="div_buscar">
                 <div class="form-group">
-                    <button type="button" id="auditoria_ventas_btn_buscar" class="btn btn-axalta btn-buscar-ancho"><i class="fas fa-search"></i><span class="btn-buscar-texto"></span> PESQUISAR</button>
+                    <button type="button" id="auditoria_ventas_btn_buscar" class="btn btn-axalta btn-buscar-ancho"><i class="fas fa-search"></i><span class="btn-buscar-texto">PESQUISAR</span></button>
                 </div>
             </div>
         </div> 

@@ -29,7 +29,7 @@ class Ventas_promociones_controller extends Base_Controller {
         }
     }
     public function ventas_promociones_controller_combo_promociones() {
-        $combo_promociones  = "<option value='0'>".$this->lang->line('ventas_promociones_controller_lang_placeholder_promociones')."</option>";
+        $combo_promociones  = '';
         $promociones        = $this->ventas_promociones_model->ventas_promociones_model_combo_promociones();
         foreach ($promociones as $promocion) { $combo_promociones   .='<option value="'.$promocion->VentaPromocionId.'">'.utf8_encode(strtoupper($promocion->VentaPromocionNombre)).'</option>'; } 
         echo json_encode($combo_promociones);
@@ -66,7 +66,7 @@ class Ventas_promociones_controller extends Base_Controller {
             if ($input_monto_capturado!="" or $input_monto_capturado!=0){
                 $total_monto_capturado = $total_monto_capturado + $input_monto_capturado;
                 $data = "$VentaId,".$row->VentaPromocionDetalleId.",$input_monto_capturado";
-                $this->ventas_promociones_model->ventas_promociones_model_guardar_promocion($data,$VentaId,$cmb_promocion);
+                $this->ventas_promociones_model->ventas_promociones_model_guardar_promocion($data);
             }
         }
         $total = ($total_monto_capturado==0)?0:1;

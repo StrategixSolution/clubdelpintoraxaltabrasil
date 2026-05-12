@@ -57,6 +57,8 @@ $lang['menu_submenu_admin_reposicion_prodcutos_generacion_ganadores']           
 $lang['menu_submenu_admin_corte_auditoria_ventas']                              = 'CORTE AUDITORIA DE VENTAS';
 $lang['menu_submenu_admin_cortes_promociones']                                  = 'CORTE DE VENTAS DE PROMOCIONES';
 $lang['menu_submenu_admin_cortes_bimestral']                                    = 'TARJETAS';
+$lang['menu_submenu_admin_carga_producto_premios']                              = 'CARGA DE PRODUCTOS DE PREMIOS';
+$lang['menu_submenu_admin_apertura_cierre_reposicion_producto']                 = 'APERTURA CIERRE REPOSICIÓN PRODUCTO';
 
 /**************************AUDITORIAS****************************************************/
 $lang['menu_submenu_auditorias_primera']                                        = 'PRIMERA VUELTA';
@@ -80,4 +82,5 @@ $lang['menu_submenu_tickets_registro_ventas']                                   
 $lang['menu_submenu_tickets_rechazados']                                        = 'RECHAZADOS';
 /**************************REPOSICION DE PRODUCTOS*****************************/
 $lang['menu_submenu_reposicion_productos_captura']                              = 'CAPTURA DE REPOSICIÓN';
-
+$lang['menu_submenu_reposicion_productos_reporte']                              = 'REPORTE DE REPOSICIÓN DE PRODUCTOS';
+$lang['menu_submenu_reposicion_productos_descarga']                             = 'DESCARGA DE ARCHIVOS REPOSICIÓN DE PRODUCTOS';

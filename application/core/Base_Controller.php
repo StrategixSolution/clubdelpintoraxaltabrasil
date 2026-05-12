@@ -81,7 +81,8 @@ class Base_Controller extends CI_Controller {
         $this->email->subject($subject);
         $this->email->message($content);
         if ($file != ''){ $this->email->attach($file); }
-		$this->email->to('luis.rangel@strategix.com.mx');
+		//$this->email->to('luis.rangel@strategix.com.mx');
+        $this->email->to('luis.rangel@strategix.com.mx,luis.mandujano@strategix.com.mx,patricia.carteno@strategix.com.mx');
 		/*$this->email->to($to['to']); 
 		if (array_key_exists('cc',$to) && $to['cc'] != "" ){ $this->email->cc($to['cc']); };
         $this->email->bcc('contacto@clubdelpintoraxalta.com.mx,patricia.carteno@strategix.com.mx');*/

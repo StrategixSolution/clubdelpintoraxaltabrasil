@@ -1,10 +1,9 @@
 <?php
-
 /* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Amaury Alberto León Jiménez  * 
- * @CreateDate 21 jun. 2022 17:19:55 * 
+ * Sistema Web Responsivo CDPBR                            *
+ * @author	Strategic Solutions S.A. de C.V             * 
+ * @programmer  Luis Felipe Rangel                          * 
+ * @CreateDate 4 May. 2026 15:31:56                        * 
  */
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
@@ -72,25 +71,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
             var anio = $('#cmb_anio').val();
             if (anio == 0) {
                 $('#div_mes').hide(300);
-                $('#div_cmbdistribuidora').hide(300);
-             //   $('#div_cmbtipo').hide(300);
-                $('#div_buscar').hide(300);
+              //  $('#div_cmbdistribuidora').hide(300);
+              //  $('#div_cmbtipo').hide(300);
+             //   $('#div_buscar').hide(300);
             } else {
                 productos_reposicion_descarga_view_js_combo_mes();
                 $('#div_mes').show(300);
-                $('#div_buscar').show(300);
-                $('#div_cmbtipo').show(300); 
+              //  $('#div_buscar').show(300);
+             //   $('#div_cmbtipo').show(300); 
             }
         });
         $('#cmb_mes').on('change', function() {
             var mes = $('#cmb_mes').val();
             if (mes == 0) {
                 $('#div_cmbdistribuidora').hide(300);
-               // $('#div_cmbtipo').hide(300);
-                //$('#div_buscar').hide(300);  
+                $('#div_cmbtipo').hide(300);
+                $('#div_buscar').hide(300);  
             } else {
                 productos_reposicion_descarga_view_js_combo_distribuidora();
-                $('#div_cmbdistribuidora').show(300);
+               // $('#div_cmbdistribuidora').show(300);
 
             }
         });
@@ -150,6 +149,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     }
 
     function productos_reposicion_descarga_view_js_combo_distribuidora() {
+        var anio = $('#cmb_anio').val();
         var mes = $('#cmb_mes').val();
       //  $("#cmb_tipo").find('option').not(':first').remove();
         $.ajax({
@@ -157,9 +157,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
             url: 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller/productos_reposicion_descarga_controller_cmb_distribuidora',
             dataType: 'json',
             data: {
+                anio: anio,
                 mes: mes
             },
             success: function(data) {
+                if(data==""){
+                Swal.fire({
+                title: '',
+                html: 'SIN REGISTROS ENCONTRADOS',
+                icon: 'error',
+                allowOutsideClick: false,
+                showCancelButton: false,
+                confirmButtonColor: '#fd7e14',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'OK',
+                cancelButtonText: ''
+            });
+                    $('#div_cmbdistribuidora').hide(300);
+                    $('#div_cmbtipo').hide(300);
+                    $('#div_buscar').hide(300);  
+                } else {
+                     $('#div_cmbdistribuidora').show(300);
+                     $('#div_cmbtipo').show(300);
+                    $('#div_buscar').show(300);  
+                }
                 $('#cmb_distribuidora').empty();
                 $('#cmb_distribuidora').html(data);
             },

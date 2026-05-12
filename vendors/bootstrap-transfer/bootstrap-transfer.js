@@ -163,7 +163,7 @@
                             </div>\
                             <select multiple="multiple" class="filtered remaining">\
                             </select>\
-                            <a href="#" class="selector-chooseall">Seleccionar todo</a>\
+                            <a href="#" class="selector-chooseall">Selecionar tudo</a>\
                         </div>\
                     </td>\
                     <td>\
@@ -174,13 +174,13 @@
                     </td>\
                     <td width="50%">\
                         <div class="selector-chosen">\
-                            <h2>Selección</h2>\
+                            <h2>Seleção</h2>\
                             <div class="selector-filter right">\
-                                <p>Selecciona un elemento y después </p><span class="illustration"></span>\
+                                <p>Selecione um elemento e depois </p><span class="illustration"></span>\
                             </div>\
                             <select multiple="multiple" class="filtered target">\
                             </select>\
-                            <a href="#" class="selector-clearall">Quitar todo</a>\
+                            <a href="#" class="selector-clearall">Remover tudo</a>\
                         </div>\
                     </td>\
                 </tr>\

@@ -1,10 +1,10 @@
 <?php
 
 /* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala  *
+ * Sistema Web Responsivo CDPBR  *
  * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 4 abr. 2022 15:31:56                        * 
+ * @programmer  Luis Felipe Rangel                          * 
+ * @CreateDate 4 May. 2026 15:31:56                        * 
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');

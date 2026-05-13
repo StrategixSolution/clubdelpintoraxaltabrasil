@@ -10,7 +10,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['productos_reposicion_captura_controller_lang_titulo']                                 = 'REPOSIÇÃO DE PRODUTOS';
-$lang['productos_reposicion_captura_controller_lang_titulo_carga']                           = 'CARGA DE FOTOS';
+$lang['productos_reposicion_captura_controller_lang_titulo_carga']                           = 'CARREGAR FOTO';
 
 $lang['productos_reposicion_captura_controller_lang_etiqueta_distribuidor']                  = 'DISTRIBUIDOR:';
 $lang['productos_reposicion_captura_controller_lang_etiqueta_anio']                          = 'ANO:';

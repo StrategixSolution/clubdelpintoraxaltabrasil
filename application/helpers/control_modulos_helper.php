@@ -12,7 +12,7 @@ function control_modulos()
     $url = $_SERVER["REQUEST_URI"];
     $CI = &get_instance();
     $data = array();
-    $CI->load->model('productos/control_modulos_model');
+    $CI->load->model('control_modulos/control_modulos_model');
     $control =  $CI->control_modulos_model->control_modulos_model_datos();
     foreach ($control as $row) {
         $data[$row->ControlModuloId] = array("ControlModuloId" => $row->ControlModuloId, "ControlModuloNombre" => $row->ControlModuloNombre, "ControlModuloEstatus" => $row->ControlModuloEstatus);

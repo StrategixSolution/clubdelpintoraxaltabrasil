@@ -1346,3 +1346,18 @@ table.dataTable th, table.dataTable td{
 #tabla_auditoria_ventas .form-group {
     height: 60px;
 }
+
+/***********************************************
+    ESTILOS CORTE AUDITORÍA DE VENTAS
+***********************************************/    
+
+.menu-cortes a {
+    text-decoration: none;
+}
+.menu-cortes .btn-axalta {
+    min-height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

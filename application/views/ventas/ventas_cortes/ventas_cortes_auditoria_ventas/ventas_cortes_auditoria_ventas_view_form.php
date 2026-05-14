@@ -27,22 +27,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div> 
     <div class="panel-white">
         <div class="row">
-            <div class="row row-validator justify-content-center">
-                <div class="col-lg-3">
+            <div class="row row-validator">
+                <div class="col-lg-5">
                     <div class="form-group">
                         <label for="anio"><?=$this->lang->line('ventas_cortes_auditoria_ventas_controller_lang_etiqueta_anio')?></label>
                         <select name="anio" id="anio" class="form-select"></select>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-5">
                     <div class="form-group" style="display: none;" id="div_mes">
                         <label for="mes"><?=$this->lang->line('ventas_cortes_auditoria_ventas_controller_lang_etiqueta_mes')?></label>
                         <select name="mes" id="mes" class="form-select"></select>
                     </div>
                 </div>  
-                <div class="col-lg-2" style="text-align: right; margin-top:20px; display: none;" id="div_buscar">
+                <div class="col-lg-2" style="text-align: right; display: none;" id="div_buscar">
                     <div class="form-group">
-                        <button type="button" id="ventas_cambio_estatus_auditar" class="btn btn-axalta" style="margin-top: 1.68em;"><?=$this->lang->line('ventas_cortes_auditoria_ventas_controller_lang_btn_auditar')?> <i class="fas fa-file-invoice-dollar"></i></button>
+                        <button type="button" id="ventas_cambio_estatus_auditar" class="btn btn-axalta btn-buscar-ancho" style="margin-top: 1.68em;"><i class="fas fa-file-invoice-dollar"></i><span class="btn-buscar-texto"><?=$this->lang->line('ventas_cortes_auditoria_ventas_controller_lang_btn_auditar')?></span></button>
                     </div>
                 </div>                
             </div>   

@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="txt-center"><b><?=$this->lang->line('recompensas_controller_texto_seleccion')?></b></div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="center-elements">
                                 <div class="col-lg-2 col-6 txt-center">
                                     <div class="form-check">
@@ -52,14 +52,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div id="div_simple">
                             <div class="row row-validator justify-content-center">
-                                <div class="col-lg-3">
+                                <div class="col-lg-5">
                                     <div class="form-group">
                                         <label for="cmb_anio"><?=$this->lang->line('recompensas_controller_etiqueta_ano')?></label>
                                         <select id="cmb_anio" name="cmb_anio" class="form-select"></select>
                                         <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-5">
                                     <div class="form-group">
                                         <label for="cmb_mes"><?=$this->lang->line('recompensas_controller_etiqueta_mes')?></label>
                                         <select id="cmb_mes" name="cmb_mes" class="form-select"></select>
@@ -73,14 +73,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <label for="cmb_lugar">1°</label>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_inicial_1"><?=$this->lang->line('recompensas_controller_etiqueta_rango_ini')?></label>
                                         <input type="text" name="txt_rango_inicial_1" id="txt_rango_inicial_1" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_ini')?>" onKeyPress="return js_general_solo_numeros(event)" >
                                         <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_final_1"><?=$this->lang->line('recompensas_controller_etiqueta_rango_fin')?></label>
                                         <input type="text" name="txt_rango_final_1" id="txt_rango_final_1" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_fin')?>" value="999999" disabled >
@@ -94,14 +94,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <label for="cmb_lugar">2°</label>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_inicial_2"><?=$this->lang->line('recompensas_controller_etiqueta_rango_ini')?></label>
                                         <input type="text" name="txt_rango_inicial_2" id="txt_rango_inicial_2" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_ini')?>" onKeyPress="return js_general_solo_numeros(event)" >
                                         <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_final_2"><?=$this->lang->line('recompensas_controller_etiqueta_rango_fin')?></label>
                                         <input type="text" name="txt_rango_final_2" id="txt_rango_final_2" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_fin')?>" onKeyPress="return js_general_solo_numeros(event)" >
@@ -115,14 +115,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <label for="cmb_lugar">3°</label>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_inicial_3"><?=$this->lang->line('recompensas_controller_etiqueta_rango_ini')?></label>
                                         <input type="text" name="txt_rango_inicial_3" id="txt_rango_inicial_3" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_ini')?>" onKeyPress="return js_general_solo_numeros(event)" >
                                         <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_final_3"><?=$this->lang->line('recompensas_controller_etiqueta_rango_fin')?></label>
                                         <input type="text" name="txt_rango_final_3" id="txt_rango_final_3" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_fin')?>" onKeyPress="return js_general_solo_numeros(event)" >
@@ -136,14 +136,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <label for="cmb_lugar">4°</label>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_inicial_4"><?=$this->lang->line('recompensas_controller_etiqueta_rango_ini')?></label>
                                         <input type="text" name="txt_rango_inicial_4" id="txt_rango_inicial_4" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_ini')?>" onKeyPress="return js_general_solo_numeros(event)" >
                                         <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_final_4"><?=$this->lang->line('recompensas_controller_etiqueta_rango_fin')?></label>
                                         <input type="text" name="txt_rango_final_4" id="txt_rango_final_4" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_fin')?>" onKeyPress="return js_general_solo_numeros(event)" >
@@ -157,14 +157,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <label for="cmb_lugar">5°</label>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_inicial_5"><?=$this->lang->line('recompensas_controller_etiqueta_rango_ini')?></label>
                                         <input type="text" name="txt_rango_inicial_5" id="txt_rango_inicial_5" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_ini')?>" onKeyPress="return js_general_solo_numeros(event)" >
                                         <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-3 col-5">
+                                <div class="dyncol col-lg-5 col-5">
                                     <div class="form-group">
                                         <label for="txt_rango_final_5"><?=$this->lang->line('recompensas_controller_etiqueta_rango_fin')?></label>
                                         <input type="text" name="txt_rango_final_5" id="txt_rango_final_5" class="form-control" placeholder="<?=$this->lang->line('recompensas_controller_placeholder_rango_fin')?>" onKeyPress="return js_general_solo_numeros(event)" >
@@ -172,8 +172,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                 </div>
                                 <div class="row justify-content-center" style="margin:20px 0px;">
-                                    <div class="col-lg-3 col-6">
-                                        <button type="submit" id="btn_Recompensas_Guardar_simple" class="btn btn-axalta">GUARDAR <i class="far fa-save"></i></button>
+                                    <div class="col-lg-2 col-12">
+                                        <button type="submit" id="btn_Recompensas_Guardar_simple" class="btn btn-axalta btn-buscar-ancho"><i class="far fa-save"></i><span class="btn-buscar-texto">GUARDAR</span></button>
                                     </div>     
                                 </div>    
                             </div>
@@ -184,7 +184,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="form-group">
                                         <label for="">ARCHIVO LAYOUT</label><br>
                                         <a href="<?= base_url('application/views/template/sistema/archivos/excel/recompensas_carga/recompensas_carga.xlsx')?>">
-                                            <button type="button" class="btn btn-axalta"><i class="fas fa-download"></i> <?=$this->lang->line('recompensas_controller_etiqueta_ejemplo')?></button>
+                                            <button type="button" class="btn btn-axalta"><i class="fas fa-download"></i><span class="btn-buscar-texto"><?=$this->lang->line('recompensas_controller_etiqueta_ejemplo')?></span> </button>
                                         </a>
                                     </div>       
                                 </div>       
@@ -192,7 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <label for="productos_reposicion_carga_file_excel" class="label">SELECCIONA UN ARCHIVO<span data-toggle='tooltip' title='<?=$this->lang->line('ventas_registro_controller_msg_archivo')?>'><i class="fas fa-question-circle"></i></span></label>
                                     <div class="input-group mb-3">
                                         <input type="file" name="recompensas_view_form_file_excel" id="recompensas_view_form_file_excel" class="form-control" placeholder="<?=$this->lang->line('usuarios_registro_maestro_pintor_placeholder_identificacion')?>" >
-                                        <button type="submit" id="btn_Recompensas_Guardar_multiple" class="btn btn-black-sm" style="border-radius:0px 5px 5px 0px;"><i class="far fa-save"></i> SUBIR</button>
+                                        <button type="submit" id="btn_Recompensas_Guardar_multiple" class="btn btn-black-sm" style="border-radius:0px 5px 5px 0px;"><i class="far fa-save"></i><span class="btn-buscar-texto" >SUBIR</span></button>
                                         <div id="error"></div>
                                     </div>
                                 </div>   

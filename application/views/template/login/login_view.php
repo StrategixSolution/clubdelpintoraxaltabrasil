@@ -18,17 +18,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="logo-main">
                         <img src="application/views/template/login/imagenes/cdp2.png" alt="">
                         <!-- <h2><?=$this->lang->line('login_controller_lang_marca')?></h2> -->
-                       <!-- <div class="linkslogin">
+                        <!-- <div class="linkslogin">
                             <p><?=$this->lang->line('login_controller_lang_enlace_responsive_1')?> <b><a href="<?php echo funciones_strategix_version_url_random_base_url("Registromaestropintorexterno") ?>"><?=$this->lang->line('login_controller_lang_enlace_responsive_2')?></a></b></p>
                         </div>-->
                     </div>
                     <div class="logo-main-responsive">
                         <div class="row">
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <img src="application/views/template/login/imagenes/logo-texto-bk.png" alt="" class="logo1">
-                            </div>
-                            <div class="col-6">
-                                <img src="application/views/template/login/imagenes/cdp2.png" alt="" class="logo2">
+                            </div> -->
+                            <div class=" col-lg-12 col-12 justify-content-center">
+                                <img src="application/views/template/login/imagenes/cdp2.png" alt="" class="logo2" style="max-width: 60%">
                             </div>
                         </div>
                         <!-- <div class="col-12">
@@ -45,8 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="logo-secondary">
                                 <img class="mb-5" src="application/views/template/login/imagenes/logo-texto.png" alt="">
                                 <h2><?=$this->lang->line('login_controller_lang_ingreso_marca')?></h2>
-                              <!--  <a href="https://www.facebook.com/clubdelpintor" target="_blank"><img src="application/views/template/login/imagenes/likefb.png" alt="" class="btnfb mt-20"></a>-->
-                           <br>
+                                    <!--  <a href="https://www.facebook.com/clubdelpintor" target="_blank"><img src="application/views/template/login/imagenes/likefb.png" alt="" class="btnfb mt-20"></a>-->
+                            <br>
                             </div>
                             <div class="logo-secondary-responsive">
 

@@ -29,21 +29,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="panel-white">
                 <div class="row row-validator" id="div_simple">
-                    <div class="col-lg-3" id="div_anio" style="display: none;">
+                    <div class="col-lg-4" id="div_anio" style="display: none;">
                         <div class="form-group">
                             <label for="cmb_anio"><?=$this->lang->line('productos_reposicion_relacion_premios_productos_contoller_lang_etiqueta_anio')?><span data-toggle='tooltip' title='<?=$this->lang->line('productos_reposicion_relacion_premios_productos_contoller_lang_tooltip_anio')?>'><i class="fas fa-question-circle"></i></span></label>
                             <select id="cmb_anio" name="cmb_anio" class="form-select"></select>
                             <div id="error"></div>
                         </div>
                     </div>
-                    <div class="col-lg-3" id="div_mes" style="display: none;">
+                    <div class="col-lg-4" id="div_mes" style="display: none;">
                         <div class="form-group">
                             <label for="cmb_mes"><?=$this->lang->line('productos_reposicion_relacion_premios_productos_contoller_lang_etiqueta_mes')?><span data-toggle='tooltip' title='<?=$this->lang->line('productos_reposicion_relacion_premios_productos_contoller_lang_tooltip_mes')?>'><i class="fas fa-question-circle"></i></span></label>
                             <select id="cmb_mes" name="cmb_mes" class="form-select"></select>
                             <div id="error"></div>
                         </div>
                     </div>
-                    <div class="col-lg-3" id="div_lugar" style="display: none;">
+                    <div class="col-lg-4" id="div_lugar" style="display: none;">
                         <div class="form-group">
                             <label for="cmb_lugar"><?=$this->lang->line('productos_reposicion_relacion_premios_productos_contoller_lang_etiqueta_lugar')?><span data-toggle='tooltip' title='<?=$this->lang->line('productos_reposicion_relacion_premios_productos_contoller_lang_tooltip_lugar')?>'><i class="fas fa-question-circle"></i></span></label>
                             <select id="cmb_lugar" name="cmb_lugar" class="form-select"></select>
@@ -51,10 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>   
-                <div id="transfer_lugares_productos" style="width:100%; display: none;"></div> 
-                <div class="col-md-2" id="div_btn_actualizar" style="display: none;">
-                    <div class="form-group">
-                        <button type="button" id="productos_reposicion_relacion_premios_productos_view_btn_guardar" name="productos_reposicion_relacion_premios_productos_view_btn_guardar" class="btn btn-axalta"><i class="far fa-save"></i> <?=$this->lang->line('productos_reposicion_relacion_premios_productos_contoller_lang_btn_actualizar')?></button>
+                <div id="transfer_lugares_productos" class=" mt-5 mb-5" style="width:100%; display: none;"></div> 
+                <div class="row justify-content-end" id="div_btn_actualizar" style="display: none;">
+                    <div class="col-lg-2 col-12">
+                        <button type="button" id="productos_reposicion_relacion_premios_productos_view_btn_guardar" name="productos_reposicion_relacion_premios_productos_view_btn_guardar" class="btn btn-axalta btn-buscar-ancho"><i class="far fa-save"></i><span class="btn-buscar-texto"><?=$this->lang->line('productos_reposicion_relacion_premios_productos_contoller_lang_btn_actualizar')?></span></button>
                     </div>
                 </div>                       
         </div>        

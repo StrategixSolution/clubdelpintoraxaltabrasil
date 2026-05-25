@@ -1,10 +1,3 @@
-/* 
- * Sistema Web Responsivo CDPBR 					*
- * @author	Strategic Solutions S.A. de C.V             	* 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
- 
 $(document).ready( function () { 
     $(".txt-mayus").keyup(function () { this.value = this.value.toLocaleUpperCase(); });
     $('[data-toggle="tooltip"]').tooltip({placement : 'top'}); 

@@ -57,6 +57,16 @@
 
 /*
  *---------------------------------------------------------------
+ * TIMEZONE CONFIGURATION
+ *---------------------------------------------------------------
+ *
+ * Set timezone for Brazil (UTC-3).
+ * Uses America/Sao_Paulo which covers most of Brazil's population.
+ */
+	date_default_timezone_set('America/Sao_Paulo');
+
+/*
+ *---------------------------------------------------------------
  * ERROR REPORTING
  *---------------------------------------------------------------
  *

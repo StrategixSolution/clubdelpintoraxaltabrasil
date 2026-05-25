@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 marzo 2026 09:00:00                       * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_recupera_clave_controller extends Base_Controller {

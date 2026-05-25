@@ -1,10 +1,4 @@
 <?php
-/* 
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 4 May. 2026 15:31:56                        * 
- */
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <section id="reposicionCaptura">

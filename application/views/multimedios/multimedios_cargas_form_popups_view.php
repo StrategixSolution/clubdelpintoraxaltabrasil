@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                         * 
- * @CreateDate 01 May. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 ?>

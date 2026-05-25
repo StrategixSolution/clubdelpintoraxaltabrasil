@@ -1,11 +1,4 @@
 <?php
-/* 
- * Sistema Web Responsivo CDPBR                    *
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Luis Felipe Rangel  * 
- * @CreateDate  15 junio 2026 1:03:17 *  
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <script>

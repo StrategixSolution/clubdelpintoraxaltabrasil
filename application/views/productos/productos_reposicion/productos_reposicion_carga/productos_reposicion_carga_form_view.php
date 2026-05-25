@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Enrique Arce Rosas  * 
- * @CreateDate 15 jun. 2022 16:48:46 * 
- */
-
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <section class="auditoria_ventas">

@@ -1,0 +1,42 @@
+﻿<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['reportes_distribuidores_controller_lang_pagina_titulo']                             = 'REPORTE DE DISTRIBUIDORES';
+$lang['reportes_distribuidores_controller_lang_etiqueta_distribuidor']                     = 'DISTRIBUIDOR:';
+$lang['reportes_distribuidores_controller_lang_etiqueta_estatus']                          = 'ESTATUS:';
+$lang['reportes_distribuidores_controller_lang_etiqueta_mes']                              = 'MES:';
+$lang['reportes_distribuidores_controller_lang_etiqueta_anio']                             = 'AÑO:';
+$lang['reportes_distribuidores_controller_lang_etiqueta_actividad']                        = 'ACTIVIDAD:';
+$lang['reportes_distribuidores_controller_lang_placeholder_distribuidor']                  = 'TODOS';
+$lang['reportes_distribuidores_controller_lang_placeholder_estatus_0']                     = 'TODOS';
+$lang['reportes_distribuidores_controller_lang_placeholder_estatus_1']                     = 'HABILITADO';
+$lang['reportes_distribuidores_controller_lang_placeholder_estatus_2']                     = 'BAJA';
+$lang['reportes_distribuidores_controller_lang_placeholder_actividad_0']                   = 'TODOS';
+$lang['reportes_distribuidores_controller_lang_placeholder_actividad_1']                   = 'ACTIVO';
+$lang['reportes_distribuidores_controller_lang_placeholder_actividad_2']                   = 'INACTIVO';
+$lang['reportes_distribuidores_controller_lang_placeholder_mes']                           = 'TODOS';
+$lang['reportes_distribuidores_controller_lang_placeholder_anio']                          = 'TODOS';
+$lang['reportes_distribuidores_controller_lang_tabla_id']                                  = 'ID';
+$lang['reportes_distribuidores_controller_lang_tabla_codigo']                              = 'CÓDIGO';
+$lang['reportes_distribuidores_controller_lang_tabla_razon_social']                        = 'RAZÓN SOCIAL';
+$lang['reportes_distribuidores_controller_lang_tabla_nombre_comercial']                    = 'NOMBRE COMERCIAL';
+$lang['reportes_distribuidores_controller_lang_tabla_region']                              = 'REGIÓN';
+$lang['reportes_distribuidores_controller_lang_tabla_calle']                               = 'CALLE';
+$lang['reportes_distribuidores_controller_lang_tabla_nexterior']                           = 'N° EXTERIOR';
+$lang['reportes_distribuidores_controller_lang_tabla_ninterior']                           = 'N° INTERIOR';
+$lang['reportes_distribuidores_controller_lang_tabla_colonia']                             = 'COLONIA';
+$lang['reportes_distribuidores_controller_lang_tabla_municipio']                           = 'MUNICIPIO';
+$lang['reportes_distribuidores_controller_lang_tabla_ciudad']                              = 'CIUDAD';
+$lang['reportes_distribuidores_controller_lang_tabla_estado']                              = 'DEPARTAMENTO';
+$lang['reportes_distribuidores_controller_lang_tabla_cp']                                  = 'CÓDIGO POSTAL';
+$lang['reportes_distribuidores_controller_lang_tabla_ejecutivo']                           = 'EJECUTIVO';
+$lang['reportes_distribuidores_controller_lang_tabla_estatus']                             = 'ESTATUS';
+$lang['reportes_distribuidores_controller_lang_tabla_tickets_registrados']                 = 'TICKETS REGISTRADOS';
+$lang['reportes_distribuidores_controller_lang_tabla_maestros_registrados']                = 'MAESTROS REGISTRADOS';
+$lang['reportes_distribuidores_controller_lang_tabla_monto_tickets']                       = 'MONTO DE TICKETS ACUMULADOS';
+$lang['reportes_distribuidores_controller_lang_actividad']                                 = 'ACTIVO / INACTIVO';
+$lang['reportes_distribuidores_controller_lang_tabla_btn_descarga']                        = 'DESCARGAR';
+
+$lang['reportes_distribuidores_controller_lang_select_combo_distribuidor']                              = 'TODOS';
+$lang['reportes_distribuidores_controller_lang_combo_selecciona_anio_all']             = 'TODOS';
+$lang['reportes_distribuidores_controller_lang_combo_selecciona_mes_all']             = 'TODOS';

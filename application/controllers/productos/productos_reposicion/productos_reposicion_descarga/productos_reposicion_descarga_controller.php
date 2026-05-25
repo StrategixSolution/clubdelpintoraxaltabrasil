@@ -1,11 +1,4 @@
 <?php
-/* 
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 4 May. 2026 15:31:56                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Productos_reposicion_descarga_controller extends Base_Controller {

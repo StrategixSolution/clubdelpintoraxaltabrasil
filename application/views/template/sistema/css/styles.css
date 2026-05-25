@@ -105,8 +105,23 @@ footer{
 .btn-axalta{
     background-color: var(--rojo);
     color: #fff;
+    border: 2px solid var(--rojo);
 }
-
+.btn-axalta:hover{
+    background-color: transparent;
+    color: var(--rojo) !important;
+    border: 2px solid var(--rojo);
+}
+.btn-axalta:active{
+    background-color: var(--rojo);
+    color: #fff;
+    border: 2px solid var(--rojo);
+}
+.btn-axalta:focus{
+    background-color: transparent;
+    color: var(--rojo) !important;
+    border: 2px solid var(--rojo);
+}
 .btn-black{
     background-color: #000000;
     color:#ffffff;
@@ -120,10 +135,17 @@ footer{
     background-color:var(--gris);
     color:#ffffff;
 }
+
 .btn-gray{
     background-color: var(--gris);
-    color:#ffffff;
+    color:#ffffff !important;
+    border: 2px solid var(--gris);
     width: 100%;
+}
+.btn-gray:hover{
+    background-color: transparent;
+    color: var(--gris) !important;
+    border: 2px solid var(--gris);
 }
 .center{
     text-align: center;
@@ -1360,4 +1382,12 @@ table.dataTable th, table.dataTable td{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/***********************************************
+    ESTILOS CARGA DE PRODUCTOS
+***********************************************/   
+
+.tooltip-pl{
+    padding-left: 3px;
 }

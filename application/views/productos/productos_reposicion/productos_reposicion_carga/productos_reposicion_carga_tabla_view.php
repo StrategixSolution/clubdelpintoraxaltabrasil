@@ -16,24 +16,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //"scrollY": 300,
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "TODOS"]],
             "language": {
-                "lengthMenu": "<?=$this->lang->line('carga_tabla_js_lengthMenu')?>",
-                "zeroRecords": "<?=$this->lang->line('carga_tabla_js_zeroRecords')?>",
-                "info": "<?=$this->lang->line('carga_tabla_js_info')?>",
-                "infoEmpty": "<?=$this->lang->line('carga_tabla_js_infoEmpty')?>",
-                "infoFiltered": "<?=$this->lang->line('carga_tabla_js_infoFiltered')?>",
-                "search": "<?=$this->lang->line('carga_tabla_js_search')?>",
+                "lengthMenu": "<?=$this->lang->line('data_table_js_lang_lengthMenu')?>",
+                "zeroRecords": "<?=$this->lang->line('data_table_js_lang_zeroRecords')?>",
+                "info": "<?=$this->lang->line('data_table_js_lang_info')?>",
+                "infoEmpty": "<?=$this->lang->line('data_table_js_lang_infoEmpty')?>",
+                "infoFiltered": "<?=$this->lang->line('data_table_js_lang_infoFiltered')?>",
+                "search": "<?=$this->lang->line('data_table_js_lang_search')?>",
                 "paginate": {
-                    "first":      "<?=$this->lang->line('carga_tabla_js_first')?>",
-                    "last":       "<?=$this->lang->line('carga_tabla_js_last')?>",
-                    "next":       "<?=$this->lang->line('carga_tabla_js_next')?>",
-                    "previous":   "<?=$this->lang->line('carga_tabla_js_previous')?>"
+                    "first":      "<?=$this->lang->line('data_table_js_lang_first')?>",
+                    "last":       "<?=$this->lang->line('data_table_js_lang_last')?>",
+                    "next":       "<?=$this->lang->line('data_table_js_lang_next')?>",
+                    "previous":   "<?=$this->lang->line('data_table_js_lang_previous')?>"
                 }
             },
         dom: '<"row"<"col-xs-4 col-md-4"l><"col-xs-4 col-md-4 botones"B><"col-md-4"f>>rt<"row"<"col-md-6"i><"col-md-6"p>>',
         buttons: [{
             extend: 'excelHtml5',           
-            text: 'Descargar <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
-            className:'btn btn-xclusiva2',
+            text: 'DOWNLOAD <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
+            className:'btn btn-axalta',
             title: '',
             filename: 'Carga_productos_premios',
             sheetName: 'Carga_productos_premios',
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('.dataTables_length').addClass('bs-select');
     }); 
 </script>
-
+<hr class="separador">
 <table class="table table-bordered table-striped table-axalta" id="tabla_resultado">
     <thead>
         <th><?=$this->lang->line('productos_reposicion_carga_controller_lang_tabla_id_carga')?></th>
@@ -87,5 +87,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?=$tabla?>
     </tbody>
 </table>
-
-  

@@ -35,8 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
     });
 </script>
-<div class="card">
-    <div class="row">
+<div class="row">
         <div class="col-lg-12 col-12">
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-axalta" id="Tabla_carga">
@@ -56,4 +55,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-</div>
+<!-- <div class="card">
+    
+</div> -->

@@ -43,7 +43,7 @@ class Ventas_cortes_ganadores_model extends Base_Model {
         return $query->row();
     }  
     public function ventas_cortes_ganadores_model_reposiciones_productos_ganadores($data){
-        $SQL = "INSERT INTO ReposicionesProductosGanadores (ReposicionProductoGanadorAnio,ReposicionProductoGanadorMes,ReposicionProductoGanadorPremioLugar,ReposicionProductoGanadorTotalSumaVentas,ReposicionProductoGanadorTotalCuentaVentas,ReposicionProductoGanadorObservaciones,DistribuidorId,DistribuidorDetalleCodigo,DistribuidorDetalleNombreComercial,TarjetaId,RecompensaTipoId,UsuarioId,UsuarioNombre,ReposicionProductoGanadorUsuarioIdRegistro,ReposicionProductoGanadorUsuarioNombreRegistro) VALUES ($data,".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",'".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_nombre'))."')"; 
+        $SQL = "INSERT INTO ReposicionesProductosGanadores (ReposicionProductoGanadorAnio,ReposicionProductoGanadorMes,ReposicionProductoGanadorPremioLugar,ReposicionProductoGanadorTotalSumaVentas,ReposicionProductoGanadorTotalCuentaVentas,ReposicionProductoGanadorObservaciones,DistribuidorId,TarjetaId,RecompensaTipoId,UsuarioId,ReposicionProductoGanadorUsuarioIdRegistro) VALUES ($data,".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).")"; 
         $query	= $this->db->query($SQL);
         return 1;
     }

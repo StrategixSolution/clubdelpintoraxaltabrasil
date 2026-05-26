@@ -31,7 +31,7 @@ class Tarjetas_controller extends Base_Controller {
         $resultados_tabla_tarjetas = $this->tarjetas_model->tarjetas_model_lista($where); 
         foreach ($resultados_tabla_tarjetas as $row) {
 
-            if ($row->TarjetaFechaBaja==""){
+            if ($row->TarjetaFechaBaja=="" && $row->TarjetaEstatusId!=2) {
 
                 $btn_edicion    = "edicion";
                 $btn_baja       = '<a href="javascript:tarjetas_tabla_view_js_eliminar('.$row->TarjetaId.',\''.$row->TarjetaNumero.'\')"><i class="fas fa-trash"></i>';

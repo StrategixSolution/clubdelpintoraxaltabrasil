@@ -20,31 +20,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="form-rf-1 form-pr" id="form-rf-1">
                         <div class="line-dashed-gray"></div>
                         <div class="row row-validator">
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="txtnombre"><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_nombre') ?><span data-toggle='tooltip' title='<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_tooltip_nombre') ?>'><i class="fas fa-question-circle"></i></span></label>
                                     <input type="text" name="txt_nombre" id="txt_nombre" class="form-control txt-mayus" placeholder="<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_nombre') ?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
                                     <div id="error"></div>
                                 </div>
                             </div>
-                            <div class="col-lg-3" id="div_segundo_nombre">
+                            <div class="col-lg-4" id="div_segundo_nombre">
                                 <div class="form-group">
                                     <label for="txt_segundo_nombre"><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_segundo_nombre') ?><span data-toggle='tooltip' title='<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_tooltip_segundo_nombre') ?>'><i class="fas fa-question-circle"></i></span></label>
                                     <input type="text" name="txt_segundo_nombre" id="txt_segundo_nombre" class="form-control txt-mayus" placeholder="<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_segundo_nombre') ?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
                                     <div id="error"></div>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label for="txt_apellido_paterno"><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_apellido_paterno') ?><span data-toggle='tooltip' title='<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_tooltip_apellido_paterno') ?>'><i class="fas fa-question-circle"></i></span></label>
-                                    <input type="text" name="txt_apellido_paterno" id="txt_apellido_paterno" class="form-control txt-mayus" placeholder="<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_apellido_paterno') ?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label for="txt_apellido_materno"><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_apellido_materno') ?><span data-toggle='tooltip' title='<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_tooltip_apellido_materno') ?>'><i class="fas fa-question-circle"></i></span></label>
-                                    <input type="text" name="txt_apellido_materno" id="txt_apellido_materno" class="form-control txt-mayus" placeholder="<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_apellido_materno') ?>" onkeyup="return js_general_solo_texto_espacios(event,this)" maxlength="50">
+                                    <label for="txt_apellidos"><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_apellido_paterno') ?><span data-toggle='tooltip' title='<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_tooltip_apellido_paterno') ?>'><i class="fas fa-question-circle"></i></span></label>
+                                    <input type="text" name="txt_apellidos" id="txt_apellidos" class="form-control txt-mayus" placeholder="<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_apellido_paterno') ?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
                                     <div id="error"></div>
                                 </div>
                             </div>
@@ -234,7 +227,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
     function usuarios_actualizar_datos_admin_js_guardar() {
         $('#error').html(" ");
-        var datos = '<table class="table txt-left txt-12"><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_nombre') ?></b></td><td>' + $('#txt_nombre').val().toUpperCase() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_segundo_nombre') ?></b></td><td>' + $('#txt_segundo_nombre').val().toUpperCase() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_apellido_paterno') ?></b></td><td>' + $('#txt_apellido_paterno').val().toUpperCase() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_apellido_materno') ?></b></td><td>' + $('#txt_apellido_materno').val().toUpperCase() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_email') ?></b></td><td>' + $('#txt_email').val() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_telefono') ?></b></td><td>' + $('#txt_telefono').val() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_celular') ?></b></td><td>' + $('#txt_celular').val() + '</td></tr></table>';
+        var datos = '<table class="table txt-left txt-12"><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_nombre') ?></b></td><td>' + $('#txt_nombre').val().toUpperCase() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_segundo_nombre') ?></b></td><td>' + $('#txt_segundo_nombre').val().toUpperCase() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_apellido_paterno') ?></b></td><td>' + $('#txt_apellidos').val().toUpperCase() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_email') ?></b></td><td>' + $('#txt_email').val() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_telefono') ?></b></td><td>' + $('#txt_telefono').val() + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_actualizar_datos_controller_lang_input_celular') ?></b></td><td>' + $('#txt_celular').val() + '</td></tr></table>';
         Swal.fire({
             title: '<?= $this->lang->line('usuarios_actualizar_datos_controller_lang_js_confirm_texto') ?>',
             html: datos,

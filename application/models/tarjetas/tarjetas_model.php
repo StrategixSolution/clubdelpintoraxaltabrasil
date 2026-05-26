@@ -25,7 +25,7 @@ class Tarjetas_model extends Base_Model
     }
     public function tarjetas_model_baja($TarjetaId) {
         $TarjetaId_clean = $this->security->xss_clean($TarjetaId); 
-        $SQL = "UPDATE Tarjetas set TarjetaFechaBaja = GETDATE(),TarjetaUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." where TarjetaId = $TarjetaId_clean";
+        $SQL = "DELETE FROM Tarjetas WHERE TarjetaId = $TarjetaId_clean";
         $this->db->query($SQL);     
 //        echo  $this->db->last_query()."<br>";
         return 1;    

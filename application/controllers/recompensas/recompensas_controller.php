@@ -13,9 +13,9 @@ class Recompensas_controller extends Base_Controller {
     }
     public function recompensas_controller_cmb_ano(){
        // $ano = date('Y');
-	   $ano = date('Y')-5;
+	   $ano = date('Y')-1;
         $cmb_Ano ="<option  value='0'>".$this->lang->line('recompensas_controller_placeholder_anio')."</option>";         
-        for($limit = 0;$limit<6;$limit++) {    
+        for($limit = 0;$limit<2;$limit++) {    
             $fechaAno = $ano+$limit;
             $cmb_Ano .="<option value=$fechaAno>$fechaAno</option>";
         }

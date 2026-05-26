@@ -38,9 +38,14 @@ class Ventas_cortes_auditoria_ventas_controller extends Base_Controller {
         if ($this->base_controller_valida_corte(1, $anio, $mes,'')!=0){ $dato['res']   = 2;  echo json_encode($dato); return false;}
         if ($this->ventas_cortes_auditoria_ventas_model->ventas_cortes_auditoria_ventas_model_valida_auditoria($anio, $mes)==0){$dato['res']   = 3;  echo json_encode($dato); return false;}
         $CorteId = $this->base_controller_guarda_corte(1,$anio, $mes,0);
-        $data = "SELECT ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",$CorteId,Ventas.VentaId, Ventas.TarjetaId, Ventas.TarjetaNumero, Ventas.VentaUsuarioIdMP, Ventas.VentaUsuarioNombreMP, Ventas.DistribuidorId, Ventas.DistribuidorDetalleId, Ventas.DistribuidorDetalleCodigo,Ventas.DistribuidorDetalleRazonSocial, 
-            Ventas.DistribuidorDetalleNombreComercial, Ventas.UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro,Ventas.VentaUsuarioIdRegistro, Ventas.VentaUsuarioNombreRegistro, Ventas.VentaFechaBaja, 
-            Ventas.VentaUsuarioIdBaja, Ventas.VentaTienePromocion, Ventas.VentaSessionId FROM Ventas LEFT OUTER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId
+        $data = "SELECT ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",$CorteId,Ventas.VentaId, Ventas.TarjetaId, Tarjetas.TarjetaNumero, Ventas.VentaUsuarioIdMP, RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP, Ventas.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
+            DistribuidoresDetalles.DistribuidorDetalleNombreComercial, Ventas.VentaUsuarioIdMP AS UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, Ventas.VentaUsuarioIdRegistro, RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreRegistro, Ventas.VentaFechaBaja, 
+            Ventas.VentaUsuarioIdBaja, Ventas.VentaTienePromocion, Ventas.VentaSessionId FROM Ventas 
+            INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+            INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+            LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+            LEFT JOIN UsuariosDetalles AS UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
+            LEFT OUTER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId
                     WHERE (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND (VentasAuditorias.VentaAuditoriaId IS NULL) AND (Ventas.VentaFechaBaja IS NULL) AND (YEAR(Ventas.VentaFechaRegistro) = $anio) 
                     AND (MONTH(Ventas.VentaFechaRegistro) = $mes)";
         $this->base_controller_guarda_corte_detalle('CortesCambioEstatusVentasAuditoria',$data);

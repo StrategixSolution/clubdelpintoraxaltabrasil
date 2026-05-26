@@ -29,22 +29,91 @@ class Ventas_cortes_bimestral_model extends Base_Model {
         return $query->row()->CorteId;     
     }     
     public function ventas_cortes_bimestral_model_corte_ventas($CorteId) {
-        $SQL = "SELECT CorteBimestralVentaId,CorteId,CorteBimestralVentaTarjetaId,CorteBimestralVentaVentaId,CorteBimestralVentaUsuarioDetalleId,CorteBimestralVentaUsuarioIdMP,CorteBimestralVentaNombreMaestroPintor,CorteBimestralVentaUsuarioIdMPEstatus,CorteBimestralVentaDistribuidorDetalleId,CorteBimestralVentaDistribuidorId,CorteBimestralVentaDistribuidorDetalleCodigo,CorteBimestralVentaDistribuidorDetalleRazonSocial,CorteBimestralVentaDistribuidorDetalleNombreComercial,CorteBimestralVentaDistribuidorDetalleRegionId,CorteBimestralVentaDistribuidorDetalleRegionNombre,CorteBimestralVentaDistribuidorDetalleEstatus,CorteBimestralVentaVentaNumeroTicket,CorteBimestralVentaVentaMontoTicket,CorteBimestralVentaMes,CorteBimestralVentaVentaEstatus,CorteBimestralVentaVentaEstatusAuditoria,CorteBimestralVentaFechaRegistro,CorteBimestralVentaFechaCorte,CorteBimestralVentaUsuarioIdCorte FROM CortesBimestralesVentas where CorteId = $CorteId";
+        $SQL = "SELECT 
+            CBV.CorteBimestralVentaId,
+            CBV.CorteId,
+            CBV.CorteBimestralVentaTarjetaId,
+            CBV.CorteBimestralVentaVentaId,
+            CBV.CorteBimestralVentaUsuarioIdMP,
+            CBV.CorteBimestralVentaDistribuidorId,
+            CBV.CorteBimestralVentaVentaNumeroTicket,
+            CBV.CorteBimestralVentaVentaMontoTicket,
+            CBV.CorteBimestralVentaMes,
+            CBV.CorteBimestralVentaFechaRegistro,
+            CBV.CorteBimestralVentaFechaCorte,
+            CBV.CorteBimestralVentaUsuarioIdCorte,
+            DD.DistribuidorDetalleCodigo AS CorteBimestralVentaDistribuidorDetalleCodigo,
+            DD.DistribuidorDetalleRazonSocial AS CorteBimestralVentaDistribuidorDetalleRazonSocial,
+            DD.DistribuidorDetalleNombreComercial AS CorteBimestralVentaDistribuidorDetalleNombreComercial,
+            DDR.DistribuidorDetalleRegionNombre AS CorteBimestralVentaDistribuidorDetalleRegionNombre
+        FROM CortesBimestralesVentas CBV
+        LEFT OUTER JOIN DistribuidoresDetalles DD ON CBV.CorteBimestralVentaDistribuidorId = DD.DistribuidorId
+        LEFT OUTER JOIN DistribuidoresDetallesRegiones DDR ON DD.DistribuidorDetalleRegionId = DDR.DistribuidorDetalleRegionId
+        WHERE CBV.CorteId = $CorteId";
         $query	= $this->db->query($SQL);
         return $query->result();        
     }
     public function ventas_cortes_bimestral_model_corte_maestros_pintores($CorteId) {
-        $SQL = "SELECT CorteBimestralMaestroPintorId,CorteId,CorteBimestralMaestroPintorDistribuidorDetalleId,CorteBimestralMaestroPintorDistribuidorId,CorteBimestralMaestroPintorDistribuidorDetalleCodigo,CorteBimestralMaestroPintorDistribuidorDetalleRazonSocial,CorteBimestralMaestroPintorDistribuidorDetalleNombreComercial,CorteBimestralMaestroPintorDistribuidorEstatus,CorteBimestralMaestroPintorDistribuidorDetalleRegionId,CorteBimestralMaestroPintorDistribuidorDetalleRegionNombre,CorteBimestralMaestroPintorUsuarioDetalleIdMP,CorteBimestralMaestroPintorUsuarioIdMP,CorteBimestralMaestroPintorMaestroPintor,CorteBimestralMaestroPintorEstatusMaestroPintor,CorteBimestralMaestroPintorCantidadTickets,CorteBimestralMaestroPintorVentaMontoTicket,ReposicionProductoGanadorPremioLugar,CorteBimestralMaestroPintorFechaRegistroCorte,CorteBimestralMaestroPintorUsuarioIdRegistroCorte FROM CortesBimestralesMaestrosPintores WHERE CorteId = $CorteId";
+        $SQL = "SELECT 
+            CBMP.CorteBimestralMaestroPintorId,
+            CBMP.CorteId,
+            CBMP.CorteBimestralMaestroPintorDistribuidorId,
+            CBMP.CorteBimestralMaestroPintorUsuarioIdMP,
+            CBMP.CorteBimestralMaestroPintorCantidadTickets,
+            CBMP.CorteBimestralMaestroPintorVentaMontoTicket,
+            CBMP.ReposicionProductoGanadorPremioLugar,
+            CBMP.CorteBimestralMaestroPintorFechaRegistroCorte,
+            CBMP.CorteBimestralMaestroPintorUsuarioIdRegistroCorte,
+            DD.DistribuidorDetalleCodigo AS CorteBimestralMaestroPintorDistribuidorDetalleCodigo,
+            DD.DistribuidorDetalleRazonSocial AS CorteBimestralMaestroPintorDistribuidorDetalleRazonSocial,
+            DD.DistribuidorDetalleNombreComercial AS CorteBimestralMaestroPintorDistribuidorDetalleNombreComercial,
+            DDR.DistribuidorDetalleRegionNombre AS CorteBimestralMaestroPintorDistribuidorDetalleRegionNombre
+        FROM CortesBimestralesMaestrosPintores CBMP
+        LEFT OUTER JOIN DistribuidoresDetalles DD ON CBMP.CorteBimestralMaestroPintorDistribuidorId = DD.DistribuidorId
+        LEFT OUTER JOIN DistribuidoresDetallesRegiones DDR ON DD.DistribuidorDetalleRegionId = DDR.DistribuidorDetalleRegionId
+        WHERE CBMP.CorteId = $CorteId";
         $query	= $this->db->query($SQL);
         return $query->result();        
     }
     public function ventas_cortes_bimestral_model_corte_perfil($CorteId) {
-        $SQL = "SELECT CorteId,CortesBimestralPerfilDistribuidorDetalleId,CortesBimestralPerfilDistribuidorId,CortesBimestralPerfilDistribuidorDetalleCodigo,CortesBimestralPerfilDistribuidorDetalleRazonSocial,CortesBimestralPerfilDistribuidorDetalleNombreComercial,CortesBimestralPerfilDistribuidorDetalleRegionId,CortesBimestralPerfilDistribuidorDetalleRegionNombre,CortesBimestralPerfilDistribuidorEstatus,CortesBimestralPerfilDetalleUsuarioIdRegistro,CortesBimestralPerfilDetalleUsuarioRegistroNombre,CortesBimestralPerfilDistribuidorPerfilId,CortesBimestralPerfilDistribuidorPerfilDescripcion,CortesBimestralPerfilDetalleUsuarioRegistroEstatus,CortesBimestralPerfilDistribuidorCantidadTicktes,CortesBimestralPerfilDistribuidorVentaMontoTicket,CortesBimestralPerfilDistribuidorUsuarioIdRegistroCorte FROM CortesBimestralesPerfiles WHERE CorteId = $CorteId";
+        $SQL = "SELECT 
+            CBP.CorteId,
+            CBP.CortesBimestralPerfilDistribuidorId,
+            CBP.CortesBimestralPerfilDetalleUsuarioIdRegistro,
+            CBP.CortesBimestralPerfilId,
+            CBP.CortesBimestralPerfilDistribuidorCantidadTicktes,
+            CBP.CortesBimestralPerfilDistribuidorVentaMontoTicket,
+            CBP.CortesBimestralPerfilDistribuidorUsuarioIdRegistroCorte,
+            DD.DistribuidorDetalleCodigo AS CortesBimestralPerfilDistribuidorDetalleCodigo,
+            DD.DistribuidorDetalleRazonSocial AS CortesBimestralPerfilDistribuidorDetalleRazonSocial,
+            DD.DistribuidorDetalleNombreComercial AS CortesBimestralPerfilDistribuidorDetalleNombreComercial,
+            DDR.DistribuidorDetalleRegionNombre AS CortesBimestralPerfilDistribuidorDetalleRegionNombre,
+            P.PerfilDescripcion AS CortesBimestralPerfilPerfilDescripcion
+        FROM CortesBimestralesPerfiles CBP
+        LEFT OUTER JOIN DistribuidoresDetalles DD ON CBP.CortesBimestralPerfilDistribuidorId = DD.DistribuidorId
+        LEFT OUTER JOIN DistribuidoresDetallesRegiones DDR ON DD.DistribuidorDetalleRegionId = DDR.DistribuidorDetalleRegionId
+        LEFT OUTER JOIN Perfiles P ON CBP.CortesBimestralPerfilId = P.PerfilId
+        WHERE CBP.CorteId = $CorteId";
         $query	= $this->db->query($SQL);
         return $query->result();        
     }    
     public function ventas_cortes_bimestral_model_corte_ditribuidores($CorteId) {
-        $SQL = "SELECT CorteBimestralDistribuidorId,CorteId,CorteBimestralDistribuidorDistribuidorDetalleId,CorteBimestralDistribuidorDistribuidorId,CorteBimestralDistribuidorDistribuidorDetalleCodigo,CorteBimestralDistribuidorDistribuidorDetalleRazonSocial,CorteBimestralDistribuidorDistribuidorDetalleNombreComercial,CorteBimestralDistribuidorDistribuidorDetalleRegionId,CorteBimestralDistribuidorDistribuidorDetalleRegionNombre,CorteBimestralDistribuidorDistribuidorEstatus,CorteBimestralDistribuidorCantidadTicktes,CorteBimestralDistribuidorVentaMontoTicket,CorteBimestralDistribuidorFechaRegistroCorte,CorteBimestralDistribuidorUsuarioIdRegistroCorte FROM CortesBimestralesDistribuidores WHERE CorteId = $CorteId";
+        $SQL = "SELECT 
+            CBD.CorteBimestralDistribuidorId,
+            CBD.CorteId,
+            CBD.CorteBimestralDistribuidorDistribuidorId,
+            CBD.CorteBimestralDistribuidorCantidadTicktes,
+            CBD.CorteBimestralDistribuidorVentaMontoTicket,
+            CBD.CorteBimestralDistribuidorFechaRegistroCorte,
+            CBD.CorteBimestralDistribuidorUsuarioIdRegistroCorte,
+            DD.DistribuidorDetalleCodigo AS CorteBimestralDistribuidorDistribuidorDetalleCodigo,
+            DD.DistribuidorDetalleRazonSocial AS CorteBimestralDistribuidorDistribuidorDetalleRazonSocial,
+            DD.DistribuidorDetalleNombreComercial AS CorteBimestralDistribuidorDistribuidorDetalleNombreComercial,
+            DDR.DistribuidorDetalleRegionNombre AS CorteBimestralDistribuidorDistribuidorDetalleRegionNombre
+        FROM CortesBimestralesDistribuidores CBD
+        LEFT OUTER JOIN DistribuidoresDetalles DD ON CBD.CorteBimestralDistribuidorDistribuidorId = DD.DistribuidorId
+        LEFT OUTER JOIN DistribuidoresDetallesRegiones DDR ON DD.DistribuidorDetalleRegionId = DDR.DistribuidorDetalleRegionId
+        WHERE CBD.CorteId = $CorteId";
         $query	= $this->db->query($SQL);
         return $query->result();        
     }    

@@ -44,9 +44,9 @@ class Ventas_cortes_ganadores_contoller extends Base_Controller {
             $recompensas = $this->ventas_cortes_ganadores_model->ventas_cortes_ganadores_model_recompensas($cmb_anio,$cmb_mes,$row->suma_monto);
             if (!empty($recompensas)){ 
                 $lugar = $recompensas->RecompensaPremioLugar; 
-                $data_corte_ganadores = "$corte_id,$cmb_anio,$cmb_mes,$lugar,".$row->suma_monto.",".$row->cuenta_ventas.",".$row->DistribuidorId.",".$recompensas->RecompensaTipoId.",'".$row->DistribuidorDetalleCodigo."','".$row->DistribuidorDetalleNombreComercial."',".$row->TarjetaId.",".$row->VentaUsuarioIdMP.",'".$row->VentaUsuarioNombreMP."'";
+                $data_corte_ganadores = "$corte_id,$cmb_anio,$cmb_mes,$lugar,".$row->suma_monto.",".$row->cuenta_ventas.",".$row->DistribuidorId.",".$recompensas->RecompensaTipoId.",".$row->TarjetaId.",".$row->VentaUsuarioIdMP;
                 $this->base_controller_guarda_corte_detalle("CortesGanadores",$data_corte_ganadores);
-                $data_reposiciones_productos_ganadores = "$cmb_anio,$cmb_mes,$lugar,".$row->suma_monto.",".$row->cuenta_ventas.",'GENERACION GANADORES',".$row->DistribuidorId.",'".$row->DistribuidorDetalleCodigo."','".$row->DistribuidorDetalleNombreComercial."',".$row->TarjetaId.",".$recompensas->RecompensaTipoId.",".$row->UsuarioId.",'".$row->VentaUsuarioNombreMP."'";
+                $data_reposiciones_productos_ganadores = "$cmb_anio,$cmb_mes,$lugar,".$row->suma_monto.",".$row->cuenta_ventas.",'GENERACION GANADORES',".$row->DistribuidorId.",".$row->TarjetaId.",".$recompensas->RecompensaTipoId.",".$row->UsuarioId;
                 $this->ventas_cortes_ganadores_model->ventas_cortes_ganadores_model_reposiciones_productos_ganadores($data_reposiciones_productos_ganadores);
             $lista.= '<tr>
                         <td>'.$cmb_anio.'</td>

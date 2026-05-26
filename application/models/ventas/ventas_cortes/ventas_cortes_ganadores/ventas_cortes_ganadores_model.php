@@ -18,11 +18,12 @@ class Ventas_cortes_ganadores_model extends Base_Model {
         return $query->result();
     }
     public function ventas_cortes_ganadores_model_ganadores($CorteAnio,$CorteMes,$CorteMesAnterior){
-        $SQL = "SELECT DistribuidoresDetalles.DistribuidorId, UsuariosDetalles.UsuarioId, COUNT(Ventas.VentaId) AS cuenta_ventas, SUM(Ventas.VentaMontoTicket) AS suma_monto, Ventas.TarjetaId, Ventas.TarjetaNumero, Ventas.VentaUsuarioIdMP,Ventas.VentaUsuarioNombreMP, Ventas.DistribuidorDetalleCodigo, Ventas.DistribuidorDetalleNombreComercial 
+        $SQL = "SELECT DistribuidoresDetalles.DistribuidorId, UsuariosMaestroPintor.UsuarioId, COUNT(Ventas.VentaId) AS cuenta_ventas, SUM(Ventas.VentaMontoTicket) AS suma_monto, Ventas.TarjetaId, Tarjetas.TarjetaNumero, Ventas.VentaUsuarioIdMP, RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleNombreComercial 
 				FROM Ventas 
-				INNER JOIN UsuariosDetalles ON Ventas.UsuarioDetalleId = UsuariosDetalles.UsuarioDetalleId 
-				INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorDetalleId = DistribuidoresDetalles.DistribuidorDetalleId 
-				INNER JOIN Usuarios ON UsuariosDetalles.UsuarioId = Usuarios.UsuarioId
+				INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+				INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+				INNER JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+				INNER JOIN Usuarios ON UsuariosMaestroPintor.UsuarioId = Usuarios.UsuarioId
 				INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId
 				WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) 
 				AND (Ventas.VentaFechaBaja IS NULL) 
@@ -30,7 +31,7 @@ class Ventas_cortes_ganadores_model extends Base_Model {
 				AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) 
 				AND (YEAR(Ventas.VentaFechaRegistro) = $CorteAnio) 
 				AND (MONTH(Ventas.VentaFechaRegistro) IN ($CorteMes,$CorteMesAnterior)) 
-				GROUP BY DistribuidoresDetalles.DistribuidorId, UsuariosDetalles.UsuarioId, Ventas.TarjetaId, Ventas.TarjetaNumero, Ventas.VentaUsuarioIdMP, Ventas.VentaUsuarioNombreMP, Ventas.DistribuidorDetalleCodigo,Ventas.DistribuidorDetalleNombreComercial";
+				GROUP BY DistribuidoresDetalles.DistribuidorId, UsuariosMaestroPintor.UsuarioId, Ventas.TarjetaId, Tarjetas.TarjetaNumero, Ventas.VentaUsuarioIdMP, UsuariosMaestroPintor.UsuarioDetalleNombre, UsuariosMaestroPintor.UsuarioDetalleSegundoNombre, UsuariosMaestroPintor.UsuarioDetalleApellidos, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleNombreComercial";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->result();
@@ -65,9 +66,9 @@ class Ventas_cortes_ganadores_model extends Base_Model {
         return $query->row();
     } 
     public function ventas_cortes_ganadores_model_ventas_detalle($CorteAnio,$CorteMes,$CorteMesAnterior,$UsuarioId,$DistribuidorId){
-        $SQL = "SELECT Ventas.VentaId, DistribuidoresDetalles.DistribuidorId, UsuariosDetalles.UsuarioId, VentasDetalles.VentaDetalleMonto, VentasDetalles.VentaDetalleCantidad
-                FROM Ventas INNER JOIN VentasDetalles ON Ventas.VentaId = VentasDetalles.VentaId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorDetalleId = DistribuidoresDetalles.DistribuidorDetalleId INNER JOIN UsuariosDetalles ON Ventas.UsuarioDetalleId = UsuariosDetalles.UsuarioDetalleId INNER JOIN Usuarios ON UsuariosDetalles.UsuarioId = Usuarios.UsuarioId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId
-                WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL)  AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 1) AND (Ventas.VentaFechaBaja IS NULL) AND (YEAR(Ventas.VentaFechaRegistro) = $CorteAnio) AND (MONTH(Ventas.VentaFechaRegistro) IN ($CorteMesAnterior, $CorteMes)) and DistribuidoresDetalles.DistribuidorId = $DistribuidorId and  UsuariosDetalles.UsuarioId =$UsuarioId ";
+        $SQL = "SELECT Ventas.VentaId, DistribuidoresDetalles.DistribuidorId, UsuariosMaestroPintor.UsuarioId, VentasDetalles.VentaDetalleMonto, VentasDetalles.VentaDetalleCantidad
+                FROM Ventas INNER JOIN VentasDetalles ON Ventas.VentaId = VentasDetalles.VentaId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId INNER JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId INNER JOIN Usuarios ON UsuariosMaestroPintor.UsuarioId = Usuarios.UsuarioId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId
+                WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL)  AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 1) AND (Ventas.VentaFechaBaja IS NULL) AND (YEAR(Ventas.VentaFechaRegistro) = $CorteAnio) AND (MONTH(Ventas.VentaFechaRegistro) IN ($CorteMesAnterior, $CorteMes)) and DistribuidoresDetalles.DistribuidorId = $DistribuidorId and  UsuariosMaestroPintor.UsuarioId =$UsuarioId ";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->result();

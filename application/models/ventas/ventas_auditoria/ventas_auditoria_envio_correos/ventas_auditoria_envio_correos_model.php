@@ -22,18 +22,18 @@ class ventas_auditoria_envio_correos_model extends Base_Model {
         /******************************************** TABLA DE AUDITORIAS ******************************************/
         $SQL1 = "SELECT 
             Ventas.VentaId, 
-            VentasAuditorias.
-            VentaAuditoriaId,
+            VentasAuditorias.VentaAuditoriaId,
             VentasAuditorias.VentaAuditoriaFechaEnvioCorreo, 
-            Ventas.TarjetaNumero, 
-            Ventas.TarjetaNumero, 
-            Ventas.UsuarioDetalleId, 
-            Ventas.DistribuidorDetalleId, 
-            DistribuidoresDetalles.DistribuidorId ,
+            Ventas.TarjetaId, 
+            Tarjetas.TarjetaNumero, 
+            Ventas.VentaUsuarioIdMP, 
+            RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS NombreMP, 
+            Ventas.DistribuidorId, 
+            DistribuidoresDetalles.DistribuidorDetalleId,
             DistribuidoresDetalles.DistribuidorDetalleCodigo,
             DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
             DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
-            Ventas.UsuarioDetalleId,
+            UsuariosRegistro.UsuarioDetalleId,
             Ventas.VentaNumeroTicket, 
             Ventas.VentaMontoTicket,
             Ventas.VentaFotoTicket,
@@ -48,20 +48,22 @@ class ventas_auditoria_envio_correos_model extends Base_Model {
             VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion, 
             VentasAuditorias.VentaAuditoriaFechaAudito, 
             VentasAuditorias.VentaAuditoriaUsuarioAudito, 
-            CONCAT_WS(' ', UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos ) AS NombreMP,
-            UsuariosDetalles.UsuarioDetalleNombre, 
-            UsuariosDetalles.UsuarioDetalleSegundoNombre, 
-            UsuariosDetalles.UsuarioDetalleApellidos, 
+            UsuariosAuditor.UsuarioDetalleNombre, 
+            UsuariosAuditor.UsuarioDetalleSegundoNombre, 
+            UsuariosAuditor.UsuarioDetalleApellidos, 
             VentasAuditorias.VentaAuditoriaFechaEnvioCorreoCierre 
             FROM Ventas 
-            inner join DistribuidoresDetalles on DistribuidoresDetalles.DistribuidorDetalleId = ventas.DistribuidorDetalleId 
+            INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+            LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+            LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+            LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
             INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
             INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId 
             INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId 
             INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId 
-            INNER JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId 
+            INNER JOIN UsuariosDetalles UsuariosAuditor ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosAuditor.UsuarioId 
             LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId 
-            WHERE  (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 3) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusOportunidadId = 1) AND (YEAR(Ventas.VentaFechaRegistro) = ?) AND (MONTH(Ventas.VentaFechaRegistro) = ?) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)";
+            WHERE  (UsuariosAuditor.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 3) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusOportunidadId = 1) AND (YEAR(Ventas.VentaFechaRegistro) = ?) AND (MONTH(Ventas.VentaFechaRegistro) = ?) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)";
         $query_tabla	= $this->db->query($SQL1,array($anio_clean,$mes_clean));
         $data["auditoria_tabla"]        =  $query_tabla->result();
 //        echo $this->db->last_query();  
@@ -71,14 +73,16 @@ class ventas_auditoria_envio_correos_model extends Base_Model {
         $VentaId_clean = $this->security->xss_clean($VentaId);
         $SQL = "SELECT 
 Ventas.VentaId, 
-Ventas.TarjetaNumero, 
-UsuariosDetalles.UsuarioId as VentaUsuarioIdMP, 
-CONCAT_WS(' ', UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos ) AS NombreMP, 
-DistribuidoresDetalles.DistribuidorId ,
+Ventas.TarjetaId, 
+Tarjetas.TarjetaNumero, 
+Ventas.VentaUsuarioIdMP, 
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS NombreMP, 
+Ventas.DistribuidorId, 
+DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo,
 DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
 DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
-Ventas.UsuarioDetalleId, 
+UsuariosRegistro.UsuarioDetalleId, 
 Ventas.VentaNumeroTicket, 
 Ventas.VentaMontoTicket, 
 Ventas.VentaFotoTicket, 
@@ -92,14 +96,17 @@ VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadDescripcion
 VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion, 
 VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion 
 FROM Ventas 
-INNER JOIN DistribuidoresDetalles on DistribuidoresDetalles.DistribuidorDetalleId = Ventas.DistribuidorDetalleId 
+INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
 INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId 
 INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId 
 INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId 
- INNER JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId 
+INNER JOIN UsuariosDetalles UsuariosAuditor ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosAuditor.UsuarioId 
 LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId
-WHERE  (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)
+WHERE  (UsuariosAuditor.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)
 AND Ventas.VentaId = ?";
         $query	= $this->db->query($SQL,array($VentaId_clean));
         //echo  $this->db->last_query()."<br>"; 
@@ -119,14 +126,16 @@ AND Ventas.VentaId = ?";
 Ventas.VentaId, 
 VentasAuditorias.VentaAuditoriaId,
 VentasAuditorias.VentaAuditoriaFechaEnvioCorreo, 
-Ventas.TarjetaNumero,
-UsuariosDetalles.UsuarioId as VentaUsuarioIdMP,
-DistribuidoresDetalles.DistribuidorId, 
-Ventas.DistribuidorDetalleId, 
+Ventas.TarjetaId, 
+Tarjetas.TarjetaNumero,
+Ventas.VentaUsuarioIdMP,
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP,
+Ventas.DistribuidorId, 
+DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo, 
 DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
 DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
-Ventas.UsuarioDetalleId, 
+UsuariosRegistro.UsuarioDetalleId, 
 Ventas.VentaNumeroTicket, 
 Ventas.VentaMontoTicket, 
 Ventas.VentaFotoTicket, 
@@ -141,19 +150,21 @@ VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion,
 VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion, 
 VentasAuditorias.VentaAuditoriaFechaAudito, 
 VentasAuditorias.VentaAuditoriaUsuarioAudito, 
-CONCAT_WS(' ', UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP,
-            UsuariosDetalles.UsuarioDetalleNombre, 
-            UsuariosDetalles.UsuarioDetalleSegundoNombre, 
-            UsuariosDetalles.UsuarioDetalleApellidos
+UsuariosAuditor.UsuarioDetalleNombre, 
+UsuariosAuditor.UsuarioDetalleSegundoNombre, 
+UsuariosAuditor.UsuarioDetalleApellidos
 FROM Ventas 
-inner join DistribuidoresDetalles on DistribuidoresDetalles.DistribuidorDetalleId = Ventas.DistribuidorDetalleId  
+INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
 INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId 
 INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId 
 INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId 
-INNER JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId 
+INNER JOIN UsuariosDetalles UsuariosAuditor ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosAuditor.UsuarioId 
 LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId 
-        WHERE  (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 3) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusOportunidadId = 1) AND (Ventas.VentaId = ?) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL)";
+        WHERE  (UsuariosAuditor.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 3) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusOportunidadId = 1) AND (Ventas.VentaId = ?) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL)";
         $query_tabla	= $this->db->query($SQL1,array($VentaId_clean));
 //        echo $this->db->last_query();  
         return $query_tabla->row();
@@ -181,7 +192,7 @@ UsuariosDistribuidores.DistribuidorId  FROM Usuarios INNER JOIN UsuariosDetalles
         $mes_clean = $this->security->xss_clean($cmbMes);
         $SQL ="SELECT DISTINCT  DistribuidoresDetalles.DistribuidorId	 
                 FROM Ventas 
-                inner join DistribuidoresDetalles on DistribuidoresDetalles.DistribuidorDetalleId = ventas.DistribuidorDetalleId 
+                LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
                 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
                 INNER JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId 
                 WHERE  (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) 
@@ -206,14 +217,16 @@ UsuariosDistribuidores.DistribuidorId  FROM Usuarios INNER JOIN UsuariosDetalles
 Ventas.VentaId, 
 VentasAuditorias.VentaAuditoriaId,
 VentasAuditorias.VentaAuditoriaFechaEnvioCorreo, 
-Ventas.TarjetaNumero,
-UsuariosDetalles.UsuarioId as VentaUsuarioIdMP,
-DistribuidoresDetalles.DistribuidorId, 
-Ventas.DistribuidorDetalleId, 
+Ventas.TarjetaId, 
+Tarjetas.TarjetaNumero,
+Ventas.VentaUsuarioIdMP,
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP,
+Ventas.DistribuidorId, 
+DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo, 
 DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
 DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
-Ventas.UsuarioDetalleId, 
+UsuariosRegistro.UsuarioDetalleId, 
 Ventas.VentaNumeroTicket, 
 Ventas.VentaMontoTicket, 
 Ventas.VentaFotoTicket, 
@@ -228,19 +241,21 @@ VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion,
 VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion, 
 VentasAuditorias.VentaAuditoriaFechaAudito, 
 VentasAuditorias.VentaAuditoriaUsuarioAudito, 
-CONCAT_WS(' ', UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP,
-            UsuariosDetalles.UsuarioDetalleNombre, 
-            UsuariosDetalles.UsuarioDetalleSegundoNombre, 
-            UsuariosDetalles.UsuarioDetalleApellidos
+UsuariosAuditor.UsuarioDetalleNombre, 
+UsuariosAuditor.UsuarioDetalleSegundoNombre, 
+UsuariosAuditor.UsuarioDetalleApellidos
 FROM Ventas 
-inner join DistribuidoresDetalles on DistribuidoresDetalles.DistribuidorDetalleId = Ventas.DistribuidorDetalleId  
+INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
 INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId 
 INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId 
 INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId 
-INNER JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId 
+INNER JOIN UsuariosDetalles UsuariosAuditor ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosAuditor.UsuarioId 
 LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId 
-        WHERE  (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 3) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusOportunidadId = 1) AND (VentaAuditoriaFechaEnvioCorreo IS NULL)
+        WHERE  (UsuariosAuditor.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 3) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusOportunidadId = 1) AND (VentaAuditoriaFechaEnvioCorreo IS NULL)
         AND (YEAR(Ventas.VentaFechaRegistro) = ?) 
         AND (MONTH(Ventas.VentaFechaRegistro) = ?) 
         AND (DistribuidoresDetalles.DistribuidorId = ?) 
@@ -254,7 +269,7 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
         FROM Ventas 
         INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
         INNER JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId 
-        inner join DistribuidoresDetalles on DistribuidoresDetalles.DistribuidorDetalleId = Ventas.DistribuidorDetalleId 
+        LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
         WHERE  (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) 
         AND (VentasAuditorias.VentaAuditoriaEstatusId = 3) 
         AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) 

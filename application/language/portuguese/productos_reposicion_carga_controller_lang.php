@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Luis Felipe Rangel  * 
- * @CreateDate 15 jun. 2026 16:47:36 * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['productos_reposicion_carga_controller_lang_titulo']                                      = 'CARGA DE PRODUTOS DE PRÊMIOS';

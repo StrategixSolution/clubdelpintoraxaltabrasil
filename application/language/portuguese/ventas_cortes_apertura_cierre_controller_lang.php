@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPBR
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Luis felipe Rangel  * 
- * @CreateDate 7 jul. 2026 1:45:14 *  
- */ 
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ventas_cortes_apertura_cierre_controller_lang_titulo']                                                 = 'ABERTURA E FECHAMENTO DO MÓDULO DE TROCA DE PRODUTOS';

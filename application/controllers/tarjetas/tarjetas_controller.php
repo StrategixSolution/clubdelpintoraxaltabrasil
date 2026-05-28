@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Tarjetas_controller extends Base_Controller {
@@ -39,7 +31,7 @@ class Tarjetas_controller extends Base_Controller {
         $resultados_tabla_tarjetas = $this->tarjetas_model->tarjetas_model_lista($where); 
         foreach ($resultados_tabla_tarjetas as $row) {
 
-            if ($row->TarjetaFechaBaja==""){
+            if ($row->TarjetaFechaBaja=="" && $row->TarjetaEstatusId!=2) {
 
                 $btn_edicion    = "edicion";
                 $btn_baja       = '<a href="javascript:tarjetas_tabla_view_js_eliminar('.$row->TarjetaId.',\''.$row->TarjetaNumero.'\')"><i class="fas fa-trash"></i>';

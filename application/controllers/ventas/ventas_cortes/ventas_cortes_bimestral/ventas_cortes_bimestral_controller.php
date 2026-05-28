@@ -1,12 +1,4 @@
 <?php
-
-/*
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             *
- * @programmer  Luis Felipe Rangel                          *
- * @CreateDate 01 ABRIL 2026 09:00:00                       *
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -56,9 +48,9 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $this->ventas_cortes_bimestral_controller_creacion_distribuidores($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id);
         $this->ventas_cortes_bimestral_controller_excel();
     }
-    private function ventas_cortes_bimestral_controller_creacion_ventas($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) { //, Ventas.TarjetaNumero, Ventas.UsuarioDetalleId
-        $data = "SELECT $corte_id, Ventas.TarjetaId, Ventas.VentaId, Ventas.UsuarioDetalleId, Ventas.VentaUsuarioIdMP, Ventas.VentaUsuarioNombreMP,'ACTIVO', Ventas.DistribuidorDetalleId, Ventas.DistribuidorId, Ventas.DistribuidorDetalleCodigo, Ventas.DistribuidorDetalleRazonSocial, Ventas.DistribuidorDetalleNombreComercial, DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId, DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre,'ACTIVA', Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket,MONTH(Ventas.VentaFechaRegistro),'ACTIVA',CASE WHEN VentaAuditoriaTipoId != 4 THEN 'APROBADA EN AUDITORIA' ELSE '' END AS Estado ,Ventas.VentaFechaRegistro, ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
-        FROM Ventas INNER JOIN Usuarios ON Ventas.VentaUsuarioIdMP = Usuarios.UsuarioId INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorDetalleId = DistribuidoresDetalles.DistribuidorDetalleId INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
+    private function ventas_cortes_bimestral_controller_creacion_ventas($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) {
+        $data = "SELECT $corte_id, Ventas.TarjetaId, Ventas.VentaId, Ventas.VentaUsuarioIdMP, Ventas.DistribuidorId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, MONTH(Ventas.VentaFechaRegistro), 1, VentasAuditorias.VentaAuditoriaEstatusId, Ventas.VentaFechaRegistro, ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
+        FROM Ventas INNER JOIN Usuarios ON Ventas.VentaUsuarioIdMP = Usuarios.UsuarioId INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
         WHERE (Ventas.VentaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) AND (VentasAuditorias.VentaAuditoriaId IS NOT NULL) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND 
         (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (Distribuidores.DistribuidorUsuarioIdBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL) AND 
         (YEAR(Ventas.VentaFechaRegistro) = $cmb_anio) AND (MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $cmb_periodo))";
@@ -66,17 +58,8 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
     }
     private function ventas_cortes_bimestral_controller_creacion_maestro_pintor($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) {
         $data = "SELECT $corte_id, 
-            Ventas.DistribuidorDetalleId, 
             Ventas.DistribuidorId, 
-            Ventas.DistribuidorDetalleCodigo, 
-            Ventas.DistribuidorDetalleRazonSocial, 
-            Ventas.DistribuidorDetalleNombreComercial, 
-            'ACTIVA', 
-            DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId, 
-            DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre, 
-            Ventas.UsuarioDetalleId, Ventas.VentaUsuarioIdMP, 
-            Ventas.VentaUsuarioNombreMP, 
-            'ACTIVO', 
+            Ventas.VentaUsuarioIdMP, 
             COUNT(Ventas.VentaId), 
             SUM(Ventas.VentaMontoTicket), 
             (SELECT ReposicionProductoGanadorPremioLugar FROM ReposicionesProductosGanadores WHERE  (ReposicionProductoGanadorAnio = $cmb_anio) AND (ReposicionProductoGanadorMes IN ($mes_anterior, $cmb_periodo)) AND (UsuarioId = Ventas.VentaUsuarioIdMP) AND (DistribuidorId = Ventas.DistribuidorId)) as ReposicionProductoGanadorPremioLugar
@@ -84,37 +67,33 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             FROM 
             Ventas INNER JOIN Usuarios ON Ventas.VentaUsuarioIdMP = Usuarios.UsuarioId 
             INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId 
-            INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorDetalleId = DistribuidoresDetalles.DistribuidorDetalleId 
+            INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
             INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId 
+            LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
             INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
             WHERE (Ventas.VentaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) AND (VentasAuditorias.VentaAuditoriaId IS NOT NULL) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (Distribuidores.DistribuidorUsuarioIdBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL) AND (YEAR(Ventas.VentaFechaRegistro) = $cmb_anio) AND (MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $cmb_periodo)) 
             GROUP BY 
-            Ventas.DistribuidorDetalleId, 
             Ventas.DistribuidorId, 
-            Ventas.DistribuidorDetalleCodigo, 
-            Ventas.DistribuidorDetalleRazonSocial, 
-            Ventas.DistribuidorDetalleNombreComercial, 
-            DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId, 
-            DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre, 
-            Ventas.UsuarioDetalleId, 
             Ventas.VentaUsuarioIdMP, 
-            Ventas.VentaUsuarioNombreMP
+            UsuariosMaestroPintor.UsuarioDetalleNombre, 
+            UsuariosMaestroPintor.UsuarioDetalleSegundoNombre, 
+            UsuariosMaestroPintor.UsuarioDetalleApellidos
             ORDER BY ReposicionProductoGanadorPremioLugar ";
         $this->base_controller_guarda_corte_detalle("CortesBimestralesMaestrosPintores",$data);
     }
     private function ventas_cortes_bimestral_controller_creacion_perfiles($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) {        
-        $data = "SELECT $corte_id, Ventas.DistribuidorDetalleId, Ventas.DistribuidorId, Ventas.DistribuidorDetalleCodigo, Ventas.DistribuidorDetalleRazonSocial, Ventas.DistribuidorDetalleNombreComercial,DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId, DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre,'ACTIVA', Ventas.VentaUsuarioIdRegistro, Ventas.VentaUsuarioNombreRegistro, Perfiles.PerfilId, Perfiles.PerfilDescripcion, CASE WHEN Usuarios_1.UsuarioFechaBajaParticipante IS NULL AND Usuarios_1.UsuarioFechaBajaDistribuidora IS NULL THEN 'ACTIVO' ELSE 'INACTIVO' END AS EstatusUsuario, COUNT(Ventas.VentaId), SUM(Ventas.VentaMontoTicket), ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
-                FROM Ventas INNER JOIN Usuarios ON Ventas.VentaUsuarioIdMP = Usuarios.UsuarioId INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorDetalleId = DistribuidoresDetalles.DistribuidorDetalleId INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId INNER JOIN Usuarios AS Usuarios_1 ON Ventas.VentaUsuarioIdRegistro = Usuarios_1.UsuarioId INNER JOIN Perfiles ON Usuarios_1.PerfilId = Perfiles.PerfilId
+        $data = "SELECT $corte_id, Ventas.DistribuidorId, Ventas.VentaUsuarioIdRegistro, COUNT(Ventas.VentaId), SUM(Ventas.VentaMontoTicket), ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
+                FROM Ventas INNER JOIN Usuarios ON Ventas.VentaUsuarioIdMP = Usuarios.UsuarioId INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId INNER JOIN Usuarios AS Usuarios_1 ON Ventas.VentaUsuarioIdRegistro = Usuarios_1.UsuarioId LEFT JOIN UsuariosDetalles AS UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId INNER JOIN Perfiles ON Usuarios_1.PerfilId = Perfiles.PerfilId
                 WHERE (Ventas.VentaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) AND (VentasAuditorias.VentaAuditoriaId IS NOT NULL) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (Distribuidores.DistribuidorUsuarioIdBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL) AND (YEAR(Ventas.VentaFechaRegistro) = $cmb_anio) AND (MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $cmb_periodo))
-                GROUP BY Ventas.DistribuidorDetalleId, Ventas.DistribuidorId, Ventas.DistribuidorDetalleCodigo, Ventas.DistribuidorDetalleRazonSocial, Ventas.DistribuidorDetalleNombreComercial, DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId, DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre, Ventas.VentaUsuarioIdRegistro, Ventas.VentaUsuarioNombreRegistro, Usuarios_1.UsuarioFechaBajaParticipante, Usuarios_1.UsuarioFechaBajaDistribuidora, Perfiles.PerfilDescripcion, Perfiles.PerfilId";
+                GROUP BY Ventas.DistribuidorId, Ventas.VentaUsuarioIdRegistro, UsuariosRegistro.UsuarioDetalleNombre, UsuariosRegistro.UsuarioDetalleSegundoNombre, UsuariosRegistro.UsuarioDetalleApellidos, Usuarios_1.UsuarioFechaBajaParticipante, Usuarios_1.UsuarioFechaBajaDistribuidora, Perfiles.PerfilId";
         $this->base_controller_guarda_corte_detalle("CortesBimestralesPerfiles",$data);
     }    
     private function ventas_cortes_bimestral_controller_creacion_distribuidores($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) {
-        $data = "SELECT $corte_id, Ventas.DistribuidorDetalleId, Ventas.DistribuidorId, Ventas.DistribuidorDetalleCodigo, Ventas.DistribuidorDetalleRazonSocial, Ventas.DistribuidorDetalleNombreComercial,DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId, DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre, 'ACTIVA', COUNT(Ventas.VentaId), SUM(Ventas.VentaMontoTicket), ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
-                FROM Ventas INNER JOIN Usuarios ON Ventas.VentaUsuarioIdMP = Usuarios.UsuarioId INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorDetalleId = DistribuidoresDetalles.DistribuidorDetalleId INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
+        $data = "SELECT $corte_id, Ventas.DistribuidorId, COUNT(Ventas.VentaId), SUM(Ventas.VentaMontoTicket), ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
+                FROM Ventas INNER JOIN Usuarios ON Ventas.VentaUsuarioIdMP = Usuarios.UsuarioId INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
                 WHERE (Ventas.VentaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) AND (VentasAuditorias.VentaAuditoriaId IS NOT NULL) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (Distribuidores.DistribuidorFechaBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL) AND 
                 (YEAR(Ventas.VentaFechaRegistro) = $cmb_anio) AND (MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $cmb_periodo))
-                GROUP BY Ventas.DistribuidorDetalleId, Ventas.DistribuidorId, Ventas.DistribuidorDetalleCodigo, Ventas.DistribuidorDetalleRazonSocial, Ventas.DistribuidorDetalleNombreComercial, DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId,DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre";
+                GROUP BY Ventas.DistribuidorId";
         $this->base_controller_guarda_corte_detalle("CortesBimestralesDistribuidores",$data);            
     }
     public function ventas_cortes_bimestral_controller_valida_corte() { 
@@ -153,22 +132,17 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $sheet->setTitle("Ventas");
         $sheet->setCellValue('A1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_venta'));
         $sheet->setCellValue('B1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_usuario'));
-        $sheet->setCellValue('C1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_nombre_pintor'));
-        $sheet->setCellValue('D1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus_mp'));
-        $sheet->setCellValue('E1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_distribuidor'));
-        $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_codigo'));                
-        $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_razon_social'));
-        $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_nombre_comercial'));
-        $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_region_distri'));
-        $sheet->setCellValue('J1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus_distri'));
-        $sheet->setCellValue('K1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_numero_ticket'));
-        $sheet->setCellValue('L1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_ticket'));
-        $sheet->setCellValue('M1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_mes'));
-        $sheet->setCellValue('N1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus'));
-        $sheet->setCellValue('O1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria'));
-        $sheet->setCellValue('P1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha'));
-        $sheet->getStyle("A1:P1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-        $sheet->getStyle('A1:P1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
+        $sheet->setCellValue('C1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_distribuidor'));
+        $sheet->setCellValue('D1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_codigo'));                
+        $sheet->setCellValue('E1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_razon_social'));
+        $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_nombre_comercial'));
+        $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_region_distri'));
+        $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_numero_ticket'));
+        $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_ticket'));
+        $sheet->setCellValue('J1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_mes'));
+        $sheet->setCellValue('K1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha'));
+        $sheet->getStyle("A1:K1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+        $sheet->getStyle('A1:K1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $visualiza_corte = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_corte_ventas($corteId);
         $fila = 2;
         foreach ($visualiza_corte as $row) {
@@ -177,25 +151,20 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $txtmes = funciones_strategix_mes_numero_texto($row->CorteBimestralVentaMes);  			
             $sheet->setCellValue('A'.$fila, $row->CorteBimestralVentaVentaId);
             $sheet->setCellValue('B'.$fila, $row->CorteBimestralVentaUsuarioIdMP);
-            $sheet->setCellValue('C'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaNombreMaestroPintor)));
-            $sheet->setCellValue('D'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaUsuarioIdMPEstatus)));
-            $sheet->setCellValue('E'.$fila, $row->CorteBimestralVentaDistribuidorId);
-            $sheet->setCellValue('F'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleCodigo)));
-            $sheet->setCellValue('G'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleRazonSocial)));
-            $sheet->setCellValue('H'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleNombreComercial)));
-            $sheet->setCellValue('I'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleRegionNombre)));
-            $sheet->setCellValue('J'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleEstatus)));            
-            $sheet->setCellValue('K'.$fila, $row->CorteBimestralVentaVentaNumeroTicket);
-            $sheet->setCellValue('L'.$fila, '$ '.number_format($row->CorteBimestralVentaVentaMontoTicket,2));          
-            $sheet->setCellValue('M'.$fila, utf8_encode(strtoupper($txtmes)));
-            $sheet->setCellValue('N'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaVentaEstatus)));  
-            $sheet->setCellValue('O'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaVentaEstatusAuditoria)));  
-            $sheet->setCellValue('P'.$fila, $fecha);
+            $sheet->setCellValue('C'.$fila, $row->CorteBimestralVentaDistribuidorId);
+            $sheet->setCellValue('D'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleCodigo)));
+            $sheet->setCellValue('E'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleRazonSocial)));
+            $sheet->setCellValue('F'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleNombreComercial)));
+            $sheet->setCellValue('G'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaDistribuidorDetalleRegionNombre)));
+            $sheet->setCellValue('H'.$fila, $row->CorteBimestralVentaVentaNumeroTicket);
+            $sheet->setCellValue('I'.$fila, '$ '.number_format($row->CorteBimestralVentaVentaMontoTicket,2));          
+            $sheet->setCellValue('J'.$fila, utf8_encode(strtoupper($txtmes)));
+            $sheet->setCellValue('K'.$fila, $fecha);
             $fila++;
         }
         $limit = $fila-1;
-        foreach(range('A','P') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
-        $sheet->getStyle("A1:P1".$limit)->getFont()->setName('Arial')->setSize(8);
+        foreach(range('A','K') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
+        $sheet->getStyle("A1:K1".$limit)->getFont()->setName('Arial')->setSize(8);
     }
     public function ventas_cortes_bimestral_controller_excel_maestro_pintor($spreadsheet,$corteId){
         $sheet = $spreadsheet->createSheet(1); 
@@ -204,16 +173,13 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $sheet->setCellValue('B1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_codigo'));
         $sheet->setCellValue('C1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_razon_social'));
         $sheet->setCellValue('D1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_nombre_comercial'));
-        $sheet->setCellValue('E1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_region_distri'));
-        $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_estatus_distri'));                
-        $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_id_usuario'));
-        $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_nombre_pintor'));
-        $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_estatus'));
-        $sheet->setCellValue('J1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_cantidad_tickets'));
-        $sheet->setCellValue('K1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_monto_tickets'));
-        $sheet->setCellValue('L1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_premio'));
-        $sheet->getStyle("A1:L1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-        $sheet->getStyle('A1:L1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
+        $sheet->setCellValue('E1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_region_distri'));               
+        $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_id_usuario'));
+        $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_cantidad_tickets'));
+        $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_monto_tickets'));
+        $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_premio'));
+        $sheet->getStyle("A1:I1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+        $sheet->getStyle('A1:I1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $visualiza_corte = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_corte_maestros_pintores($corteId);
         $fila = 2;
         foreach ($visualiza_corte as $row) {            
@@ -222,18 +188,15 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $sheet->setCellValue('C'.$fila, utf8_encode(strtoupper($row->CorteBimestralMaestroPintorDistribuidorDetalleRazonSocial)));
             $sheet->setCellValue('D'.$fila, utf8_encode(strtoupper($row->CorteBimestralMaestroPintorDistribuidorDetalleNombreComercial)));
             $sheet->setCellValue('E'.$fila, utf8_encode(strtoupper($row->CorteBimestralMaestroPintorDistribuidorDetalleRegionNombre)));
-            $sheet->setCellValue('F'.$fila, utf8_encode(strtoupper($row->CorteBimestralMaestroPintorDistribuidorEstatus)));
-            $sheet->setCellValue('G'.$fila, $row->CorteBimestralMaestroPintorUsuarioIdMP);
-            $sheet->setCellValue('H'.$fila, utf8_encode(strtoupper($row->CorteBimestralMaestroPintorMaestroPintor)));
-            $sheet->setCellValue('I'.$fila, utf8_encode(strtoupper($row->CorteBimestralMaestroPintorEstatusMaestroPintor)));
-            $sheet->setCellValue('J'.$fila, $row->CorteBimestralMaestroPintorCantidadTickets);
-            $sheet->setCellValue('K'.$fila, '$ '.number_format($row->CorteBimestralMaestroPintorVentaMontoTicket,2));
-            $sheet->setCellValue('L'.$fila, $row->ReposicionProductoGanadorPremioLugar);
+            $sheet->setCellValue('F'.$fila, $row->CorteBimestralMaestroPintorUsuarioIdMP);
+            $sheet->setCellValue('G'.$fila, $row->CorteBimestralMaestroPintorCantidadTickets);
+            $sheet->setCellValue('H'.$fila, '$ '.number_format($row->CorteBimestralMaestroPintorVentaMontoTicket,2));
+            $sheet->setCellValue('I'.$fila, $row->ReposicionProductoGanadorPremioLugar);
                 $fila++;
         }
         $limit = $fila-1;
-        foreach(range('A','L') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
-        $sheet->getStyle("A1:L1".$limit)->getFont()->setName('Arial')->setSize(8);
+        foreach(range('A','I') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
+        $sheet->getStyle("A1:I1".$limit)->getFont()->setName('Arial')->setSize(8);
     }
     public function ventas_cortes_bimestral_controller_excel_perfiles($spreadsheet,$corteId){
         $sheet = $spreadsheet->createSheet(2); 
@@ -242,16 +205,13 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $sheet->setCellValue('B1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_codigo'));
         $sheet->setCellValue('C1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_razon_social'));
         $sheet->setCellValue('D1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_nombre_comercial'));
-        $sheet->setCellValue('E1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_region_distri'));
-        $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_estatus_distri'));                
-        $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_id_usuario'));
-        $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_nombre_registro'));
-        $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_perfil'));
-        $sheet->setCellValue('J1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_estatus_perfil'));
-        $sheet->setCellValue('K1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_cantidad_tickets'));
-        $sheet->setCellValue('L1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_monto_tickets'));
-        $sheet->getStyle("A1:L1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-        $sheet->getStyle('A1:L1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
+        $sheet->setCellValue('E1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_region_distri'));              
+        $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_id_usuario'));
+        $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_perfil'));
+        $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_cantidad_tickets'));
+        $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_monto_tickets'));
+        $sheet->getStyle("A1:I1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+        $sheet->getStyle('A1:I1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $visualiza_corte = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_corte_perfil($corteId);
         $fila = 2;
         foreach ($visualiza_corte as $row) {
@@ -260,18 +220,15 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $sheet->setCellValue('C'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorDetalleRazonSocial)));
             $sheet->setCellValue('D'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorDetalleNombreComercial)));
             $sheet->setCellValue('E'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorDetalleRegionNombre)));
-            $sheet->setCellValue('F'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorEstatus)));
-            $sheet->setCellValue('G'.$fila, $row->CortesBimestralPerfilDetalleUsuarioIdRegistro);
-            $sheet->setCellValue('H'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDetalleUsuarioRegistroNombre)));
-            $sheet->setCellValue('I'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorPerfilDescripcion)));
-            $sheet->setCellValue('J'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDetalleUsuarioRegistroEstatus)));
-            $sheet->setCellValue('K'.$fila, $row->CortesBimestralPerfilDistribuidorCantidadTicktes);
-            $sheet->setCellValue('L'.$fila, '$ '.number_format($row->CortesBimestralPerfilDistribuidorVentaMontoTicket,2));
+            $sheet->setCellValue('F'.$fila, $row->CortesBimestralPerfilDetalleUsuarioIdRegistro);
+            $sheet->setCellValue('G'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilPerfilDescripcion)));
+            $sheet->setCellValue('H'.$fila, $row->CortesBimestralPerfilDistribuidorCantidadTicktes);
+            $sheet->setCellValue('I'.$fila, '$ '.number_format($row->CortesBimestralPerfilDistribuidorVentaMontoTicket,2));
                 $fila++;
         }
         $limit = $fila-1;
-        foreach(range('A','L') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
-        $sheet->getStyle("A1:L1".$limit)->getFont()->setName('Arial')->setSize(8);
+        foreach(range('A','I') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
+        $sheet->getStyle("A1:I1".$limit)->getFont()->setName('Arial')->setSize(8);
     }    
     public function ventas_cortes_bimestral_controller_excel_distribuidor($spreadsheet,$corteId){
         $sheet = $spreadsheet->createSheet(3); 
@@ -280,12 +237,11 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $sheet->setCellValue('B1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_codigo'));
         $sheet->setCellValue('C1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_razon_social'));
         $sheet->setCellValue('D1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_nombre_comercial'));
-        $sheet->setCellValue('E1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_region_distri'));
-        $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_estatus_distri'));                
-        $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_cantidad_tickets'));
-        $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_monto_tickets'));
-        $sheet->getStyle("A1:H1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-        $sheet->getStyle('A1:H1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
+        $sheet->setCellValue('E1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_region_distri'));              
+        $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_cantidad_tickets'));
+        $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_monto_tickets'));
+        $sheet->getStyle("A1:G1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+        $sheet->getStyle('A1:G1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $visualiza_corte = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_corte_ditribuidores($corteId);
         $fila = 2;
         foreach ($visualiza_corte as $row) {
@@ -294,13 +250,12 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $sheet->setCellValue('C'.$fila, utf8_encode(strtoupper($row->CorteBimestralDistribuidorDistribuidorDetalleRazonSocial)));
             $sheet->setCellValue('D'.$fila, utf8_encode(strtoupper($row->CorteBimestralDistribuidorDistribuidorDetalleNombreComercial)));
             $sheet->setCellValue('E'.$fila, utf8_encode(strtoupper($row->CorteBimestralDistribuidorDistribuidorDetalleRegionNombre)));
-            $sheet->setCellValue('F'.$fila, utf8_encode(strtoupper($row->CorteBimestralDistribuidorDistribuidorEstatus)));
-            $sheet->setCellValue('G'.$fila, $row->CorteBimestralDistribuidorCantidadTicktes);
-            $sheet->setCellValue('H'.$fila, '$ '.number_format($row->CorteBimestralDistribuidorVentaMontoTicket,2));
+            $sheet->setCellValue('F'.$fila, $row->CorteBimestralDistribuidorCantidadTicktes);
+            $sheet->setCellValue('G'.$fila, '$ '.number_format($row->CorteBimestralDistribuidorVentaMontoTicket,2));
             $fila++;
         }
         $limit = $fila-1;
-        foreach(range('A','H') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
-        $sheet->getStyle("A1:H1".$limit)->getFont()->setName('Arial')->setSize(8);        
+        foreach(range('A','G') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
+        $sheet->getStyle("A1:G1".$limit)->getFont()->setName('Arial')->setSize(8);        
     }     
 }

@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPMEX                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 ABRIL 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ventas_auditoria_segunda_model extends Base_Model {	
@@ -25,16 +17,16 @@ class Ventas_auditoria_segunda_model extends Base_Model {
     }    
     public function ventas_auditoria_segunda_model_crea_tabla($anio,$mes){
         /******************************************** TABLA DE AUDITORIAS ******************************************/
-        $SQL1 = "SELECT Ventas.VentaId, VentasAuditorias.VentaAuditoriaId, Ventas.TarjetaNumero, 
-        UsuariosDetalles.UsuarioId as VentaUsuarioIdMP, 
-        CONCAT_WS(' ', UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP,
+        $SQL1 = "SELECT Ventas.VentaId, VentasAuditorias.VentaAuditoriaId, Tarjetas.TarjetaNumero, 
+        UsuariosMaestroPintor.UsuarioId as VentaUsuarioIdMP, 
+        CONCAT_WS(' ', UsuariosMaestroPintor.UsuarioDetalleNombre, UsuariosMaestroPintor.UsuarioDetalleSegundoNombre, UsuariosMaestroPintor.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP,
         DistribuidoresDetalles.DistribuidorId, 
         DistribuidoresDetalles.DistribuidorDetalleId, 
         DistribuidoresDetalles.DistribuidorDetalleCodigo, 
         DistribuidoresDetalles.DistribuidorDetalleRazonSocial,
         DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
-        Ventas.UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, VentasAuditorias.VentaAuditoriaEstatusId, VentasAuditorias.VentaAuditoriaTipoId, VentasAuditorias.VentaAuditoriaEstatusOportunidadId, VentasAuditorias.VentaAuditoriaObservacionId, VentasAuditoriasEstatus.VentaAuditoriaEstatusDescripcion, VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadDescripcion, VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion, VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion 
-         FROM Ventas INNER JOIN DistribuidoresDetalles ON DistribuidoresDetalles.DistribuidorDetalleId = Ventas.DistribuidorDetalleId  INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId LEFT JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId
+        Ventas.VentaUsuarioIdMP AS UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, VentasAuditorias.VentaAuditoriaEstatusId, VentasAuditorias.VentaAuditoriaTipoId, VentasAuditorias.VentaAuditoriaEstatusOportunidadId, VentasAuditorias.VentaAuditoriaObservacionId, VentasAuditoriasEstatus.VentaAuditoriaEstatusDescripcion, VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadDescripcion, VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion, VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion 
+         FROM Ventas INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId LEFT JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId
         WHERE  (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaEstatusOportunidadId = 2) AND (YEAR(Ventas.VentaFechaRegistro) = ?) AND (MONTH(Ventas.VentaFechaRegistro) = ?) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL)";
         $query_tabla	= $this->db->query($SQL1,array($anio,$mes));
         $data["auditoria_tabla"]        =  $query_tabla->result();
@@ -59,14 +51,14 @@ class Ventas_auditoria_segunda_model extends Base_Model {
     public function ventas_auditoria_segunda_model_ticket_modal($VentaId){
         $SQL = "SELECT 
 Ventas.VentaId, 
-        Ventas.TarjetaNumero, 
-        UsuariosDetalles.UsuarioId as VentaUsuarioIdMP, 
-        CONCAT_WS(' ', UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP, 
+        Tarjetas.TarjetaNumero, 
+        UsuariosMaestroPintor.UsuarioId as VentaUsuarioIdMP, 
+        CONCAT_WS(' ', UsuariosMaestroPintor.UsuarioDetalleNombre, UsuariosMaestroPintor.UsuarioDetalleSegundoNombre, UsuariosMaestroPintor.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP, 
         DistribuidoresDetalles.DistribuidorId ,
         DistribuidoresDetalles.DistribuidorDetalleCodigo,
         DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
         DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
-        Ventas.UsuarioDetalleId, 
+        Ventas.VentaUsuarioIdMP AS UsuarioDetalleId, 
         Ventas.VentaNumeroTicket, 
         Ventas.VentaMontoTicket, 
         Ventas.VentaFotoTicket, 
@@ -80,11 +72,13 @@ Ventas.VentaId,
         VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion, 
         VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion 
         FROM Ventas 
-        INNER JOIN DistribuidoresDetalles on DistribuidoresDetalles.DistribuidorDetalleId = Ventas.DistribuidorDetalleId 
+        INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+        INNER JOIN DistribuidoresDetalles on Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
         INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
         INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId 
         INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId 
         INNER JOIN VentasAuditoriasTipos ON VentasAuditorias.VentaAuditoriaTipoId = VentasAuditoriasTipos.VentaAuditoriaTipoId 
+        LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
         INNER JOIN UsuariosDetalles ON VentasAuditorias.VentaAuditoriaUsuarioAudito = UsuariosDetalles.UsuarioId 
         LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoriaObservacionId = VentasAuditoriasObservaciones.VentaAuditoriaObservacionId
         WHERE  (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (Ventas.VentaFechaBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)
@@ -95,7 +89,7 @@ Ventas.VentaId,
     } 
     public function ventas_auditoria_segunda_model_tickets_repetidos($VentaId,$anio,$mes,$DistribuidorId,$VentaUsuarioIdMP,$VentaMontoTicket){
         $tickets = ""; 
-        $SQL    = "SELECT VentaId FROM Ventas WHERE VentaId <> ? AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)= ? AND MONTH(VentaFechaRegistro) = ? AND DistribuidorDetalleId = ? AND UsuarioDetalleId = ? AND VentaMontoTicket = ?";
+        $SQL    = "SELECT VentaId FROM Ventas WHERE VentaId <> ? AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)= ? AND MONTH(VentaFechaRegistro) = ? AND DistribuidorId = ? AND VentaUsuarioIdMP = ? AND VentaMontoTicket = ?";
         $query	= $this->db->query($SQL,array($VentaId,$anio,$mes,$DistribuidorId,$VentaUsuarioIdMP,$VentaMontoTicket));
         //echo  $this->db->last_query()."<br>"; 
         foreach ($query->result() as $row) {

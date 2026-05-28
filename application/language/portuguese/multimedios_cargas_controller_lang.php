@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 Jun. 2024 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['multimedios_cargas_controller_lang_titulo']                                       = 'CARREGAMENTO MULTIMÍDIA';

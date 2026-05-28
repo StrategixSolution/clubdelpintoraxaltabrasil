@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPMEX                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 MARZO 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_actualizar_datos_model extends Base_Model {	
@@ -40,12 +32,12 @@ class Usuarios_actualizar_datos_model extends Base_Model {
         $DetalleUsuarioId_clean = $this->security->xss_clean($DetalleUsuarioId);
         $data_clean             = utf8_decode($this->security->xss_clean($data));
         if ($this->session->userdata(funciones_strategix_sitio_alias("s_perfil_id"))<=5){
-            $SQLINSERT          = "INSERT INTO UsuariosDetalles (UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleSessionId,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleObservaciones,UsuarioId,UsuarioDetalleUsuario,UsuarioDetalleUsuarioIdRegistro) 
+            $SQLINSERT          = "INSERT INTO UsuariosDetalles (UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleSessionId,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleObservaciones,UsuarioId,UsuarioDetalleUsuarioIdRegistro) 
                                     SELECT                       $data,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,'PRIMERA ACTUALIZACION DE DATOS',UsuarioId,".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
                                     FROM UsuariosDetalles
                                     WHERE UsuarioDetalleId = $DetalleUsuarioId_clean";
         } else {
-            $SQLINSERT          = "INSERT INTO UsuariosDetalles (UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleSessionId,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleObservaciones,UsuarioId,UsuarioDetalleUsuario,UsuarioDetalleUsuarioIdRegistro) 
+            $SQLINSERT          = "INSERT INTO UsuariosDetalles (UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleSessionId,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleObservaciones,UsuarioId,UsuarioDetalleUsuarioIdRegistro) 
                                     SELECT                       $data,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,'PRIMERA ACTUALIZACION DE DATOS',UsuarioId,".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
                                     FROM UsuariosDetalles
                                     WHERE UsuarioDetalleId = $DetalleUsuarioId_clean";

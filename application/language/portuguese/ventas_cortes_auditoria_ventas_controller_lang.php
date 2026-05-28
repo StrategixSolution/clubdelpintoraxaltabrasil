@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Amaury Alberto León Jiménez  * 
- * @CreateDate 7 jul. 2026 1:45:14 * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ventas_cortes_auditoria_ventas_controller_lang_titulo']                                                 = 'CORTE AUDITORIA DE VENDAS';

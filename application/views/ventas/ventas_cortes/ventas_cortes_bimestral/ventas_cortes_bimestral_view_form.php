@@ -1,12 +1,4 @@
 <?php
-
-/*
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             *
- * @programmer  Luis Felipe Rangel                          *
- * @CreateDate 01 ABRIL 2026 09:00:00                       *
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
@@ -143,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              data: {anio:anio,mes:mes},
             success: function(data){
                 switch (data) {
-                    case 1: Swal.fire({ icon: 'error',title: '',text: '<?=$this->lang->line('ventas_promociones_cortes_js_msg_error_corte')?>'});break;                    
+                    case 1: Swal.fire({ icon: 'error',title: '',text: '<?=$this->lang->line('ventas_cortes_bimestral_controller_lang_js_msg_error_corte')?>'});break;                    
                     case 2: Swal.fire({ icon: 'error',title: '',text: '<?=$this->lang->line('ventas_cortes_bimestral_controller_lang_js_msg_error_cambio_estatus')?>'});break;
                     case 3: Swal.fire({ icon: 'error',title: '',text: '<?=$this->lang->line('ventas_cortes_bimestral_controller_lang_js_msg_error_auditoria')?>'});break;
                     case 4: Swal.fire({ icon: 'error',title: '',text: '<?=$this->lang->line('ventas_cortes_bimestral_controller_lang_js_msg_error_corte_ganadores')?>'});break;

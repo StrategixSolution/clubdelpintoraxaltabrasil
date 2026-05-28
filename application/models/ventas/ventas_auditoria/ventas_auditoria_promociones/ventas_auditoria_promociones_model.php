@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPMEX                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 ABRIL 2026 09:00:00                         * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ventas_auditoria_promociones_model extends Base_Model {	
@@ -29,15 +22,15 @@ class Ventas_auditoria_promociones_model extends Base_Model {
 Ventas.VentaId, 
 VentasAuditoriasPromociones.VentaAuditoriaPromocionesId, 
 Ventas.TarjetaId, 
-Ventas.TarjetaNumero, 
+Tarjetas.TarjetaNumero, 
 Ventas.VentaUsuarioIdMP, 
-Ventas.VentaUsuarioNombreMP, 
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP, 
 Ventas.DistribuidorId, 
-Ventas.DistribuidorDetalleId,
-Ventas.DistribuidorDetalleCodigo, 
-Ventas.DistribuidorDetalleRazonSocial, 
-Ventas.DistribuidorDetalleNombreComercial, 
-Ventas.UsuarioDetalleId, 
+DistribuidoresDetalles.DistribuidorDetalleId,
+DistribuidoresDetalles.DistribuidorDetalleCodigo, 
+DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
+DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
+Ventas.VentaUsuarioIdMP AS UsuarioDetalleId, 
 Ventas.VentaNumeroTicket, 
 Ventas.VentaMontoTicket, 
 Ventas.VentaFotoTicket, 
@@ -48,6 +41,9 @@ VentasAuditoriasPromosionesEstatus.VentaAuditoriaEstatusPromosionesDescripcion,
 VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion, 
 VentasAuditoriasPromosionesObservaciones.VentaAuditoriaPromosionesObservacionDescripcion 
 FROM Ventas 
+INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId
 INNER JOIN VentasAuditoriasPromociones ON Ventas.VentaId = VentasAuditoriasPromociones.VentaId 
 INNER JOIN VentasAuditoriasPromosionesEstatus ON VentasAuditoriasPromociones.VentaAuditoriaPromocionesEstatusId = VentasAuditoriasPromosionesEstatus.VentaAuditoriaPromosionesEstatusId  
@@ -106,15 +102,15 @@ AND VentaTienePromocion IS NOT NULL";
     public function ventas_auditoria_promociones_model_ticket_modal($VentaId){
         $SQL = "SELECT 
 Ventas.VentaId, 
-Ventas.TarjetaNumero, 
-UsuariosDetalles.UsuarioId as VentaUsuarioIdMP, 
-CONCAT_WS(' ', UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP,
+Tarjetas.TarjetaNumero, 
+UsuariosMaestroPintor.UsuarioId as VentaUsuarioIdMP, 
+CONCAT_WS(' ', UsuariosMaestroPintor.UsuarioDetalleNombre, UsuariosMaestroPintor.UsuarioDetalleSegundoNombre, UsuariosMaestroPintor.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP,
 DistribuidoresDetalles.DistribuidorId, 
 DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo, 
 DistribuidoresDetalles.DistribuidorDetalleRazonSocial,
 DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
-Ventas.UsuarioDetalleId, 
+Ventas.VentaUsuarioIdMP AS UsuarioDetalleId, 
 Ventas.VentaNumeroTicket, 
 Ventas.VentaMontoTicket, 
 Ventas.VentaFotoTicket, 
@@ -128,7 +124,9 @@ VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadDescripcion
 VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion, 
 VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion 
 FROM Ventas 
-INNER JOIN DistribuidoresDetalles ON DistribuidoresDetalles.DistribuidorDetalleId = Ventas.DistribuidorDetalleId 
+INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
+INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
 INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId 
 INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId 
@@ -142,7 +140,7 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
     } 
     public function ventas_auditoria_promociones_model_tickets_repetidos($VentaId,$anio,$mes,$DistribuidorId,$VentaUsuarioIdMP,$VentaMontoTicket){
         $tickets = "";
-        $SQL    = "SELECT VentaId FROM Ventas WHERE VentaId <> ? AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)= ? AND MONTH(VentaFechaRegistro) = ? AND DistribuidorDetalleId = ? AND UsuarioDetalleId = ? AND VentaMontoTicket = ?";
+        $SQL    = "SELECT VentaId FROM Ventas WHERE VentaId <> ? AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)= ? AND MONTH(VentaFechaRegistro) = ? AND DistribuidorId = ? AND VentaUsuarioIdMP = ? AND VentaMontoTicket = ?";
         $query	= $this->db->query($SQL,array($VentaId,$anio,$mes,$DistribuidorId,$VentaUsuarioIdMP,$VentaMontoTicket));
         //echo  $this->db->last_query()."<br>"; 
         foreach ($query->result() as $row) {

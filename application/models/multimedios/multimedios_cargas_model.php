@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Multimedios_cargas_model extends Base_Model {	

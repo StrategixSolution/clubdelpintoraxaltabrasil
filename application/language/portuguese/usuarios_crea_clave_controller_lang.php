@@ -1,12 +1,4 @@
 <?php
-
-/*
- * Sistema Web Responsivo CDPBR*
- * @author	Strategic Solutions S.A. de C.V *
- * @programmer  Luis Felipe Rangel *
- * @CreateDate 01 Mar. 2026 16:00:00 *
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['usuarios_crea_clave_controller_lang_titulo']                                             = 'CRIAÇÃO DE SENHA';

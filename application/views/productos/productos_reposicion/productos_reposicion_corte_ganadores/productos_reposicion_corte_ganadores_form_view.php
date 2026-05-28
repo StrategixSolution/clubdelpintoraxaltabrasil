@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala	 * 
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Enrique Arce Rosas  * 
- * @CreateDate 18 jul. 2022 20:15:44	 * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
     <section id="reposicionCaptura">

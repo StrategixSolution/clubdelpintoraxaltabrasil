@@ -15,7 +15,7 @@ $lang['menu_contacto']                                                          
 $lang['menu_reglas']                                                            = 'REGRAS';
 $lang['menu_productos']                                                         = 'PRODUTOS';
 $lang['menu_dashboard']                                                         = 'DASHBOARD';
-$lang['menu_tickets']                                                           = 'TICKETS';
+$lang['menu_tickets']                                                           = 'TICKETS / NOTAS';
 $lang['menu_auditorias']                                                        = 'AUDITORIAS';
 $lang['menu_perfil']                                                            = 'PERFIL';
 $lang['menu_participantes_interno']                                             = 'PARTICIPANTES INTERNOS';
@@ -33,15 +33,15 @@ $lang['menu_noticias_comunicados_submenu_calendario']                           
 $lang['menu_submenu_admin_distribuidores']                                      = 'DISTRIBUIDORES';
 $lang['menu_submenu_admin_asesores_comerciales']                                = 'ASSESSORES COMERCIAIS';
 $lang['menu_submenu_admin_usuarios']                                            = 'USUÁRIOS';
-$lang['menu_submenu_admin_tarjetas']                                            = 'CARTÕES';
+$lang['menu_submenu_admin_tarjetas']                                            = 'CONSULTAR CARTÃO';
 $lang['menu_submenu_admin_participantes']                                       = 'PARTICIPANTES';
-$lang['menu_submenu_admin_carga_multimedia']                                    = 'CARREGAMENTO MULTIMÍDIA';
-$lang['menu_submenu_admin_cortes']                                              = 'CORTES';
+$lang['menu_submenu_admin_carga_multimedia']                                    = 'GERENCIAR MÍDIAS';
+$lang['menu_submenu_admin_cortes']                                              = 'DATAS DE FECHAMENTO/ DATAS DE CONCLUSÃO';
 $lang['menu_submenu_admin_documentos']                                          = 'DOCUMENTOS';
-$lang['menu_submenu_admin_recompensas']                                         = 'FAIXAS DE RECOMPENSAS';
+$lang['menu_submenu_admin_recompensas']                                         = 'FAIXAS DE PREMIAÇÃO';
 $lang['menu_submenu_admin_reposicion_prodcutos']                                = 'REPOSIÇÃO DE PRODUTOS';
 $lang['menu_submenu_admin_reposicion_prodcutos_descarga']                       = 'DOWNLOAD DE REPOSIÇÃO DE PRODUTOS';
-$lang['menu_submenu_admin_carga_promociones']                                   = 'CARGA DE PROMOÇÕES';
+$lang['menu_submenu_admin_carga_promociones']                                   = 'CARREGAR PROMOÇÕES';
 $lang['menu_submenu_admin_reposicion_prodcutos_premios_productros']             = 'CARGA DE PRODUTOS';
 $lang['menu_submenu_admin_reposicion_prodcutos_premios']                        = 'CRIAÇÃO DE PRÊMIOS';
 $lang['menu_submenu_admin_reposicion_prodcutos_premios_relacion']               = 'RELAÇÃO PRÊMIOS VS PRODUTOS';
@@ -50,14 +50,14 @@ $lang['menu_submenu_admin_reposicion_prodcutos_generacion_ganadores']           
 $lang['menu_submenu_admin_corte_auditoria_ventas']                              = 'CORTE AUDITORIA DE VENDAS';
 $lang['menu_submenu_admin_cortes_promociones']                                  = 'CORTE DE VENDAS DE PROMOÇÕES';
 $lang['menu_submenu_admin_cortes_bimestral']                                    = 'CORTE DE VENDAS BIMESTRAL';
-$lang['menu_submenu_admin_carga_producto_premios']                              = 'CARREGANDO PRODUTOS PRÊMIOS';
+$lang['menu_submenu_admin_carga_producto_premios']                              = 'CADASTRAR PRÊMIOS';
 $lang['menu_submenu_admin_apertura_cierre_reposicion_producto']                 = 'ABERTURA E FECHAMENTO DE REPOSIÇÃO DE PRODUTOS';
 /**************************AUDITORIAS****************************************************/
 $lang['menu_submenu_auditorias_primera']                                        = 'PRIMEIRA RODADA';
-$lang['menu_submenu_auditorias_envio_correos']                                  = 'ENVIO DE E-MAILS';
+$lang['menu_submenu_auditorias_envio_correos']                                  = 'DISPARO DE E-MAILS';
 $lang['menu_submenu_auditorias_segunda']                                        = 'SEGUNDA RODADA';
 $lang['menu_submenu_auditorias_promociones']                                    = 'PROMOÇÕES';
-$lang['menu_submenu_admin_cortes_bimestral']                                    = 'CARTÕES';
+$lang['menu_submenu_admin_cortes_bimestral']                                    = 'CONSULTAR CARTÃO';
 /**************************RELATÓRIOS***************************************************/
 $lang['menu_submenu_reportes_ventas']                                           = 'RELATÓRIO DE VENDAS';
 $lang['menu_submenu_reportes_distribuidoras']                                   = 'RELATÓRIO DE DISTRIBUIDORES';
@@ -71,9 +71,9 @@ $lang['menu_submenu_reporte_ganadores']                                         
 /**************************USUÁRIOS*****************************************************/
 $lang['menu_submenu_usuarios_registro_mp']                                      = 'CADASTRO DE MESTRE PINTOR';
 /**************************TICKETS*********************************************/
-$lang['menu_submenu_tickets_registro_ventas']                                   = 'CADASTRO';
-$lang['menu_submenu_tickets_rechazados']                                        = 'RECUSADOS';
+$lang['menu_submenu_tickets_registro_ventas']                                   = 'CADASTRAR NOTAS / TICKETS';
+$lang['menu_submenu_tickets_rechazados']                                        = 'NOTAS / TICKETS RECUSADOS';
 /**************************REPOSIÇÃO DE PRODUTOS********************************/
 $lang['menu_submenu_reposicion_productos_captura']                              = 'CAPTURA DE REPOSIÇÃO';
 $lang['menu_submenu_reposicion_productos_reporte']                              = 'RELATÓRIO DE REPOSIÇÃO DE PRODUTOS';
-$lang['menu_submenu_reposicion_productos_descarga']                             = 'DOWNLOAD DE ARQUIVOS DE REPOSIÇÃO DE PRODUTOS';
+$lang['menu_submenu_reposicion_productos_descarga']                             = 'BAIXAR ARQUIVOS DE REPOSIÇÃO DE PRODUTOS';

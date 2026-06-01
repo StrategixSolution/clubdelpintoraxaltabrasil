@@ -84,116 +84,121 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </section>
 <script>
     $(document).ready(function() {
-        reportes_distribuidores_form_view_js_combo_distribuidor();
-        reportes_distribuidores_form_view_js_combo_anio();
-
-       
-        $('#cmb_anio').on('change', function() {
-            var anio = $('#cmb_anio').val();
-            if (anio == 0) {
-                $('#div_mes').hide(300);
-                $('#cmb_mes').val(0).trigger("chosen:updated");
-              //  $('#div_actividad').hide(300);
-            } else {
-                reporte_distribuidores_js_Cmb_mes();
-             //   $('#div_actividad').hide(300);
-                $('#div_mes').show(300);
-            }
-        });
-      /*  $('#cmb_mes').on('change', function() {
-            var mes = $('#cmb_mes').val();
-            if (mes == 0) {
-                $('#div_actividad').hide(300);
-            } else {
-                $('#div_actividad').show(300);
-            }
-        });*/
-        $("#Reporte_distribuidores_btn_buscar").click(function() {
-            reporte_distribuidores_js_crear_tabla();
-        });
+        // Inicializar combos
+        inicializarCombos();
+        
+        // Event listeners
+        $('#cmb_anio').on('change', manejarCambioAnio);
+        $('#Reporte_distribuidores_btn_buscar').on('click', generarReporte);
     });
 
-    function reportes_distribuidores_form_view_js_combo_distribuidor() {
-        $.ajax({
-            type: 'POST',
-            url: 'reportes/reportes_distribuidores/reportes_distribuidores_controller/reportes_distribuidores_controller_cmb_distribuidor',
-            dataType: 'json',
-            data: {
-               1:1
-            },
-            success: function(data) {
-                $('#cmb_distribuidor').empty();
+    /**
+     * Inicializa los combos de distribuidor y año
+     */
+    function inicializarCombos() {
+        cargarComboDistribuidor();
+        cargarComboAnio();
+    }
+
+    /**
+     * Maneja el cambio en el combo de año
+     */
+    function manejarCambioAnio() {
+        const anio = $('#cmb_anio').val();
+        
+        if (anio == 0) {
+            $('#div_mes').hide(300);
+            $('#cmb_mes').val(0);
+        } else {
+            cargarComboMes(anio);
+            $('#div_mes').show(300);
+        }
+    }
+
+    /**
+     * Carga el combo de distribuidores
+     */
+    function cargarComboDistribuidor() {
+        realizarPeticionAjax(
+            'reportes/reportes_distribuidores/reportes_distribuidores_controller/reportes_distribuidores_controller_cmb_distribuidor',
+            {},
+            function(data) {
                 $('#cmb_distribuidor').html(data);
-            },
-            error: function(data) {},
-            complete: function() {}
-        });
+            }
+        );
     }
 
-    function reportes_distribuidores_form_view_js_combo_anio() {
-        $.ajax({
-            type: 'POST',
-            url: 'reportes/reportes_distribuidores/reportes_distribuidores_controller/reportes_distribuidores_controller_cmb_anio',
-            dataType: 'json',
-            data: {
-                id: 0
-            },
-            success: function(data) {
-                $('#cmb_anio').empty();
+    /**
+     * Carga el combo de años
+     */
+    function cargarComboAnio() {
+        realizarPeticionAjax(
+            'reportes/reportes_distribuidores/reportes_distribuidores_controller/reportes_distribuidores_controller_cmb_anio',
+            {},
+            function(data) {
                 $('#cmb_anio').html(data);
-            },
-            error: function(data) {},
-            complete: function() {}
-        });
+            }
+        );
     }
 
-    function reporte_distribuidores_js_Cmb_mes() {
-        var cmb_anio = $('#cmb_anio').val();
-        $.ajax({
-            type: 'POST',
-            url: 'reportes/reportes_distribuidores/reportes_distribuidores_controller/reportes_distribuidores_controller_cmbmes',
-            dataType: 'json',
-            data: {
-                cmb_anio: cmb_anio
-            },
-            success: function(data) {
-                $('#cmb_mes').empty();
+    /**
+     * Carga el combo de meses según el año seleccionado
+     * @param {number} anio - Año seleccionado
+     */
+    function cargarComboMes(anio) {
+        realizarPeticionAjax(
+            'reportes/reportes_distribuidores/reportes_distribuidores_controller/reportes_distribuidores_controller_cmbmes',
+            { cmb_anio: anio },
+            function(data) {
                 $('#cmb_mes').html(data);
-            },
-            error: function(data) {},
-            complete: function() {}
-        });
+            }
+        );
     }
 
-    function reporte_distribuidores_js_crear_tabla() {
+    /**
+     * Genera el reporte con los filtros seleccionados
+     */
+    function generarReporte() {
         $('#loader_panel').show();
-        var cmb_pais = $('#cmb_pais').val();
-        var cmb_segmento = $('#cmb_segmento').val();
-        var cmb_anio = $('#cmb_anio').val();
-        var cmb_mes = $('#cmb_mes').val();
-        var cmb_distribuidor = $('#cmb_distribuidor').val();
-        var cmb_estatus = $('#cmb_estatus').val();
-        var cmb_actividad = $('#cmb_actividad').val();
-        $.ajax({
-            type: 'POST',
-            url: 'reportes/reportes_distribuidores/reportes_distribuidores_controller/reportes_distribuidores_controller_tabla',
-            dataType: 'json',
-            data: {
-                cmb_pais: cmb_pais,
-                cmb_segmento: cmb_segmento,
-                cmb_distribuidor: cmb_distribuidor,
-                cmb_mes: cmb_mes,
-                cmb_anio: cmb_anio,
-                cmb_estatus: cmb_estatus,
-                cmb_actividad: cmb_actividad
-            },
-            success: function(data) {
+        
+        const parametros = {
+            cmb_distribuidor: $('#cmb_distribuidor').val(),
+            cmb_anio: $('#cmb_anio').val(),
+            cmb_mes: $('#cmb_mes').val(),
+            cmb_estatus: $('#cmb_estatus').val(),
+            cmb_actividad: $('#cmb_actividad').val()
+        };
+
+        realizarPeticionAjax(
+            'reportes/reportes_distribuidores/reportes_distribuidores_controller/reportes_distribuidores_controller_tabla',
+            parametros,
+            function(data) {
                 $('#tablaReportedistribuidores').html(data);
             },
-            error: function(data) {},
-            complete: function() {
+            function() {
                 $('#loader_panel').hide();
             }
+        );
+    }
+
+    /**
+     * Función auxiliar para realizar peticiones AJAX
+     * @param {string} url - URL del endpoint
+     * @param {object} data - Datos a enviar
+     * @param {function} successCallback - Callback de éxito
+     * @param {function} completeCallback - Callback de completado
+     */
+    function realizarPeticionAjax(url, data, successCallback, completeCallback) {
+        $.ajax({
+            type: 'POST',
+            url: url,
+            dataType: 'json',
+            data: data,
+            success: successCallback,
+            error: function(xhr, status, error) {
+                console.error('Error en petición AJAX:', error);
+            },
+            complete: completeCallback || function() {}
         });
     }
 </script>

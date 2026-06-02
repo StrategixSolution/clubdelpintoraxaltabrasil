@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['reportes_distribuidores_controller_lang_pagina_titulo']                             = 'REPORTE DE DISTRIBUIDORES';
@@ -40,3 +40,10 @@ $lang['reportes_distribuidores_controller_lang_tabla_btn_descarga']             
 $lang['reportes_distribuidores_controller_lang_select_combo_distribuidor']                              = 'TODOS';
 $lang['reportes_distribuidores_controller_lang_combo_selecciona_anio_all']             = 'TODOS';
 $lang['reportes_distribuidores_controller_lang_combo_selecciona_mes_all']             = 'TODOS';
+
+$lang['reportes_distribuidores_controller_lang_tabla_categoria']                    = 'CATEGORÍA';
+$lang['reportes_distribuidores_controller_lang_tabla_ciudad_estado']                              = 'CIUDAD / ESTADO';
+$lang['reportes_distribuidores_controller_lang_tabla_segmento']                              = 'SEGMENTO';
+$lang['reportes_distribuidores_controller_lang_tabla_numero']                              = 'NÚMERO';
+$lang['reportes_distribuidores_controller_lang_tabla_fase']                              = 'FASE';
+$lang['reportes_distribuidores_controller_lang_tabla_etapa']                             = 'ETAPA';

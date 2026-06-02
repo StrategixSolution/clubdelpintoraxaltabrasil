@@ -3,7 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 ?>
-<li class="nav-item" id="nav_contacto"><a class="nav-link" aria-current="page" href="<?php echo funciones_strategix_version_url_random_base_url("Registromaestropintorinterno") ?>">REGISTRO DE MAESTRO PINTOR</a></li>  
+<li class="nav-item" id="nav_contacto"><a class="nav-link" aria-current="page" href="<?php echo funciones_strategix_version_url_random_base_url("Registromaestropintorinterno") ?>"><?=$this->lang->line('menu_submenu_usuarios_registro_mp')?></a></li>  
 <li class="nav-item dropdown" id="nav_catalogos">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_tickets')?></a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -22,3 +22,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("DescargaReposicionProductos"); ?>"><?=$this->lang->line('menu_submenu_reposicion_productos_descarga')?></a></li> 
     </ul>
 </li>
+<li class="nav-item dropdown" id="nav_catalogos">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_reportes')?></a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("DescargaReposicionProductos"); ?>"><?=$this->lang->line('menu_submenu_reposicion_productos_descarga')?></a></li> 
+            <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteDistribuidores"); ?>"><?=$this->lang->line('menu_submenu_reportes_distribuidoras')?></a></li> 
+            </ul>
+        </li> 

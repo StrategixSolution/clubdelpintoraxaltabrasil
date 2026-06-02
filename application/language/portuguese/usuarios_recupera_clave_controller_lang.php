@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['usuarios_recupera_clave_controller_lang_titulo']                                                  = 'RECUPERE SUA SENHA';
+$lang['usuarios_recupera_clave_controller_lang_titulo']                                                  = 'Esqueci minha senha';
 $lang['usuarios_recupera_clave_controller_lang_nueva_titulo']                                            = 'GERE SUA NOVA SENHA';
 $lang['usuarios_recupera_clave_controller_lang_msg_email']                                               = 'INSIRA O E-MAIL COM O QUAL SE CADASTROU PARA RECUPERAR SUA SENHA.';
 $lang['usuarios_recupera_clave_controller_lang_msg_whatsapp']                                            = 'INSIRA O NÚMERO DO SEU CELULAR COM O QUAL SE CADASTROU PARA RECUPERAR SUA SENHA, JUNTO COM O CÓDIGO DE ÁREA.';

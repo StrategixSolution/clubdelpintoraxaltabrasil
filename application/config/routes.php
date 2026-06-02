@@ -40,6 +40,8 @@ $route['CorteVentasBimestral']                  = 'ventas/ventas_cortes/ventas_c
 $route['ReposicionProductoCaptura']             = 'productos/productos_reposicion/productos_reposicion_captura/productos_reposicion_captura_controller';
 $route['DescargaReposicionProductos']           = 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller';
 $route['AperturaCierreRepProd']                 = 'ventas/ventas_cortes/ventas_cortes_apertura_cierre/ventas_cortes_apertura_cierre_controller';
+$route['ReporteDistribuidores']                 = 'reportes/reportes_distribuidores/reportes_distribuidores_controller';
+
 
 
 

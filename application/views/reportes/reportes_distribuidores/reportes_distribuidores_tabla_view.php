@@ -8,25 +8,63 @@
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_codigo') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_razon_social') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_nombre_comercial') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_nombre_pais') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_nombre_segmento') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_region') ?></th>
+                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_categoria') ?></th>
+                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_ciudad_estado') ?></th>
+                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_segmento') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_calle') ?></th>
+                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_numero') ?></th>
+                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_colonia') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_municipio') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_ciudad') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_estado') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_cp') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_ejecutivo') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_estatus') ?></th>
+                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_fase') ?></th>
+                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_etapa') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_tickets_registrados') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_maestros_registrados') ?></th>
                     <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_monto_tickets') ?></th>
-                    <?PHP if ($anio != 0 && $mes != 0) { ?>
-                        <th><?= $this->lang->line('reportes_distribuidores_controller_lang_actividad') ?></th>
-                    <?PHP } ?>
+                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_ejecutivo') ?></th>
                 </thead>
                 <tbody>
-                    <?= $tabla ?>
+                    <?php if (!empty($distribuidores)): ?>
+                        <?php foreach ($distribuidores as $distribuidor): ?>
+                            <?php
+                                // Determinar segmento
+                                $segmento = ($distribuidor->DistribuidorMatriz === NULL) ? 'Sucursal' : 'MATRIZ';
+                                
+                                // Formatear ejecutivos (convertir delimitador | a <br> y reemplazar guiones bajos por espacios)
+                                $ejecutivos = $distribuidor->ejecutivos ?? '';
+                                $ejecutivos = str_replace('_', ' ', $ejecutivos);
+                                $ejecutivos = str_replace(' | ', '<br>', $ejecutivos);
+                            ?>
+                            <tr class="text-left">
+                                <td><?= $distribuidor->DistribuidorId ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleCodigo) ?></td>
+                                <td><?= utf8_encode(ucwords(mb_strtolower($distribuidor->DistribuidorDetalleRazonSocial))) ?></td>
+                                <td><?= utf8_encode(ucwords(mb_strtolower($distribuidor->DistribuidorDetalleNombreComercial))) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleRegionNombre) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleCategoriaNombre) ?></td>
+                                <td><?= utf8_encode(ucwords(mb_strtolower($distribuidor->DistribuidorDetalleCiudad))) ?> / <?= utf8_encode(ucwords(mb_strtolower($distribuidor->DistribuidorDetalleEstado))) ?></td>
+                                <td><?= utf8_encode($segmento) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleCalle) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleNumeroExterior) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleColonia) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleMunicipio) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleCP) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleFaceNombre) ?></td>
+                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleEtapaNombre) ?></td>
+                                <td><?= $distribuidor->num_ventas ?></td>
+                                <td><?= $distribuidor->total_maestros_pintores ?></td>
+                                <td>$<?= number_format($distribuidor->total_ventas, 2) ?></td>
+                                <td style="font-size: 8px;"><?php echo utf8_encode($ejecutivos); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="19" class="text-center">
+                                <?= $this->lang->line('data_table_js_lang_zeroRecords') ?? 'No se encontraron registros' ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>

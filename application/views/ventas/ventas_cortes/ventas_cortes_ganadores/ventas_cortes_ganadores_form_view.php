@@ -19,13 +19,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="panel-white">
                 <div class="form-rf-1" id="form-rf-1">
                     <div class="row row-validator">
-                         <div class="col-lg-3">
+                         <div class="col-lg-5">
                             <div class="form-group">
                                 <label for="cmb_anio_ventas_auditoria_form_view"><?=$this->lang->line('ventas_cortes_ganadores_contoller_lang_etiqueta_anio')?></label>
                                 <select name="cmb_anio_ventas_auditoria_form_view" id="cmb_anio_ventas_auditoria_form_view" class="form-select"></select>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-5">
                             <div class="form-group" style="display: none;" id="div_mes">
                                 <label for="cmb_mes_ventas_auditoria_form_view"><?=$this->lang->line('ventas_cortes_ganadores_contoller_lang_etiqueta_mes')?></label>
                                 <select name="cmb_mes_ventas_auditoria_form_view" id="cmb_mes_ventas_auditoria_form_view" class="form-select"></select>
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="col-lg-2" style="display: none;" id="div_buscar">
                             <div class="form-group">
-                                <button type="button" id="ventas_auditoria_form_view_btn_corte" class="btn btn-axalta" style="margin-top: 1.68em;"><?=$this->lang->line('ventas_cortes_ganadores_contoller_lang_btn_corte')?></button>
+                                <button type="button" id="ventas_auditoria_form_view_btn_corte" class="btn btn-axalta btn-buscar-ancho" style="margin-top: 1.68em;"><i class="fas fa-trophy"></i><span class="btn-buscar-texto"><?=$this->lang->line('ventas_cortes_ganadores_contoller_lang_btn_corte')?></span></button>
                             </div>
                         </div>
                     </div>

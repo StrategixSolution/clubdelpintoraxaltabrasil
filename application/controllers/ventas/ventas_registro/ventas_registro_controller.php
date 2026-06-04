@@ -20,13 +20,13 @@ class Ventas_registro_controller extends Base_Controller {
     public function ventas_registro_controller_cmb_distribuidor() {  
         $cmb_dist ="";
         $distribuidor =  $this->ventas_registro_model->ventas_registro_model_cmb_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))); 
-        foreach ($distribuidor as $dist) {   
-            if($dist->DistribuidorDetalleNombreComercial!=NULL){
-                $nombre = utf8_encode($dist->DistribuidorDetalleNombreComercial);
-            } else {
-                $nombre = utf8_encode($dist->DistribuidorDetalleRazonSocial);
-            }     
-            $cmb_dist .="<option value=$dist->DistribuidorId>".$nombre."</option>";
+        foreach ($distribuidor as $dist) {
+            $nombre = !empty($dist->DistribuidorDetalleNombreComercial)
+                ? $dist->DistribuidorDetalleCodigo . ' - ' . $dist->DistribuidorDetalleNombreComercial
+                : $dist->DistribuidorDetalleCodigo . ' - ' . $dist->DistribuidorDetalleRazonSocial;
+            $cmb_dist .= '<option value="' . $dist->DistribuidorId . '">' .
+                strtoupper(utf8_encode($nombre)) .
+                '</option>';
         }
         echo json_encode($cmb_dist);
     }

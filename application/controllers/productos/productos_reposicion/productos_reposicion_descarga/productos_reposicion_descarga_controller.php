@@ -43,25 +43,25 @@ class Productos_reposicion_descarga_controller extends Base_Controller {
        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) == 6 or $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) == 7 or $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) == 8) {
             $cmbdistribuidora = '';
              $distribuidoras   = $this->productos_reposicion_descarga_model->productos_reposicion_descarga_model_distribuidoras_tienda($cmb_anio,$cmb_mes);
-            foreach ($distribuidoras as $distribuidora) {         
-               if($distribuidora->DistribuidorDetalleNombreComercial!=NULL){
-                    $nombre = utf8_encode($distribuidora->DistribuidorDetalleNombreComercial);
-                } else {
-                    $nombre = utf8_encode($distribuidora->DistribuidorDetalleRazonSocial);
-                }
-             $cmbdistribuidora .="<option value=$distribuidora->DistribuidorId>".utf8_encode(strtoupper($distribuidora->DistribuidorDetalleCodigo))."-".$nombre."</option>";
-        }
+            foreach ($distribuidoras as $distribuidora) {
+                $nombre = !empty($distribuidora->DistribuidorDetalleNombreComercial)
+                    ? $distribuidora->DistribuidorDetalleCodigo . ' - ' . $distribuidora->DistribuidorDetalleNombreComercial
+                    : $distribuidora->DistribuidorDetalleCodigo . ' - ' . $distribuidora->DistribuidorDetalleRazonSocial;
+                $cmbdistribuidora .= '<option value="' . $distribuidora->DistribuidorId . '">' .
+                    strtoupper(utf8_encode($nombre)) .
+                    '</option>';
+            }
         } else {
-             $distribuidoras  = $this->productos_reposicion_descarga_model->productos_reposicion_descarga_model_distribuidoras($cmb_anio,$cmb_mes);
-        $cmbdistribuidora ="<option  value='0'>".$this->lang->line('productos_reposicion_descarga_controller_lang_placeholder_distribuidor')."</option>";
-        foreach ($distribuidoras as $distribuidora) {         
-               if($distribuidora->DistribuidorDetalleNombreComercial!=NULL){
-                    $nombre = utf8_encode($distribuidora->DistribuidorDetalleNombreComercial);
-                } else {
-                    $nombre = utf8_encode($distribuidora->DistribuidorDetalleRazonSocial);
-                }
-             $cmbdistribuidora .="<option value=$distribuidora->DistribuidorId>".utf8_encode(strtoupper($distribuidora->DistribuidorDetalleCodigo))."-".$nombre."</option>";
-        }
+            $distribuidoras = $this->productos_reposicion_descarga_model->productos_reposicion_descarga_model_distribuidoras($cmb_anio,$cmb_mes);
+            $cmbdistribuidora = "<option value='0'>" . $this->lang->line('productos_reposicion_descarga_controller_lang_placeholder_distribuidor') . "</option>";
+            foreach ($distribuidoras as $distribuidora) {
+                $nombre = !empty($distribuidora->DistribuidorDetalleNombreComercial)
+                    ? $distribuidora->DistribuidorDetalleCodigo . ' - ' . $distribuidora->DistribuidorDetalleNombreComercial
+                    : $distribuidora->DistribuidorDetalleCodigo . ' - ' . $distribuidora->DistribuidorDetalleRazonSocial;
+                $cmbdistribuidora .= '<option value="' . $distribuidora->DistribuidorId . '">' .
+                    strtoupper(utf8_encode($nombre)) .
+                    '</option>';
+            }
         }
         echo json_encode($cmbdistribuidora);
     }

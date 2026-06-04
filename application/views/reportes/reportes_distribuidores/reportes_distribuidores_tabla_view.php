@@ -4,32 +4,32 @@
         <div class="table-responsive table-axalta">
             <table class="table table-bordered" id="TbReporteDistribuidores">
                 <thead>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_id') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_codigo') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_razon_social') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_nombre_comercial') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_region') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_categoria') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_ciudad_estado') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_segmento') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_calle') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_numero') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_colonia') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_municipio') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_cp') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_fase') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_etapa') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_tickets_registrados') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_maestros_registrados') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_monto_tickets') ?></th>
-                    <th><?= $this->lang->line('reportes_distribuidores_controller_lang_tabla_ejecutivo') ?></th>
+                    <th>ID</th>
+                    <th>Codigo</th>
+                    <th>Razao Social</th>
+                    <th>Nome Comercial</th>
+                    <th>Regiao</th>
+                    <th>Cidade / UF</th>
+                    <th>Segmento</th>
+                    <th>Endereco</th>
+                    <th>Bairro</th>
+                    <th>Municipio</th>
+                    <th>CEP</th>
+                    <th>Tickets Registrados</th>
+                    <th>Mestres Pintores Registrados</th>
+                    <th>Valor dos Tickets</th>
+                    <th>Executivo</th>
                 </thead>
                 <tbody>
                     <?php if (!empty($distribuidores)): ?>
                         <?php foreach ($distribuidores as $distribuidor): ?>
                             <?php
                                 // Determinar segmento
-                                $segmento = ($distribuidor->DistribuidorMatriz === NULL) ? 'Sucursal' : 'MATRIZ';
+                                $segmento = ($distribuidor->DistribuidorMatriz === NULL) ? 'Filial' : 'MATRIZ';
+                                $razon_social = (string)($distribuidor->DistribuidorDetalleRazonSocial ?? '');
+                                $nombre_comercial = (string)($distribuidor->DistribuidorDetalleNombreComercial ?? '');
+                                $ciudad = (string)($distribuidor->DistribuidorDetalleCiudad ?? '');
+                                $estado = (string)($distribuidor->DistribuidorDetalleEstado ?? '');
                                 
                                 // Formatear ejecutivos (convertir delimitador | a <br> y reemplazar guiones bajos por espacios)
                                 $ejecutivos = $distribuidor->ejecutivos ?? '';
@@ -39,19 +39,15 @@
                             <tr class="text-left">
                                 <td><?= $distribuidor->DistribuidorId ?></td>
                                 <td><?= utf8_encode($distribuidor->DistribuidorDetalleCodigo) ?></td>
-                                <td><?= utf8_encode(ucwords(mb_strtolower($distribuidor->DistribuidorDetalleRazonSocial))) ?></td>
-                                <td><?= utf8_encode(ucwords(mb_strtolower($distribuidor->DistribuidorDetalleNombreComercial))) ?></td>
+                                <td><?= utf8_encode(ucwords(mb_strtolower($razon_social))) ?></td>
+                                <td><?= utf8_encode(ucwords(mb_strtolower($nombre_comercial))) ?></td>
                                 <td><?= utf8_encode($distribuidor->DistribuidorDetalleRegionNombre) ?></td>
-                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleCategoriaNombre) ?></td>
-                                <td><?= utf8_encode(ucwords(mb_strtolower($distribuidor->DistribuidorDetalleCiudad))) ?> / <?= utf8_encode(ucwords(mb_strtolower($distribuidor->DistribuidorDetalleEstado))) ?></td>
+                                <td><?= utf8_encode(ucwords(mb_strtolower($ciudad))) ?> / <?= utf8_encode(ucwords(mb_strtolower($estado))) ?></td>
                                 <td><?= utf8_encode($segmento) ?></td>
                                 <td><?= utf8_encode($distribuidor->DistribuidorDetalleCalle) ?></td>
-                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleNumeroExterior) ?></td>
                                 <td><?= utf8_encode($distribuidor->DistribuidorDetalleColonia) ?></td>
                                 <td><?= utf8_encode($distribuidor->DistribuidorDetalleMunicipio) ?></td>
                                 <td><?= utf8_encode($distribuidor->DistribuidorDetalleCP) ?></td>
-                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleFaceNombre) ?></td>
-                                <td><?= utf8_encode($distribuidor->DistribuidorDetalleEtapaNombre) ?></td>
                                 <td><?= $distribuidor->num_ventas ?></td>
                                 <td><?= $distribuidor->total_maestros_pintores ?></td>
                                 <td>$<?= number_format($distribuidor->total_ventas, 2) ?></td>
@@ -60,8 +56,8 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="19" class="text-center">
-                                <?= $this->lang->line('data_table_js_lang_zeroRecords') ?? 'No se encontraron registros' ?>
+                            <td colspan="15" class="text-center">
+                                <?= $this->lang->line('data_table_js_lang_zeroRecords') ?? 'Nenhum registro encontrado' ?>
                             </td>
                         </tr>
                     <?php endif; ?>

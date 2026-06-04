@@ -14,9 +14,14 @@ class Tarjetas_altas_controller extends Base_Controller
     public function tarjetas_altas_controller_combo_distribuidor(){
         $combo_distribuidores= ""; 
         $distribuidoras         = $this->tarjetas_altas_model->distribuidores_alta_model_combo_distribuidores();
-        foreach ($distribuidoras as $distribuidora) {            
-                $combo_distribuidores .="<option value=$distribuidora->DistribuidorId>".$distribuidora->DistribuidorDetalleCodigo." ".utf8_encode(strtoupper($distribuidora->DistribuidorDetalleNombreComercial))."</option>";
-            }        
+        foreach ($distribuidoras as $distribuidora) {
+            $nombre = !empty($distribuidora->DistribuidorDetalleNombreComercial)
+                ? $distribuidora->DistribuidorDetalleCodigo . ' - ' . $distribuidora->DistribuidorDetalleNombreComercial
+                : $distribuidora->DistribuidorDetalleCodigo . ' - ' . $distribuidora->DistribuidorDetalleRazonSocial;
+            $combo_distribuidores .= '<option value="' . $distribuidora->DistribuidorId . '">' .
+                strtoupper(utf8_encode($nombre)) .
+                '</option>';
+        }
         echo json_encode($combo_distribuidores);
     }
     public function tarjetas_altas_controller_tabla(){

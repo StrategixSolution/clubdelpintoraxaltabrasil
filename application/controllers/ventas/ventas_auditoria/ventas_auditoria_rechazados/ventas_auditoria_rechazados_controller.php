@@ -17,13 +17,13 @@ class Ventas_auditoria_rechazados_controller extends Base_Controller {
     public function ventas_auditoria_rechazados_controller_combo_distribuidor() {
         $cmb_dist ="";
         $distribuidor =  $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_combo_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))); 
-        foreach ($distribuidor as $dist) {  
-            if($dist->DistribuidorDetalleNombreComercial!=NULL){
-                $nombre = utf8_encode($dist->DistribuidorDetalleNombreComercial);
-            } else {
-                $nombre = utf8_encode($dist->DistribuidorDetalleRazonSocial);
-            }      
-            $cmb_dist .="<option value=$dist->DistribuidorId>".$nombre."</option>";
+        foreach ($distribuidor as $dist) {
+            $nombre = !empty($dist->DistribuidorDetalleNombreComercial)
+                ? $dist->DistribuidorDetalleCodigo . ' - ' . $dist->DistribuidorDetalleNombreComercial
+                : $dist->DistribuidorDetalleCodigo . ' - ' . $dist->DistribuidorDetalleRazonSocial;
+            $cmb_dist .= '<option value="' . $dist->DistribuidorId . '">' .
+                strtoupper(utf8_encode($nombre)) .
+                '</option>';
         }
         echo json_encode($cmb_dist);
     }

@@ -113,7 +113,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
             <div class="row justify-content-end">
                 <div class="col-lg-2 col-12" style="margin-top:20px;" id="btn_guardar">
-                    <button type="button" id="reposicionCaptura_boton_guardar" class="btn btn-axalta btn-buscar-ancho"><i class="far fa-save"></i><span class="btn-buscar-texto">GUARDAR</span></button>
+                    <button type="button" id="reposicionCaptura_boton_guardar" class="btn btn-axalta btn-buscar-ancho"><i class="far fa-save"></i><span class="btn-buscar-texto">SALVAR</span></button>
                 </div>
             </div>
         </div>

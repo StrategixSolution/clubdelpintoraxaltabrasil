@@ -121,25 +121,14 @@ class Reportes_distribuidores_model extends Base_Model {
             dd.DistribuidorDetalleNombreComercial,
             dd.DistribuidorDetalleRegionId,
             r.DistribuidorDetalleRegionNombre,
-            dd.DistribuidorDetalleCategoriaId,
-            c.DistribuidorDetalleCategoriaNombre,
-            dd.DistribuidorDetalleCP,
-            dd.DistribuidorDetalleEstado,
+            dd.DistribuidorDetalleCEP AS DistribuidorDetalleCP,
+            dd.DistribuidorDetalleUnidadFederativa AS DistribuidorDetalleEstado,
             dd.DistribuidorDetalleCiudad,
-            dd.DistribuidorDetalleMunicipio,
-            dd.DistribuidorDetalleColonia,
-            dd.DistribuidorDetalleCalle,
-            dd.DistribuidorDetalleNumeroExterior,
-            dd.DistribuidorDetalleNumeroInterior,
-            dd.DistribuidorDetalleReferencia,
+            dd.DistribuidorDetalleCiudad AS DistribuidorDetalleMunicipio,
+            dd.DistribuidorDetalleBarrio AS DistribuidorDetalleColonia,
+            dd.DistribuidorDetalleDireccion AS DistribuidorDetalleCalle,
             dd.DistribuidorDetalleTelefono,
-            dd.DistribuidorDetalleGrupoBonificacion,
-            dd.DistribuidorDetalleLealtad,
             d.DistribuidorMatriz,
-            dd.DistribuidorDetalleEtapaId,
-            dd.DistribuidorDetalleFaceId,
-            faces.DistribuidorDetalleFaceNombre,
-            etapas.DistribuidorDetalleEtapaNombre,
             -- Subconsultas optimizadas
             ISNULL(mp.total_mp, 0) AS total_maestros_pintores,
             ISNULL(v.num_ventas, 0) AS num_ventas,
@@ -164,9 +153,6 @@ class Reportes_distribuidores_model extends Base_Model {
             Distribuidores d
             INNER JOIN DistribuidoresDetalles dd ON dd.DistribuidorId = d.DistribuidorId
             LEFT OUTER JOIN DistribuidoresDetallesRegiones r ON (dd.DistribuidorDetalleRegionId = r.DistribuidorDetalleRegionId)
-            LEFT OUTER JOIN DistribuidoresDetallesCategorias c ON (dd.DistribuidorDetalleCategoriaId = c.DistribuidorDetalleCategoriaId)
-            LEFT OUTER JOIN DistribuidoresDetallesFaces faces ON (dd.DistribuidorDetalleFaceId = faces.DistribuidorDetalleFaceId)
-            LEFT OUTER JOIN DistribuidoresDetallesEtapas etapas ON (dd.DistribuidorDetalleEtapaId = etapas.DistribuidorDetalleEtapaId)
             -- Subconsulta para Maestros Pintores
             LEFT OUTER JOIN (
                 SELECT ud.DistribuidorId, COUNT(u.UsuarioId) AS total_mp

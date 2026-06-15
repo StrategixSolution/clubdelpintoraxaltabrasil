@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="panel-white">
             <div class="form-rf-1" id="form-rf-1">
                 <div class="row row-validator">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <div class="form-group">
                             <label for="cmb_anio"><?= $this->lang->line('productos_reposicion_descarga_controller_lang_etiqueta_anio') ?></label>
                             <select name="cmb_anio" id="cmb_anio" class="form-select"></select>
@@ -30,8 +30,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <select name="cmb_mes" id="cmb_mes" class="form-select"></select>
                         </div>
                     </div>
+                    <div class="col-lg-5" style="display: none;" id="div_cmbdistribuidora">
+                        <div class="form-group">
+                            <label for="cmb_distribuidora"><?= $this->lang->line('productos_reposicion_descarga_controller_lang_etiqueta_distribuidor') ?></label>
+                            <select name="cmb_distribuidora" id="cmb_distribuidora" class="form-select"></select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2" style="display: none;" id="div_cmbtipo">
+                        <div class="form-group">
+                            <label for="cmb_tipo"><?= $this->lang->line('productos_reposicion_descarga_controller_lang_etiqueta_tipo') ?></label>
+                            <select name="cmb_tipo" id="cmb_tipo" class="form-select"></select>
+                        </div>
+                    </div>
                 </div>
-                <div class="row row-validator">
+                <!-- <div class="row row-validator">
                     <div class="col-lg-5" style="display: none;" id="div_cmbdistribuidora">
                         <div class="form-group">
                             <label for="cmb_distribuidora"><?= $this->lang->line('productos_reposicion_descarga_controller_lang_etiqueta_distribuidor') ?></label>
@@ -44,12 +56,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <select name="cmb_tipo" id="cmb_tipo" class="form-select"></select>
                         </div>
                     </div>
-                </div>
-                <div class="row row-validator">
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-3" style="text-align: right; margin-top:20px; display: none;" id="div_buscar">
-                        <div class="form-group">
-                            <button type="button" id="productos_reposicion_descarga_view_btn_descarga" class="btn btn-axalta"><i class="fas fa-download"></i> <?= $this->lang->line('productos_reposicion_descarga_controller_lang_etiqueta_descarga') ?></i></button>
+                </div> -->
+                <div class="row row-validator justify-content-end">
+                    <div class="col-lg-2" style="display: none;" id="div_buscar">
+                        <div class="">
+                            <button type="button" id="productos_reposicion_descarga_view_btn_descarga" class="btn btn-axalta btn-buscar-ancho"><i class="fas fa-download"></i><span class="btn-buscar-texto"><?= $this->lang->line('productos_reposicion_descarga_controller_lang_etiqueta_descarga') ?></span></button>
                         </div>
                     </div>
                 </div>

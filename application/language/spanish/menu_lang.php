@@ -67,6 +67,7 @@ $lang['menu_submenu_reportes_ventas_auditoria']                                 
 $lang['menu_submenu_reportes_estado_cuentas']                                   = 'REPORTE ESTADO DE CUENTAS';
 $lang['menu_submenu_ventas_personal_top']                                       = 'REPORTE VENTAS DE PERSONAL TOP 40';
 $lang['menu_submenu_reporte_ganadores']                                         = 'REPORTE DE GANADORES';
+$lang['menu_submenu_reporte_maestros_pintores']                                 = 'REPORTE DE MAESTROS PINTORES';
 /**************************USUARIOS******************************************************/
 $lang['menu_submenu_usuarios_registro_mp']                                      = 'REGISTRO DE MAESTRO PINTOR';
 /**************************TICKETS*********************************************/
@@ -76,3 +77,5 @@ $lang['menu_submenu_tickets_rechazados']                                        
 $lang['menu_submenu_reposicion_productos_captura']                              = 'CAPTURA DE REPOSICIÓN';
 $lang['menu_submenu_reposicion_productos_reporte']                              = 'REPORTE DE REPOSICIÓN DE PRODUCTOS';
 $lang['menu_submenu_reposicion_productos_descarga']                             = 'DESCARGA DE ARCHIVOS REPOSICIÓN DE PRODUCTOS';
+
+$lang['menu_tutoriales']                             = 'TUTORIALES';

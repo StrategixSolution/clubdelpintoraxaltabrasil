@@ -27,24 +27,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
-                <div class="row mt-60">
+                <div class="row mt-60 justify-content-center">
                     <div class="col-lg-4">
                         <div class="contact">
                             <i class="fas fa-envelope"></i>
                             <p><a href="mailto:contacto@clubdelpintoraxalta.com.br" class="txt-rojo">contacto@clubdelpintoraxalta.com.br</a></p>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <!-- <div class="col-lg-4">
                         <div class="contact">
                             <i class="fas fa-phone"></i>
                             <p><a href="tel:9999999999999999">9999999999999999</a></p>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <div class="col-lg-4">
                         <div class="contact">
                             <i class="fab fa-whatsapp"></i>
-                            <p><a href="https://wa.me/9999999999999999">9999999999999999</a></p>
+                            <p><a href="https://wa.me/525527452226">+52 55 2745 2226</a></p>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <section id="login">
     <div class="login-container animate__animated animate__fadeIn">
         <div class="row">            
-            <div class="col-lg-6 col-12 txt-center">
+            <div class="col-lg-6 col-12 txt-center d-flex align-items-center justify-content-center">
                 <div class="logo-main">
                     <img src="application/views/template/login/imagenes/logo.png" alt="">
                     <h2><?=$this->lang->line('usuarios_recupera_clave_nueva_controller_lang_nueva_marca')?></h2>

@@ -13,7 +13,7 @@ $lang['menu_noticias_comunicados']                                              
 $lang['menu_reportes']                                                          = 'RELATÓRIOS';
 $lang['menu_contacto']                                                          = 'CONTATO';
 $lang['menu_reglas']                                                            = 'REGRAS';
-$lang['menu_productos']                                                         = 'PRODUTOS';
+$lang['menu_productos']                                                         = 'PRODUTOS'; 
 $lang['menu_dashboard']                                                         = 'DASHBOARD';
 $lang['menu_tickets']                                                           = 'TICKETS / NOTAS';
 $lang['menu_auditorias']                                                        = 'AUDITORIAS';
@@ -68,6 +68,7 @@ $lang['menu_submenu_reportes_ventas_auditoria']                                 
 $lang['menu_submenu_reportes_estado_cuentas']                                   = 'RELATÓRIO DE EXTRATO DE CONTA';
 $lang['menu_submenu_ventas_personal_top']                                       = 'RELATÓRIO DE VENDAS PESSOAL TOP 40';
 $lang['menu_submenu_reporte_ganadores']                                         = 'RELATÓRIO DE GANHADORES';
+$lang['menu_submenu_reporte_maestros_pintores']                                 = 'RELATÓRIO DE MESTRES PINTOR';
 /**************************USUÁRIOS*****************************************************/
 $lang['menu_submenu_usuarios_registro_mp']                                      = 'CADASTRO DE MESTRE PINTOR';
 /**************************TICKETS*********************************************/
@@ -77,3 +78,5 @@ $lang['menu_submenu_tickets_rechazados']                                        
 $lang['menu_submenu_reposicion_productos_captura']                              = 'CAPTURA DE REPOSIÇÃO';
 $lang['menu_submenu_reposicion_productos_reporte']                              = 'RELATÓRIO DE REPOSIÇÃO DE PRODUTOS';
 $lang['menu_submenu_reposicion_productos_descarga']                             = 'BAIXAR ARQUIVOS DE REPOSIÇÃO DE PRODUTOS';
+
+$lang['menu_tutoriales']                             = 'TUTORIAIS';

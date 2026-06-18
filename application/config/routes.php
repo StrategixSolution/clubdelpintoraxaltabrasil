@@ -41,6 +41,10 @@ $route['ReposicionProductoCaptura']             = 'productos/productos_reposicio
 $route['DescargaReposicionProductos']           = 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller';
 $route['AperturaCierreRepProd']                 = 'ventas/ventas_cortes/ventas_cortes_apertura_cierre/ventas_cortes_apertura_cierre_controller';
 $route['ReporteDistribuidores']                 = 'reportes/reportes_distribuidores/reportes_distribuidores_controller';
+$route['ReporteMaestrosPintores']               = 'reportes/reportes_maestro_pintores/reportes_maestro_pintores_controller';
+$route['TutorialesInternos']                    = 'tutoriales/tutoriales_internos/tutoriales_internos_controller';
+$route['TutorialesAxaltaCDP']                   = 'tutoriales/tutoriales_externos/tutoriales_externos_controller';
+
 
 
 
@@ -88,6 +92,5 @@ $route['ReporteReposicionProductoZonas']= 'reportes/reposicion_productos/reporte
 $route['ReporteDistribuidoresAdmin1']          = 'reportes/distribuidores/reportes_distribuidores_admin1_controller/index';
 $route['ReporteDistribuidoresAdmin1Buscar']    = 'reportes/distribuidores/reportes_distribuidores_admin1_controller/buscar';
 $route['NoticiasCirculares']                    = 'noticias_circulares/noticias_circulares_controller';
-$route['TutorialesAxaltaCDP']                      = 'tutoriales/tutoriales_externos/tutoriales_externos_controller';
-$route['TutorialesInternos']                    = 'tutoriales/tutoriales_internos/tutoriales_internos_controller';
+
 */

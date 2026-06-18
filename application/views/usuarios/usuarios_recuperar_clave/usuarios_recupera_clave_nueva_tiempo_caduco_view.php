@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <section id="login">
     <div class="login-container animate__animated animate__fadeIn">
         <div class="row">            
-            <div class="col-lg-6 col-12 txt-center">
+            <div class="col-lg-6 col-12 txt-center d-flex align-items-center justify-content-center">
                 <div class="logo-main">
                     <img src="application/views/template/login/imagenes/logo.png" alt="">
                     <h2><?=$this->lang->line('usuarios_recupera_clave_nueva_controller_lang_nueva_marca')?></h2>
@@ -40,14 +40,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <div class="row justify-content-center mt-20 form-login">
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                         <h2><?=$this->lang->line('usuarios_recupera_clave_controller_lang_msg_tiempo_caduco')?></h2>
                         <p><?=$this->lang->line('recupera_clave_msg_tiempo_caduco')?></p>
                     </div>
                     <div class="col-lg-6 col-8 mt-30">
                         <a href="<?php echo funciones_strategix_version_url_random_base_url("login") ?>">
                             <div class="d-grid gap-2">                            
-                                <button type="button" class="btn btn-black"><?=$this->lang->line('usuarios_recupera_clave_controller_lang_btn_login')?></button>
+                                <button type="button" class="btn btn-black btn"><?=$this->lang->line('usuarios_recupera_clave_controller_lang_btn_login')?></button>
                             </div>    
                         </a>
                     </div>

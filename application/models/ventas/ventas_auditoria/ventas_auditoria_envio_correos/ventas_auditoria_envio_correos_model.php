@@ -184,7 +184,7 @@ UsuariosDistribuidores.DistribuidorId  FROM Usuarios INNER JOIN UsuariosDetalles
         return $query->result(); 
     }
     public function ventas_auditoria_envio_correos_model_actualiza_envio($VentaAuditoriaId,$VentaAuditoriaEnvioCorreoTipoId){
-        $this->db->query("UPDATE VentasAuditorias SET VentaAuditoriaFechaEnvioCorreoCierre = CASE WHEN DATEPART(WEEKDAY, GETDATE()) IN (5, 6) THEN DATEADD(DAY, 3, GETDATE()) ELSE DATEADD(DAY, 2, GETDATE()) END,VentaAuditoriaFechaEnvioCorreo = GETDATE(), VentaAuditoriaUsuarioIdEnvioCorreo = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaEnvioCorreoTipoId = $VentaAuditoriaEnvioCorreoTipoId WHERE VentaAuditoriaId = $VentaAuditoriaId");
+        $this->db->query("UPDATE VentasAuditorias SET VentaAuditoriaFechaEnvioCorreoCierre = CASE WHEN DATEPART(WEEKDAY, DATEADD(hour, 3, GETDATE())) IN (5, 6) THEN DATEADD(DAY, 3, DATEADD(hour, 3, GETDATE())) ELSE DATEADD(DAY, 2, DATEADD(hour, 3, GETDATE())) END,VentaAuditoriaFechaEnvioCorreo = DATEADD(hour, 3, GETDATE()), VentaAuditoriaUsuarioIdEnvioCorreo = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaEnvioCorreoTipoId = $VentaAuditoriaEnvioCorreoTipoId WHERE VentaAuditoriaId = $VentaAuditoriaId");
         return 1;
     }
      public function ventas_auditoria_envio_correos_model_distribuidora_Id($cmbAnio,$cmbMes) {  

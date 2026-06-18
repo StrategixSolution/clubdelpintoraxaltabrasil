@@ -25,7 +25,7 @@ class ventas_cortes_auditoria_ventas_model extends Base_Model {
     }
     public function ventas_cortes_auditoria_ventas_model_crea_auditorias($anio,$mes,$CorteId){
         $SQL = "INSERT INTO VentasAuditorias (VentaId,UsuarioIdCapturo,VentaAuditoriaEstatusId,VentaAuditoriaTipoId,VentaAuditoriaFechaAudito,VentaAuditoriaUsuarioAudito,CorteId,VentaAuditoriaEstatusOportunidadId)
-                SELECT Ventas.VentaId,".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",2,4,getdate(),".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",$CorteId,1 FROM Ventas LEFT OUTER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId WHERE  (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND 
+                SELECT Ventas.VentaId,".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",2,4,DATEADD(hour, 3, GETDATE()),".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",$CorteId,1 FROM Ventas LEFT OUTER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId WHERE  (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND 
                 (VentasAuditorias.VentaAuditoriaId IS NULL) AND (Ventas.VentaFechaBaja IS NULL) AND  (YEAR(Ventas.VentaFechaRegistro) = $anio) AND (MONTH(Ventas.VentaFechaRegistro) = $mes)                 
                 ";
         $query	= $this->db->query($SQL);

@@ -51,7 +51,7 @@ class Usuarios_recupera_clave_model extends Base_Model {
     }
     public function usuarios_recupera_clave_model_email_historico($data,$UsuarioId) {
         $data_clean = $this->security->xss_clean($data);
-        $SQL2 = "UPDATE UsuariosRecuperacionClave SET UsuarioRecuperacionClaveFechaCambio = getdate(),UsuarioRecuperacionClaveCaptchaTextBox = 'SE DIO DE BAJA POR PETICION NUEVA' WHERE UsuarioRecuperacionClaveFechaCambio IS NULL AND UsuarioId = $UsuarioId";
+        $SQL2 = "UPDATE UsuariosRecuperacionClave SET UsuarioRecuperacionClaveFechaCambio = DATEADD(hour, 3, DATEADD(hour, 3, GETDATE())),UsuarioRecuperacionClaveCaptchaTextBox = 'SE DIO DE BAJA POR PETICION NUEVA' WHERE UsuarioRecuperacionClaveFechaCambio IS NULL AND UsuarioId = $UsuarioId";
         $this->db->query($SQL2);     
         //echo  $this->db->last_query()."<br>"; 
         $SQL = "insert into UsuariosRecuperacionClave (UsuarioId,UsuarioRecuperacionClaveIP,UsuarioRecuperacionClaveAnterior,UsuarioRecuperacionClaveEmailTecleado,UsuarioRecuperacionClaveCaptchaSession,UsuarioRecuperacionClaveCaptchaTextBox,UsuarioRecuperacionClaveSessionId) values ($data_clean)";
@@ -71,13 +71,13 @@ class Usuarios_recupera_clave_model extends Base_Model {
                    FROM UsuariosDetalles INNER JOIN Usuarios ON UsuariosDetalles.UsuarioId = Usuarios.UsuarioId 
                    WHERE (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (UsuariosDetalles.UsuarioId = '$UsuarioId')";
         $UsuarioDetalleId   = $this->db->query($SQL_UsuarioDetalle)->row()->UsuarioDetalleId;
-        $SQL1 = "UPDATE UsuariosDetalles SET UsuarioDetalleFechaBaja = getdate(),UsuarioDetalleUsuarioIdBaja = ".$UsuarioId." WHERE UsuarioDetalleFechaBaja IS NULL AND UsuarioDetalleId = $UsuarioDetalleId";
+        $SQL1 = "UPDATE UsuariosDetalles SET UsuarioDetalleFechaBaja = DATEADD(hour, 3, DATEADD(hour, 3, GETDATE())),UsuarioDetalleUsuarioIdBaja = ".$UsuarioId." WHERE UsuarioDetalleFechaBaja IS NULL AND UsuarioDetalleId = $UsuarioDetalleId";
         $this->db->query($SQL1);
             $SQLINSERT          = "
                 INSERT INTO UsuariosDetalles (  UsuarioId,UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleUsuarioIdRegistro,UsuarioDetalleObservaciones,UsuarioDetalleClave,UsuarioDetalleSessionId) 
                 SELECT                          UsuarioId,UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,$UsuarioId,'CREADO AUTAMATICAMENTE AL MODIFICAR LA CLAVE','$Clave','$sessionId' FROM UsuariosDetalles WHERE UsuarioDetalleId = $UsuarioDetalleId ";   
         $this->db->query($SQLINSERT);
-        $SQL2 = "UPDATE UsuariosRecuperacionClave SET UsuarioRecuperacionClaveFechaCambio = getdate() WHERE UsuarioRecuperacionClaveFechaCambio IS NULL AND UsuarioId = $UsuarioId";
+        $SQL2 = "UPDATE UsuariosRecuperacionClave SET UsuarioRecuperacionClaveFechaCambio = DATEADD(hour, 3, DATEADD(hour, 3, GETDATE())) WHERE UsuarioRecuperacionClaveFechaCambio IS NULL AND UsuarioId = $UsuarioId";
         $this->db->query($SQL2);        
         return 1;
     }

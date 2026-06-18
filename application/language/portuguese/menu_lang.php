@@ -69,6 +69,7 @@ $lang['menu_submenu_reportes_estado_cuentas']                                   
 $lang['menu_submenu_ventas_personal_top']                                       = 'RELATÓRIO DE VENDAS PESSOAL TOP 40';
 $lang['menu_submenu_reporte_ganadores']                                         = 'RELATÓRIO DE GANHADORES';
 $lang['menu_submenu_reporte_maestros_pintores']                                 = 'RELATÓRIO DE MESTRES PINTOR';
+$lang['menu_submenu_reporte_ventas_registradas']                                = 'RELATÓRIO DE VENDAS REGISTRADAS';
 /**************************USUÁRIOS*****************************************************/
 $lang['menu_submenu_usuarios_registro_mp']                                      = 'CADASTRO DE MESTRE PINTOR';
 /**************************TICKETS*********************************************/

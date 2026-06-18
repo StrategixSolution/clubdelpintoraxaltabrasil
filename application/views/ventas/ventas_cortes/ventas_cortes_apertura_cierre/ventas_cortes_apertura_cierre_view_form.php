@@ -26,9 +26,9 @@
                     <h4 class="alert-heading"><?=$this->lang->line('ventas_cortes_apertura_cierre_controller_lang_modulo_deshabilitado_titulo')?></h4>
                     <p><?=$this->lang->line('ventas_cortes_apertura_cierre_controller_lang_modulo_deshabilitado_texto')?></p>                    
                 </div>
-                <div class="col-lg-2" style="text-align: right; margin-top:20px;">
+                <div class="col-lg-2">
                 <div class="form-group">
-                        <button type="button" id="ventas_cambio_estatus" class="btn btn-axalta" style="margin-top: 1.68em;"><?=$this->lang->line('ventas_cortes_apertura_cierre_controller_lang_btn_abrir')?></button>
+                        <button type="button" id="ventas_cambio_estatus" class="btn btn-axalta btn-buscar-ancho" style="margin-top: 1.68em;"><i class="fas fa-calendar"></i><span class="btn-buscar-texto"><?=$this->lang->line('ventas_cortes_apertura_cierre_controller_lang_btn_abrir')?></span></button>
                     </div>
                     </div>
             </div>
@@ -38,9 +38,9 @@
                     <h4 class="alert-heading"><?=$this->lang->line('ventas_cortes_apertura_cierre_controller_lang_modulo_habilitado_titulo')?></h4>
                     <p><?=$this->lang->line('ventas_cortes_apertura_cierre_controller_lang_modulo_habilitado_texto')?></p>                    
                 </div>
-                <div class="col-lg-2" style="text-align: right; margin-top:20px;">
+                <div class="col-lg-2">
                 <div class="form-group">
-                        <button type="button" id="ventas_cambio_estatus" class="btn btn-axalta" style="margin-top: 1.68em;"><?=$this->lang->line('ventas_cortes_apertura_cierre_controller_lang_btn_cerrar')?></button>
+                        <button type="button" id="ventas_cambio_estatus" class="btn btn-axalta btn-buscar-ancho" style="margin-top: 1.68em;"><i class="fas fa-calendar"></i><span class="btn-buscar-texto"><?=$this->lang->line('ventas_cortes_apertura_cierre_controller_lang_btn_cerrar')?></span></button>
                     </div>
                     </div>
             </div>

@@ -156,11 +156,11 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
         return $query->result(); 
     }
     public function ventas_auditoria_promociones_model_aprobar($VentaAuditoriaId){
-        $this->db->query("UPDATE VentasAuditoriasPromociones SET VentaAuditoriaPromocionesFechaAudito = GETDATE(), VentaAuditoriaPromocionesUsuarioAudito = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaPromocionesEstatusId = 2 WHERE VentaAuditoriaPromocionesId = $VentaAuditoriaId");
+        $this->db->query("UPDATE VentasAuditoriasPromociones SET VentaAuditoriaPromocionesFechaAudito = DATEADD(hour, 3, GETDATE()), VentaAuditoriaPromocionesUsuarioAudito = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaPromocionesEstatusId = 2 WHERE VentaAuditoriaPromocionesId = $VentaAuditoriaId");
         return 1;
     }
     public function ventas_auditoria_promociones_model_rechazada($VentaAuditoriaId,$VentaAuditoriaObservacionId){
-        $this->db->query("UPDATE VentasAuditoriasPromociones SET VentaAuditoriaPromocionesFechaAudito = GETDATE(), VentaAuditoriaPromocionesUsuarioAudito = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaPromocionesEstatusId = 3, VentaAuditoriaPromocionesObservacionId = $VentaAuditoriaObservacionId WHERE VentaAuditoriaPromocionesId = $VentaAuditoriaId");
+        $this->db->query("UPDATE VentasAuditoriasPromociones SET VentaAuditoriaPromocionesFechaAudito = DATEADD(hour, 3, GETDATE()), VentaAuditoriaPromocionesUsuarioAudito = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaPromocionesEstatusId = 3, VentaAuditoriaPromocionesObservacionId = $VentaAuditoriaObservacionId WHERE VentaAuditoriaPromocionesId = $VentaAuditoriaId");
         return 1;
     }
     public function ventas_auditoria_promociones_model_observacion_descripcion($VentaAuditoriaObservacionId){

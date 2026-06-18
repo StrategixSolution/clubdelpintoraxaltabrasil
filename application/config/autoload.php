@@ -42,6 +42,8 @@ $autoload['language']   = array(
     'ventas_registro_controller_lang',
     'multimedios_cargas_controller_lang',
     'ventas_cortes_apertura_cierre_controller_lang',
-    'reportes_distribuidores_controller_lang'
+    'reportes_distribuidores_controller_lang',
+    'reportes_maestro_pintores_controller_lang',
+    'reportes_ventas_registradas_controller_lang',
     );
 $autoload['model']      = array();

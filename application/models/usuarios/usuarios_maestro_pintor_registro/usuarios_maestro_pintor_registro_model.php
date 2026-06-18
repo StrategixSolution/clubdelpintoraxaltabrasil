@@ -52,7 +52,7 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
     }
     public function usuarios_maestro_pintor_registro_model_insert_participante($dataHead,$dataDetalle,$distribuidora){
         $distribuidora_clean = $this->security->xss_clean($distribuidora); 
-        $SQL1    = "INSERT INTO Usuarios (UsuarioCapturaId,PerfilId,UsuarioSessionId,UsuarioTipoRegistroId,UsuarioFechaAceptoTerminosTarjetaDigital,UsuarioFechaAceptoAvisoPrivacidadTarjetaDigital) VALUES ($dataHead,1,GETDATE(),GETDATE())"; 
+        $SQL1    = "INSERT INTO Usuarios (UsuarioCapturaId,PerfilId,UsuarioSessionId,UsuarioTipoRegistroId,UsuarioFechaAceptoTerminosTarjetaDigital,UsuarioFechaAceptoAvisoPrivacidadTarjetaDigital) VALUES ($dataHead,1,DATEADD(hour, 3, GETDATE()),DATEADD(hour, 3, GETDATE()))"; 
         $this->db->query($SQL1);        
         //echo  $this->db->last_query()."<br>";
         $query  = $this->db->query("SELECT IDENT_CURRENT('Usuarios') as last_id"); 
@@ -78,14 +78,14 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
     }
     public function usuarios_maestro_pintor_registro_model_update_email($UsuarioId) {
         $UsuarioId_clean = $this->security->xss_clean($UsuarioId); 
-        $SQL    = "UPDATE Usuarios SET UsuarioFechaEnvioMailRegistro = GETDATE() WHERE UsuarioId = $UsuarioId_clean";
+        $SQL    = "UPDATE Usuarios SET UsuarioFechaEnvioMailRegistro = DATEADD(hour, 3, GETDATE()) WHERE UsuarioId = $UsuarioId_clean";
         $this->db->query($SQL);
         return 1;
     }
     public function  usuarios_maestro_pintor_registro_model_update_tarjeta($UsuarioId,$IDdistribudor,$idtarjeta) {
         $IDdistribudor_clean = utf8_decode($this->security->xss_clean($IDdistribudor));
         $idtarjeta_clean             = $this->security->xss_clean($idtarjeta);
-        $SQLUPDATE              = "UPDATE Tarjetas SET Tarjetas.TarjetaEstatusId = 2,Tarjetas.UsuarioId = $UsuarioId,Tarjetas.TarjetaFechaAsigno = GETDATE(),Tarjetas.TarjetaUsuarioIdAsigno = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE Tarjetas.TarjetaNumero = $idtarjeta_clean AND Tarjetas.DistribuidorId = $IDdistribudor_clean ";
+        $SQLUPDATE              = "UPDATE Tarjetas SET Tarjetas.TarjetaEstatusId = 2,Tarjetas.UsuarioId = $UsuarioId,Tarjetas.TarjetaFechaAsigno = DATEADD(hour, 3, GETDATE()),Tarjetas.TarjetaUsuarioIdAsigno = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE Tarjetas.TarjetaNumero = $idtarjeta_clean AND Tarjetas.DistribuidorId = $IDdistribudor_clean ";
 //        echo $SQLUPDATE;
         $this->db->query($SQLUPDATE);
         return 1;

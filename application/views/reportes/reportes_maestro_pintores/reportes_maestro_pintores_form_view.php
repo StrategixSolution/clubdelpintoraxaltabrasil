@@ -1,0 +1,92 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
+<section class="TbReporteMaestroPintores">   
+    <div class="panel-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2><?= $this->lang->line('reportes_maestro_pintores_controller_lang_pagina_titulo') ?></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel-white">
+            <div class="row">
+                <div class="col-lg-4" id="div_distribuidor">
+                   <div class="form-group">
+                        <label
+                            for="cmb_distribuidor"><?= $this->lang->line('reportes_maestro_pintores_controller_lang_etiqueta_distribuidor') ?></label>
+                        <select id="cmb_distribuidor" name="cmb_distribuidor" class="form-select"></select>
+                        <div id="error"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4" id="div_nombre">
+                    <div class="form-group">
+                                <label><?=$this->lang->line('reportes_maestro_pintores_controller_lang_etiqueta_nombre')?></label>
+                                <input type="text" name="txt_nombre_mp" id="txt_nombre_mp" class="form-control trans" placeholder="<?=$this->lang->line('reportes_maestro_pintores_controller_lang_placeholder_nombre')?>" />
+                                <div id="error"></div>
+                    </div>
+                </div>
+                <div class="col-lg-2" style="text-align: right;" id="div_buscar">
+                    <div class="form-group">
+                        <button type="button" id="Reporte_maestroPintores_btn_buscar" class="btn btn-axalta"
+                            style="margin-top:20px;"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div id="tablaReportemaestroPintores"></div>            
+        </div>
+    </div>
+</section>
+
+<script>    
+ $(document).ready(function() {
+ cargarComboDistribuidor();
+  $("#Reporte_maestroPintores_btn_buscar").click(function() {
+            reportesMaestroPintoresControllerTabla();
+        });
+  });
+
+  function cargarComboDistribuidor() {
+        $.ajax({
+            type: 'POST',
+            url: 'reportes/reportes_maestro_pintores/reportes_maestro_pintores_controller/reportes_maestro_pintores_controller_cmb_distribuidor',
+            dataType: 'json',
+            data: {
+                id: 0
+            },
+            success: function(data) {
+                $('#cmb_distribuidor').empty();
+                $('#cmb_distribuidor').html(data);
+            },
+            error: function(data) {},
+            complete: function() {}
+        });
+    }
+
+    function reportesMaestroPintoresControllerTabla() {
+        $('#loader_panel').show();
+        var cmb_distribuidor = $("#cmb_distribuidor").val();
+        var txt_nombre_mp = $("#txt_nombre_mp").val();
+        $.ajax({
+            type: 'POST',
+            url: 'reportes/reportes_maestro_pintores/reportes_maestro_pintores_controller/reportes_maestro_pintores_controller_tabla',
+            dataType: 'json',
+            data: {
+                cmb_distribuidor: cmb_distribuidor,
+                txt_nombre_mp: txt_nombre_mp
+            },
+            success: function(data) {
+                $('#tablaReportemaestroPintores').empty();
+                $('#tablaReportemaestroPintores').html(data);
+            },
+            error: function(data) {},
+            complete: function() {  $('#loader_panel').hide();}
+        });
+    }
+
+</script>
+

@@ -65,11 +65,11 @@ class Ventas_auditoria_primera_model extends Base_Model {
         return $query->result(); 
     }
     public function ventas_auditoria_primera_model_aprobar($VentaAuditoriaId){
-        $this->db->query("UPDATE VentasAuditorias SET VentaAuditoriaFechaAudito = GETDATE(), VentaAuditoriaUsuarioAudito = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaEstatusId = 2 WHERE VentaAuditoriaId = $VentaAuditoriaId");
+        $this->db->query("UPDATE VentasAuditorias SET VentaAuditoriaFechaAudito = DATEADD(hour, 3, GETDATE()), VentaAuditoriaUsuarioAudito = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaEstatusId = 2 WHERE VentaAuditoriaId = $VentaAuditoriaId");
         return 1;
     }
     public function ventas_auditoria_primera_model_rechazada($VentaAuditoriaId,$VentaAuditoriaObservacionId){
-        $this->db->query("UPDATE VentasAuditorias SET VentaAuditoriaFechaAudito = GETDATE(), VentaAuditoriaUsuarioAudito = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaEstatusId = 3, VentaAuditoriaObservacionId = $VentaAuditoriaObservacionId WHERE VentaAuditoriaId = $VentaAuditoriaId");
+        $this->db->query("UPDATE VentasAuditorias SET VentaAuditoriaFechaAudito = DATEADD(hour, 3, GETDATE()), VentaAuditoriaUsuarioAudito = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", VentaAuditoriaEstatusId = 3, VentaAuditoriaObservacionId = $VentaAuditoriaObservacionId WHERE VentaAuditoriaId = $VentaAuditoriaId");
         return 1;
     }
     public function ventas_auditoria_primera_model_observacion_descripcion($VentaAuditoriaObservacionId){

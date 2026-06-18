@@ -44,7 +44,7 @@ $route['ReporteDistribuidores']                 = 'reportes/reportes_distribuido
 $route['ReporteMaestrosPintores']               = 'reportes/reportes_maestro_pintores/reportes_maestro_pintores_controller';
 $route['TutorialesInternos']                    = 'tutoriales/tutoriales_internos/tutoriales_internos_controller';
 $route['TutorialesAxaltaCDP']                   = 'tutoriales/tutoriales_externos/tutoriales_externos_controller';
-
+$route['ReporteVentasRegistradas']             = 'reportes/reportes_ventas/reportes_ventas_registradas_controller';
 
 
 
@@ -82,7 +82,7 @@ $route['TicketsActualiza']                      = 'ventas/ventas_auditoria/venta
 
 $route['ReporteVentasPersonalTop']             = 'reportes/ventas/ventas_personal_top_controller';
 $route['ReporteGanadores']                      = 'reportes/ventas/ventas_reporte_ganadores_controller';
-$route['ReporteVentasRegistradas']             = 'reportes/ventas/ventas_registradas_controller/index';
+
 $route['ReporteAuditoriaVentas']               = 'reportes/ventas/reportes_ventas_auditoria_controller';
 $route['ReporteReposicionProductos']           = 'reportes/reposicion_productos/reporte_reposicion_productos_controller';
 

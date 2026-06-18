@@ -76,7 +76,7 @@ class Multimedios_cargas_model extends Base_Model {
         return 1;
     }    
     public function multimedios_cargas_model_baja_datos($id) {
-        $SQL = "UPDATE CargasMultimedias SET CargaMultimediaFechaBaja = GETDATE() WHERE CargaMultimediaId = ".$id;
+        $SQL = "UPDATE CargasMultimedias SET CargaMultimediaFechaBaja = DATEADD(hour, 3, GETDATE()) WHERE CargaMultimediaId = ".$id;
         $this->db->query($SQL);
         //echo  $this->db->last_query()."<br>"; 
         return 1;

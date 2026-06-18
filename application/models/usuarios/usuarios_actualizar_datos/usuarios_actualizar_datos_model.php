@@ -44,10 +44,10 @@ class Usuarios_actualizar_datos_model extends Base_Model {
         }
         $this->db->query($SQLINSERT);
         $query  = $this->db->query("SELECT IDENT_CURRENT('UsuariosDetalles') as last_id"); $res = $query->result(); $id = $res[0]->last_id;      
-        $SQLUPDATE              = "UPDATE UsuariosDetalles SET UsuariosDetalles.UsuarioDetalleFechaBaja = GETDATE(),UsuariosDetalles.UsuarioDetalleUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE UsuariosDetalles.UsuarioDetalleId = $DetalleUsuarioId_clean";
+        $SQLUPDATE              = "UPDATE UsuariosDetalles SET UsuariosDetalles.UsuarioDetalleFechaBaja = DATEADD(hour, 3, GETDATE()),UsuariosDetalles.UsuarioDetalleUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE UsuariosDetalles.UsuarioDetalleId = $DetalleUsuarioId_clean";
         $this->db->query($SQLUPDATE);     
         if(funciones_strategix_valida_terminos_condiciones_aviso_privacidad_actualiza_datos($this->session->userdata(funciones_strategix_sitio_alias('s_actualiza_datos')))==0){
-            $SQL    = "UPDATE Usuarios SET UsuarioFechaActualizoDatos = getdate() WHERE UsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
+            $SQL    = "UPDATE Usuarios SET UsuarioFechaActualizoDatos = DATEADD(hour, 3, GETDATE()) WHERE UsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
             $this->db->query($SQL);
         }        
         return 1;

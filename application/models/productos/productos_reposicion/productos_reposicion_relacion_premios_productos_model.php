@@ -42,7 +42,7 @@ class Productos_reposicion_relacion_premios_productos_model extends Base_Model {
         return $query->result();
     }    
     public function productos_reposicion_relacion_premios_productos_model_update($cmb_lugar) {
-        $SQL    = "UPDATE ReposicionesProductosPremiosProductosRelaciones SET ReposicionProductoPremioProductoRelacionFechaBaja =  GETDATE(),ReposicionProductoPremioProductoRelacionUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE ReposicionProductoPremioId = $cmb_lugar";
+        $SQL    = "UPDATE ReposicionesProductosPremiosProductosRelaciones SET ReposicionProductoPremioProductoRelacionFechaBaja =  DATEADD(hour, 3, GETDATE()),ReposicionProductoPremioProductoRelacionUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE ReposicionProductoPremioId = $cmb_lugar";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return 1;

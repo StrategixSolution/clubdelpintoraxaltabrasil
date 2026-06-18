@@ -22,7 +22,7 @@ class Popups_model extends Base_Model {
         WHERE (CargasMultimedias.CargaMultimediaFechaBaja IS NULL) 
         AND (CargasMultimedias.CargaMultimediaModuloId = 1) 
         AND (CargasMultimediasPerfiles.PerfilId = $usuario_PerfilId) 
-        AND CAST(getdate() AS DATE) between CargasMultimedias.CargaMultimediaFechaInicial and CargasMultimedias.CargaMultimediaFechaFinal;";
+        AND CAST(DATEADD(hour, 3, GETDATE()) AS DATE) between CargasMultimedias.CargaMultimediaFechaInicial and CargasMultimedias.CargaMultimediaFechaFinal;";
         $query	= $this->db->query($SQL);
         //echo  $this->db->last_query()."<br>"; 
         return $query->result();

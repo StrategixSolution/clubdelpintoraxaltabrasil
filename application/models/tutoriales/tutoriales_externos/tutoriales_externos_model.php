@@ -18,7 +18,6 @@ class Tutoriales_externos_model extends Base_Model {
                 INNER JOIN CargasMultimediasPerfiles ON CargasMultimedias.CargaMultimediaId = CargasMultimediasPerfiles.CargaMultimediaId 
                 WHERE (CargasMultimedias.CargaMultimediaFechaBaja IS NULL) 
                 AND (CargasMultimedias.CargaMultimediaModuloId = 3) 
-                AND (CargasMultimediasPerfiles.PerfilId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')).")  
                 AND (CargasMultimedias.CargaMultimediaVideoTipoId IN (1,3)) 
                 GROUP BY CargasMultimedias.CargaMultimediaId, 
                 CargasMultimedias.CargaMultimediaRuta, 

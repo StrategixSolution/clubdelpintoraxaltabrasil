@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">            
             <div class="col-lg-6 col-12 txt-center d-flex align-items-center justify-content-center">
                 <div class="logo-main">
-                    <img src="application/views/template/login/imagenes/logo.png" alt="">
+                    <img src="application/views/template/login/imagenes/logo.png" alt="" style="width: 15rem;">
                     <h2><?=$this->lang->line('usuarios_recupera_clave_nueva_controller_lang_nueva_marca')?></h2>
                 </div>
                 <div class="logo-main-responsive">
@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <img src="application/views/template/login/imagenes/logo.png" alt="" class="logo1">
                         </div>
                         <div class="col-6">
-                            <img src="application/views/template/login/imagenes/cdp.png" alt="" class="logo2">
+                            <img src="application/views/template/login/imagenes/cdp2.png" alt="" class="logo2">
                         </div>
                     </div>
                     <div class="col-12">

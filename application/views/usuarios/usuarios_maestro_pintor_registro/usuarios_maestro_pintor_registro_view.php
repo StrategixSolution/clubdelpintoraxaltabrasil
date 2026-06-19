@@ -566,10 +566,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     break;
                                 default:
                                     $('#error').html(" ");
+                                    var primerError = null;
                                     $.each(data, function(key, value) {
                                         $('#' + key).addClass('is-invalid');
                                         $('#' + key).parents('.form-group').find('#error').html(value);
+                                        if (primerError === null) {
+                                        primerError = $('#' + key);
+                                        }
                                     });
+                                    if (primerError) {
+                                        $('html, body').animate({
+                                          //  scrollTop: primerError.offset().top - 100
+                                           scrollTop: primerError.offset().top
+                                        }, 500);
+                                        primerError.focus();
+                                    }
                                     break;
                             }
                         },

@@ -1131,7 +1131,33 @@ div.dataTables_wrapper div.dataTables_filter {
 }
 .texto-aviso-modal p{
     font-size: 12px;
+    color: #000;
 }
+.texto-aviso-modal ul li{
+    font-size: 12px;
+    color: #000;
+}
+
+.texto-aviso-modal table {
+        border-collapse: collapse; 
+        width: 100%;
+        text-align: center;
+    }
+.texto-aviso-modal th {
+        border: 1px solid #000; 
+        padding: 8px;
+    }
+.texto-aviso-modal td {
+        border: 1px solid #000; 
+        padding: 8px;
+        color: #000;
+    }
+.texto-aviso-modal th {
+        background-color: var(--rojo); 
+        color: white;
+    }
+
+    
 #reader{
     width: 100% !important;
 }
@@ -1161,7 +1187,8 @@ div.dataTables_wrapper div.dataTables_filter {
     text-align: center;
     background-color: var(--rojo);
     color:#fff;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 /********************************************
    Noticias y circulares

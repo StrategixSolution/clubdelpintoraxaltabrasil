@@ -34,7 +34,7 @@ class Tarjetas_altas_controller extends Base_Controller
       // print_r(count($tarjetas));die;
         if (count($tarjetas) == 0) {
             for ($tarjeta_count = $txt_tarjeta_inicial; $tarjeta_count <= $txt_tarjeta_final; $tarjeta_count++) {
-                $data_inserta_tarjetas = $tarjeta_count . "," . $combo_distribuidores . "," . $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) . ", 1";
+                $data_inserta_tarjetas = $tarjeta_count . "," . $combo_distribuidores . "," . $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) . ", 1,1";
                 $tarjetasId = $this->tarjetas_altas_model->tarjetas_altas_model_crea_tarjetas($data_inserta_tarjetas);
                 $where = 'AND  Tarjetas.TarjetaNumero =' . $tarjeta_count ;
                 $res2 = $this->tarjetas_altas_model->tarjetas_altas_model_crea_tabla($where);

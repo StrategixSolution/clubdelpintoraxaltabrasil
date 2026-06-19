@@ -45,7 +45,7 @@ $route['ReporteMaestrosPintores']               = 'reportes/reportes_maestro_pin
 $route['TutorialesInternos']                    = 'tutoriales/tutoriales_internos/tutoriales_internos_controller';
 $route['TutorialesAxaltaCDP']                   = 'tutoriales/tutoriales_externos/tutoriales_externos_controller';
 $route['ReporteVentasRegistradas']             = 'reportes/reportes_ventas/reportes_ventas_registradas_controller';
-
+$route['NoticiasCirculares']                    = 'noticias_circulares/noticias_circulares_controller';
 
 
 
@@ -91,6 +91,6 @@ $route['DistribuidorasAdjsMail']                   = 'distribuidora/adjs/cargas_
 $route['ReporteReposicionProductoZonas']= 'reportes/reposicion_productos/reporte_reposicion_producto_zona_controller';
 $route['ReporteDistribuidoresAdmin1']          = 'reportes/distribuidores/reportes_distribuidores_admin1_controller/index';
 $route['ReporteDistribuidoresAdmin1Buscar']    = 'reportes/distribuidores/reportes_distribuidores_admin1_controller/buscar';
-$route['NoticiasCirculares']                    = 'noticias_circulares/noticias_circulares_controller';
+
 
 */

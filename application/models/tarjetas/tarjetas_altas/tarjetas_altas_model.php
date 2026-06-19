@@ -34,9 +34,9 @@ class Tarjetas_altas_model extends Base_Model
         return $query->result();
     }
     public function tarjetas_altas_model_crea_tarjetas($values){
-        $SQL = "INSERT INTO tarjetas (TarjetaNumero, DistribuidorId, TarjetaUsuarioIdCaptura, TarjetaEstatusId) VALUES ($values)";
+        $SQL = "INSERT INTO Tarjetas (TarjetaNumero, DistribuidorId, TarjetaUsuarioIdCaptura, TarjetaEstatusId,TarjetasTipoId) VALUES ($values)";
         $this->db->query($SQL);
-        $SQL2  = "SELECT MAX(TarjetaId) as TarjetaId FROM tarjetas";
+        $SQL2  = "SELECT MAX(TarjetaId) as TarjetaId FROM Tarjetas";
         $query2    = $this->db->query($SQL2);
         //   echo  $this->db->last_query()."<br>"; 
         return $query2->row();

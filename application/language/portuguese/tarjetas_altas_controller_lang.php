@@ -25,8 +25,8 @@ $lang['tarjetas_altas_controller_lang_btn_regresar']                            
 $lang['tarjetas_altas_controller_lang_tabla_pais']                              = 'PAÍS';
 $lang['tarjetas_altas_controller_lang_tabla_combo_division_selecciona']         = 'SELECIONE UMA DIVISÃO';
 $lang['tarjetas_altas_controller_lang_tabla_division']                          = 'DIVISÃO';
-$lang['tarjetas_altas_controller_lang_etiqueta_no_inicial']                          = 'INSIRA O NÚMERO INICIAL';
-$lang['tarjetas_altas_controller_lang_etiqueta_no_final']                          = 'INSIRA O NÚMERO FINAL';
-$lang['tarjetas_altas_controller_lang_etiqueta_valida_numero']                          = 'O NÚMERO FINAL DEVE SER MAIOR OU IGUAL AO INICIAL';
-$lang['tarjetas_altas_controller_lang_etiqueta_rango_registrados']                          = 'O INTERVALO DE NÚMEROS JÁ ESTÁ REGISTRADO';
-$lang['tarjetas_altas_controller_lang_etiqueta_rango_registrados_success']                          = 'CARTÕES REGISTRADOS COM SUCESSO';
+$lang['tarjetas_altas_controller_lang_etiqueta_no_inicial']                     = 'INSIRA O NÚMERO INICIAL';
+$lang['tarjetas_altas_controller_lang_etiqueta_no_final']                       = 'INSIRA O NÚMERO FINAL';
+$lang['tarjetas_altas_controller_lang_etiqueta_valida_numero']                  = 'O NÚMERO FINAL DEVE SER MAIOR OU IGUAL AO INICIAL';
+$lang['tarjetas_altas_controller_lang_etiqueta_rango_registrados']              = 'A FAIXA DE NÚMEROS PARCIAL OU TOTAL JÁ ESTÁ REGISTADA';
+$lang['tarjetas_altas_controller_lang_etiqueta_rango_registrados_success']      = 'CARTÕES REGISTRADOS COM SUCESSO';

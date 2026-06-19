@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" style="padding-left: 50px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="logo-secondary">
@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <div class="row justify-content-center mt-20 form-login">
-                    <div class="col-lg-8 col-11">
+                    <div class="col-lg-8 col-11 mb-4">
                         <div class="form-recovery animate__animated animate__zoomIn" id="axa-form">
                             <p></p>  
                             <div class="form-group mb-0">
@@ -71,9 +71,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-8 mt-30">
+                    <div class="col-lg-6 col-12 mt-30">
                         <div class="botones animate__animated animate__zoomIn">
-                            <button type="button" id="button_crea_clave" class="btn btn-axalta btn-lg" pb-role="submit"><?=$this->lang->line('usuarios_recupera_clave_controller_lang_msg_btn_guardar')?></button>
+                            <button type="button" id="button_crea_clave" class="btn btn-black" pb-role="submit"><?=$this->lang->line('usuarios_recupera_clave_controller_lang_msg_btn_guardar')?></button>
                         </div>
                     </div>
                 </div>             

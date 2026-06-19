@@ -82,7 +82,7 @@ a[x-apple-data-detectors],
                        </table></td>
                      </tr>
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="https://zyiycm.stripocdn.email/content/guids/CABINET_aa215b97c8ffbeea4c189e6f43480e5554af0e23acd9ee046c7dad60e854f400/images/bienvenido1.jpg" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="<?= base_url(funciones_strategix_version_url_random("application/views/template/sistema/imagenes/header-mail.png")) ?>" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -254,7 +254,7 @@ a[x-apple-data-detectors],
                   <td align="left" style="padding:0;Margin:0;width:800px">
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="https://www.clubdelpintoraxaltabrasil.com.br/multimedia/footer.jpg" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="<?= base_url(funciones_strategix_version_url_random("application/views/template/sistema/imagenes/footer-mail.jpg")) ?>" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
                      </tr>
                    </table></td>
                  </tr>

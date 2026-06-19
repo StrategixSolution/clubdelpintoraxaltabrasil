@@ -71,7 +71,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_tooltips_aprox_autos']  
 $lang['usuarios_maestro_pintor_registro_controller_lang_tooltips_talla']                        = '*CAMPO OBLIGATORIO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_tooltips_fecha_nacimiento']             = '*CAMPO OBLIGATORIO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_tooltips_codigoqr']                     = '*CAMPO OBLIGATORIO *SOLO NÚMEROS';
-$lang['usuarios_maestro_pintor_registro_controller_lang_tooltips_identificacion']               = '*FORMATO PNG';
+$lang['usuarios_maestro_pintor_registro_controller_lang_tooltips_identificacion']               = '*FORMATO PNG, JPG Y PDF';
 $lang['usuarios_maestro_pintor_registro_controller_lang_alerta_firma_vacia']                    = 'CAPTURA TU FIRMA';
 $lang['usuarios_maestro_pintor_registro_controller_lang_alerta_termino']                        = 'ACEPTA LOS TÉRMINOS Y CONDICIONES Y EL AVISO DE PRIVACIDAD';
 $lang['usuarios_maestro_pintor_registro_controller_error_rfc']                                  = 'EL CAMPO NIT ES OBLIGATORIO';

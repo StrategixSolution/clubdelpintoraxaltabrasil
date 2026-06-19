@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <li class="nav-item" id="nav_contacto"><a class="nav-link" aria-current="page" href="<?php echo funciones_strategix_version_url_random_base_url("Reglas") ?>"><?=$this->lang->line('menu_reglas')?></a></li>  
                         <li class="nav-item" id="nav_contacto"><a class="nav-link" aria-current="page" href="<?php echo funciones_strategix_version_url_random_base_url("Productos") ?>"><?=$this->lang->line('menu_productos')?></a></li>  
                         <li class="nav-item" id="nav_tutoriales"><a class="nav-link" href="<?php echo funciones_strategix_version_url_random_base_url("TutorialesInternos") ?>"><?=$this->lang->line('menu_tutoriales')?></a></li>
-                        <!--  <li class="nav-item" id="nav_noticias"><a class="nav-link" href="<?php echo funciones_strategix_version_url_random_base_url("NoticiasCirculares") ?>">NOTICIAS</a></li> -->
+                        <li class="nav-item" id="nav_noticias"><a class="nav-link" href="<?php echo funciones_strategix_version_url_random_base_url("NoticiasCirculares") ?>"><?=$this->lang->line('menu_noticias')?></a></li>
                         
                         <!-- <li class="nav-item dropdown" id="nav_catalogos">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_bases_programas')?></a>

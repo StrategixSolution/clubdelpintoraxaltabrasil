@@ -96,9 +96,9 @@ public function __construct(){
         }
     }
     public function usuarios_maestro_pintor_registro_controller_set_rules(){
-        $this->form_validation->set_rules('txt_nombre', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre'), 'required|xss_clean|min_length[1]|max_length[100]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ ,.]*$/u]');
-        $this->form_validation->set_rules('txt_segundo_nombre', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_segundo_nombre'), 'xss_clean|min_length[1]|max_length[100]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ ,.]*$/u]');
-        $this->form_validation->set_rules('txt_apellidos', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_apaterno'), 'required|xss_clean|min_length[1]|max_length[50]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ ,.]*$/u]');
+        $this->form_validation->set_rules('txt_nombre', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre'), 'required|xss_clean|min_length[1]|max_length[100]|regex_match[/^[^0-9]+$/]');
+        $this->form_validation->set_rules('txt_segundo_nombre', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_segundo_nombre'), 'xss_clean|min_length[1]|max_length[100]|regex_match[/^[^0-9]+$/]');
+        $this->form_validation->set_rules('txt_apellidos', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_apaterno'), 'required|xss_clean|min_length[1]|max_length[50]|regex_match[/^[^0-9]+$/]');
         $this->form_validation->set_rules('txt_rfc', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_rfc'), 'xss_clean|min_length[4]|max_length[25]|callback_usuarios_maestro_pintor_registro_controller_valida_rfc');
         $this->form_validation->set_rules('txt_email', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_email'), 'required|valid_email|xss_clean|min_length[6]|max_length[100]|callback_usuarios_maestro_pintor_registro_controller_valida_email');  
         $this->form_validation->set_rules('txt_telefono', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_telefono'), 'required|numeric|xss_clean|min_length[6]|max_length[10]');
@@ -106,7 +106,7 @@ public function __construct(){
         $this->form_validation->set_rules('txt_celular', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_celular'), 'required|numeric|xss_clean|min_length[6]|max_length[10]|callback_usuarios_maestro_pintor_registro_controller_valida_celular');
         $this->form_validation->set_rules('cmb_puesto', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_puesto'), 'required|callback_usuarios_maestro_pintor_registro_controller_valida_default_puesto');            
         $this->form_validation->set_rules('cmb_talla', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_talla'), 'required|callback_usuarios_maestro_pintor_registro_controller_valida_default_talla');
-        $this->form_validation->set_rules('txt_ciudad', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_ciudad'), 'required|trim|xss_clean|min_length[1]|max_length[100]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ,. ]*$/u]');
+        $this->form_validation->set_rules('txt_ciudad', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_ciudad'), 'required|trim|xss_clean|min_length[1]|max_length[100]|regex_match[/^[^0-9]+$/]');
         $this->form_validation->set_rules('txt_cantidad_personas', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'numeric|max_length[3]|xss_clean');
         $this->form_validation->set_rules('txt_cantidad_autos', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'numeric|max_length[3]|xss_clean');
         $this->form_validation->set_rules('fecha_nacimiento', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'required|xss_clean');

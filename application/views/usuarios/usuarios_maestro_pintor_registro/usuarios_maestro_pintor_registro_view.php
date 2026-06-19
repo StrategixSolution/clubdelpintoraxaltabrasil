@@ -169,7 +169,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 class="fas fa-question-circle"></i></span></label>
                                     <input type="text" name="txt_ciudad" id="txt_ciudad" class="form-control txt-mayus"
                                         placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_ciudad') ?>"
-                                        onKeyPress="return js_general_solo_texto(event,this)" maxlength="100">
+                                        onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
                                     <div id="error"></div>
                                 </div>
                             </div>

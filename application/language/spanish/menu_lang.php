@@ -80,3 +80,4 @@ $lang['menu_submenu_reposicion_productos_reporte']                              
 $lang['menu_submenu_reposicion_productos_descarga']                             = 'DESCARGA DE ARCHIVOS REPOSICIÓN DE PRODUCTOS';
 
 $lang['menu_tutoriales']                             = 'TUTORIALES';
+$lang['menu_noticias']                             = 'NOTICIAS';

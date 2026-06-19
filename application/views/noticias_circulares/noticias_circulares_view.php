@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>PROMOCIONES Y GANADORES</h2>
+                    <h2>PROMOÇÕES E VENCEDORES</h2>
                 </div>
             </div>
         </div>
@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row panel-white">
             <div class="col-lg-12">
-                <h2>PROMOCIÓN ACTUAL</h2>
+                <h2>PROMOÇÃO ATUAL</h2>
             </div>
             <?= $tablaPA ?>
         </div>
@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row panel-white">
             <div class="col-lg-12">
-                <h2>PROMOCIÓN ANTERIOR</h2>
+                <h2>PROMOÇÃO ANTERIOR</h2>
             </div>
             <?= $tablaPANT ?>
         </div>
@@ -28,7 +28,7 @@
     <div class="container">
         <div class="row panel-white">
             <div class="col-lg-12">
-                <h2>GANADORES</h2>
+                <h2>VENCEDORES</h2>
             </div>
             <?= $tablaG ?>
         </div>

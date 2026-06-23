@@ -1412,3 +1412,74 @@ table.dataTable th, table.dataTable td{
 .tooltip-pl{
     padding-left: 3px;
 }
+
+/***********************************************
+    ESTILOS TUTORIALES INTERNOS
+***********************************************/ 
+#tutoriales a{
+    text-decoration: none;
+}
+
+#tutoriales a:hover{
+    color: var(--rojo);
+}
+.tutoriales-titulo{
+    font-weight: 700;
+}
+
+.panel-white .sombra .links-tutoriales img{
+    width: 100%;
+}
+
+
+/***********************************************
+    ESTILOS TUTORIALES EXTERNOS
+***********************************************/ 
+
+.panel-title-ext{
+    background-color: #000;
+    padding: 25px 0px;
+}
+.panel-title-ext h1{
+    color: #FFF;
+    font-weight: 700;
+}
+.title-div-align-l{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.title-div-align-r{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+@media screen and (max-width: 768px){
+    .title-div-align-l{
+        justify-content: center;
+    }
+.title-div-align-r{
+        justify-content: center;
+    }
+        .links-inicio-mb{
+        margin-bottom: 30px;
+    }
+}
+.panel-title-ext img{
+    max-width: 6rem;
+}
+.page-link {
+    position: relative;
+    display: block;
+    color: var(--rojo);
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: var(--rojo);
+    border-color: var(--rojo);
+}

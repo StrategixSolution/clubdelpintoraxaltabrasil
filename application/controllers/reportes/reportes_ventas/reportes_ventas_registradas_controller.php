@@ -172,7 +172,7 @@ class Reportes_ventas_registradas_controller extends Base_Controller {
     }
 
     public function reportes_ventas_registradas_controller_combo_anio(){
-        $cmb = "<option value=''>Año</option>";
+        $cmb = "<option value=''>SELECIONAR</option>";
         $rows = $this->reportes_ventas_registradas_model->combo_anios();
 
         foreach($rows as $r){
@@ -184,7 +184,7 @@ class Reportes_ventas_registradas_controller extends Base_Controller {
 
     public function reportes_ventas_registradas_controller_combo_mes(){
         $anio = (int)$this->input->post('anio', true);
-        $cmb = "<option value='0'>Todo</option>";
+        $cmb = "<option value='0'>".$this->lang->line('reportes_ventas_registradas_controller_lang_combo_todos')."</option>";
         if ($anio <= 0){echo json_encode($cmb); return;}
         $rows = $this->reportes_ventas_registradas_model->combo_meses($anio);
         foreach($rows as $r){
@@ -204,7 +204,7 @@ $combo_distribuidores = '';
         // Solo administradores (perfiles 1,2,3) pueden ver opción "Todos"
         if (in_array($perfil_id, [1, 2, 3])) {
             $combo_distribuidores .= '<option value="0">' . 
-                $this->lang->line('reportes_distribuidores_controller_lang_select_combo_distribuidor') . 
+                $this->lang->line('reportes_ventas_registradas_controller_lang_combo_todos') . 
                 '</option>';
         }
         
@@ -223,7 +223,7 @@ $combo_distribuidores = '';
     }
 
     public function reportes_ventas_registradas_controller_combo_estatus(){
-        $cmb = "<option value='0'>Todo</option>";
+        $cmb = "<option value='0'>".$this->lang->line('reportes_ventas_registradas_controller_lang_combo_todos')."</option>";
         $rows = $this->reportes_ventas_registradas_model->combo_estatus();
 
         foreach ($rows as $r){
@@ -276,30 +276,28 @@ $combo_distribuidores = '';
                 $lista .= '<td>'.$this->celda($r->NOMBRE_PINTOR).'</td>';
             }
 
-            $lista .= '<td>'.$this->celda($r->EVENTO).'</td>';
-            $lista .= '<td>'.$r->ID_DISTRIBUIDORA.'</td>';
-            $lista .= '<td>'.$this->celda($r->CODIGO).'</td>';
-            $lista .= '<td>'.$this->celda($r->RAZON_SOCIAL).'</td>';
-            $lista .= '<td>'.$this->celda($r->NOMBRE_COMERCIAL).'</td>';
-            $lista .= '<td>'.$this->celda($r->TIPO_DISTRIBUIDORA).'</td>';
-            $lista .= '<td>'.$this->celda($r->REGION).'</td>';
-            $lista .= '<td>'.$this->celda($r->CATEGORIA).'</td>';
-            $lista .= '<td>'.$this->celda($r->EJECUTIVO).'</td>';
-            $lista .= '<td>'.$this->celda($r->CIUDAD_ESTADO).'</td>';
-            $lista .= '<td>'.$this->celda($r->NUM_TICKET).'</td>';
-            $lista .= '<td>'.$totalTicket.'</td>';
-            $lista .= '<td>'.$this->celda($r->FECHA_REGISTRO).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->EVENTO)).'</td>';
+            $lista .= '<td>'.utf8_encode($r->ID_DISTRIBUIDORA).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->CODIGO)).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->RAZON_SOCIAL)).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->NOMBRE_COMERCIAL)).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->REGION)).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->EJECUTIVO)).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->CIUDAD_ESTADO)).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->NUM_TICKET)).'</td>';
+            $lista .= '<td>'.utf8_encode($totalTicket).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->FECHA_REGISTRO)).'</td>';
 
             if (!$ocultarVentaCompletada) {
-                $lista .= '<td>'.$this->celda($r->VENTA_COMPLETADA).'</td>';
+                $lista .= '<td>'.utf8_encode($this->celda($r->VENTA_COMPLETADA)).'</td>';
             }
 
-            $lista .= '<td>'.$this->celda($r->AUDITORIA).'</td>';
+            $lista .= '<td>'.utf8_encode($this->celda($r->AUDITORIA)).'</td>';
 
             if (!$ocultarPintorTicketObs) {
-                $lista .= '<td>'.$btnTicket.'</td>';
+                $lista .= '<td>'.utf8_encode($btnTicket).'</td>';
               //  $lista .= '<td>----</td>';
-                $lista .= '<td>'.$this->celda($r->OBSERVACIONES).'</td>';
+                $lista .= '<td>'.utf8_encode($this->celda($r->OBSERVACIONES)).'</td>';
             }
 
             $lista .= '</tr>';

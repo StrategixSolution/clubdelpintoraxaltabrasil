@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Reporte de Ventas Registradas</h2>
+                    <h2><?= $this->lang->line('reportes_ventas_registradas_controller_lang_pagina_titulo') ?></h2>
                 </div>
             </div>
         </div>
@@ -17,28 +17,28 @@
                
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <label for="cmb_anio">Año Registro:</label>
+                        <label for="cmb_anio"><?= $this->lang->line('reportes_ventas_registradas_controller_lang_etiqueta_año') ?></label>
                         <select id="cmb_anio" class="form-select"></select>
                     </div>
                 </div>
 
                 <div class="col-lg-2" id="div_mes" style="display: none;" >
                     <div class="form-group">
-                        <label for="cmb_mes">Mes Registro:</label>
+                        <label for="cmb_mes"><?= $this->lang->line('reportes_ventas_registradas_controller_lang_etiqueta_mes') ?></label>
                         <select id="cmb_mes" class="form-select"></select>
                     </div>
                 </div>
 
                 <div class="col-lg-4" id="div_distribuidor" style="display: none;">
                     <div class="form-group">
-                        <label for="cmb_distribuidor">Distribuidor:</label>
+                        <label for="cmb_distribuidor"><?= $this->lang->line('reportes_ventas_registradas_controller_lang_etiqueta_distribuidor') ?></label>
                         <select id="cmb_distribuidor" class="form-select"></select>
                     </div>
                 </div>
 
                 <div class="col-lg-2" id="div_estatus" style="display: none;">
                     <div class="form-group">
-                        <label for="cmb_estatus">Status:</label>
+                        <label for="cmb_estatus"><?= $this->lang->line('reportes_ventas_registradas_controller_lang_etiqueta_status') ?></label>
                         <select id="cmb_estatus" class="form-select"></select>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="col-lg-2 btn-buscar-posicion" id="div_btn_buscar" style="display: none;">
                     <div class="form-group">
                         <button type="button" id="btn_buscar" class="btn btn-axalta btn-buscar-ancho">
-                            <i class="fas fa-search"></i><span class="btn-buscar-texto">BUSCAR</span>
+                            <i class="fas fa-search"></i><span class="btn-buscar-texto"><?= $this->lang->line('reportes_ventas_registradas_controller_lang_boton_buscar') ?></span>
                         </button>
                     </div>
                 </div>
@@ -65,13 +65,13 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalTicketLabel">Ticket</h5>
+        <h5 class="modal-title" id="modalTicketLabel"><?= $this->lang->line('reportes_ventas_registradas_controller_lang_modal_ticket') ?></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
           <!-- <span aria-hidden="true">&times;</span> -->
         </button>
       </div>
       <div class="modal-body" id="modal_ticket_body">
-        <div class="text-center">Cargando...</div>
+        <div class="text-center"><?= $this->lang->line('reportes_ventas_registradas_controller_lang_cargando') ?></div>
       </div>
     </div>
   </div>
@@ -200,6 +200,7 @@ function buscar(){
         },
         success:function(resp){
             $('#contenedor_tabla').html(resp.tabla);
+            $('#contenedor_tabla').show(300);
         },
         complete:function(){ $('#loader_panel').hide(); }
     });

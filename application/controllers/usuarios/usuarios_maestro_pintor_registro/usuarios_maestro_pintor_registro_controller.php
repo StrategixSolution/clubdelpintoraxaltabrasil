@@ -165,7 +165,7 @@ public function __construct(){
                 $identificacion           = "uploads/maestros_pintores/".$UsuarioId."/".funciones_strategix_fecha_hora_actual()."_".$UsuarioId."_identificacion.".$this->input->post('ext_file_identificacion',TRUE);
                 $this->base_controller_valida_crea_carpetas('maestros_pintores');
                 $direccion_documentos     = $this->base_controller_valida_crea_carpetas('maestros_pintores/'.$UsuarioId);
-                $file_identificacion      = funciones_strategix_fecha_hora_actual()."-".$UsuarioId."-identificacion";
+                $file_identificacion      = funciones_strategix_fecha_hora_actual()."_".$UsuarioId."_identificacion";
                 $resultado_identificacion = $this->base_controller_cargas_upload_archivo('file_identificacion', $direccion_documentos, '*', $file_identificacion);
                 if($resultado_identificacion['resultado']==0){
                     $valuemp['estatus'] = 2;

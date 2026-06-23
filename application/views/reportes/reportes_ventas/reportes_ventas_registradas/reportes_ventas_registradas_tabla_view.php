@@ -19,33 +19,30 @@
                                     <th>ID</th>
 
                                     <?php if (empty($ocultarPintorTicketObs)) { ?>
-                                        <th>NOMBRE PINTOR</th>
+                                        <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_nombre_mp')?></th>
                                     <?php } ?>
 
-                                    <th>EVENTO</th>
-                                    <th>ID DISTRIBUIDORA</th>
-                                    <th>CÓDIGO</th>
-                                    <th>RAZÓN SOCIAL</th>
-                                    <th>NOMBRE COMERCIAL</th>
-                                    <th>TIPO DISTRIBUIDORA</th>
-                                    <th>REGIÓN</th>
-                                    <th>CATEGORÍA</th>
-                                    <th>EJECUTIVO</th>
-                                    <th>CIUDAD / ESTADO</th>
-                                    <th>NÚM. TICKET</th>
-                                    <th>TOTAL TICKET</th>
-                                    <th>FECHA DE REGISTRO</th>
+                                    <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_evento')?></th>
+                                    <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_id_dist')?></th>
+                                    <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_codigo')?></th>
+                                    <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_razon_social')?></th>
+                                    <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_nomnbre_comercial')?></th>
+                                   <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_region')?></th>
+                                   <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_ejecutivo')?></th>
+                                  <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_ciudad_edo')?></th>
+                                   <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_num_ticket')?></th>
+                                   <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_tot_ticket')?></th>
+                                   <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_fecha_reg')?></th>
 
                                     <?php if (empty($ocultarVentaCompletada)) { ?>
-                                        <th>VENTA COMPLETADA</th>
+                                       <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_venta_comp')?></th>
                                     <?php } ?>
 
-                                    <th>AUDITORÍA</th>
+                                   <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_auditoria')?></th>
 
                                     <?php if (empty($ocultarPintorTicketObs)) { ?>
-                                        <th>TICKET</th>
-                                      <!--  <th>EDITAR</th> -->
-                                        <th>OBSERVACIONES</th>
+                                        <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_ticket')?></th>
+                                       <th><?=$this->lang->line('reportes_ventas_registradas_controller_lang_tabla_observacion')?></th>
                                     <?php } ?>
                                 </tr>
                             </thead>
@@ -93,7 +90,7 @@ if (empty($ocultarPintorTicketObs)) {
 ?>
 
         $('#tabla_ventas_registradas').DataTable({
-            "scrollX": 2500,
+            "scrollX": 3500,
             "scrollY": 350,
             "lengthMenu": [
                 [10, 25, 50, 100, -1],
@@ -120,7 +117,7 @@ if (empty($ocultarPintorTicketObs)) {
     extend: 'excelHtml5',
     exportOptions: {
         // Exporta todas las columnas excepto TICKET (índice 16)
-        columns: <?= json_encode($columnasExport) ?>
+         columns: [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11,12,13]
     },
     customizeData: function(data) {
         // Cambiar encabezado ID por ID VENTA en el Excel

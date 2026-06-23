@@ -36,6 +36,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
+            <div id="div_excel" style="display: none;">
+                    <hr class="separador">
+                    <div class="row mb-5 vertical-center" style="justify-content: flex-end; margin-top: 20px;">
+                        <div class="col-lg-2 col-6">
+                            <div class="btn-modulo">
+                                <button type="button" class="btn btn-axalta" id="reporte_maestros_pintores_boton_excel">
+                                    <i class="fas fa-download pr-5"></i>DESCARGA
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="tablaReportemaestroPintores"></div>            
         </div>
@@ -46,7 +58,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
  $(document).ready(function() {
  cargarComboDistribuidor();
   $("#Reporte_maestroPintores_btn_buscar").click(function() {
+    $('#div_excel').show(300);
             reportesMaestroPintoresControllerTabla();
+        });
+         $("#reporte_maestros_pintores_boton_excel").click(function() {
+            reportes_maestros_pintores_js_excel()
         });
   });
 
@@ -85,6 +101,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
             },
             error: function(data) {},
             complete: function() {  $('#loader_panel').hide();}
+        });
+    }
+
+    function reportes_maestros_pintores_js_excel() {
+        $('#loader_panel').show();
+        var cmb_distribuidor = $("#cmb_distribuidor").val();
+        var txt_nombre_mp = $("#txt_nombre_mp").val();
+        $.ajax({
+            type: 'POST',
+            url: 'reportes/reportes_maestro_pintores/reportes_maestro_pintores_controller/reportes_maestro_pintores_controller_export_excel',
+            dataType: 'json',
+            data: {
+                cmb_distribuidor: cmb_distribuidor,
+                txt_nombre_mp: txt_nombre_mp
+            },
+            success: function(data) {
+                    $(location).attr('href', '<?= funciones_strategix_version_url_random_base_url("uploads/maestros_pintores/excel/Relatorio_sobre_grandes_pintores.xlsx") ?>');
+            },
+            error: function(data) {},
+            complete: function() {
+                $('#loader_panel').hide();
+            }
         });
     }
 

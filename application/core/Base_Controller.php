@@ -192,20 +192,11 @@ class Base_Controller extends CI_Controller {
                 || uri_string() == 'UsuariosActualizarDatosValidaEmail'
                 || uri_string() == 'usuarios/usuarios_participantes/usuarios_participantes_cargar_cartas_controller/usuarios_participantes_cargar_cartas_controller_cargar_pdf'
                 || uri_string() == 'Registromaestropintorexterno'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_registro_mp_externo_controller_cmb_telefonias'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_registro_mp_externo_controller_cmb_distribuidora'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_registro_mp_externo_controller_valida_cp'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_participantes_externo_alta_obtener_datos_distribuidora'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_participantes_externo_alta_validar_formulario'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_participantes_externo_alta_registro'
                 || uri_string() == 'mails/mails_usuarios/mails_usuarios_participantes/mails_usuarios_participantes_externo/mails_usuarios_participantes_interno_registro_bienvenida'
                 || uri_string() == 'Registroexitoso'
                 || uri_string() == 'Registromaestropintorexternodatos'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_datosregistro_controller'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/registro_exitoso_maestro_pintor'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_registro_mp_externo_controller_aceptar_registro'
                 || uri_string() == 'TutorialesAxaltaCDP'
+                || uri_string() == 'tutoriales/tutoriales_externos/tutoriales_externos_controller/tutoriales_externos_controller_modal'
                 ){
             return false;
         } else {

@@ -265,8 +265,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row row-validator">
-                                    <div class="col-lg-12">
+                                     <div class="col-lg-10">    
+                                <div class="form-group">
+                                    <label
+                                        for="cmb_tipo_tarjeta"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta') ?></label>
+                                    <select id="cmb_tipo_tarjeta" name="cmb_tipo_tarjeta" class="form-select"></select>
+                                </div>
+                                     </div>
+
+
+
+
+
+
+
+                                     
+                                    <div class="col-lg-12" style="display: none;" id="div_identificacion_qr">
                                         <div class="form-group">
                                             <label
                                                 for="txt_qr"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_codigoqr') ?><span
@@ -428,6 +444,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         });
         frm_usuarios_maestro_pintor_registro_view_js_combo_puesto();
         frm_usuarios_maestro_pintor_registro_view_js_combo_talla();
+        frm_usuarios_maestro_pintor_registro_view_js_combo_tipo_tarjeta();
         $('#chk_camara').on('change', function() {
             if ($('#chk_camara').prop('checked', true)) {
                 $('#chk_archivo').prop('checked', false).removeAttr('checked').val('0');
@@ -500,6 +517,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         async: false,
                         dataType: 'json',
                         success: function(data) {
+
                             switch (data.estatus) {
                                 case 1:
                                     var dataURL = signaturePad.toDataURL();
@@ -514,7 +532,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             signaturePad.clear();
                                             Swal.fire({
                                                 title: '',
-                                                html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_maestro_pintor_registrado') ?>',
+                                                html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_maestro_pintor_registrado') ?>
+                                                <br>Senha: <strong>' + data.contrasena + '</strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong>',
                                                 icon: 'success',
                                                 showCancelButton: false,
                                                 confirmButtonColor: '#fd7e14',
@@ -533,7 +552,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 case 2:
                                     Swal.fire({
                                         title: '',
-                                        html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_error_envio_correo') ?>',
+                                        html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_error_envio_correo') ?>
+                                                    <br>Senha: <strong>' + data.contrasena + '</strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong>',
                                         icon: 'success',
                                         showCancelButton: false,
                                         confirmButtonColor: '#fd7e14',
@@ -635,6 +655,38 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         });
     }
+
+    function frm_usuarios_maestro_pintor_registro_view_js_combo_tipo_tarjeta() {
+        $('#loader_panel').show();
+        $.ajax({
+            type: 'POST',
+            url: 'usuarios/usuarios_maestro_pintor_registro/usuarios_maestro_pintor_registro_controller/usuarios_maestro_pintor_registro_controller_combo_tipo_tarjeta',
+            dataType: 'json',
+            data: {
+                id: 0
+            },
+            success: function(data) {
+                $('#cmb_tipo_tarjeta').html(data);
+            },
+            error: function(data) {},
+            complete: function() {
+                $('#loader_panel').hide();
+                 var tipo = $('#cmb_tipo_tarjeta').val();
+                if(tipo == 1){
+                  $('#div_identificacion_qr').show();
+                                }
+            }
+        });
+    }
+
+    $('#cmb_tipo_tarjeta').on('change', function () {
+        var tipo = $(this).val();
+        if(tipo == 1){
+            $('#div_identificacion_qr').show();
+        } else {
+            $('#div_identificacion_qr').hide();
+        }
+    });
 
     function resizeCanvas() {
         var ratio = Math.max(window.devicePixelRatio || 1, 1);

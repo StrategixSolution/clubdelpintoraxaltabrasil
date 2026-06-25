@@ -159,6 +159,9 @@ a[x-apple-data-detectors],
                          </tr>
                        </table></td>
                      </tr>
+                      <tr>
+                      <td align="center" style="padding:10px;Margin:0"><h1 style="Margin:0;font-family:arial, 'helvetica neue', helvetica, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:30px;font-style:normal;font-weight:normal;line-height:36px;color:#333333"><br></h1><h1 style="Margin:0;font-family:arial, 'helvetica neue', helvetica, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:30px;font-style:normal;font-weight:normal;line-height:36px;color:#333333"><?=$this->lang->line('usuarios_maestro_pintor_registro_controller_lang_mail_body_tarjeta')?> <strong style="font-weight:700 !important"><?= $tarjeta ?></strong></h1></td>
+                     </tr>
                      <tr>
                       <td align="center" style="padding:10px;Margin:0"><h1 style="Margin:0;font-family:arial, 'helvetica neue', helvetica, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:30px;font-style:normal;font-weight:normal;line-height:36px;color:#333333"><br></h1><h1 style="Margin:0;font-family:arial, 'helvetica neue', helvetica, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:30px;font-style:normal;font-weight:normal;line-height:36px;color:#333333"><?=$this->lang->line('usuarios_maestro_pintor_registro_controller_lang_mail_body_pass')?> <strong style="font-weight:700 !important"><?= $pwd ?></strong></h1></td>
                      </tr>

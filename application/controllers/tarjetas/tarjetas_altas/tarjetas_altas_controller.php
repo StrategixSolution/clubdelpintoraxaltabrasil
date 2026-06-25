@@ -29,7 +29,7 @@ class Tarjetas_altas_controller extends Base_Controller
         $txt_tarjeta_final              = trim($this->input->post('fin', true));
         $combo_distribuidores           = $this->input->post('cmb_distribuidor', true);
         $lista = $where = ""; 
-        $where = 'AND  Tarjetas.TarjetaNumero BETWEEN ' . $txt_tarjeta_inicial . ' AND ' . $txt_tarjeta_final . ' AND Tarjetas.DistribuidorId = ' . $combo_distribuidores;
+        $where = 'AND  Tarjetas.TarjetaNumero BETWEEN ' . $txt_tarjeta_inicial . ' AND ' . $txt_tarjeta_final ;
         $tarjetas      = $this->tarjetas_altas_model->tarjetas_altas_model_crea_tabla($where);
       // print_r(count($tarjetas));die;
         if (count($tarjetas) == 0) {

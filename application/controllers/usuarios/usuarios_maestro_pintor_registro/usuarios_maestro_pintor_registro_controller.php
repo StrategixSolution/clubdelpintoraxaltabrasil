@@ -27,6 +27,15 @@ public function __construct(){
         }
         echo json_encode($cmbtalla);
     }    
+
+        public function usuarios_maestro_pintor_registro_controller_combo_tipo_tarjeta() {
+        $cmbtipo_tarjeta = "";
+        $tipos_tarjeta         = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_tipos_tarjeta();
+        foreach ($tipos_tarjeta as $tipo_tarjeta) {            
+             $cmbtipo_tarjeta .="<option value=$tipo_tarjeta->TarjetasTipoId>".utf8_encode($tipo_tarjeta->TarjetasTipoDescripcion)."</option>";
+        }
+        echo json_encode($cmbtipo_tarjeta);
+    } 
      public function usuarios_maestro_pintor_registro_controller_modal_terminos_y_condiciones(){
         $data['archivo']       = 'application/views/template/sistema/legal/terminos_y_condiciones.pdf';
         $pag = $this->load->view('modals/modals_usuarios/modals_usuarios_registro_maestro_pintor/modals_usuarios_registro_maestro_pintor_termino_view', $data, true);
@@ -110,7 +119,7 @@ public function __construct(){
         $this->form_validation->set_rules('txt_cantidad_personas', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'numeric|max_length[3]|xss_clean');
         $this->form_validation->set_rules('txt_cantidad_autos', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'numeric|max_length[3]|xss_clean');
         $this->form_validation->set_rules('fecha_nacimiento', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'required|xss_clean');
-        $this->form_validation->set_rules('txt_qr', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_codigoqr'), 'required|trim|xss_clean|min_length[1]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ,.]*$/u]|callback_usuarios_maestro_pintor_registro_controller_valida_tarjeta');
+       if ($this->input->post('cmb_tipo_tarjeta',true)== 1){ $this->form_validation->set_rules('txt_qr', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_codigoqr'), 'required|trim|xss_clean|min_length[1]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ,.]*$/u]|callback_usuarios_maestro_pintor_registro_controller_valida_tarjeta');}
         if ($this->input->post('chk_camara',true)== 1){ $this->form_validation->set_rules('txt_identificacion', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_identificacion'), 'required|trim|xss_clean|min_length[1]'); }
         if ($this->input->post('chk_archivo',true)== 1){ if(empty($_FILES['file_identificacion']['name'])){ $this->form_validation->set_rules('file_identificacion',$this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_identificacion'), 'required'); } }
     }    
@@ -140,7 +149,8 @@ public function __construct(){
     }
     public function usuarios_maestro_pintor_registro_controller_guardar() {      
         
-        $valmp=''; $div =0;
+        $valmp=''; $div =0; $numero_tarjeta ='';
+        $cmb_tipo_tarjeta           = $this->input->post('cmb_tipo_tarjeta',TRUE);
         $usuarios_registro_maestro_pintor_view_chk_whatsapp = $this->input->post('usuarios_registro_maestro_pintor_view_chk_whatsapp',true);
         $usuarios_registro_maestro_pintor_view_chk_email = $this->input->post('usuarios_registro_maestro_pintor_view_chk_email',true);        
         $fechanac           = $this->input->post('fecha_nacimiento',TRUE);
@@ -175,17 +185,28 @@ public function __construct(){
             }
             $this->session->set_userdata('s_maestropintorid',$UsuarioId);
             $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_usaurio_clave($UsuarioId,$identificacion);
-             $updateTarjeta = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_tarjeta($UsuarioId,$iddistribuidora,trim($this->input->post('txt_qr',TRUE)));
+           if($cmb_tipo_tarjeta==2){ //2 digital
+               $numero_tarjeta =  $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_obtener_siguiente_tarjeta_numero();
+            }else{ $numero_tarjeta = trim($this->input->post('txt_qr',TRUE)); }
+                       
+           if($cmb_tipo_tarjeta==2){ //2 digital
+              $updateTarjeta = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_tarjeta_digital($UsuarioId,$iddistribuidora,$numero_tarjeta);
+            }else{ 
+                $updateTarjeta = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_tarjeta_fisica($UsuarioId,$iddistribuidora,$numero_tarjeta);
+             }
             if ($usuarios_registro_maestro_pintor_view_chk_email==1){
-                 $resultado_envio_correo = $this->usuarios_maestro_pintor_registro_controller_envio_correo_bienvenida($this->input->post('txt_nombre',TRUE),$this->input->post('txt_segundo_nombre',TRUE),$this->input->post('txt_apellidos',TRUE),$this->input->post('txt_email',TRUE),$contrasena_texto_plano);                 
-            }
-          
+                 $resultado_envio_correo = $this->usuarios_maestro_pintor_registro_controller_envio_correo_bienvenida($this->input->post('txt_nombre',TRUE),$this->input->post('txt_segundo_nombre',TRUE),$this->input->post('txt_apellidos',TRUE),$this->input->post('txt_email',TRUE),$contrasena_texto_plano,$numero_tarjeta);                 
+            }          
             if($resultado_envio_correo){ 
                 $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_email($UsuarioId); 
                 $valuemp['estatus'] = 1;
+                $valuemp['contrasena'] = $contrasena_texto_plano;
+                $valuemp['numero_tarjeta'] = $numero_tarjeta;
                 return $valuemp;              
             } else {
                 $valuemp['estatus'] = 2;
+                 $valuemp['contrasena'] = $contrasena_texto_plano;
+                $valuemp['numero_tarjeta'] = $numero_tarjeta;
               return $valuemp;              
             }
         }
@@ -270,10 +291,11 @@ public function __construct(){
         }    
         return $response;
     }    
-    public function usuarios_maestro_pintor_registro_controller_envio_correo_bienvenida($nombre,$segundonombre,$apellidos,$email,$contrasena) {
+    public function usuarios_maestro_pintor_registro_controller_envio_correo_bienvenida($nombre,$segundonombre,$apellidos,$email,$contrasena,$numero_tarjeta) {
         $nombrecompleto = $nombre.' '.$segundonombre.' '.$apellidos;
         $data['nombre'] = $nombrecompleto;
         $data['email'] = $email;
+        $data['tarjeta'] = $numero_tarjeta;
        $data['pwd'] = $contrasena;
            $mail       = $this->load->view('mails/mails_usuarios/mails_usuarios_participantes/mails_usuarios_participantes_interno_registro_bienvenida' ,$data, TRUE);
         $to         = array('to' => $email,'cc'=>'','bcc'=>'');

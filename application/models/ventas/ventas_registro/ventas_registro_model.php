@@ -121,7 +121,7 @@ class Ventas_registro_model extends Base_Model {
     }
 
     public function ventas_registro_model_count_ticket($ticket, $id_dist){
-        $query	= $this->db->query("SELECT COUNT(VentaNumeroTicket) AS counter FROM Ventas WHERE VentaNumeroTicket = '$ticket' AND ventaFechaBaja is null  AND DistribuidorId= $id_dist");
+        $query	= $this->db->query("SELECT COUNT(VentaNumeroTicket) AS counter FROM Ventas WHERE VentaNumeroTicket = '$ticket' AND VentaFechaBaja is null  AND DistribuidorId= $id_dist");
       //  echo  $this->db->last_query()."<br>"; 
         return $query->row();
     }

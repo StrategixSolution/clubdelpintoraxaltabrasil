@@ -584,6 +584,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         }
                                     });
                                     break;
+                                    case 4:
+                                    Swal.fire({
+                                        title: '',
+                                        html: 'Não há cartões digitais disponíveis para atribuição; entre em contato com seu administrador.',
+                                        icon: 'error',
+                                        showCancelButton: false,
+                                        confirmButtonColor: '#fd7e14',
+                                        cancelButtonColor: '#6c757d',
+                                        confirmButtonText: 'OK',
+                                        cancelButtonText: ''
+                                    }).then((validacionaltaparticipante) => {
+                                        if (validacionaltaparticipante.isConfirmed) {
+                                            var href = '$(location).attr("href","<?php echo funciones_strategix_version_url_random_base_url("Registromaestropintorinterno") ?>")';
+                                            setTimeout(href, 300);
+                                        }
+                                    });
+                                    break;
                                 default:
                                     $('#error').html(" ");
                                     var primerError = null;

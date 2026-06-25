@@ -151,6 +151,10 @@ public function __construct(){
         
         $valmp=''; $div =0; $numero_tarjeta ='';
         $cmb_tipo_tarjeta           = $this->input->post('cmb_tipo_tarjeta',TRUE);
+            if($cmb_tipo_tarjeta==2){ //2 digital
+               $numero_tarjeta =  $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_obtener_siguiente_tarjeta_numero();
+            if($numero_tarjeta==0){ $valuemp['estatus'] = 4; return $valuemp;} }
+
         $usuarios_registro_maestro_pintor_view_chk_whatsapp = $this->input->post('usuarios_registro_maestro_pintor_view_chk_whatsapp',true);
         $usuarios_registro_maestro_pintor_view_chk_email = $this->input->post('usuarios_registro_maestro_pintor_view_chk_email',true);        
         $fechanac           = $this->input->post('fecha_nacimiento',TRUE);

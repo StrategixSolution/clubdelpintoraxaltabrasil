@@ -99,6 +99,8 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_pass']    = 'S
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_button_1']    = 'Club do Pintor';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_3']      = 'Você conhece as regras do programa?';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_button_2']    = 'Ir para o site';
+$lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta']    = 'TIPO DE CARTÃO';
+$lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_tarjeta']    = 'Número de cartão: ';
 
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_legal_aviso_texto']      = '
 <h2 class="mb-4">AVISO DE PRIVACIDADE AXALTA</h2>

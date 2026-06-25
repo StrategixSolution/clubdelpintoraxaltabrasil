@@ -99,6 +99,8 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_pass']    = 'C
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_button_1']    = 'Club del Pintor';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_3']      = '¿Conoces las reglas del programa?';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_button_2']    = 'Ir al sitio';
+$lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta']    = 'TIPO DE TARJETA';
+$lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_tarjeta']    = 'Número de tarjeta: ';
 
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_legal_aviso_texto']      = '
 <h2>TÉRMINOS Y CONDICIONES DE USO</h2>

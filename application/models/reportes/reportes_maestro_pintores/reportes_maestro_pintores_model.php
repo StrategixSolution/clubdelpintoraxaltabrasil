@@ -40,188 +40,164 @@ class Reportes_maestro_pintores_model extends Base_Model {
         return $query->result();
     }
   
-  
-  
-  
-  
-  /*
-    public function get_pintor_detalle($where1){
-        $SQL = "SELECT DISTINCT
-  u.UsuarioId,
-  u.UsuarioNombre,
-  u.UsuarioSegundoNombre,
-  u.UsuarioApellidoPaterno,
-  u.UsuarioApellidoMaterno,
-  u.UsuarioUsuario,
-  u.UsuarioClave,
-  u.UsuarioEmail,
-  u.UsuarioTelefono1,
-  u.UsuarioExtension1,
-  u.UsuarioTelefono2,
-  u.UsuarioExtension2,
-  u.UsuarioCelular,
-  u.CompaniaCelularId,
-  u.UsuarioFechaRegistro,
-  u.UsuarioMaestroPintorExterno,
-  p.PerfilId,
-  p.PerfilDescripcion,
-  up.UsuarioParticipantePuesto,
-  up.UsuarioParticipanteNombreTaller,
-  up.UsuarioParticipanteRFC,
-  up.UsuarioParticipanteHomoclave,
-  up.UsuarioParticipanteCURP,
-  up.UsuarioParticipanteCP,
-  up.UsuarioParticipanteEstado,
-  up.UsuarioParticipanteCiudad,
-  up.UsuarioParticipanteDelegacionMunicipio,
-  up.UsuarioParticipanteColonia,
-  up.UsuarioParticipanteCalle,
-  up.UsuarioParticipanteNumeroExterior,
-  up.UsuarioParticipanteNumeroInterior,
-  up.UsuarioParticipanteEntreCalles,
-  up.UsuarioParticipanteFechaNacimiento,
-  up.UsuarioTallaId,
-  up.UsuarioParticipantePersonasTaller,
-  up.UsuarioParticipanteAutosPorsemana,
-  d.DistribuidoraId,
-  d.DistribuidoraCP,
-  d.DistribuidoraCodigo,
-  d.DistribuidoraRazonSocial,
-  d.DistribuidoraNombreComercial,
-  d.DistribuidoraEvento,
-  d.DistribuidoraFechaBaja,
-  d.DistribuidoraFechaAlta,
-  d.DistribuidoraFechaActivacion,
-  r.RegionId,
-  r.RegionNombre,
-  t.TarjetaNumero,
-  d.DistribuidoraCiudad,
-  d.DistribuidoraEstado,
-  ej.UsuarioNombre as ej_nom,
-  ej.UsuarioSegundoNombre as ej_segnom,
-  ej.UsuarioApellidoPaterno as ej_ap,
-  ej.UsuarioApellidoMaterno as ej_am,
-  ut.UsuarioTallaDescripcion,
-  ut.UsuarioTallaClave,
-  u.UsuarioFechaEntegaTarjeta,
-  u.UsuarioEntregaTarjetaUsuarioId,
-  u.UsuarioFechaTerminosVirtuales,
-  tt.TarjetasTipoDescripcion
-FROM
-  usuarios u
-  INNER JOIN usuarioparticipantes up ON (u.UsuarioId = up.UsuarioId)
-  INNER JOIN perfiles p ON (u.PerfilId = p.PerfilId)
-  INNER JOIN usuariosdistribuidoras ud ON (u.UsuarioId = ud.UsuarioId)
-  INNER JOIN distribuidoras d ON (ud.DistribuidoraId = d.DistribuidoraId)
-  LEFT OUTER JOIN regiones r ON (d.RegionId = r.RegionId)
-  LEFT OUTER JOIN tarjetas t ON (u.UsuarioId = t.UsuarioId) 
-  LEFT OUTER JOIN tarjetastipos tt ON (tt.TarjetasTipoId = t.TarjetasTipoId) 
-  LEFT OUTER JOIN usuariotallas ut ON (up.UsuarioTallaId = ut.UsuarioTallaId)
-  LEFT JOIN (select ud2.DistribuidoraId,u2.UsuarioNombre,u2.UsuarioSegundoNombre,u2.UsuarioApellidoPaterno,u2.UsuarioApellidoMaterno
-  FROM usuarios u2 
-  INNER JOIN usuariosdistribuidoras ud2 ON (u2.UsuarioId = ud2.UsuarioId)  
-  INNER JOIN distribuidoras d2 ON (ud2.DistribuidoraId = d2.DistribuidoraId) 
-  WHERE   u2.UsuarioFechaBajaParticipante IS NULL AND 
-  u2.UsuarioFechaBajaDistribuidora IS NULL AND
-    u2.PerfilId = 3 AND 
-  d2.DistribuidoraFechaBaja IS NULL) ej ON ej.DistribuidoraId = d.DistribuidoraId
-WHERE
-  u.UsuarioFechaBajaParticipante IS NULL AND 
-  u.PerfilId = 7 AND t.TarjetaEstatusId = 1 AND t.TarjetaFechaBaja IS NULL 
-  $where1 
-                ORDER BY u.UsuarioNombre";
+  public function reportes_maestro_pintores_model_crea_tabla($where=""){
+        $SQL = "SELECT 
+                  Usuarios.UsuarioId,
+                  Usuarios.UsuarioFechaRegistro, 
+                  concat (UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos )as nombre, 
+                  UsuariosDetalles.UsuarioDetalleEmail, 
+                  UsuariosDetalles.UsuarioDetalleCelular,
+                  UsuariosDetalles.UsuarioDetalleCiudad, 
+                  UsuariosDetalles.UsuarioDetalleArchivoIdentificacion,
+                  UsuariosDetalles.UsuarioDetalleArchivoFirma, 
+                  Usuarios.UsuarioFechaBajaParticipante, 
+                  UsuariosDetallesTallas.UsuarioDetalleTallaDescripcion, 
+                  DistribuidoresDetalles.DistribuidorId, 
+                  DistribuidoresDetalles.DistribuidorDetalleCodigo, 
+                  DistribuidoresDetalles.DistribuidorDetalleRazonSocial,
+                  DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
+                  DistribuidoresDetalles.DistribuidorDetalleCEP, 
+                  DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre, 
+                  Tarjetas.TarjetaNumero, 
+                  Perfiles.PerfilId ,
+                  Perfiles.PerfilDescripcion ,
+                  (SELECT  ud2.UsuarioDetalleNombre + ' ' + 
+                                        ISNULL(ud2.UsuarioDetalleSegundoNombre, '') + ' ' + 
+                                        ud2.UsuarioDetalleApellidos
+                                  FROM usuarios u_ej
+                                  INNER JOIN UsuariosDetalles ud2 ON ud2.UsuarioId = u_ej.UsuarioId
+                                  INNER JOIN perfiles p ON u_ej.PerfilId = p.PerfilId
+                                  INNER JOIN UsuariosDistribuidores ud_ej ON u_ej.UsuarioId = ud_ej.UsuarioId
+                                  WHERE ud_ej.DistribuidorId = DistribuidoresDetalles.DistribuidorId
+                                      AND u_ej.UsuarioFechaBajaParticipante IS NULL
+                                      AND u_ej.UsuarioFechaBajaDistribuidora IS NULL
+                                      AND ud2.UsuarioDetalleFechaBaja IS NULL
+                                      AND u_ej.PerfilId = 5
+                                  FOR XML PATH('')) AS ejecutivo
+                  FROM Usuarios 
+                  INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
+                  INNER JOIN Perfiles ON Usuarios.PerfilId = Perfiles.PerfilId 
+                  LEFT JOIN UsuariosDetallesTallas ON UsuariosDetalles.UsuarioDetalleTallaId = UsuariosDetallesTallas.UsuarioDetalleTallaId 
+                  INNER JOIN UsuariosDistribuidores ON Usuarios.UsuarioId = UsuariosDistribuidores.UsuarioId 
+                  INNER JOIN DistribuidoresDetalles ON UsuariosDistribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                  INNER JOIN Distribuidores ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                  INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId 
+                  INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId 
+                  WHERE UsuarioFechaBajaParticipante IS NULL 
+                  AND UsuarioDetalleFechaBaja IS NULL 
+                  AND DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL
+                  AND Usuarios.PerfilId=9 ".$where;
         $query	= $this->db->query($SQL);
+//        echo $this->db->last_query();
         return $query->result();
     }
-    public function maestrosPintoresExternosSinTarjeta($where1){
-        $SQL = "SELECT DISTINCT
-  u.UsuarioId,
-  u.UsuarioNombre,
-  u.UsuarioSegundoNombre,
-  u.UsuarioApellidoPaterno,
-  u.UsuarioApellidoMaterno,
-  u.UsuarioUsuario,
-  u.UsuarioClave,
-  u.UsuarioEmail,
-  u.UsuarioTelefono1,
-  u.UsuarioExtension1,
-  u.UsuarioTelefono2,
-  u.UsuarioExtension2,
-  u.UsuarioCelular,
-  u.CompaniaCelularId,
-  u.UsuarioFechaRegistro,
-  u.UsuarioMaestroPintorExterno,
-  p.PerfilId,
-  p.PerfilDescripcion,
-  up.UsuarioParticipantePuesto,
-  up.UsuarioParticipanteNombreTaller,
-  up.UsuarioParticipanteRFC,
-  up.UsuarioParticipanteHomoclave,
-  up.UsuarioParticipanteCURP,
-  up.UsuarioParticipanteCP,
-  up.UsuarioParticipanteEstado,
-  up.UsuarioParticipanteCiudad,
-  up.UsuarioParticipanteDelegacionMunicipio,
-  up.UsuarioParticipanteColonia,
-  up.UsuarioParticipanteCalle,
-  up.UsuarioParticipanteNumeroExterior,
-  up.UsuarioParticipanteNumeroInterior,
-  up.UsuarioParticipanteEntreCalles,
-  up.UsuarioParticipanteFechaNacimiento,
-  up.UsuarioTallaId,
-  up.UsuarioParticipantePersonasTaller,
-  up.UsuarioParticipanteAutosPorsemana,
-  d.DistribuidoraId,
-  d.DistribuidoraCP,
-  d.DistribuidoraCodigo,
-  d.DistribuidoraRazonSocial,
-  d.DistribuidoraNombreComercial,
-  d.DistribuidoraEvento,
-  d.DistribuidoraFechaBaja,
-  d.DistribuidoraFechaAlta,
-  d.DistribuidoraFechaActivacion,
-  r.RegionId,
-  r.RegionNombre,
-  t.TarjetaNumero,
-  d.DistribuidoraCiudad,
-  d.DistribuidoraEstado,
-  ej.UsuarioNombre as ej_nom,
-  ej.UsuarioSegundoNombre as ej_segnom,
-  ej.UsuarioApellidoPaterno as ej_ap,
-  ej.UsuarioApellidoMaterno as ej_am,
-  ut.UsuarioTallaDescripcion,
-  ut.UsuarioTallaClave,
-  u.UsuarioFechaEntegaTarjeta,
-  u.UsuarioEntregaTarjetaUsuarioId,
-  mpd.DistribuidoraId as UDistribuidoraId
-FROM
-  usuarios u
-  INNER JOIN usuarioparticipantes up ON (u.UsuarioId = up.UsuarioId)
-  INNER JOIN perfiles p ON (u.PerfilId = p.PerfilId)
-  LEFT OUTER JOIN maestropintordistribuidoras mpd ON (u.UsuarioId = mpd.UsuarioId)
-  LEFT OUTER JOIN distribuidoras d ON (mpd.DistribuidoraId = d.DistribuidoraId)
-  LEFT OUTER JOIN regiones r ON (d.RegionId = r.RegionId)
-  LEFT OUTER JOIN tarjetas t ON (u.UsuarioId = t.UsuarioId) 
-  LEFT OUTER JOIN usuariotallas ut ON (up.UsuarioTallaId = ut.UsuarioTallaId)
-  LEFT JOIN (select ud2.DistribuidoraId,u2.UsuarioNombre,u2.UsuarioSegundoNombre,u2.UsuarioApellidoPaterno,u2.UsuarioApellidoMaterno
-  FROM usuarios u2 
-  INNER JOIN usuariosdistribuidoras ud2 ON (u2.UsuarioId = ud2.UsuarioId)  
-  INNER JOIN distribuidoras d2 ON (ud2.DistribuidoraId = d2.DistribuidoraId) 
-  WHERE   u2.UsuarioFechaBajaParticipante IS NULL AND 
-  u2.UsuarioFechaBajaDistribuidora IS NULL AND
-    u2.PerfilId = 3 AND 
-  d2.DistribuidoraFechaBaja IS NULL) ej ON ej.DistribuidoraId = d.DistribuidoraId
-WHERE
-  u.UsuarioFechaBajaParticipante IS NULL AND 
-  u.PerfilId = 7 AND 
-  u.UsuarioMaestroPintorExterno = 1
-  $where1 
-                ORDER BY u.UsuarioNombre";
-        $query	= $this->db->query($SQL);
-        return $query->result();
-    }    
-}*/
 
+    public function reportes_usuarios_maestros_pintores_model_tabla_registros_por_mes($where){
+        $SQL    = "SELECT 
+                  YEAR(Usuarios.UsuarioFechaRegistro) AS anio, 
+                  MONTH(Usuarios.UsuarioFechaRegistro) AS mes, 
+                  COUNT(Usuarios.UsuarioId) AS total
+                  FROM Usuarios 
+                  INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
+                  INNER JOIN UsuariosDistribuidores ON Usuarios.UsuarioId = UsuariosDistribuidores.UsuarioId 
+                  INNER JOIN DistribuidoresDetalles ON UsuariosDistribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                  INNER JOIN Distribuidores ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                  INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId 
+                  WHERE Usuarios.PerfilId=9
+                  AND Usuarios.UsuarioFechaBajaParticipante IS NULL 
+                  AND UsuarioDetalleFechaBaja IS NULL  ".$where." 
+                  GROUP BY YEAR(Usuarios.UsuarioFechaRegistro),MONTH(Usuarios.UsuarioFechaRegistro) 
+                  ORDER BY YEAR(Usuarios.UsuarioFechaRegistro),MONTH(Usuarios.UsuarioFechaRegistro)";
+        $query	= $this->db->query($SQL);
+//        echo  $this->db->last_query()."<br>"; 
+        return $query->result();
+    }
+
+    public function reportes_usuarios_maestros_pintores_model_tabla_bajas($where){
+        $SQL    = "SELECT 
+                    Usuarios.UsuarioId,
+                    Usuarios.UsuarioFechaBajaParticipante, 
+                    Usuarios.UsuarioFechaRegistro, 
+                    concat (UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos)as nombre, 
+                    DistribuidoresDetalles.DistribuidorDetalleCodigo, 
+                    DistribuidoresDetalles.DistribuidorDetalleRazonSocial 
+                    FROM Usuarios 
+                    INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
+                    INNER JOIN UsuariosDistribuidores ON Usuarios.UsuarioId = UsuariosDistribuidores.UsuarioId 
+                    INNER JOIN DistribuidoresDetalles ON UsuariosDistribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                    INNER JOIN Distribuidores ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                    WHERE PerfilId = 9
+                    AND Usuarios.UsuarioFechaBajaParticipante IS NOT NULL  ".$where;
+        $query	= $this->db->query($SQL);
+//        echo  $this->db->last_query()."<br>"; 
+        return $query->result();
+    }
+
+    public function reportes_usuarios_maestros_pintores_model_por_distribuidores($where){
+        $SQL    = "SELECT DISTINCT 
+                    Distribuidores.DistribuidorId, 
+                    DistribuidoresDetalles.DistribuidorDetalleCodigo, 
+                    DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
+                    DistribuidoresDetalles.DistribuidorDetalleUnidadFederativa, 
+                    DistribuidoresDetalles.DistribuidorDetalleCiudad, 
+                    DistribuidoresDetalles.DistribuidorDetalleBarrio,
+                    (SELECT  ud2.UsuarioDetalleNombre + ' ' + 
+                       ISNULL(ud2.UsuarioDetalleSegundoNombre, '') + ' ' + 
+                       ud2.UsuarioDetalleApellidos
+                FROM usuarios u_ej
+                INNER JOIN UsuariosDetalles ud2 ON ud2.UsuarioId = u_ej.UsuarioId
+                INNER JOIN perfiles p ON u_ej.PerfilId = p.PerfilId
+                INNER JOIN UsuariosDistribuidores ud_ej ON u_ej.UsuarioId = ud_ej.UsuarioId
+                WHERE ud_ej.DistribuidorId = DistribuidoresDetalles.DistribuidorId
+                    AND u_ej.UsuarioFechaBajaParticipante IS NULL
+                    AND u_ej.UsuarioFechaBajaDistribuidora IS NULL
+                    AND ud2.UsuarioDetalleFechaBaja IS NULL
+                    AND u_ej.PerfilId = 5
+                FOR XML PATH('')) AS ejecutivo
+                    FROM Distribuidores 
+                    INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                    INNER JOIN UsuariosDistribuidores ON UsuariosDistribuidores.DistribuidorId = Distribuidores.DistribuidorId 
+                    INNER JOIN Usuarios ON Usuarios.UsuarioId = UsuariosDistribuidores.UsuarioId 
+                    INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
+                    WHERE DistribuidorFechaBaja IS NULL 
+                    AND Usuarios.UsuarioFechaBajaParticipante IS NULL 
+                    AND UsuarioDetalleFechaBaja IS NULL ".$where;
+        $query	= $this->db->query($SQL);
+//        echo  $this->db->last_query()."<br>"; 
+        return $query->result();
+    }
+    public function reportes_usuarios_maestros_pintores_model_por_ciudad($where){
+        $SQL    = "SELECT 
+                    COUNT( Usuarios.UsuarioId) AS total, 
+                    UsuariosDetalles.UsuarioDetalleCiudad 
+                    FROM Usuarios 
+                    INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
+                    INNER JOIN UsuariosDistribuidores ON Usuarios.UsuarioId = UsuariosDistribuidores.UsuarioId 
+                    INNER JOIN DistribuidoresDetalles ON UsuariosDistribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                    INNER JOIN Distribuidores ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+                    INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId 
+                    WHERE PerfilId = 9
+                    AND UsuarioFechaBajaParticipante IS NULL 
+                    AND UsuarioDetalleFechaBaja IS NULL  ".$where." 
+                    GROUP BY UsuariosDetalles.UsuarioDetalleCiudad";
+        $query	= $this->db->query($SQL);
+//        echo  $this->db->last_query()."<br>"; 
+        return $query->result();
+    }
+
+    public function reportes_maestros_pintores_model_total_maestros_pintor ($iddist) {
+        $SQL ="SELECT        count(Usuarios.PerfilId) as totmaestros 
+        FROM Usuarios 
+        INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
+        INNER JOIN UsuariosDistribuidores ON Usuarios.UsuarioId = UsuariosDistribuidores.UsuarioId  
+        INNER JOIN DistribuidoresDetalles ON UsuariosDistribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+        WHERE PerfilId = 9
+        AND UsuarioFechaBajaParticipante IS NULL 
+        AND UsuarioDetalleFechaBaja IS NULL 
+        AND UsuariosDistribuidores.DistribuidorId =  $iddist";
+        $query	= $this->db->query($SQL);
+        return $query->row();
+    }
 }
 
 								

@@ -16,7 +16,6 @@ class Ventas_registro_controller extends Base_Controller {
         $pag = $this->load->view('modals/modals_ventas/modals_ventas_registro/modals_ventas_registro_qr_view', '', true);
         echo json_encode($pag);   
     }
-
     public function ventas_registro_controller_cmb_distribuidor() {  
         $cmb_dist ="";
         $distribuidor =  $this->ventas_registro_model->ventas_registro_model_cmb_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))); 
@@ -154,14 +153,10 @@ class Ventas_registro_controller extends Base_Controller {
         if($this->input->post('chk_archivo')){ $imagen_ticket = $this->ventas_registro_guardar_venta_archivo(); }
         $VentaCantidadProdcutos = count($this->cart->contents());
         foreach ($this->cart->contents() as $items) { $total = $items['monto'] * $items['qty']; $total_monto_detalle = $total_monto_detalle + $total; $total_cantidad = $total_cantidad + $items['qty']; }     
-      //  $entra_auditoria = $this->ventas_registro_entra_auditoria($maestro_pintor->UsuarioId,$total_monto_detalle);
-      //  $data = trim($this->input->post('txt_qr',TRUE)).",".$ditribuidor->DistribuidorDetalleId.",".$maestro_pintor->UsuarioDetalleId.",".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",'".utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE))))."','".strtoupper(trim($this->input->post('txt_monto_ticket',TRUE)))."','".$total_monto_detalle."',".$VentaCantidadProdcutos.",".$total_cantidad.",'".$imagen_ticket."','".$this->uniqueId."'";              
-       // $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta($data);
-        $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta(trim($this->input->post('txt_qr',TRUE)),utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE)))),strtoupper(trim($this->input->post('txt_monto_ticket',TRUE))),$imagen_ticket,$this->uniqueId,$datos_maestro_pintor,$this->input->post('cmb_distribuidor',TRUE));
+       $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta(trim($this->input->post('txt_qr',TRUE)),utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE)))),strtoupper(trim($this->input->post('txt_monto_ticket',TRUE))),$imagen_ticket,$this->uniqueId,$datos_maestro_pintor,$this->input->post('cmb_distribuidor',TRUE));
         $this->ventas_registro_guardar_venta_detalle($VentaId);
         $this->ventas_registro_controller_entra_auditoria($VentaId,$datos_maestro_pintor->UsuarioId,$this->input->post('txt_monto_ticket',TRUE),$this->input->post('cmb_distribuidor',TRUE));
-      //  $this->ventas_registro_controller_distribuidor_activo($ditribuidor->DistribuidorId,$ditribuidor->DistribuidorDetalleId);
-        return $VentaId;
+       return $VentaId;
     }
     private function ventas_registro_guardar_venta_valida_carpetas() {
         $this->base_controller_valida_crea_carpetas('ventas');
@@ -208,17 +203,6 @@ class Ventas_registro_controller extends Base_Controller {
             }
         }
     }
-
-    private function ventas_registro_entra_auditoria($UsuarioId,$monto) {        
-        $total_ventas_mismo_monto = $this->ventas_registro_model->ventas_registro_model_auditoria_monto($UsuarioId,funciones_strategix_formato_fecha_hora_actual(),$monto);
-        if ($total_ventas_mismo_monto!=0){ $this->ventas_registro_model->ventas_registro_model_auditoria_monto_update($UsuarioId,funciones_strategix_formato_fecha_hora_actual(),$monto); return 1; }
-        if ($this->ventas_registro_entra_auditoria_monto($monto)==1){ return 1; }
-        return 0;
-    }
-    private function ventas_registro_entra_auditoria_monto($monto) {     
-                if($monto>=5000.00 AND $monto<=6000.00){ return 1; }
-                if($monto>=8000.00){ return 1; }     
-    }    
     private function ventas_registro_valida_set_rules() {
         $this->form_validation->set_rules('txt_qr', $this->lang->line('ventas_registro_controller_lang_placeholder_numero_tarjeta'), 'required|numeric');
         $this->form_validation->set_rules('txt_numero_ticket', $this->lang->line('ventas_registro_controller_lang_placeholder_numero_ticket'), 'required|xss_clean');
@@ -286,15 +270,5 @@ class Ventas_registro_controller extends Base_Controller {
         $this->ventas_registro_model->ventas_registro_model_venta_promocion($VentaId);
         echo $VentaId;
     }    
-/*    public function ventas_registro_controller_distribuidor_activo($ditribuidorid,$ditribuidordetalleid) {
-        $distribuidor_activo = $this->ventas_registro_model->ventas_registro_model_distribuidor_activo($ditribuidorid,date('Y'),date('m'));
-        $Ventas_totales = $this->ventas_registro_model->ventas_registro_model_ventas_totales($ditribuidordetalleid,date('Y'),date('m'));
-        if(empty($distribuidor_activo)){
-            if($Ventas_totales>=15){
-                $data_activos = $ditribuidorid.",".date('Y').",".date('m').",15";
-                $this->ventas_registro_model->ventas_registro_model_ventas_insert_distribuidor_activo($data_activos);
-            }    
-        }        
-       return 1;
-    }    */
+
 }

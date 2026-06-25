@@ -341,36 +341,30 @@ class Reportes_ventas_registradas_model extends Base_Model {
         $seguridad = $this->filtros_seguridad('V.DistribuidorId', 'V.VentaUsuarioIdMP');
         $params = array_merge($params, $seguridad['params']);
 
-        $sql = "
-            SELECT
+        $sql = "SELECT
                 V.VentaId AS ID,
-
-                COALESCE(
-                    NULLIF(LTRIM(RTRIM(CONVERT(NVARCHAR(300), V.VentaUsuarioNombreMP))), ''),
                     LTRIM(RTRIM(
                         ISNULL(UDMP.UsuarioDetalleNombre,'') + ' ' +
                         ISNULL(UDMP.UsuarioDetalleSegundoNombre,'') + ' ' +
-                        ISNULL(UDMP.UsuarioDetalleApellidoPaterno,'') + ' ' +
-                        ISNULL(UDMP.UsuarioDetalleApellidoMaterno,'')
+                        ISNULL(UDMP.UsuarioDetalleApellidos,'')
                     ))
-                ) AS NOMBRE_PINTOR,
+                 AS NOMBRE_PINTOR,
 
                 ISNULL(EV.EVENTO, '') AS EVENTO,
 
                 V.DistribuidorId AS ID_DISTRIBUIDORA,
-                CONVERT(VARCHAR(20), V.DistribuidorDetalleCodigo) AS CODIGO,
-                V.DistribuidorDetalleRazonSocial AS RAZON_SOCIAL,
-                V.DistribuidorDetalleNombreComercial AS NOMBRE_COMERCIAL,
-                ISNULL(TD.TipoDistribuidoraNombre, 'AXALTA') AS TIPO_DISTRIBUIDORA,
+                CONVERT(VARCHAR(20), DD.DistribuidorDetalleCodigo) AS CODIGO,
+                DD.DistribuidorDetalleRazonSocial AS RAZON_SOCIAL,
+                DD.DistribuidorDetalleNombreComercial AS NOMBRE_COMERCIAL,
 
                 ISNULL(REG.DistribuidorDetalleRegionNombre,'') AS REGION,
-                ISNULL(CAT.DistribuidorDetalleCategoriaNombre,'') AS CATEGORIA,
+               
 
                 ISNULL(EJ.NOMBRE_EJECUTIVO,'') AS EJECUTIVO,
 
                 (
                     ISNULL(DD.DistribuidorDetalleCiudad,'') + ' / ' +
-                    ISNULL(DD.DistribuidorDetalleEstado,'')
+                    ISNULL(DD.DistribuidorDetalleUnidadFederativa,'')
                 ) AS CIUDAD_ESTADO,
 
                 V.VentaNumeroTicket AS NUM_TICKET,
@@ -400,19 +394,15 @@ class Reportes_ventas_registradas_model extends Base_Model {
                AND UDMP.UsuarioDetalleFechaBaja IS NULL
 
             LEFT JOIN DistribuidoresDetalles DD
-                ON DD.DistribuidorDetalleId = V.DistribuidorDetalleId
+                ON DD.DistribuidorId = V.DistribuidorId
                AND DD.DistribuidorDetalleFechaBaja IS NULL
 
-            LEFT JOIN TiposDistribuidoras TD
-                ON TD.TipoDistribuidoraId = ISNULL(DD.TipoDistribuidoraId, 1)
                
 
             LEFT JOIN DistribuidoresDetallesRegiones REG
                 ON REG.DistribuidorDetalleRegionId = DD.DistribuidorDetalleRegionId
 
-            LEFT JOIN DistribuidoresDetallesCategorias CAT
-                ON CAT.DistribuidorDetalleCategoriaId = DD.DistribuidorDetalleCategoriaId
-
+           
             LEFT JOIN (
                 SELECT VA1.*
                 FROM VentasAuditorias VA1
@@ -442,8 +432,7 @@ class Reportes_ventas_registradas_model extends Base_Model {
                     MAX(LTRIM(RTRIM(
                         ISNULL(UD2.UsuarioDetalleNombre,'') + ' ' +
                         ISNULL(UD2.UsuarioDetalleSegundoNombre,'') + ' ' +
-                        ISNULL(UD2.UsuarioDetalleApellidoPaterno,'') + ' ' +
-                        ISNULL(UD2.UsuarioDetalleApellidoMaterno,'')
+                        ISNULL(UD2.UsuarioDetalleApellidos,'')
                     ))) AS NOMBRE_EJECUTIVO
                 FROM UsuariosDistribuidores UDIST
                 INNER JOIN Usuarios U2

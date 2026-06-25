@@ -15,6 +15,12 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
 //         echo  $this->db->last_query()."<br>"; 
         return $query->result();    
     }
+     public function usuarios_maestro_pintor_registro_model_tipos_tarjeta() {
+        $SQL = "SELECT TarjetasTipoId, TarjetasTipoDescripcion FROM TarjetasTipos WHERE TarjetasTipoFechaBaja IS NULL;";
+        $query	= $this->db->query($SQL);
+//         echo  $this->db->last_query()."<br>"; 
+        return $query->result();    
+    }
     public function usuarios_maestro_pintor_registro_model_valida_email($email=""){
         $email_clean = $this->security->xss_clean($email); 
         $SQL = "SELECT count(Usuarios.UsuarioId) AS tot FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (UsuariosDetalles.UsuarioDetalleEmail = '$email_clean')";
@@ -82,10 +88,19 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
         $this->db->query($SQL);
         return 1;
     }
-    public function  usuarios_maestro_pintor_registro_model_update_tarjeta($UsuarioId,$IDdistribudor,$idtarjeta) {
+    public function  usuarios_maestro_pintor_registro_model_update_tarjeta_fisica($UsuarioId,$IDdistribudor,$idtarjeta) {
         $IDdistribudor_clean = utf8_decode($this->security->xss_clean($IDdistribudor));
         $idtarjeta_clean             = $this->security->xss_clean($idtarjeta);
         $SQLUPDATE              = "UPDATE Tarjetas SET Tarjetas.TarjetaEstatusId = 2,Tarjetas.UsuarioId = $UsuarioId,Tarjetas.TarjetaFechaAsigno = DATEADD(hour, 3, GETDATE()),Tarjetas.TarjetaUsuarioIdAsigno = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE Tarjetas.TarjetaNumero = $idtarjeta_clean AND Tarjetas.DistribuidorId = $IDdistribudor_clean ";
+//        echo $SQLUPDATE;
+        $this->db->query($SQLUPDATE);
+        return 1;
+    }
+
+     public function  usuarios_maestro_pintor_registro_model_update_tarjeta_digital($UsuarioId,$IDdistribudor,$idtarjeta) {
+        $IDdistribudor_clean = utf8_decode($this->security->xss_clean($IDdistribudor));
+        $idtarjeta_clean             = $this->security->xss_clean($idtarjeta);
+        $SQLUPDATE              = "UPDATE Tarjetas SET Tarjetas.DistribuidorId = $IDdistribudor_clean ,Tarjetas.TarjetaEstatusId = 2,Tarjetas.UsuarioId = $UsuarioId,Tarjetas.TarjetaFechaAsigno = DATEADD(hour, 3, GETDATE()),Tarjetas.TarjetaUsuarioIdAsigno = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE Tarjetas.TarjetaNumero = $idtarjeta_clean AND Tarjetas.TarjetasTipoId = 2 AND Tarjetas.TarjetaEstatusId = 1 ";
 //        echo $SQLUPDATE;
         $this->db->query($SQLUPDATE);
         return 1;
@@ -97,5 +112,17 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
         $res    = $query->result();
         $id     = $res[0]->last_id;
         return $id;
+    }
+
+     public function usuarios_maestro_pintor_registro_model_obtener_siguiente_tarjeta_numero() {
+        // Convertimos TarjetaNumero a INT en la consulta
+        $query = $this->db->query("SELECT MIN(CAST(TarjetaNumero AS INT)) AS last_card_number FROM Tarjetas WHERE TarjetasTipoId =2 AND TarjetaEstatusId=1");
+        $result = $query->row();
+
+        // Si no hay registros, asumimos 0
+        $last_card_number = isset($result->last_card_number) ? (int)$result->last_card_number : 0;
+       // $next_card_number = $last_card_number + 1;
+
+        return $last_card_number;
     }
 }

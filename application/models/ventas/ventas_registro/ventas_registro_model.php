@@ -112,34 +112,20 @@ class Ventas_registro_model extends Base_Model {
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->TOTAL;
     }    
-   /* public function ventas_registro_model_distribuidor_activo($distriubidor,$año,$mes){
-        $SQL = "SELECT count(DistribuidorId) AS ACTIVOS FROM DistribuidoresActivos WHERE DistribuidorActivoAnio = $año AND DistribuidorActivoMes = $mes AND DistribuidorId = $distriubidor";
-        $query	= $this->db->query($SQL);
-        //echo  $this->db->last_query()."<br>"; 
-        return $query->row()->ACTIVOS;           
-    }*/
+
      public function ventas_registro_model_ventas_totales($distriubidor,$año,$mes){
         $SQL = "SELECT count(VentaId) AS total FROM Ventas WHERE DistribuidorId = $distriubidor AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro) = $año AND MONTH(VentaFechaRegistro) = $mes ";
         $query	= $this->db->query($SQL);
         //echo  $this->db->last_query()."<br>"; 
         return $query->row()->total;           
     }
-    /* public function ventas_registro_model_ventas_insert_distribuidor_activo($data) {
-        $SQL    = "INSERT INTO DistribuidoresActivos (DistribuidorId,DistribuidorActivoAnio,DistribuidorActivoMes,DistribuidorActivoNoVentas) VALUES ($data)";
-        $query	= $this->db->query($SQL);
-        //echo  $this->db->last_query()."<br>"; 
-    } */
+
     public function ventas_registro_model_count_ticket($ticket, $id_dist){
-        $query	= $this->db->query("SELECT COUNT(VentaNumeroTicket) AS counter FROM ventas WHERE VentaNumeroTicket = '$ticket' AND ventaFechaBaja is null  AND DistribuidorId= $id_dist");
+        $query	= $this->db->query("SELECT COUNT(VentaNumeroTicket) AS counter FROM Ventas WHERE VentaNumeroTicket = '$ticket' AND VentaFechaBaja is null  AND DistribuidorId= $id_dist");
       //  echo  $this->db->last_query()."<br>"; 
         return $query->row();
     }
-    public function ventas_registro_model_pais_moneda($PaisId){
-        $SQL    = "SELECT PaisMonedaCodigo ,PaisMonedaNombre ,PaisMonedaSimbolo  FROM Paises  WHERE PaisId = $PaisId";
-        $query	= $this->db->query($SQL);
-//        echo  $this->db->last_query()."<br>"; 
-        return $query->row();
-    }
+    
 
     public function ventas_registro_model_auditorias_calculos(){
         $veinte_porciento                       = .2;

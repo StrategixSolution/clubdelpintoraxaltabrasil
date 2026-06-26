@@ -267,7 +267,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </div>
 
                                 <div class="row row-validator">
-                                     <div class="col-lg-10">    
+                                     <div class="col-lg-12">    
                                 <div class="form-group">
                                     <label
                                         for="cmb_tipo_tarjeta"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta') ?></label>
@@ -384,7 +384,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div class="col-12 col-lg-2">
                                 <button type="submit" id="usuarios_registro_maestro_pintor_view_boton_buscar" class="btn btn-axalta btn-buscar-ancho"><i
                                         class="far fa-save"></i>
-                                    <?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_btn_guardar') ?></button>
+                                    <span class="btn-buscar-texto"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_btn_guardar') ?></span></button>
                             </div>
                         </div>
                     </div>

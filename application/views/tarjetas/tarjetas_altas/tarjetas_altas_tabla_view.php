@@ -74,7 +74,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
             dom: '<"row"<"col-xs-4 col-md-4"l><"col-xs-4 col-md-4 botones txt-right"B><"col-md-4"f>>rt<"row"<"col-md-6"i><"col-md-6"p>>',
             buttons: [{
                 extend: 'excelHtml5',
-                text: '<?= $this->lang->line('data_table_js_lang_btn_descarga') ?> <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
+                customizeData: function(data) {
+                    for (var i = 0; i < data.body.length; i++) {
+                        for (var j = 0; j < data.body[i].length; j++) {
+                            if (data.body[i][j] === null || data.body[i][j] === "") {
+                                data.body[i][j] = " "; // fuerza celda vacía
+                            }
+                        }
+                    }
+                },
+                text: '<?= $this->lang->line('data_table_js_lang_btn_descarga') ?> <span class="iconify" data-icon="file-icons:microsoft-excel" style="font-size:20px; padding-left:5px;"></span>',
                 className: 'btn btn-axalta',
                 title: '',
                 filename: '<?= $this->lang->line('tarjetas_altas_controller_lang_pagina_titulo') ?>',

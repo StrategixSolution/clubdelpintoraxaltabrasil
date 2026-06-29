@@ -14,8 +14,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
     <div class="container">
         <div class="panel-white">
-            <div class="row">
-                <div class="col-lg-6" id="div_distribuidor">
+            <div class="row justify-content-end">
+                <div class="col-lg-4" id="div_distribuidor">
                     <div class="form-group">
                         <label
                             for="cmb_distribuidor"><?= $this->lang->line('reportes_distribuidores_controller_lang_etiqueta_distribuidor') ?></label>
@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div id="error"></div>
                     </div>
                 </div>
-                <div class="col-lg-3"  id="div_estatus">
+                <div class="col-lg-2"  id="div_estatus">
                     <div class="form-group">
                         <label
                             for="cmb_estatus"><?= $this->lang->line('reportes_distribuidores_controller_lang_etiqueta_estatus') ?></label>
@@ -54,7 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <select name="cmb_mes" id="cmb_mes" class="form-select"></select>
                     </div>
                 </div>
-                <div class="col-lg-3"  id="div_actividad">
+                <div class="col-lg-2"  id="div_actividad">
                     <div class="form-group">
                         <label
                             for="cmb_actividad"><?= $this->lang->line('reportes_distribuidores_controller_lang_etiqueta_actividad') ?></label>
@@ -73,8 +73,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
                 <div class="col-lg-2" style="text-align: right;" id="div_buscar">
                     <div class="form-group">
-                        <button type="button" id="Reporte_distribuidores_btn_buscar" class="btn btn-axalta"
-                            style="margin-top:20px;"><i class="fas fa-search"></i></button>
+                        <button type="button" id="Reporte_distribuidores_btn_buscar" class="btn btn-axalta btn-buscar-ancho"
+                            style="margin-top:20px;"><i class="fas fa-search"></i><span class="btn-buscar-texto">PESQUISAR</span></button>
                     </div>
                 </div>
             </div>

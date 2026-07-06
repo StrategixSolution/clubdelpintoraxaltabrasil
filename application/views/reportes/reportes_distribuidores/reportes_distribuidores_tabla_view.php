@@ -24,17 +24,17 @@
                     <?php if (!empty($distribuidores)): ?>
                         <?php foreach ($distribuidores as $distribuidor): ?>
                             <?php
-                                // Determinar segmento
-                                $segmento = ($distribuidor->DistribuidorMatriz === NULL) ? 'Filial' : 'MATRIZ';
-                                $razon_social = (string)($distribuidor->DistribuidorDetalleRazonSocial ?? '');
-                                $nombre_comercial = (string)($distribuidor->DistribuidorDetalleNombreComercial ?? '');
-                                $ciudad = (string)($distribuidor->DistribuidorDetalleCiudad ?? '');
-                                $estado = (string)($distribuidor->DistribuidorDetalleEstado ?? '');
-                                
-                                // Formatear ejecutivos (convertir delimitador | a <br> y reemplazar guiones bajos por espacios)
-                                $ejecutivos = $distribuidor->ejecutivos ?? '';
-                                $ejecutivos = str_replace('_', ' ', $ejecutivos);
-                                $ejecutivos = str_replace(' | ', '<br>', $ejecutivos);
+                            // Determinar segmento
+                            $segmento = ($distribuidor->DistribuidorMatriz === NULL) ? 'Filial' : 'MATRIZ';
+                            $razon_social = (string)($distribuidor->DistribuidorDetalleRazonSocial ?? '');
+                            $nombre_comercial = (string)($distribuidor->DistribuidorDetalleNombreComercial ?? '');
+                            $ciudad = (string)($distribuidor->DistribuidorDetalleCiudad ?? '');
+                            $estado = (string)($distribuidor->DistribuidorDetalleEstado ?? '');
+
+                            // Formatear ejecutivos (convertir delimitador | a <br> y reemplazar guiones bajos por espacios)
+                            $ejecutivos = $distribuidor->ejecutivos ?? '';
+                            $ejecutivos = str_replace('_', ' ', $ejecutivos);
+                            $ejecutivos = str_replace(' | ', '<br>', $ejecutivos);
                             ?>
                             <tr class="text-left">
                                 <td><?= $distribuidor->DistribuidorId ?></td>
@@ -94,6 +94,20 @@
             dom: '<"row"<"col-xs-4 col-md-4"l><"col-xs-4 col-md-4 botones"B><"col-md-4"f>>rt<"row"<"col-md-6"i><"col-md-6"p>>',
             buttons: [{
                 extend: 'excelHtml5',
+                customizeData: function(data) {
+                    // Cambiar encabezado ID por ID VENTA en el Excel
+                    if (data.header && data.header.length > 0) {
+                        data.header[0] = 'ID VENTA';
+                    }
+
+                    for (var i = 0; i < data.body.length; i++) {
+                        for (var j = 0; j < data.body[i].length; j++) {
+                            if (data.body[i][j] === null || data.body[i][j] === "") {
+                                data.body[i][j] = " ";
+                            }
+                        }
+                    }
+                },
                 text: '<?= $this->lang->line('data_table_js_lang_btn_descarga') ?> <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
                 className: 'btn btn-axalta',
                 title: '',
@@ -116,7 +130,7 @@
                         }
                     },
                     {
-                        cells: "A:Q:",
+                        cells: "A:O:",
                         style: {
                             border: {
                                 top: "thin", // Thin black border at top of cell/s
@@ -125,7 +139,15 @@
                                 right: "thin"
                             }
                         }
-                    }
+                    },
+                    // {
+                    //     cells: "O",
+                    //     style: {
+                    //         alignment: {
+                    //             wrapText: true
+                    //         }
+                    //     }
+                    // }
                 ]
             }]
         });

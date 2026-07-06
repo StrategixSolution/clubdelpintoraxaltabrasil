@@ -14,43 +14,43 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="container">
         <div class="panel-white">
             <div class="row">
-                <div class="col-lg-4" id="div_distribuidor">
-                   <div class="form-group">
+                <div class="col-lg-5" id="div_distribuidor">
+                    <div class="form-group">
                         <label
                             for="cmb_distribuidor"><?= $this->lang->line('reportes_maestro_pintores_controller_lang_etiqueta_distribuidor') ?></label>
                         <select id="cmb_distribuidor" name="cmb_distribuidor" class="form-select"></select>
                         <div id="error"></div>
                     </div>
                 </div>
-                <div class="col-lg-4" id="div_nombre">
+                <div class="col-lg-5" id="div_nombre">
                     <div class="form-group">
                                 <label><?=$this->lang->line('reportes_maestro_pintores_controller_lang_etiqueta_nombre')?></label>
                                 <input type="text" name="txt_nombre_mp" id="txt_nombre_mp" class="form-control trans" placeholder="<?=$this->lang->line('reportes_maestro_pintores_controller_lang_placeholder_nombre')?>" />
                                 <div id="error"></div>
                     </div>
                 </div>
-                <div class="col-lg-2" style="text-align: right;" id="div_buscar">
+                <div class="col-lg-2 col-12" style="text-align: right;" id="div_buscar">
                     <div class="form-group">
-                        <button type="button" id="Reporte_maestroPintores_btn_buscar" class="btn btn-axalta"
-                            style="margin-top:20px;"><i class="fas fa-search"></i></button>
+                        <button type="button" id="Reporte_maestroPintores_btn_buscar" class="btn btn-axalta btn-buscar-ancho"
+                            style="margin-top:20px;"><i class="fas fa-search"></i><span class="btn-buscar-texto">PESQUISAR</span></button>
                     </div>
                 </div>
             </div>
             <div id="div_excel" style="display: none;">
-                    <hr class="separador">
-                    <div class="row mb-5 vertical-center" style="justify-content: flex-end; margin-top: 20px;">
-                        <div class="col-lg-2 col-6">
-                            <div class="btn-modulo">
-                                <button type="button" class="btn btn-axalta" id="reporte_maestros_pintores_boton_excel">
-                                    <i class="fas fa-download pr-5"></i>DESCARGA
-                                </button>
-                            </div>
+                <hr class="separador">
+                <div class="row mb-5 vertical-center" style="justify-content: flex-end; margin-top: 20px;">
+                    <div class="col-lg-2 col-12">
+                        <div class="btn-modulo">
+                            <button type="button" class="btn btn-axalta btn-buscar-ancho" id="reporte_maestros_pintores_boton_excel">
+                                <i class="fas fa-download"></i><span class="btn-buscar-texto">BAIXAR</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="tablaReportemaestroPintores"></div>            
-        </div>
+            
+            <div id="tablaReportemaestroPintores"></div>    
+        </div>        
     </div>
 </section>
 

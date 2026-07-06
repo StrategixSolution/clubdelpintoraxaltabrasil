@@ -152,7 +152,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $sheet->getStyle("A1:O1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
         $sheet->getStyle('A1:O1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $where = "";
-         $where .= ($cmb_distribuidor != 0) ? "AND DistribuidoresDetalles.DistribuidorId =" . $cmb_distribuidor . " " : "";
+        $where .= ($cmb_distribuidor != 0) ? "AND DistribuidoresDetalles.DistribuidorId =" . $cmb_distribuidor . " " : "";
         $where .= ($txt_nombre_mp != "" ) ? "AND CONCAT(UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos) LIKE '%" . $txt_nombre_mp . "%' " : "";
         $maestros = $this->reportes_maestro_pintores_model->reportes_maestro_pintores_model_crea_tabla($where);
         $fila = 2;
@@ -181,6 +181,16 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
         $sheet->getStyle("A1:O1" . $limit)->getFont()->setName('Arial')->setSize(8);
+
+        $rango = "A1:O" . $limit;
+        $sheet->getStyle($rango)->applyFromArray([
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['rgb' => '000000'] // negro
+                ]
+            ]
+        ]);
     }
     public function reportes_usuarios_maestros_pintores_controller_registro_por_mes($spreadsheet,  $cmb_distribuidor, $txt_nombre_mp)    {
         $sheet = $spreadsheet->createSheet(1);
@@ -207,6 +217,16 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
         $sheet->getStyle("A1:C1" . $limit)->getFont()->setName('Arial')->setSize(8);
+
+        $rango = "A1:C" . $limit;
+        $sheet->getStyle($rango)->applyFromArray([
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['rgb' => '000000'] // negro
+                ]
+            ]
+        ]);
     }
     public function reportes_usuarios_maestros_pintores_controller_bajas_maestros_pintores($spreadsheet,  $cmb_distribuidor, $txt_nombre_mp)    {
         $sheet = $spreadsheet->createSheet(2);
@@ -240,6 +260,17 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
         $sheet->getStyle("A1:F1" . $limit)->getFont()->setName('Arial')->setSize(8);
+        
+        $rango = "A1:F" . $limit;
+        $sheet->getStyle($rango)->applyFromArray([
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['rgb' => '000000'] // negro
+                ]
+            ]
+        ]);
+
     }
     public function reportes_usuarios_maestros_pintores_controller_por_distribuidora($spreadsheet,  $cmb_distribuidor, $txt_nombre_mp)    {
         $sheet = $spreadsheet->createSheet(3);
@@ -276,6 +307,16 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
         $sheet->getStyle("A1:G1" . $limit)->getFont()->setName('Arial')->setSize(8);
+        
+        $rango = "A1:G" . $limit;
+        $sheet->getStyle($rango)->applyFromArray([
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['rgb' => '000000'] // negro
+                ]
+            ]
+        ]);
     }
     public function reportes_usuarios_maestros_pintores_controller_por_estado($spreadsheet,  $cmb_distribuidor, $txt_nombre_mp)    {
         $sheet = $spreadsheet->createSheet(4);
@@ -299,6 +340,19 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
         $sheet->getStyle("A1:B1" . $limit)->getFont()->setName('Arial')->setSize(8);
+        // foreach (['A', 'B'] as $col) {
+        //     $sheet->getColumnDimension($col)->setAutoSize(false);
+        //     $sheet->getColumnDimension($col)->setWidth(10);
+        // }
+        $rango = "A1:B" . $limit;
+        $sheet->getStyle($rango)->applyFromArray([
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['rgb' => '000000'] // negro
+                ]
+            ]
+        ]);
     }
 }
 

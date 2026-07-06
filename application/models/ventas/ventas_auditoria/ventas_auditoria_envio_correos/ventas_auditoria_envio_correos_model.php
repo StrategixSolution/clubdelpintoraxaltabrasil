@@ -54,7 +54,7 @@ class ventas_auditoria_envio_correos_model extends Base_Model {
             VentasAuditorias.VentaAuditoriaFechaEnvioCorreoCierre 
             FROM Ventas 
             INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
-            LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+            LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
             LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
             LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
             INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
@@ -97,7 +97,7 @@ VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion,
 VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion 
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
-LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
 LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
 LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
@@ -155,7 +155,7 @@ UsuariosAuditor.UsuarioDetalleSegundoNombre,
 UsuariosAuditor.UsuarioDetalleApellidos
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
-LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
 LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
 LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
@@ -246,7 +246,7 @@ UsuariosAuditor.UsuarioDetalleSegundoNombre,
 UsuariosAuditor.UsuarioDetalleApellidos
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
-LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
 LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
 LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 

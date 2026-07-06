@@ -82,3 +82,4 @@ $lang['menu_submenu_reposicion_productos_descarga']                             
 
 $lang['menu_tutoriales']                             = 'TUTORIAIS';
 $lang['menu_noticias']                             = 'NOTÍCIAS';
+$lang['menu_submenu_admin_distribuidores']                                      = 'DISTRIBUIDORES';

@@ -32,9 +32,9 @@ $lang['ventas_registro_controller_lang_placeholder_sector']                     
 $lang['ventas_registro_controller_lang_input_clase']                                 = 'CLASSE:';
 $lang['ventas_registro_controller_lang_tooltip_clase']                               = '*SELECIONE UMA CLASSE';
 $lang['ventas_registro_controller_lang_placeholder_clase']                           = 'CLASSE';
-$lang['ventas_registro_controller_lang_input_marca']                                 = 'MARCA:';
-$lang['ventas_registro_controller_lang_tooltip_marca']                               = '*SELECIONE UMA MARCA';
-$lang['ventas_registro_controller_lang_placeholder_marca']                           = 'MARCA';
+$lang['ventas_registro_controller_lang_input_marca']                                 = 'MATERIAL:';
+$lang['ventas_registro_controller_lang_tooltip_marca']                               = '*SELECIONE UM MATERIAL';
+$lang['ventas_registro_controller_lang_placeholder_marca']                           = 'MATERIAL';
 $lang['ventas_registro_controller_lang_input_monto']                                 = '*PREÇO UNITÁRIO:';
 $lang['ventas_registro_controller_lang_tooltip_monto']                               = '*SOMENTE NÚMEROS COM DECIMAIS *CAMPO OBRIGATÓRIO';
 $lang['ventas_registro_controller_lang_placeholder_monto']                           = 'PREÇO UNITÁRIO';
@@ -44,9 +44,10 @@ $lang['ventas_registro_controller_lang_placeholder_cantidad']                   
 $lang['ventas_registro_controller_lang_input_litros']                                = 'GALÕES:';
 $lang['ventas_registro_controller_lang_tooltip_litros']                              = '*SELECIONE UMA OPÇÃO *CAMPO OBRIGATÓRIO';
 $lang['ventas_registro_controller_lang_placeholder_litros']                          = 'GALÕES';
+$lang['ventas_registro_controller_lang_combo_selecciona_linea']                      = 'SELECIONE UMA LINHA';
 $lang['ventas_registro_controller_lang_combo_selecciona_sector']                     = 'SELECIONE UM SETOR';
 $lang['ventas_registro_controller_lang_combo_selecciona_clase']                      = 'SELECIONE UMA CLASSE';
-$lang['ventas_registro_controller_lang_combo_selecciona_marca']                      = 'SELECIONE UMA MARCA';
+$lang['ventas_registro_controller_lang_combo_selecciona_marca']                      = 'SELECIONE UM MATERIAL';
 $lang['ventas_registro_controller_lang_combo_selecciona_litros']                     = 'SELECIONE UMA OPÇÃO';
 $lang['ventas_registro_controller_lang_boton_agregar']                               = 'ADICIONAR';
 $lang['ventas_registro_controller_lang_boton_limpiar_carrito']                       = 'LIMPAR';
@@ -74,3 +75,9 @@ $lang['ventas_registro_controller_lang_btn_no']                                 
 $lang['ventas_registro_controller_lang_etiqueta_aviso']                                      = 'Lembre-se de que você deve registrar as vendas no mês em que são geradas, caso contrário, serão rejeitadas na auditoria.<br>Certifique-se de sempre inserir o preço unitário, este valor é o que soma para seus Maestros Pintores.<br>';
 $lang['ventas_registro_controller_lang_etiqueta_aviso_2']                                      = 'Adicione todos os produtos do seu bilhete clicando no botão +ADICIONAR e, ao terminar, clique no botão SALVAR.';
 $lang['ventas_registro_controller_lang_input_distribuidor']                          = 'DISTRIBUIDOR:';
+
+$lang['ventas_registro_controller_lang_input_linea']                                 = 'LINHA:';
+$lang['ventas_registro_controller_lang_tooltip_linea']                               = '*SELECIONE UMA LINHA';
+$lang['ventas_registro_controller_lang_placeholder_linea']                           = 'LINHA';
+$lang['ventas_registro_controller_lang_combo_selecciona_linea']                      = 'SELECIONE UMA LINHA';
+

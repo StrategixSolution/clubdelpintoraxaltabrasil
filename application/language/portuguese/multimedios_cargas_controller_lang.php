@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['multimedios_cargas_controller_lang_titulo']                                       = 'CARREGAMENTO MULTIMÍDIA';
 $lang['multimedios_cargas_controller_lang_etiqueta_modulos']                             = 'MÓDULO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_tipos']                               = 'TIPO:';
-$lang['multimedios_cargas_controller_lang_etiqueta_tipo_video']                          = 'TIPO DE VÍDEO:';
+$lang['multimedios_cargas_controller_lang_etiqueta_tipo_video']                          = 'INTERNO / EXTERNO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_archvivo_multimedia_principal']       = 'ARQUIVO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_archvivo_multimedia_secundario']      = 'THUMBNAIL:';
 $lang['multimedios_cargas_controller_lang_etiqueta_texto']                               = 'TEXTO:';

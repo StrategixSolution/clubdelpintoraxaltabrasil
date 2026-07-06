@@ -46,7 +46,9 @@ $route['TutorialesInternos']                    = 'tutoriales/tutoriales_interno
 $route['TutorialesAxaltaCDP']                   = 'tutoriales/tutoriales_externos/tutoriales_externos_controller';
 $route['ReporteVentasRegistradas']             = 'reportes/reportes_ventas/reportes_ventas_registradas_controller';
 $route['NoticiasCirculares']                    = 'noticias_circulares/noticias_circulares_controller';
-
+$route['Distribuidores']                        = 'distribuidores/distribuidores_controller';
+$route['DistribuidoresAlta']                    = 'distribuidores/distribuidores_alta/distribuidores_alta_controller';
+$route['DistribuidoresModificacion']            = 'distribuidores/distribuidores_modificacion/distribuidores_modificacion_controller';
 
 
 /*

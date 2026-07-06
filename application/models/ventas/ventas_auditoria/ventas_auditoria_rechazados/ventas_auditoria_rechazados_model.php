@@ -45,7 +45,7 @@ VentasAuditorias.VentaAuditoriaFechaEnvioCorreoCierre,
 VentasAuditorias.VentaAuditoriaFechaActualizado 
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
-LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
 LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
 LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
@@ -87,7 +87,7 @@ VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion,
 VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion 
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
-LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
 LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
 LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
@@ -141,6 +141,7 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
         VentasDetalles.VentaDetalleLitros,
         VentasDetalles.ProductoMarcaId,
         ProductosMarcas.ProductoClaseId,
+        ProductosMarcas.ProductoLineaId,
         VentasDetalles.VentaDetalleFechaRegistro
         FROM VentasDetalles
         INNER JOIN ProductosMarcas ON VentasDetalles.ProductoMarcaId = ProductosMarcas.ProductoMarcaId
@@ -168,7 +169,7 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
         $numero_ticket_clean = $this->security->xss_clean($numero_ticket);
         $monto_ticket_clean = $this->security->xss_clean($monto_ticket);
         // Comentado: Tabla VentasHistoricosRechazos no existe en la base de datos
-        //$this->db->query("INSERT INTO VentasHistoricosRechazos (VentaId,TarjetaId,TarjetaNumero,VentaUsuarioIdMP,VentaUsuarioNombreMP,DistribuidorId,DistribuidorDetalleId,DistribuidorDetalleCodigo,DistribuidorDetalleRazonSocial,DistribuidorDetalleNombreComercial,UsuarioDetalleId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaFechaRegistro,VentaUsuarioIdRegistro,VentaUsuarioNombreRegistro,VentaFechaBaja,VentaUsuarioIdBaja,VentaSessionId,VentaHistoricoRechazoFechaRegistro,VentaHistoricoRechazoUsuarioIdRegistro,VentaHistoricoRechazoSessionId) SELECT Ventas.VentaId, Ventas.TarjetaId, Tarjetas.TarjetaNumero, Ventas.VentaUsuarioIdMP, RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP, Ventas.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleNombreComercial, UsuariosRegistro.UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, Ventas.VentaUsuarioIdRegistro, RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreRegistro, Ventas.VentaFechaBaja, Ventas.VentaUsuarioIdBaja, Ventas.VentaSessionId, DATEADD(hour, 3, GETDATE()), ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", '$session_id' FROM Ventas INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId WHERE Ventas.VentaId = $VentaId");
+        //$this->db->query("INSERT INTO VentasHistoricosRechazos (VentaId,TarjetaId,TarjetaNumero,VentaUsuarioIdMP,VentaUsuarioNombreMP,DistribuidorId,DistribuidorDetalleId,DistribuidorDetalleCodigo,DistribuidorDetalleRazonSocial,DistribuidorDetalleNombreComercial,UsuarioDetalleId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaFechaRegistro,VentaUsuarioIdRegistro,VentaUsuarioNombreRegistro,VentaFechaBaja,VentaUsuarioIdBaja,VentaSessionId,VentaHistoricoRechazoFechaRegistro,VentaHistoricoRechazoUsuarioIdRegistro,VentaHistoricoRechazoSessionId) SELECT Ventas.VentaId, Ventas.TarjetaId, Tarjetas.TarjetaNumero, Ventas.VentaUsuarioIdMP, RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP, Ventas.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleNombreComercial, UsuariosRegistro.UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, Ventas.VentaUsuarioIdRegistro, RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreRegistro, Ventas.VentaFechaBaja, Ventas.VentaUsuarioIdBaja, Ventas.VentaSessionId, DATEADD(hour, 3, GETDATE()), ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", '$session_id' FROM Ventas INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId WHERE Ventas.VentaId = $VentaId");
              if($cargaarchivo == 1){
         $this->db->query("UPDATE Ventas SET VentaNumeroTicket = '$numero_ticket_clean',VentaMontoTicket = '$monto_ticket_clean',VentaFotoTicket = '$imagen' WHERE VentaId = $VentaId");
             }else{
@@ -180,6 +181,16 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
 
         return 1;
     }
+    public function ventas_auditoria_rechazados_model_nombre_lineas($ProductoLineaId){
+        if (empty($ProductoLineaId)) return '';
+        $SQL    = "SELECT ProductoLineaId,ProductoLiniaNombre FROM ProductosLineas WHERE ProductoLineaId =".$ProductoLineaId;
+        $query	= $this->db->query($SQL);
+        //echo  $this->db->last_query()."<br>"; 
+        $row = $query->row();
+        return $row ? $row->ProductoLiniaNombre : '';
+    }
+
+  
      public function ventas_auditoria_rechazados_model_nombre_clases($ProductoClaseId){
         $SQL    = "SELECT ProductoClaseId,ProductoClaseDescripcion FROM ProductosClases WHERE ProductoClaseId =".$ProductoClaseId;
         $query	= $this->db->query($SQL);
@@ -198,8 +209,15 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->VentaDetalleGalonDescripcion;
     }
-    public function ventas_auditoria_rechazados_model_combo_clases(){
-        $SQL    = "SELECT ProductoClaseId,ProductoClaseDescripcion FROM ProductosClases WHERE ProductoClaseFechaBaja IS NULL";
+
+     public function ventas_auditoria_rechazados_model_combo_lineas(){
+        $SQL    = "SELECT ProductoLineaId,ProductoLiniaNombre FROM ProductosLineas WHERE ProductoLiniaFechaBaja IS NULL";
+        $query	= $this->db->query($SQL);
+     //   echo  $this->db->last_query()."<br>"; 
+        return $query->result();
+    }
+    public function ventas_auditoria_rechazados_model_combo_clases($ProductoLineaId){
+        $SQL    = "SELECT ProductoClaseId,ProductoClaseDescripcion FROM ProductosClases WHERE ProductoLineaId=".$ProductoLineaId." AND ProductoClaseFechaBaja IS NULL";
         $query	= $this->db->query($SQL);
      //   echo  $this->db->last_query()."<br>"; 
         return $query->result();

@@ -189,7 +189,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
         $datos      = array('distribuidora' => $distribuidor, 'nombre' => $email, 'tabla' => $lista, 'mestxt' => $mes);
         $mail       = $this->load->view('mails/mails_ventas/mails_ventas_auditoria/mails_ventas_auditoria_envio_correos/mails_ventas_auditoria_envio_correos_view' ,$datos, TRUE);
         $to         = array('to' => $email,'cc'=>'','bcc'=>$this->config->item('bcc'));
-        $this->base_controller_envio_correos($to,'AUDITORÍA CLUB DEL PINTOR AXALTA', $mail, '');
+        $this->base_controller_envio_correos($to,'AUDITORIA DO CLUBE DE PINTORES AXALTA', $mail, '');
         return 1;
     }
 
@@ -221,7 +221,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
             $dat     = array('distribuidora' => "$nom_dist", 'tabla' => $lista, 'mestxt' => $mestxt,'nombre' => $mail_string);
             $mail       = $this->load->view('mails/mails_ventas/mails_ventas_auditoria/mails_ventas_auditoria_envio_correos/mails_ventas_auditoria_envio_correos_view' ,$dat, TRUE);
         $to         = array('to' => $mail_string,'cc'=>'ejecutivodecuenta@clubdelpintoraxalta.com.mx','bcc'=>$this->config->item('bcc'));
-          $this->base_controller_envio_correos($to,'AUDITORÍA CLUB DEL PINTOR AXALTA', $mail, '');
+          $this->base_controller_envio_correos($to,'AUDITORIA DO CLUBE DE PINTORES AXALTA', $mail, '');
         return 1;
     }
 }

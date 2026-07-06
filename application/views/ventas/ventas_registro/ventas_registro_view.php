@@ -111,13 +111,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <!-- DETALLE -->
                     <div class="mb-3" id="div_detalle">
                         <div class="row row-validator" id="div_sector">
-                            <div class="col-lg-6" id="div_clase">
+                            <div class="col-lg-4" id="div_linea">
                                 <div class="form-group">
-                                    <label for="cmd_clase"><?= $this->lang->line('ventas_registro_controller_lang_input_clase') ?><span data-toggle='tooltip' title='<?= $this->lang->line('ventas_registro_controller_lang_tooltip_clase') ?>'><i class="fas fa-question-circle"></i></span></label>
-                                    <select id="cmd_clase" name="cmd_clase" class="form-select"></select>
+                                    <label for="cmb_linea"><?= $this->lang->line('ventas_registro_controller_lang_input_linea') ?><span data-toggle='tooltip' title='<?= $this->lang->line('ventas_registro_controller_lang_tooltip_linea') ?>'><i class="fas fa-question-circle"></i></span></label>
+                                    <select id="cmb_linea" name="cmb_linea" class="form-select"></select>
                                 </div>
                             </div>
-                            <div class="col-lg-6" style="display: none;" id="div_marca">
+                            <div class="col-lg-4" style="display: none;" id="div_clase">
+                                <div class="form-group">
+                                    <label for="cmb_clase"><?= $this->lang->line('ventas_registro_controller_lang_input_clase') ?><span data-toggle='tooltip' title='<?= $this->lang->line('ventas_registro_controller_lang_tooltip_clase') ?>'><i class="fas fa-question-circle"></i></span></label>
+                                    <select id="cmb_clase" name="cmb_clase" class="form-select"></select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="display: none;" id="div_marca">
                                 <div class="form-group">
                                     <label for="cmb_marca"><?= $this->lang->line('ventas_registro_controller_lang_input_marca') ?><span data-toggle='tooltip' title='<?= $this->lang->line('ventas_registro_controller_lang_tooltip_marca') ?>'><i class="fas fa-question-circle"></i></span></label>
                                     <select id="cmb_marca" name="cmb_marca" class="form-select"></select>
@@ -161,6 +167,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-axalta" id="TablaParticipantes">
                                     <thead>
+                                        <th><?= $this->lang->line('ventas_registro_controller_lang_placeholder_linea') ?></th>
                                         <th><?= $this->lang->line('ventas_registro_controller_lang_placeholder_clase') ?></th>
                                         <th><?= $this->lang->line('ventas_registro_controller_lang_placeholder_marca') ?></th>
                                         <th><?= $this->lang->line('ventas_registro_controller_lang_placeholder_monto') ?></th>
@@ -192,7 +199,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </form>
 <script>
     $(document).ready(function() {
-        ventas_registro_view_js_combo_clase();
+       // ventas_registro_view_js_combo_clase();
+       ventas_registro_view_js_combo_linea();
         ventas_registro_view_js_combo_litros();
         ventas_registro_view_js_combo_distribuidor();
         /********************************************ON CLICK******************************************************************************************/
@@ -215,13 +223,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
         $('#txt_qr').on('change', function() {
             ventas_registro_view_js_valida_qr();
         });
-        $('#cmb_sector').on('change', function() {
+        $('#cmb_linea').on('change', function() {
             ventas_registro_view_js_combo_clase();
         });
-        $('#cmd_clase').on('change', function() {
+        $('#cmb_clase').on('change', function() {
             ventas_registro_view_js_combo_marca();
         });
         $('#cmb_marca').on('change', function() {
+        var cmb_marca =  $('#cmb_marca').val();
+        if(cmb_marca > 0){
             $('#div_marca_monto').show();
             $('#div_marca_litros').show();
             $('#div_marca_cantidad').show();
@@ -230,6 +240,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $('#txt_marca_monto').val('');
             $('#cmb_marca_litros').val(0);
             $('#txt_marca_cantidad').val('');
+            }else{
+            $('#div_marca_monto').hide();
+            $('#div_marca_litros').hide();
+            $('#div_marca_cantidad').hide();
+            $('#div_btn_agregar').hide();
+            $('#div_btn_limpiar').hide();
+            $('#txt_marca_monto').val('');
+            $('#cmb_marca_litros').val(0);
+            $('#txt_marca_cantidad').val('');}
         });
         $('#chk_camara').prop('checked', true);
         js_general_valida_uploads_archivos('txt_ticket_archivo', ['png', 'jpg', 'jpeg', 'pdf'], '<?= $this->lang->line('ventas_registro_controller_lang_msg_error_tamanio_identificacion') ?>', '<?= $this->lang->line('ventas_registro_controller_lang_msg_error_formato_identificacion') ?>');
@@ -255,8 +274,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 });
                 $('#div_tabla').show();
             } else {
-                $('#cmb_sector').val(0);
-                $('#cmd_clase').val(0);
+                $('#cmb_linea').val(0);
+                $('#cmb_clase').val(0);
                 $('#cmb_marca').val(0);
                 $('#div_sector').hide();
                 $('#div_clase').hide();
@@ -520,20 +539,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
         });
     }
 
-
-    function ventas_registro_view_js_combo_clase() {
-        var cmb_sector = $('#cmb_sector').val();
+    function ventas_registro_view_js_combo_linea() {
         $('#loader_panel').show();
         $.ajax({
             type: 'POST',
-            url: 'ventas/ventas_registro/ventas_registro_controller/ventas_registro_controller_ajax_combo_lista_clase',
+            url: 'ventas/ventas_registro/ventas_registro_controller/ventas_registro_controller_ajax_combo_lista_linea',
             dataType: 'json',
             data: {
-                cmb_sector: cmb_sector
+                1: 1
             },
             success: function(data) {
-                $('#cmd_clase').html(data);
-                $('#div_clase').show();
+                $('#cmb_linea').html(data);
+                $('#div_linea').show();
                 $('#cmb_marca').val(0);
                 $('#div_sector').show();
                 $('#div_marca').hide();
@@ -551,15 +568,50 @@ defined('BASEPATH') or exit('No direct script access allowed');
         });
     }
 
+
+    function ventas_registro_view_js_combo_clase() {
+        var cmb_linea = $('#cmb_linea').val();
+        $('#loader_panel').show();
+        $.ajax({
+            type: 'POST',
+            url: 'ventas/ventas_registro/ventas_registro_controller/ventas_registro_controller_ajax_combo_lista_clase',
+            dataType: 'json',
+            data: {
+                cmb_linea: cmb_linea
+            },
+            success: function(data) {
+                $('#cmb_clase').html(data);
+                $('#div_clase').show();
+                $('#cmb_marca').val(0);
+                $('#div_sector').show();
+                $('#div_marca').hide();
+                $('#txt_marca_monto').val('');
+                $('#div_marca_monto').hide();
+                $('#cmb_marca_litros').val(0);
+                $('#div_marca_litros').hide();
+                $('#div_marca_cantidad').hide();
+                $('#txt_marca_cantidad').val('');
+                 $('#div_btn_agregar').hide();
+                $('#div_btn_limpiar').hide();
+            },
+            error: function(data) {},
+            complete: function() {
+                $('#loader_panel').hide();
+            }
+        });
+    }
+
     function ventas_registro_view_js_combo_marca() {
-        var cmd_clase = $('#cmd_clase').val();
+        var cmb_linea = $('#cmb_linea').val();
+        var cmb_clase = $('#cmb_clase').val();
         $('#loader_panel').show();
         $.ajax({
             type: 'POST',
             url: 'ventas/ventas_registro/ventas_registro_controller/ventas_registro_controller_ajax_combo_lista_marca',
             dataType: 'json',
             data: {
-                cmd_clase: cmd_clase
+                cmb_clase: cmb_clase,
+                cmb_linea: cmb_linea
             },
             success: function(data) {
                 $('#cmb_marca').html(data);
@@ -570,6 +622,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $('#div_marca_litros').hide();
                 $('#div_marca_cantidad').hide();
                 $('#txt_marca_cantidad').val('');
+                $('#div_btn_agregar').hide();
+                $('#div_btn_limpiar').hide();
             },
             error: function(data) {},
             complete: function() {

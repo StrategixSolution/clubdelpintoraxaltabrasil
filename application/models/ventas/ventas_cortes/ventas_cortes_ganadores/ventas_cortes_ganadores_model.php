@@ -60,7 +60,7 @@ class Ventas_cortes_ganadores_model extends Base_Model {
         return $query->row();
     }  
     public function ventas_cortes_ganadores_model_usuario($UsuarioId){
-        $SQL    = "SELECT UsuarioDetalleId, UsuarioId, UsuarioDetalleNombre, UsuarioDetalleSegundoNombre, UsuarioDetalleApellidoPaterno, UsuarioDetalleApellidoMaterno FROM UsuariosDetalles WHERE (UsuarioId = $UsuarioId) AND (UsuarioDetalleFechaBaja IS NULL)";
+        $SQL    = "SELECT UsuarioDetalleId, UsuarioId, UsuarioDetalleNombre, UsuarioDetalleSegundoNombre, UsuarioDetalleApellidos,  FROM UsuariosDetalles WHERE (UsuarioId = $UsuarioId) AND (UsuarioDetalleFechaBaja IS NULL)";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row();

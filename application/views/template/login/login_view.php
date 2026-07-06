@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="form-group mb-0">
                                 <label><?=$this->lang->line('login_controller_lang_input_clave')?><span data-toggle='tooltip' title='<?=$this->lang->line('login_controller_lang_input_label_clave')?>'> <i class="fas fa-question-circle"></i></span></label>
                                 <div class="input-password">
-                                    <input type="password" name="txt_clave" id="txt_clave" class="form-password trans" value="Abc123" placeholder="<?=$this->lang->line('login_controller_lang_input_placeholder_clave')?>"/>
+                                    <input type="password" name="txt_clave" id="txt_clave" class="form-password trans" value="" placeholder="<?=$this->lang->line('login_controller_lang_input_placeholder_clave')?>"/>
                                     <i class="far fa-eye-slash seepwd icon-password" id="eyeclave1"></i>
                                 </div>
                                 <div id="error"></div>

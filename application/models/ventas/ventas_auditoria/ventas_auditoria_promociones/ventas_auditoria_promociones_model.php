@@ -43,7 +43,7 @@ VentasAuditoriasPromosionesObservaciones.VentaAuditoriaPromosionesObservacionDes
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
 INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
-LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId
 INNER JOIN VentasAuditoriasPromociones ON Ventas.VentaId = VentasAuditoriasPromociones.VentaId 
 INNER JOIN VentasAuditoriasPromosionesEstatus ON VentasAuditoriasPromociones.VentaAuditoriaPromocionesEstatusId = VentasAuditoriasPromosionesEstatus.VentaAuditoriaPromosionesEstatusId  
@@ -126,7 +126,7 @@ VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
 INNER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
-LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId 
+LEFT JOIN UsuariosDetalles AS UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
 INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId 
 INNER JOIN VentasAuditoriasEstatusOportunidades ON VentasAuditorias.VentaAuditoriaEstatusOportunidadId = VentasAuditoriasEstatusOportunidades.VentaAuditoriaEstatusOportunidadId 

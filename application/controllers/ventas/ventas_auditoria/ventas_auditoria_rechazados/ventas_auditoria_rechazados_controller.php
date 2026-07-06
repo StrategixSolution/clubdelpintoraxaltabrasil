@@ -151,11 +151,13 @@ $tabla_participante['tabla'] = $this->load->view('ventas/ventas_auditoria/ventas
      public function ventas_auditoria_rechazados_controller_tabla_productos_ingresados_anteriores($data) {
         $tabla = "";
         foreach ($data as $items) {
+            $linea  = utf8_encode($this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_nombre_lineas($items->ProductoLineaId));
             $clase  = utf8_encode($this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_nombre_clases($items->ProductoClaseId));
             $marca  = utf8_encode($this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_nombre_marcas($items->ProductoMarcaId));
             $litros = utf8_encode($this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_nombre_litros($items->VentaDetalleLitros));
             $tabla .='
                 <tr class="grey-text">
+                    <td>'.strtoupper($linea).'</td>
                     <td>'.strtoupper($clase).'</td>
                     <td>'.strtoupper($marca).'</td>
                     <td> '.number_format($items->VentaDetalleMonto,2).'</td>
@@ -326,10 +328,17 @@ if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_arc
             return $maestro_pintor_texto;
         }        
     }
+
+     public function ventas_auditoria_rechazados_controller_ajax_combo_lista_linea() {
+        $combo_linea = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_linea')."</option>";
+        $lineas         = $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_combo_lineas();
+        foreach ($lineas as $linea) { $combo_linea   .='<option value="'.$linea->ProductoLineaId.'">'.utf8_encode(strtoupper($linea->ProductoLiniaNombre)).'</option>'; } 
+        echo json_encode($combo_linea);
+    }
      public function ventas_auditoria_rechazados_controller_ajax_combo_lista_clase() {
-        $cmb_sector = $this->input->post('cmb_sector',TRUE);
+        $cmb_linea = $this->input->post('cmb_linea',TRUE);
         $combo_clase = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_clase')."</option>";
-        $clases         = $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_combo_clases();
+        $clases         = $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_combo_clases($cmb_linea);
         foreach ($clases as $clase) { $combo_clase   .='<option value="'.$clase->ProductoClaseId.'">'.utf8_encode(strtoupper($clase->ProductoClaseDescripcion)).'</option>'; } 
         echo json_encode($combo_clase);
     }
@@ -340,9 +349,9 @@ if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_arc
         echo json_encode($combo_litros);
     } 
     public function ventas_auditoria_rechazados_controller_ajax_combo_lista_marca() {
-        $cmd_clase = $this->input->post('cmd_clase',TRUE);
+        $cmb_clase = $this->input->post('cmb_clase',TRUE);
         $combo_marca = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_marca')."</option>";
-        $marcas         = $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_combo_marcas($cmd_clase);
+        $marcas         = $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_combo_marcas($cmb_clase);
         foreach ($marcas as $marca) { $combo_marca   .='<option value="'.$marca->ProductoMarcaId.'">'.utf8_encode(strtoupper($marca->ProductoMarcaDescripcion)).'</option>'; } 
         echo json_encode($combo_marca);
     }
@@ -354,8 +363,8 @@ if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_arc
     }
     public function ventas_auditoria_rechazados_controller_cart_agregar_producto() {
         $id = md5(uniqid(rand(), TRUE));
-        $data = array('id' => $id,'name' => 0,'price' => 0,'qty' => $this->input->post('txt_marca_cantidad'),'clase' => $this->input->post('cmd_clase'),'marca' => $this->input->post('cmb_marca'),'monto' => $this->input->post('txt_marca_monto'),'litros'=>$this->input->post('cmb_marca_litros'));        
-        $this->cart->insert($data);
+         $data = array('id' => $id,'name' => 0,'price' => 0,'qty' => $this->input->post('txt_marca_cantidad'),'linea' => $this->input->post('cmb_linea'),'clase' => $this->input->post('cmb_clase'),'marca' => $this->input->post('cmb_marca'),'monto' => $this->input->post('txt_marca_monto'),'litros'=>$this->input->post('cmb_marca_litros'));        
+         $this->cart->insert($data);
         $tabla = $this->ventas_auditoria_rechazados_controller_cart_tabla();
         echo json_encode($tabla);
     } 
@@ -372,11 +381,13 @@ if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_arc
     public function ventas_auditoria_rechazados_controller_cart_tabla() {
         $data['tabla'] = "";
         foreach ($this->cart->contents() as $items) {
+            $linea  = utf8_encode($this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_nombre_lineas($items['linea']));
             $clase  = utf8_encode($this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_nombre_clases($items['clase']));
             $marca  = utf8_encode($this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_nombre_marcas($items['marca']));
             $litros = utf8_encode($this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_nombre_litros($items['litros']));
             $data['tabla'] .='
                 <tr class="grey-text">
+                    <td>'.strtoupper($linea).'</td>
                     <td>'.strtoupper($clase).'</td>
                     <td>'.strtoupper($marca).'</td>
                     <td> '.number_format($items['monto'],2).'</td>

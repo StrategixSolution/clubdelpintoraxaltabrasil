@@ -66,6 +66,13 @@ function js_general_solo_alfanumerico(e,t) { //onKeyPress="return js_general_sol
     var key = String.fromCharCode(!e.charCode ? e.which : e.charCode); 
     if (!regex.test(key)) { e.preventDefault(); return false; }
 }
+function js_general_cep(e,t) { //onKeyPress="return js_general_solo_numero_guion(event,this)"
+    var regex = new RegExp("^[0-9-]+$"); 
+    var key = String.fromCharCode(!e.charCode ? e.which : e.charCode); 
+    if (!regex.test(key)) { e.preventDefault(); return false; }
+}
+
+
 function js_general_valida_uploads_archivos(elemanto,formatos,js_general_msg_tamanio,js_general_msg_formato){
     var elemnto_id = '#'+elemanto;
     $(elemnto_id).on('change', function(){

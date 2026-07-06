@@ -31,9 +31,9 @@ $lang['ventas_registro_controller_lang_placeholder_sector']                     
 $lang['ventas_registro_controller_lang_input_clase']                                 = 'CLASE:';
 $lang['ventas_registro_controller_lang_tooltip_clase']                               = '*SELECCIONA UNA CLASE';
 $lang['ventas_registro_controller_lang_placeholder_clase']                           = 'CLASE';
-$lang['ventas_registro_controller_lang_input_marca']                                 = 'MARCA:';
-$lang['ventas_registro_controller_lang_tooltip_marca']                               = '*SELECCIONA UNA MARCA';
-$lang['ventas_registro_controller_lang_placeholder_marca']                           = 'MARCA';
+$lang['ventas_registro_controller_lang_input_marca']                                 = 'MATERIAL:';
+$lang['ventas_registro_controller_lang_tooltip_marca']                               = '*SELECCIONA UN MATERIAL';
+$lang['ventas_registro_controller_lang_placeholder_marca']                           = 'MATERIAL';
 $lang['ventas_registro_controller_lang_input_monto']                                 = '*PRECIO UNITARIO:';
 $lang['ventas_registro_controller_lang_tooltip_monto']                               = '*SOLO NÚMEROS CON DECIMALES *CAMPO OBLIGATORIO';
 $lang['ventas_registro_controller_lang_placeholder_monto']                           = 'PRECIO UNITARIO';
@@ -45,7 +45,7 @@ $lang['ventas_registro_controller_lang_tooltip_litros']                         
 $lang['ventas_registro_controller_lang_placeholder_litros']                          = 'GALONES';
 $lang['ventas_registro_controller_lang_combo_selecciona_sector']                     = 'SELECCIONA UN SECTOR';
 $lang['ventas_registro_controller_lang_combo_selecciona_clase']                      = 'SELECCIONA UNA CLASE';
-$lang['ventas_registro_controller_lang_combo_selecciona_marca']                      = 'SELECCIONA UNA MARCA';
+$lang['ventas_registro_controller_lang_combo_selecciona_marca']                      = 'SELECCIONA UN MATERIAL';
 $lang['ventas_registro_controller_lang_combo_selecciona_litros']                     = 'SELECCIONA UNA OPCIÓN';
 $lang['ventas_registro_controller_lang_boton_agregar']                               = 'AGREGAR';
 $lang['ventas_registro_controller_lang_boton_limpiar_carrito']                       = 'LIMPIAR';

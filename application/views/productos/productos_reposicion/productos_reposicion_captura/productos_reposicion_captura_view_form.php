@@ -59,7 +59,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="col-lg-4 col-12" id="div_fecha_entrega" style="display: none;">
                         <div class="form-group">
                             <label for="fecha_entrega"><?= $this->lang->line('productos_reposicion_captura_controller_lang_etiqueta_fecha_entrega') ?></label>
-                            <input type="date" name="fecha_entrega" id="fecha_entrega" max="<?= date("Y-m-d") ?>" class="form-control">
+                            <input type="date" name="fecha_entrega" id="fecha_entrega" max="<?= date("Y-m-d") ?>" class="form-control" onkeydown="return false">
                             <div id="error"></div>
                         </div>
                     </div>

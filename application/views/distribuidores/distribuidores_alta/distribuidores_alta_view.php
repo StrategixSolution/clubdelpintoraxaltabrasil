@@ -4,8 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 
 <form id="frm_distribuidores_altas" role="form" method="post" accept-charset="utf-8">
-    <div class="panel-title">
-        <section id="alta_distribuidires">
+
+    <section id="alta_distribuidires">
+        <div class="panel-title">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -13,243 +14,243 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row panel-white panel-white-alt">
-                    <div class="col-lg-12">
-                        <div class="form-rf-1 form-pr" id="form-rf-1">
-                            <div class="form-rf-1" id="form-rf-1">
-                                <div class="row row-validator">
-                                    <div class="dyncol col-lg-6">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_razon_social"><?= $this->lang->line('distribuidores_alta_controller_lang_input_razon_social') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_razon_social') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_razon_social" id="txt_razon_social"
-                                                class="form-control txt-mayus"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_razon_social') ?>"
-                                                maxlength="128">
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="dyncol col-lg-6" id="div_segundo_nombre">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_nombre_comercial"><?= $this->lang->line('distribuidores_alta_controller_lang_input_nombre_comercial') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_nombre_comercial') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_nombre_comercial" id="txt_nombre_comercial"
-                                                class="form-control txt-mayus"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_nombre_comercial') ?>"
-                                                maxlength="128">
-                                            <div id="error"></div>
-                                        </div>
+        </div>
+        <div class="container">
+            <div class="row panel-white">
+                <div class="col-lg-12">
+                    <div class="form-rf-1 form-pr" id="form-rf-1">
+                        <div class="form-rf-1" id="form-rf-1">
+                            <div class="row row-validator">
+                                <div class="dyncol col-lg-6">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_razon_social"><?= $this->lang->line('distribuidores_alta_controller_lang_input_razon_social') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_razon_social') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_razon_social" id="txt_razon_social"
+                                            class="form-control txt-mayus"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_razon_social') ?>"
+                                            maxlength="128">
+                                        <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="row row-validator">
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_codigo_distribuidor"><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_distribuidor') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_codigo_distribuidor') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_codigo_distribuidor"
-                                                id="txt_codigo_distribuidor" class="form-control"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_codigo_distribuidor') ?>"
-                                                onKeyPress="return js_general_solo_numeros(event)" maxlength="8">
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="cmb_agrupamiento"><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_agrupamiento') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_combo_tooltip_agrupamiento') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <select id="cmb_agrupamiento" name="cmb_agrupamiento"
-                                                class="form-select"></select>
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_registro_federal"><?= $this->lang->line('distribuidores_alta_controller_lang_input_registro_federal') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_registro_federal') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_registro_federal" id="txt_registro_federal"
-                                                class="form-control"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_registro_federal') ?>"
-                                                onKeyPress="return js_general_solo_numeros(event)" maxlength="14">
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_inscripcion_estatal"><?= $this->lang->line('distribuidores_alta_controller_lang_input_inscripcion_estatal') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_inscripcion_estatal') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_inscripcion_estatal"
-                                                id="txt_inscripcion_estatal" class="form-control"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_inscripcion_estatal') ?>"
-                                                onKeyPress="return js_general_solo_numeros(event)" maxlength="14">
-                                            <div id="error"></div>
-                                        </div>
+                                <div class="dyncol col-lg-6" id="div_segundo_nombre">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_nombre_comercial"><?= $this->lang->line('distribuidores_alta_controller_lang_input_nombre_comercial') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_nombre_comercial') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_nombre_comercial" id="txt_nombre_comercial"
+                                            class="form-control txt-mayus"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_nombre_comercial') ?>"
+                                            maxlength="128">
+                                        <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="row row-validator">
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="cmb_unidad_federativa"><?= $this->lang->line('distribuidores_alta_controller_lang_input_unidad_federativa') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_unidad_federativa') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <select id="cmb_unidad_federativa" name="cmb_unidad_federativa"
-                                                class="form-select"></select>
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_ciudad"><?= $this->lang->line('distribuidores_alta_controller_lang_input_ciudad') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_ciudad') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_ciudad" id="txt_ciudad"
-                                                class="form-control txt-mayus"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_ciudad') ?>"
-                                                maxlength="128">
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_barrio"><?= $this->lang->line('distribuidores_alta_controller_lang_input_barrio') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_barrio') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_barrio" id="txt_barrio"
-                                                class="form-control txt-mayus"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_barrio') ?>"
-                                                maxlength="128">
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_direccion"><?= $this->lang->line('distribuidores_alta_controller_lang_input_direccion') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_direccion') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_direccion" id="txt_direccion"
-                                                class="form-control txt-mayus"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_direccion') ?>"
-                                                maxlength="128">
-                                            <div id="error"></div>
-                                        </div>
+                            </div>
+                            <div class="row row-validator">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_codigo_distribuidor"><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_distribuidor') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_codigo_distribuidor') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_codigo_distribuidor"
+                                            id="txt_codigo_distribuidor" class="form-control"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_codigo_distribuidor') ?>"
+                                            onKeyPress="return js_general_solo_numeros(event)" maxlength="8">
+                                        <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="row row-validator">
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_codigo_postal"><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_postal') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_codigo_postal') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_codigo_postal" id="txt_codigo_postal"
-                                                class="form-control txt-mayus"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_codigo_postal') ?>"
-                                                onKeyPress="return js_general_cep(event)" maxlength="9">
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_telefono"><?= $this->lang->line('distribuidores_alta_controller_lang_input_telefono') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_telefono') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <input type="text" name="txt_telefono" id="txt_telefono"
-                                                class="form-control txt-mayus"
-                                                placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_telefono') ?>"
-                                                onKeyPress="return js_general_solo_numeros(event)" maxlength="11">
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3" id="div_distribuidoras">
-                                        <div class="form-group">
-                                            <label
-                                                for="cmb_regiones"><?= $this->lang->line('distribuidores_alta_controller_lang_combo_etiqueta_regiones') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_combo_tooltip_regiones') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <select id="cmb_regiones" name="cmb_regiones" class="form-select"></select>
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label
-                                                for="cmb_oficinas_venta"><?= $this->lang->line('distribuidores_alta_controller_lang_combo_etiqueta_oficinas_venta') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('distribuidores_alta_controller_lang_combo_tooltip_oficinas_venta') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <select id="cmb_oficinas_venta" name="cmb_oficinas_venta"
-                                                class="form-select"></select>
-                                            <div id="error"></div>
-                                        </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="cmb_agrupamiento"><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_agrupamiento') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_combo_tooltip_agrupamiento') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <select id="cmb_agrupamiento" name="cmb_agrupamiento"
+                                            class="form-select"></select>
+                                        <div id="error"></div>
                                     </div>
                                 </div>
-                                <div>
-                                    <hr class="separador">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_registro_federal"><?= $this->lang->line('distribuidores_alta_controller_lang_input_registro_federal') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_registro_federal') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_registro_federal" id="txt_registro_federal"
+                                            class="form-control"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_registro_federal') ?>"
+                                            onKeyPress="return js_general_solo_numeros(event)" maxlength="14">
+                                        <div id="error"></div>
+                                    </div>
                                 </div>
-                                <div class="row" style="margin-top:20px; text-align:center;">
-                                    <div class="col-lg-2 offset-lg-8 col-6">
-                                        <button type="button"
-                                            onclick="window.location.href='<?= funciones_strategix_version_url_random_base_url("Distribuidores") ?>'"
-                                            class="btn btn-gray"><i class="far fa-caret-square-left pr-5"></i>
-                                            <?= $this->lang->line('distribuidores_alta_controller_lang_boton_regresar') ?></button>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_inscripcion_estatal"><?= $this->lang->line('distribuidores_alta_controller_lang_input_inscripcion_estatal') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_inscripcion_estatal') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_inscripcion_estatal"
+                                            id="txt_inscripcion_estatal" class="form-control"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_inscripcion_estatal') ?>"
+                                            onKeyPress="return js_general_solo_numeros(event)" maxlength="14">
+                                        <div id="error"></div>
                                     </div>
-                                    <div class="col-lg-2 col-6">
-                                        <button type="button" id="distribuidores_alta_boton_guardar"
-                                            class="btn btn-axalta"><i class="far fa-save pr-5"></i>
-                                            <?= $this->lang->line('distribuidores_alta_controller_lang_boton_guardar') ?></button>
+                                </div>
+                            </div>
+                            <div class="row row-validator">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="cmb_unidad_federativa"><?= $this->lang->line('distribuidores_alta_controller_lang_input_unidad_federativa') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_unidad_federativa') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <select id="cmb_unidad_federativa" name="cmb_unidad_federativa"
+                                            class="form-select"></select>
+                                        <div id="error"></div>
                                     </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_ciudad"><?= $this->lang->line('distribuidores_alta_controller_lang_input_ciudad') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_ciudad') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_ciudad" id="txt_ciudad"
+                                            class="form-control txt-mayus"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_ciudad') ?>"
+                                            maxlength="128">
+                                        <div id="error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_barrio"><?= $this->lang->line('distribuidores_alta_controller_lang_input_barrio') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_barrio') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_barrio" id="txt_barrio"
+                                            class="form-control txt-mayus"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_barrio') ?>"
+                                            maxlength="128">
+                                        <div id="error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_direccion"><?= $this->lang->line('distribuidores_alta_controller_lang_input_direccion') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_direccion') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_direccion" id="txt_direccion"
+                                            class="form-control txt-mayus"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_direccion') ?>"
+                                            maxlength="128">
+                                        <div id="error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-validator">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_codigo_postal"><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_postal') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_codigo_postal') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_codigo_postal" id="txt_codigo_postal"
+                                            class="form-control txt-mayus"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_codigo_postal') ?>"
+                                            onKeyPress="return js_general_cep(event)" maxlength="9">
+                                        <div id="error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="txt_telefono"><?= $this->lang->line('distribuidores_alta_controller_lang_input_telefono') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_tooltip_telefono') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <input type="text" name="txt_telefono" id="txt_telefono"
+                                            class="form-control txt-mayus"
+                                            placeholder="<?= $this->lang->line('distribuidores_alta_controller_lang_placeholder_telefono') ?>"
+                                            onKeyPress="return js_general_solo_numeros(event)" maxlength="11">
+                                        <div id="error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3" id="div_distribuidoras">
+                                    <div class="form-group">
+                                        <label
+                                            for="cmb_regiones"><?= $this->lang->line('distribuidores_alta_controller_lang_combo_etiqueta_regiones') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_combo_tooltip_regiones') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <select id="cmb_regiones" name="cmb_regiones" class="form-select"></select>
+                                        <div id="error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label
+                                            for="cmb_oficinas_venta"><?= $this->lang->line('distribuidores_alta_controller_lang_combo_etiqueta_oficinas_venta') ?><span
+                                                data-toggle='tooltip'
+                                                title='<?= $this->lang->line('distribuidores_alta_controller_lang_combo_tooltip_oficinas_venta') ?>'><i
+                                                    class="fas fa-question-circle"></i></span></label>
+                                        <select id="cmb_oficinas_venta" name="cmb_oficinas_venta"
+                                            class="form-select"></select>
+                                        <div id="error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr class="separador">
+                            </div>
+                            <div class="row justify-content-end" style="margin-top:20px; text-align:center;">
+                                <div class="col-lg-2 col-12">
+                                    <button type="button"
+                                        onclick="window.location.href='<?= funciones_strategix_version_url_random_base_url("Distribuidores") ?>'"
+                                        class="btn btn-gray btn-buscar-ancho"><i class="far fa-caret-square-left pr-5"></i><span class="btn-buscar-texto"><?= $this->lang->line('distribuidores_alta_controller_lang_boton_regresar') ?></span>
+                                    </button>
+                                </div>
+                                <div class="col-lg-2 col-12">
+                                    <button type="button" id="distribuidores_alta_boton_guardar"
+                                        class="btn btn-axalta btn-buscar-ancho"><i class="far fa-save"></i><span class="btn-buscar-texto"><?= $this->lang->line('distribuidores_alta_controller_lang_boton_guardar') ?></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </form>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         /********************************************MSG ERROR******************************************************************************************/
-        $('#frm_distribuidores_altas input').on('keyup', function () {
+        $('#frm_distribuidores_altas input').on('keyup', function() {
             js_general_limpiar_errores(this);
         });
-        $('#frm_distribuidores_altas input').on('click', function () {
+        $('#frm_distribuidores_altas input').on('click', function() {
             js_general_limpiar_errores(this);
         });
-        $('#frm_distribuidores_altas select').on('click', function () {
+        $('#frm_distribuidores_altas select').on('click', function() {
             js_general_limpiar_errores(this);
         });
-        $('#frm_distribuidores_altas input').on('change', function () {
+        $('#frm_distribuidores_altas input').on('change', function() {
             js_general_limpiar_errores(this);
         });
         /**************************************************************************************************************************************/
@@ -257,7 +258,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         distribuidores_alta_view_js_combo_oficinas_venta();
         distribuidores_alta_view_js_combo_agrupamiento();
         distribuidores_alta_view_js_combo_unidad_federativa();
-        $("#distribuidores_alta_boton_guardar").click(function () {
+        $("#distribuidores_alta_boton_guardar").click(function() {
             distribuidores_alta_view_js_guardar();
         });
     });
@@ -271,11 +272,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
             data: {
                 id: 0
             },
-            success: function (data) {
+            success: function(data) {
                 $('#cmb_oficinas_venta').html(data);
             },
-            error: function (data) { },
-            complete: function () { }
+            error: function(data) {},
+            complete: function() {}
         });
     }
 
@@ -288,11 +289,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
             data: {
                 id: 0
             },
-            success: function (data) {
+            success: function(data) {
                 $('#cmb_agrupamiento').html(data);
             },
-            error: function (data) { },
-            complete: function () { }
+            error: function(data) {},
+            complete: function() {}
         });
     }
 
@@ -305,13 +306,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
             data: {
                 id: 0
             },
-            success: function (data) {
+            success: function(data) {
                 $('#cmb_unidad_federativa').html(data);
             },
-            error: function (data) { },
-            complete: function () { }
+            error: function(data) {},
+            complete: function() {}
         });
     }
+
     function distribuidores_alta_view_js_combo_regiones() {
         $('#loader_panel').show();
         $.ajax({
@@ -321,11 +323,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
             data: {
                 id: 0
             },
-            success: function (data) {
+            success: function(data) {
                 $('#cmb_regiones').html(data);
             },
-            error: function (data) { },
-            complete: function () { }
+            error: function(data) {},
+            complete: function() {}
         });
     }
 
@@ -379,7 +381,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     url: "<?php echo funciones_strategix_version_url_random_base_url("distribuidores/distribuidores_alta/distribuidores_alta_controller/distribuidores_alta_controller_valida_guarda_distribuidor") ?>",
                     data: $("#frm_distribuidores_altas").serialize(),
                     dataType: "json",
-                    success: function (data) {
+                    success: function(data) {
                         switch (data.res) {
                             case 1:
                                 Swal.fire({
@@ -403,17 +405,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                 break;
                             default:
-                                $.each(data, function (key, value) {
+                                $.each(data, function(key, value) {
                                     $('#' + key).addClass('is-invalid');
                                     $('#' + key).parents('.form-group').find('#error').html(value);
                                 });
                                 break;
                         }
                     },
-                    error: function (data) {
+                    error: function(data) {
                         console.log(data);
                     },
-                    complete: function () {
+                    complete: function() {
                         $('#loader_panel').hide();
                     }
                 });

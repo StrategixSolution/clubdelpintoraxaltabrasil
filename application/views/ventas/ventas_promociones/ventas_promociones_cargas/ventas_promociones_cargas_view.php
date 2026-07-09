@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <form action="ventas/ventas_promociones/ventas_promociones_cargas/ventas_promociones_cargas_controller/ventas_promociones_cargas_controller_guarda_promocion" id="frm_ventas_promociones_cargas_controller" role="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                     <div class="row">
-                        <div class="col-lg-4"> 
+                        <div class="col-lg-3"> 
                             <div class="form-group">
                                 <label for="txt_promocion"><?=$this->lang->line('ventas_promociones_cargas_etiqueta_promocion')?><span data-toggle='tooltip' title='<?=$this->lang->line('ventas_promociones_cargas_tooltip_promocion')?>'><i class="fas fa-question-circle"></i></span></label>
                                 <input type="text" name="txt_promocion" id="txt_promocion" class="form-control txt-mayus" placeholder="<?=$this->lang->line('ventas_promociones_cargas_placeholder_promocion')?>" onKeyPress="return js_general_solo_alfanumerico(event,this)" maxlength="100">
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div id="error"></div>
                             </div>
                         </div>                        
-                        <div class="col-lg-3">                
+                        <div class="col-lg-4">                
                             <div id="uploadsFiles" class="form-group">
                                 <label for="ventas_promociones_cargas_controller_carga_file_excel" class="label"><?=$this->lang->line('ventas_promociones_cargas_etiqueta_archivo')?><span data-toggle='tooltip' title='<?=$this->lang->line('ventas_promociones_cargas_tooltip_archivo')?>'><i class="fas fa-question-circle"></i></span></label>
                                 <div class="input-group mb-3">
@@ -52,22 +52,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>  
                         </div>
                         <div class="col-lg-2"> 
-                            <div class="form-group" id="div_ventas_promociones_cargas_controller_btn_guardar" style="margin-top:20px;">
-                                <button type="submit" class="btn btn-black-sm" id="ventas_promociones_cargas_controller_guardar"><?=$this->lang->line('ventas_promociones_cargas_btn_guardar')?></button>
+                            <div class="form-group" id="div_ventas_promociones_cargas_controller_btn_guardar">
+                                <button type="submit" style="margin-top:20px;" class="btn btn-axalta btn-buscar-ancho" id="ventas_promociones_cargas_controller_guardar"> <i class="far fa-save"></i><span class="btn-buscar-texto"><?=$this->lang->line('ventas_promociones_cargas_btn_guardar')?></span></button>
                             </div>
                             <div class="form-group"  style="display: none; margin-top:20px;" id="div_ventas_promociones_cargas_controller_btn_refrescar">
-                                <button type="submit" class="btn btn-black-sm" onClick="window.location.reload();"><?=$this->lang->line('ventas_promociones_cargas_btn_refrescar')?></button>
+                                <button type="submit" class="btn btn-axalta btn-buscar-ancho" onClick="window.location.reload();"><i class="fas fa-sync"></i><span class="btn-buscar-texto"><?=$this->lang->line('ventas_promociones_cargas_btn_refrescar')?></span></button>
                             </div>                            
                         </div>                          
                     </div>  
                 </form>
+                <div id="tabla_cargas"></div>
             </div>
             <br>
-            <div class="panel-white" id="div_carga_tabla">
+            <!-- <div class="panel-white" id="div_carga_tabla">
                 <div class="table-responsive">
                     <div id="tabla_cargas"></div>     
                 </div>
-            </div>
+            </div> -->
         </div>    
     </div>
 </section>
@@ -121,8 +122,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             break;
                         case 1: 
                             $("#ventas_promociones_cargas_controller_guardar").attr('disabled',false);
-                             $("#div_ventas_promociones_cargas_controller_btn_guardar").hide();
-                              $("#div_ventas_promociones_cargas_controller_btn_refrescar").show();
+                            $("#div_ventas_promociones_cargas_controller_btn_guardar").hide();
+                            $("#div_ventas_promociones_cargas_controller_btn_refrescar").show();
                             break;
                         default:
                             $("#ventas_promociones_cargas_controller_guardar").attr('disabled',false);

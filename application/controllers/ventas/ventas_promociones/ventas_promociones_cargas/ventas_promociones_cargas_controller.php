@@ -57,7 +57,7 @@ class Ventas_promociones_cargas_controller extends Base_Controller {
                     $data['resultados'] = 0;
                     break;
                 default:
-                    $tabla['tabla'] = $resultado_carga_historial['tabla']; $data['tabla'] = $this->load->view('ventas/ventas_promociones_cargas/ventas_promociones_cargas_tabla_view', $tabla, TRUE); 
+                    $tabla['tabla'] = $resultado_carga_historial['tabla']; $data['tabla'] = $this->load->view('ventas/ventas_promociones/ventas_promociones_cargas/ventas_promociones_cargas_tabla_view', $tabla, TRUE); 
                     $data['msg'] = $this->lang->line('ventas_promociones_cargas_msg_error_archivo');
                     $data['resultados'] = 0;                    
                     break;

@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         buttons: [{
             extend: 'excelHtml5',           
             text: 'Descargar <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
-            className:'btn btn-xclusiva2',
+            className:'btn btn-axalta',
             title: '',
             filename: 'Carga_promociones',
             sheetName: 'Carga_promociones',
@@ -67,6 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }); 
 </script>
 
+<hr class="separador">
 <table class="table table-bordered table-striped table-axalta" id="tabla_resultado">
     <thead>
         <th><?=$this->lang->line('ventas_promociones_cargas_tabla_id_carga')?></th>
@@ -80,5 +81,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?=$tabla?>
     </tbody>
 </table>
-
-  

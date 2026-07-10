@@ -464,10 +464,10 @@ a{
 .table-axalta tbody tr td input{
     font-size: 10px;
 }
-.table-axalta tbody tr td i{
+/* .table-axalta tbody tr td i{
     color:var(--rojo);
     font-size: 12px;
-}
+} */
 .tooltip-inner{
     font-family: 'Axalta', Helvetica, sans-serif;
     max-width:200px;
@@ -981,7 +981,7 @@ div.dataTables_scrollBody{
 ********************************************/
 #participantes button{
     margin-top: 20px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 /********************************************
@@ -989,7 +989,13 @@ div.dataTables_scrollBody{
 ********************************************/
 #distribuidores button{
     margin-top: 20px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+}
+
+@media screen and (max-width: 991px) {
+    #alta_distribuidires button {
+        margin-top: 20px;
+    }
 }
 
 /********************************************

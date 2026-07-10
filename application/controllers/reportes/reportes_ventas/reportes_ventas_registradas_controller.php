@@ -263,7 +263,7 @@ $combo_distribuidores = '';
 
         foreach($rows as $r){
             $btnTicket = '<button type="button" class="btn btn-axalta btn-sm btn_ticket" data-venta="'.$r->ID.'">
-                            <i class="txt-white fas fa-receipt"></i> <span class="txt-white">Ver ticket</span>
+                            <i class="fas fa-receipt"></i> <span class="">Ver ticket</span>
                         </button>';
 
             $totalTicket = '$ '.number_format((float)$r->TOTAL_TICKET, 2);

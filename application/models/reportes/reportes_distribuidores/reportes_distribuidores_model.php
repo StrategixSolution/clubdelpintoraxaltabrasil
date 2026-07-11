@@ -135,9 +135,7 @@ class Reportes_distribuidores_model extends Base_Model {
             ISNULL(v.total_ventas, 0) AS total_ventas,
             STUFF((
                 SELECT ' | ' + p.PerfilDescripcion + ': ' + 
-                       ud2.UsuarioDetalleNombre + ' ' + 
-                       ISNULL(ud2.UsuarioDetalleSegundoNombre, '') + ' ' + 
-                       ud2.UsuarioDetalleApellidos
+                       ud2.UsuarioDetalleNombre
                 FROM usuarios u_ej
                 INNER JOIN UsuariosDetalles ud2 ON ud2.UsuarioId = u_ej.UsuarioId
                 INNER JOIN perfiles p ON u_ej.PerfilId = p.PerfilId
@@ -211,7 +209,7 @@ class Reportes_distribuidores_model extends Base_Model {
     /*
     public function reportes_distribuidores_model_ejecutivo($iddist){
         $iddist = (int)$iddist;
-        $SQL = "SELECT UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos
+        $SQL = "SELECT UsuariosDetalles.UsuarioDetalleNombre
                 FROM Usuarios 
                 INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
                 INNER JOIN UsuariosDistribuidores ON Usuarios.UsuarioId = UsuariosDistribuidores.UsuarioId
@@ -221,7 +219,7 @@ class Reportes_distribuidores_model extends Base_Model {
                 AND UsuariosDistribuidores.DistribuidorId = $iddist";     
         $query	= $this->db->query($SQL);
         if ($query->num_rows() > 0){
-            $ejecutivo = $query->row()->UsuarioDetalleNombre . " " . $query->row()->UsuarioDetalleSegundoNombre . " " . $query->row()->UsuarioDetalleApellidos;
+            $ejecutivo = $query->row()->UsuarioDetalleNombre;
             return $ejecutivo;
         } else {
             return "SIN EJECUTIVO";
@@ -276,7 +274,7 @@ class Reportes_distribuidores_model extends Base_Model {
      */
     /*
     public function reportes_distribuidores_model_Participante_Distribuidoras($where){
-        $SQL = "SELECT ud2.UsuarioDetalleNombre, ud2.UsuarioDetalleSegundoNombre, ud2.UsuarioDetalleApellidos, p.PerfilDescripcion 
+        $SQL = "SELECT ud2.UsuarioDetalleNombre, p.PerfilDescripcion 
             FROM usuarios u 
             INNER JOIN UsuariosDetalles ud2 ON ud2.UsuarioId = u.UsuarioId 
             INNER JOIN perfiles p ON (u.PerfilId = p.PerfilId) 

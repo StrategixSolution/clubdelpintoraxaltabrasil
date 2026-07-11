@@ -344,9 +344,7 @@ class Reportes_ventas_registradas_model extends Base_Model {
         $sql = "SELECT
                 V.VentaId AS ID,
                     LTRIM(RTRIM(
-                        ISNULL(UDMP.UsuarioDetalleNombre,'') + ' ' +
-                        ISNULL(UDMP.UsuarioDetalleSegundoNombre,'') + ' ' +
-                        ISNULL(UDMP.UsuarioDetalleApellidos,'')
+                        ISNULL(UDMP.UsuarioDetalleNombre,'')
                     ))
                  AS NOMBRE_PINTOR,
 
@@ -430,9 +428,7 @@ class Reportes_ventas_registradas_model extends Base_Model {
                 SELECT
                     UDIST.DistribuidorId,
                     MAX(LTRIM(RTRIM(
-                        ISNULL(UD2.UsuarioDetalleNombre,'') + ' ' +
-                        ISNULL(UD2.UsuarioDetalleSegundoNombre,'') + ' ' +
-                        ISNULL(UD2.UsuarioDetalleApellidos,'')
+                        ISNULL(UD2.UsuarioDetalleNombre,'')
                     ))) AS NOMBRE_EJECUTIVO
                 FROM UsuariosDistribuidores UDIST
                 INNER JOIN Usuarios U2

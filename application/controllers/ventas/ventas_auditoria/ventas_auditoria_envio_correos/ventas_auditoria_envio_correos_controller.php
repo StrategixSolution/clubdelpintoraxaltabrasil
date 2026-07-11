@@ -158,7 +158,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
         $datos_tabla = $this->ventas_auditoria_envio_correos_controller_envio_correo_tabla($VentaId);$correo='';
         $distirbuidores = $this->ventas_auditoria_envio_correos_model->ventas_auditoria_envio_correos_model_datos_distribuidor($datos_tabla["DistribuidorId"]);
         foreach ($distirbuidores as $row) {
-            $nombre = utf8_encode(strtoupper($row->UsuarioDetalleNombre)) . " " . utf8_encode(strtoupper($row->UsuarioDetalleSegundoNombre)) . " " . utf8_encode(strtoupper($row->UsuarioDetalleApellidos));
+            $nombre = utf8_encode(strtoupper($row->UsuarioDetalleNombre));
             $correo .= $row->UsuarioDetalleEmail.',';            
         }
         $correo = substr ($correo, 0, strlen($correo) - 1);  

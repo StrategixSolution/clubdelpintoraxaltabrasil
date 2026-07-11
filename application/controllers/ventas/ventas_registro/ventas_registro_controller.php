@@ -75,7 +75,7 @@ class Ventas_registro_controller extends Base_Controller {
         if (empty($maestro_pintor)){           
             return '';
         } else {            
-            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleSegundoNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidos);
+            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre);
                 $maestro_pintor_texto = $this->lang->line('ventas_registro_controller_lang_etiqueta_maestro_pintor')." ".$nombre;
             return $maestro_pintor_texto;
         }        
@@ -112,7 +112,7 @@ class Ventas_registro_controller extends Base_Controller {
             $this->session->unset_userdata('s_venta_foto');
         }
     }
-    public function ventas_registro_controller_valida_venta() {        
+    public function ventas_registro_controller_valida_venta() {         
         $txt_numero_ticket = $this->input->post('txt_numero_ticket');
         $ditribuidor = $this->ventas_registro_model->ventas_registro_model_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')));
         $idDistribuidor = $ditribuidor->DistribuidorDetalleId;
@@ -161,7 +161,7 @@ class Ventas_registro_controller extends Base_Controller {
         if($this->input->post('chk_archivo')){ $imagen_ticket = $this->ventas_registro_guardar_venta_archivo(); }
         $VentaCantidadProdcutos = count($this->cart->contents());
         foreach ($this->cart->contents() as $items) { $total = $items['monto'] * $items['qty']; $total_monto_detalle = $total_monto_detalle + $total; $total_cantidad = $total_cantidad + $items['qty']; }     
-       $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta(trim($this->input->post('txt_qr',TRUE)),utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE)))),strtoupper(trim($this->input->post('txt_monto_ticket',TRUE))),$imagen_ticket,$this->uniqueId,$datos_maestro_pintor,$this->input->post('cmb_distribuidor',TRUE));
+       $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta(trim($this->input->post('txt_qr',TRUE)),utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE)))),strtoupper(trim($this->input->post('txt_monto_ticket',TRUE))),$imagen_ticket,$this->uniqueId,$datos_maestro_pintor,$this->input->post('cmb_distribuidor',TRUE),$total_monto_detalle,$total_cantidad,$VentaCantidadProdcutos);
         $this->ventas_registro_guardar_venta_detalle($VentaId);
         $this->ventas_registro_controller_entra_auditoria($VentaId,$datos_maestro_pintor->UsuarioId,$this->input->post('txt_monto_ticket',TRUE),$this->input->post('cmb_distribuidor',TRUE));
        return $VentaId;

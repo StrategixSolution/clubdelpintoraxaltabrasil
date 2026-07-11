@@ -15,10 +15,9 @@ class Autenticacion_model extends Base_Model {
                     u.UsuarioFechaEnvioMailRegistro, u.UsuarioCapturaId,
                     u.UsuarioBajaParticipanteUsuarioId, u.UsuarioBajaDistribuidoraUsuarioId,
                     u.UsuarioTipoRegistroId, u.PerfilId, u.UsuarioSessionId,
-                    ud.UsuarioDetalleNombre, ud.UsuarioDetalleSegundoNombre,
-                    ud.UsuarioDetalleApellidos,
+                    ud.UsuarioDetalleNombre,
                     ud.UsuarioDetalleClave,
-                    ud.UsuarioDetalleEmail, ud.UsuarioDetalleTelefono, ud.UsuarioDetalleExtension,
+                    ud.UsuarioDetalleEmail, 
                     p.PerfilDescripcion
                 FROM UsuariosDetalles ud
                 INNER JOIN Usuarios u  ON ud.UsuarioId  = u.UsuarioId

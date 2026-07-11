@@ -8,7 +8,7 @@ class Usuarios_recupera_clave_model extends Base_Model {
     public function usuarios_recupera_clave_model_datos_mail($email){
         $email_clean = $this->security->xss_clean($email);
         $SQL    = "SELECT Usuarios.UsuarioId,Usuarios.UsuarioSessionId, Perfiles.PerfilDescripcion, UsuariosDetalles.UsuarioDetalleNombre, 
-                  UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos, UsuariosDetalles.UsuarioDetalleClave, 
+                   UsuariosDetalles.UsuarioDetalleClave, 
                   UsuariosDetalles.UsuarioDetalleEmail FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN Perfiles ON Usuarios.PerfilId = Perfiles.PerfilId
                   WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (UsuariosDetalles.UsuarioDetalleEmail = '$email_clean')";
         $query	= $this->db->query($SQL);
@@ -25,7 +25,7 @@ class Usuarios_recupera_clave_model extends Base_Model {
     }    
     public function usuarios_recupera_clave_model_data_whatsapp($whatsapp){
         $whatsapp_clean = $this->security->xss_clean($whatsapp);
-        $SQL    = "SELECT  Usuarios.UsuarioId,  Usuarios.UsuarioSessionId, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos, 
+        $SQL    = "SELECT  Usuarios.UsuarioId,  Usuarios.UsuarioSessionId, UsuariosDetalles.UsuarioDetalleNombre,
              UsuariosDetalles.UsuarioDetalleClave, UsuariosDetalles.UsuarioDetalleEmail,UsuariosDetalles.UsuarioDetalleCelular
                   FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN Perfiles ON Usuarios.PerfilId = Perfiles.PerfilId
                   WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (UsuariosDetalles.UsuarioDetalleCelular = '$whatsapp_clean')";
@@ -44,7 +44,7 @@ class Usuarios_recupera_clave_model extends Base_Model {
     }
     public function usuarios_recupera_clave_model_usuario_detalle($UsuarioId){
         $UsuarioId_clean = $this->security->xss_clean($UsuarioId);
-          $SQL    = "SELECT UsuariosDetalles.UsuarioDetalleId, UsuariosDetalles.UsuarioId, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuarioDetalleApellidos, UsuariosDetalles.UsuarioDetalleClave, UsuariosDetalles.UsuarioDetalleEmail, UsuariosDetalles.UsuarioDetalleTelefono,UsuariosDetalles.UsuarioDetalleCelular, UsuariosDetalles.UsuarioDetalleRFC,UsuarioDetalleCP, UsuariosDetalles.UsuarioDetalleEstado, UsuariosDetalles.UsuarioDetalleCiudad, UsuariosDetalles.UsuarioDetalleMunicipio, UsuariosDetalles.UsuarioDetalleColonia, UsuariosDetalles.UsuarioDetalleCalle, UsuariosDetalles.UsuarioDetalleExterior, UsuariosDetalles.UsuarioDetalleInterior,UsuariosDetalles.UsuarioDetalleFechaRegistro, UsuariosDetalles.UsuarioDetalleUsuarioIdRegistro,UsuariosDetalles.UsuarioDetalleFechaBaja, UsuariosDetalles.UsuarioDetalleUsuarioIdBaja, UsuariosDetalles.UsuarioDetalleObservaciones, UsuariosDetalles.UsuarioDetalleSessionId, Usuarios.PerfilId FROM UsuariosDetalles INNER JOIN Usuarios ON UsuariosDetalles.UsuarioId = Usuarios.UsuarioId WHERE (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (UsuariosDetalles.UsuarioId = '$UsuarioId_clean')";
+          $SQL    = "SELECT UsuariosDetalles.UsuarioDetalleId, UsuariosDetalles.UsuarioId, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleClave, UsuariosDetalles.UsuarioDetalleEmail,UsuariosDetalles.UsuarioDetalleCelular, UsuariosDetalles.UsuarioDetalleRFC,UsuarioDetalleCP, UsuariosDetalles.UsuarioDetalleEstado, UsuariosDetalles.UsuarioDetalleCiudad, UsuariosDetalles.UsuarioDetalleMunicipio, UsuariosDetalles.UsuarioDetalleColonia, UsuariosDetalles.UsuarioDetalleCalle, UsuariosDetalles.UsuarioDetalleExterior, UsuariosDetalles.UsuarioDetalleInterior,UsuariosDetalles.UsuarioDetalleFechaRegistro, UsuariosDetalles.UsuarioDetalleUsuarioIdRegistro,UsuariosDetalles.UsuarioDetalleFechaBaja, UsuariosDetalles.UsuarioDetalleUsuarioIdBaja, UsuariosDetalles.UsuarioDetalleObservaciones, UsuariosDetalles.UsuarioDetalleSessionId, Usuarios.PerfilId FROM UsuariosDetalles INNER JOIN Usuarios ON UsuariosDetalles.UsuarioId = Usuarios.UsuarioId WHERE (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (UsuariosDetalles.UsuarioId = '$UsuarioId_clean')";
         $query	= $this->db->query($SQL);
         //echo  $this->db->last_query()."<br>";
         return $query->row();
@@ -74,8 +74,8 @@ class Usuarios_recupera_clave_model extends Base_Model {
         $SQL1 = "UPDATE UsuariosDetalles SET UsuarioDetalleFechaBaja = DATEADD(hour, 3, DATEADD(hour, 3, GETDATE())),UsuarioDetalleUsuarioIdBaja = ".$UsuarioId." WHERE UsuarioDetalleFechaBaja IS NULL AND UsuarioDetalleId = $UsuarioDetalleId";
         $this->db->query($SQL1);
             $SQLINSERT          = "
-                INSERT INTO UsuariosDetalles (  UsuarioId,UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleUsuarioIdRegistro,UsuarioDetalleObservaciones,UsuarioDetalleClave,UsuarioDetalleSessionId) 
-                SELECT                          UsuarioId,UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,$UsuarioId,'CREADO AUTAMATICAMENTE AL MODIFICAR LA CLAVE','$Clave','$sessionId' FROM UsuariosDetalles WHERE UsuarioDetalleId = $UsuarioDetalleId ";   
+                INSERT INTO UsuariosDetalles (  UsuarioId,UsuarioDetalleNombre,UsuarioDetalleEmail,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleUsuarioIdRegistro,UsuarioDetalleObservaciones,UsuarioDetalleClave,UsuarioDetalleSessionId) 
+                SELECT                          UsuarioId,UsuarioDetalleNombre,UsuarioDetalleEmail,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,$UsuarioId,'CREADO AUTAMATICAMENTE AL MODIFICAR LA CLAVE','$Clave','$sessionId' FROM UsuariosDetalles WHERE UsuarioDetalleId = $UsuarioDetalleId ";   
         $this->db->query($SQLINSERT);
         $SQL2 = "UPDATE UsuariosRecuperacionClave SET UsuarioRecuperacionClaveFechaCambio = DATEADD(hour, 3, DATEADD(hour, 3, GETDATE())) WHERE UsuarioRecuperacionClaveFechaCambio IS NULL AND UsuarioId = $UsuarioId";
         $this->db->query($SQL2);        

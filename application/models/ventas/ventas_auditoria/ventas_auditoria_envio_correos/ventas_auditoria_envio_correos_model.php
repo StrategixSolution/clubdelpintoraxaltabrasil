@@ -27,7 +27,7 @@ class ventas_auditoria_envio_correos_model extends Base_Model {
             Ventas.TarjetaId, 
             Tarjetas.TarjetaNumero, 
             Ventas.VentaUsuarioIdMP, 
-            RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS NombreMP, 
+            RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,''))  AS NombreMP, 
             Ventas.DistribuidorId, 
             DistribuidoresDetalles.DistribuidorDetalleId,
             DistribuidoresDetalles.DistribuidorDetalleCodigo,
@@ -49,8 +49,6 @@ class ventas_auditoria_envio_correos_model extends Base_Model {
             VentasAuditorias.VentaAuditoriaFechaAudito, 
             VentasAuditorias.VentaAuditoriaUsuarioAudito, 
             UsuariosAuditor.UsuarioDetalleNombre, 
-            UsuariosAuditor.UsuarioDetalleSegundoNombre, 
-            UsuariosAuditor.UsuarioDetalleApellidos, 
             VentasAuditorias.VentaAuditoriaFechaEnvioCorreoCierre 
             FROM Ventas 
             INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
@@ -76,7 +74,7 @@ Ventas.VentaId,
 Ventas.TarjetaId, 
 Tarjetas.TarjetaNumero, 
 Ventas.VentaUsuarioIdMP, 
-RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS NombreMP, 
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) AS NombreMP, 
 Ventas.DistribuidorId, 
 DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo,
@@ -129,7 +127,7 @@ VentasAuditorias.VentaAuditoriaFechaEnvioCorreo,
 Ventas.TarjetaId, 
 Tarjetas.TarjetaNumero,
 Ventas.VentaUsuarioIdMP,
-RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP,
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) AS VentaUsuarioNombreMP,
 Ventas.DistribuidorId, 
 DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo, 
@@ -150,9 +148,7 @@ VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion,
 VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion, 
 VentasAuditorias.VentaAuditoriaFechaAudito, 
 VentasAuditorias.VentaAuditoriaUsuarioAudito, 
-UsuariosAuditor.UsuarioDetalleNombre, 
-UsuariosAuditor.UsuarioDetalleSegundoNombre, 
-UsuariosAuditor.UsuarioDetalleApellidos
+UsuariosAuditor.UsuarioDetalleNombre
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
 LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 
@@ -175,8 +171,6 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
 Usuarios.PerfilId, 
 UsuariosDetalles.UsuarioDetalleId, 
 UsuariosDetalles.UsuarioDetalleNombre, 
-UsuariosDetalles.UsuarioDetalleSegundoNombre, 
-UsuariosDetalles.UsuarioDetalleApellidos, 
 UsuariosDetalles.UsuarioDetalleEmail, 
 UsuariosDistribuidores.DistribuidorId  FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN UsuariosDistribuidores ON Usuarios.UsuarioId = UsuariosDistribuidores.UsuarioId WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (UsuariosDistribuidores.DistribuidorId = ?) AND (Usuarios.PerfilId IN (6, 7, 8))";
         $query	= $this->db->query($SQL,array($DistribuidorId_clean));
@@ -220,7 +214,7 @@ VentasAuditorias.VentaAuditoriaFechaEnvioCorreo,
 Ventas.TarjetaId, 
 Tarjetas.TarjetaNumero,
 Ventas.VentaUsuarioIdMP,
-RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP,
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) AS VentaUsuarioNombreMP,
 Ventas.DistribuidorId, 
 DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo, 
@@ -241,9 +235,7 @@ VentasAuditoriasTipos.VentaAuditoriaTipoDescripcion,
 VentasAuditoriasObservaciones.VentaAuditoriaObservacionDescripcion, 
 VentasAuditorias.VentaAuditoriaFechaAudito, 
 VentasAuditorias.VentaAuditoriaUsuarioAudito, 
-UsuariosAuditor.UsuarioDetalleNombre, 
-UsuariosAuditor.UsuarioDetalleSegundoNombre, 
-UsuariosAuditor.UsuarioDetalleApellidos
+UsuariosAuditor.UsuarioDetalleNombre
 FROM Ventas 
 INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 
 LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) 

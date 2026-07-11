@@ -21,7 +21,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_aprox_personas'
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_aprox_autos']                  = 'AUTOS REPARADOS POR SEMANA:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_talla']                        = '*TALLA:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_fecha_nacimiento']             = '*FECHA DE NACIMIENTO:';
-$lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_rfc']                          = 'NIT:';
+$lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_rfc']                          = 'CPF:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_identificacion']               = '*IDENTIFICACIÓN:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_ciudad']                       = '*CIUDAD:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_codigoqr']                     = '*NÚMERO DE TARJETA:';
@@ -48,7 +48,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_taller']    
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_aprox_personas']            = 'CANTIDAD DE PERSONAS';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_aprox_autos']               = 'CANTIDAD DE AUTOS';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_talla']                     = 'SELECCIONA UNA TALLA';
-$lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_rfc']                       = 'NIT';
+$lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_rfc']                       = 'CPF';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_ciudad']                    = 'CIUDAD';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_codigoqr']                  = 'NÚMERO DE TARJETA';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_identificacion']            = 'IDENTIFICACIÓN';
@@ -74,9 +74,9 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_tooltips_codigoqr']     
 $lang['usuarios_maestro_pintor_registro_controller_lang_tooltips_identificacion']               = '*FORMATO PNG, JPG Y PDF';
 $lang['usuarios_maestro_pintor_registro_controller_lang_alerta_firma_vacia']                    = 'CAPTURA TU FIRMA';
 $lang['usuarios_maestro_pintor_registro_controller_lang_alerta_termino']                        = 'ACEPTA LOS TÉRMINOS Y CONDICIONES Y EL AVISO DE PRIVACIDAD';
-$lang['usuarios_maestro_pintor_registro_controller_error_rfc']                                  = 'EL CAMPO NIT ES OBLIGATORIO';
+$lang['usuarios_maestro_pintor_registro_controller_error_rfc']                                  = 'EL CAMPO CPF ES OBLIGATORIO';
 $lang['usuarios_maestro_pintor_registro_controller_error_tarjeta']                              = 'EL CAMPO NÚMERO DE TARJETA ES OBLIGATORIO';
-$lang['usuarios_maestro_pintor_registro_controller_lang_msg_rfc_repetido']                      = 'EL NIT %1$s YA FUE REGISTRADO';
+$lang['usuarios_maestro_pintor_registro_controller_lang_msg_rfc_repetido']                      = 'EL CPF %1$s YA FUE REGISTRADO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_msg_email_repetido']                    = 'EL CORREO ELECTRÓNICO %1$s YA FUE REGISTRADO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_msg_celular_repetido']                  = 'EL CELULAR %1$s YA FUE REGISTRADO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_msg_tarjeta_estatus_uno']               = 'EL NÚMERO DE TARJETA %1$s YA ESTÁ ASIGNADA.';

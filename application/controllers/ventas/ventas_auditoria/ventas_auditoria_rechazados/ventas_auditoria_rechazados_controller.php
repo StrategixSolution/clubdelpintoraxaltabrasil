@@ -202,11 +202,20 @@ $tabla_participante['tabla'] = $this->load->view('ventas/ventas_auditoria/ventas
         }
     }    
     public function ventas_auditoria_rechazados_controller_valida_venta() {
-if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_archivo']['name'])) {
-    $cargaarchivo = 1;
-} else {
-    $cargaarchivo = 0;
-}
+        $ventaid = $this->input->post('VentasId');
+        $txt_numero_ticket = $this->input->post('txt_numero_ticket');
+        $ditribuidor = $this->ventas_registro_model->ventas_registro_model_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')));
+        $idDistribuidor = $ditribuidor->DistribuidorDetalleId;
+        $count_ticket  = $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_count_ticket($txt_numero_ticket, $idDistribuidor,$ventaid);
+        if ($count_ticket->counter>0){
+            $data['resultado'] = 3;
+            echo json_encode($data);
+        }else{
+        if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_archivo']['name'])) {
+            $cargaarchivo = 1;
+        } else {
+            $cargaarchivo = 0;
+        }
         $this->ventas_auditoria_rechazados_controller_set_rules($cargaarchivo);
         $res_errors = $this->ventas_auditoria_rechazados_controller_form_error($cargaarchivo);
         if ($res_errors==1){
@@ -216,6 +225,7 @@ if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_arc
         } else {
             $this->output->set_content_type('application/json')->set_output(json_encode($res_errors)); 
         }   
+        }
     }     
     public function ventas_auditoria_rechazados_controller_valida_campos() {
       if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_archivo']['name'])) {
@@ -236,7 +246,7 @@ if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_arc
         if (empty($maestro_pintor)){           
             return '';
         } else {            
-            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleSegundoNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidos);
+            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre);
             $maestro_pintor_texto = $this->lang->line('ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor')." ".$nombre;
             return $maestro_pintor_texto;
         }        
@@ -323,7 +333,7 @@ if ($this->input->post('txt_ticket_foto',TRUE) || !empty($_FILES['txt_ticket_arc
         if (empty($maestro_pintor)){           
             return '';
         } else {            
-            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleSegundoNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidos);
+            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre);
             $maestro_pintor_texto = $this->lang->line('ventas_registro_ticket_controller_lang_etiqueta_maestro_pintor')." ".$nombre;
             return $maestro_pintor_texto;
         }        

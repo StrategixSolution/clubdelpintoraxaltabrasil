@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="col-lg-12">
                     <div class="form-pr">
                         <div class="row row-validator">
-                            <div class="dyncol col-lg-4">
+                            <div class="dyncol col-lg-8">
                                 <div class="form-group">
                                     <label
                                         for="txt_nombre"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_nombre') ?><span
@@ -36,35 +36,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <div id="error"></div>
                                 </div>
                             </div>
-                            <div class="dyncol col-lg-4" id="div_segundo_nombre">
-                                <div class="form-group">
-                                    <label
-                                        for="txt_segundo_nombre"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_segundo_nombre') ?><span
-                                            data-toggle='tooltip'
-                                            title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_segundo_nombre') ?>'><i
-                                                class="fas fa-question-circle"></i></span></label>
-                                    <input type="text" name="txt_segundo_nombre" id="txt_segundo_nombre" class="form-control txt-mayus"
-                                        placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_segundo_nombre') ?>"
-                                        onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="dyncol col-lg-4">
-                                <div class="form-group">
-                                    <label
-                                        for="txt_apellidos"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_apaterno') ?><span
-                                            data-toggle='tooltip'
-                                            title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_apaterno') ?>'><i
-                                                class="fas fa-question-circle"></i></span></label>
-                                    <input type="text" name="txt_apellidos" id="txt_apellidos"
-                                        class="form-control txt-mayus"
-                                        placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_apaterno') ?>"
-                                        onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-validator">
                             <div class="dyncol col-lg-4">
                                 <div class="form-group">
                                     <label
@@ -72,39 +43,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             data-toggle='tooltip'
                                             title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_rfc') ?>'><i
                                                 class="fas fa-question-circle"></i></span></label>
-                                    <input type="text" name="txt_rfc" id="txt_rfc" class="form-control txt-mayus"
+                                    <input type="text" name="txt_rfc" id="txt_rfc" class="form-control"
                                         placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_rfc') ?>"
-                                        onKeyPress="return js_general_nit(event)" maxlength="25">
+                                        maxlength="14">
                                     <div id="error"></div>
                                 </div>
                             </div>
-                            <div class="dyncol col-lg-4">
-                                <div class="form-group">
-                                    <label
-                                        for="txt_telefono"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_telefono') ?><span
-                                            data-toggle='tooltip'
-                                            title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_telefono') ?>'><i
-                                                class="fas fa-question-circle"></i></span></label>
-                                    <input type="text" name="txt_telefono" id="txt_telefono" class="form-control"
-                                        placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_telefono') ?>"
-                                        maxlength="10">
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="dyncol col-lg-4">
-                                <div class="form-group">
-                                    <label
-                                        for="txt_extencion"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_extencion') ?><span
-                                            data-toggle='tooltip'
-                                            title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_extencion') ?>'><i
-                                                class="fas fa-question-circle"></i></span></label>
-                                    <input type="text" name="txt_extencion" id="txt_extencion" class="form-control"
-                                        placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_extencion') ?>"
-                                        onKeyPress="return js_general_solo_numeros(event)" maxlength="10">
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> 
                         <div class="row row-validator">
                             <div class="dyncol col-lg-8">
                                 <div class="form-group">
@@ -128,7 +73,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 class="fas fa-question-circle"></i></span></label>
                                     <input type="text" name="txt_celular" id="txt_celular" class="form-control"
                                         placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_celular') ?>"
-                                        onKeyPress="return js_general_solo_numeros(event)" maxlength="10">
+                                        maxlength="14">
                                     <div id="error"></div>
                                 </div>
                             </div>
@@ -273,15 +218,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         for="cmb_tipo_tarjeta"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta') ?></label>
                                     <select id="cmb_tipo_tarjeta" name="cmb_tipo_tarjeta" class="form-select"></select>
                                 </div>
-                                     </div>
-
-
-
-
-
-
-
-                                     
+                                     </div>                                     
                                     <div class="col-lg-12" style="display: none;" id="div_identificacion_qr">
                                         <div class="form-group">
                                             <label
@@ -393,6 +330,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
     </section>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/inputmask@5/dist/inputmask.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Inputmask("(99)99999-9999").mask(document.querySelectorAll("#txt_celular"));
+        Inputmask("999.999.999-99").mask(document.querySelectorAll("#txt_rfc"));
+    });
+</script>
 <script>
     document.getElementById('modLink').addEventListener('click', function(e) {
         e.preventDefault();
@@ -494,7 +438,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             frm_usuarios_maestro_pintor_registro_view_js_firma_borrar();
         });
         $('#frm_usuarios_maestro_pintor_registro_view').submit(function(e) {
-            $('#loader_panel').show();
+            $('#loader_panel').show(); 
             e.preventDefault();
             $('#error').html(" ");
             $('#txt_identificacion').prop('disabled', false);

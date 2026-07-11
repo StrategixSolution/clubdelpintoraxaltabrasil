@@ -47,7 +47,7 @@ $lang['menu_submenu_admin_reposicion_prodcutos_premios']                        
 $lang['menu_submenu_admin_reposicion_prodcutos_premios_relacion']               = 'RELAÇÃO PRÊMIOS VS PRODUTOS';
 $lang['menu_submenu_admin_cortes_promociones']                                  = 'CORTE DE VENDAS DE PROMOÇÕES';
 $lang['menu_submenu_admin_reposicion_prodcutos_generacion_ganadores']           = 'GERAÇÃO DE GANHADORES';
-$lang['menu_submenu_admin_corte_auditoria_ventas']                              = 'CORTE AUDITORIA DE VENDAS';
+$lang['menu_submenu_admin_corte_auditoria_ventas']                              = 'ALTERAÇÃO DO STATUS DE VENDAS';
 $lang['menu_submenu_admin_cortes_promociones']                                  = 'CORTE DE VENDAS DE PROMOÇÕES';
 $lang['menu_submenu_admin_cortes_bimestral']                                    = 'CORTE DE VENDAS BIMESTRAL';
 $lang['menu_submenu_admin_carga_producto_premios']                              = 'CADASTRAR PRÊMIOS';
@@ -57,7 +57,7 @@ $lang['menu_submenu_auditorias_primera']                                        
 $lang['menu_submenu_auditorias_envio_correos']                                  = 'DISPARO DE E-MAILS';
 $lang['menu_submenu_auditorias_segunda']                                        = 'SEGUNDA RODADA';
 $lang['menu_submenu_auditorias_promociones']                                    = 'PROMOÇÕES';
-$lang['menu_submenu_admin_cortes_bimestral']                                    = 'CORTE DE VERIFICAÇÃO';
+$lang['menu_submenu_admin_cortes_bimestral']                                    = 'RELATÓRIO DE VENDAS BIMESTRAL';
 /**************************RELATÓRIOS***************************************************/
 $lang['menu_submenu_reportes_ventas']                                           = 'RELATÓRIO DE VENDAS';
 $lang['menu_submenu_reportes_distribuidoras']                                   = 'RELATÓRIO DE DISTRIBUIDORES';

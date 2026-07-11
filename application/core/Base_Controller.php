@@ -56,7 +56,8 @@ class Base_Controller extends CI_Controller {
             case 6: $menu = 'menu_administrador_distribuidor'; break;//ADMINISTRADOR DE DISTRIBUIDOR
             case 7: $menu = 'menu_personal_tienda'; break;//PERSONAL DE TIENDA
             case 8: $menu = 'menu_responsable_tienda'; break;//RESPONSABLE DE TIENDA
-            case 9: $menu = 'menu_maestro_pintor'; break;//MAESTRO PINTOR        
+            case 9: $menu = 'menu_maestro_pintor'; break;//MAESTRO PINTOR   
+            case 10: $menu = 'menu_administrador_strategix_sistemas'; break;//ADMINISTRADOR STRATEGIX SISTEMAS
         }
         return $this->load->view('template/sistema/menu/'.$menu,'',true);
     }
@@ -231,6 +232,10 @@ class Base_Controller extends CI_Controller {
     public function base_controller_valida_corte($tipo,$anio='',$mes='',$CorteIdOtro='') {
         return ($this->Base_Model->base_model_valida_corte($tipo,$anio,$mes,$CorteIdOtro)==0)?0:1;
     }
+
+    public function base_controller_valida_recompensas($anio='',$mes='',$mes_anterior='') {
+        return ($this->Base_Model->base_model_valida_recompensas($anio,$mes,$mes_anterior)==0)?0:1;
+    } 
     public function base_controller_valida_ventas($anio,$mes,$mes_anterior) {
         return ($this->Base_Model->base_model_valida_ventas($anio,$mes,$mes_anterior)==0)?0:1;
     }    

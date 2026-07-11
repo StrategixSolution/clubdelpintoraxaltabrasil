@@ -65,7 +65,7 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
         $res    = $query->result(); 
         $id     = $res[0]->last_id;
         //echo  $this->db->last_query()."<br>";        
-        $SQL2    = "INSERT INTO UsuariosDetalles (UsuarioId,UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleExtension,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCiudad,UsuarioDetalleTallaId,UsuarioDetalleFechaNacimiento,UsuarioDetallePuestoId,UsuarioDetalleNombreTaller,UsuarioDetallePersonasTaller,UsuarioDetalleAutosPorsemana,UsuarioDetalleUsuarioIdRegistro,UsuarioDetalleSessionId,UsuarioDetalleObservaciones,UsuarioDetalleClave) VALUES ($id,$dataDetalle)";
+        $SQL2    = "INSERT INTO UsuariosDetalles (UsuarioId,UsuarioDetalleNombre,UsuarioDetalleEmail,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCiudad,UsuarioDetalleTallaId,UsuarioDetalleFechaNacimiento,UsuarioDetallePuestoId,UsuarioDetalleNombreTaller,UsuarioDetallePersonasTaller,UsuarioDetalleAutosPorsemana,UsuarioDetalleUsuarioIdRegistro,UsuarioDetalleSessionId,UsuarioDetalleObservaciones,UsuarioDetalleClave) VALUES ($id,$dataDetalle)";
         $this->db->query($SQL2);
         $DistribuidoraId = $distribuidora_clean;
         $SQL3    = "INSERT INTO UsuariosDistribuidores (UsuarioId,DistribuidorId) VALUES ($id,$DistribuidoraId)"; $this->db->query($SQL3); //echo  $this->db->last_query()."<br>";

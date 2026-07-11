@@ -20,7 +20,7 @@ VentasAuditorias.VentaAuditoriaId,
 Ventas.TarjetaId, 
 Tarjetas.TarjetaNumero, 
 Ventas.VentaUsuarioIdMP, 
-RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP,
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) AS VentaUsuarioNombreMP,
 Ventas.DistribuidorId, 
 DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo, 
@@ -66,7 +66,7 @@ Ventas.VentaId,
 Ventas.TarjetaId, 
 Tarjetas.TarjetaNumero, 
 Ventas.VentaUsuarioIdMP, 
-RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP,
+RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) AS VentaUsuarioNombreMP,
 Ventas.DistribuidorId, 
 DistribuidoresDetalles.DistribuidorDetalleId, 
 DistribuidoresDetalles.DistribuidorDetalleCodigo, 
@@ -153,7 +153,7 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
     }
     public function ventas_auditoria_rechazados_model_maestro_pintor_informacion($numero_tarjeta){
         $numero_tarjeta_clean = $this->security->xss_clean($numero_tarjeta);
-        $SQL    = "SELECT Usuarios.UsuarioId, UsuariosDetalles.UsuarioDetalleId, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos, Tarjetas.TarjetaNumero, UsuariosDetalles.UsuarioDetalleEmail,UsuariosDetalles.UsuarioDetalleCelular, UsuariosDetalles.UsuarioDetalleRFC,Tarjetas.TarjetaId FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Tarjetas.TarjetaFechaBaja IS NULL) AND (Tarjetas.TarjetaEstatusId = 2) AND (Tarjetas.TarjetaNumero = ?)";
+        $SQL    = "SELECT Usuarios.UsuarioId, UsuariosDetalles.UsuarioDetalleId, UsuariosDetalles.UsuarioDetalleNombre,  Tarjetas.TarjetaNumero, UsuariosDetalles.UsuarioDetalleEmail,UsuariosDetalles.UsuarioDetalleCelular, UsuariosDetalles.UsuarioDetalleRFC,Tarjetas.TarjetaId FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Tarjetas.TarjetaFechaBaja IS NULL) AND (Tarjetas.TarjetaEstatusId = 2) AND (Tarjetas.TarjetaNumero = ?)";
         $query	= $this->db->query($SQL, array($numero_tarjeta_clean));
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row();
@@ -169,7 +169,7 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
         $numero_ticket_clean = $this->security->xss_clean($numero_ticket);
         $monto_ticket_clean = $this->security->xss_clean($monto_ticket);
         // Comentado: Tabla VentasHistoricosRechazos no existe en la base de datos
-        //$this->db->query("INSERT INTO VentasHistoricosRechazos (VentaId,TarjetaId,TarjetaNumero,VentaUsuarioIdMP,VentaUsuarioNombreMP,DistribuidorId,DistribuidorDetalleId,DistribuidorDetalleCodigo,DistribuidorDetalleRazonSocial,DistribuidorDetalleNombreComercial,UsuarioDetalleId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaFechaRegistro,VentaUsuarioIdRegistro,VentaUsuarioNombreRegistro,VentaFechaBaja,VentaUsuarioIdBaja,VentaSessionId,VentaHistoricoRechazoFechaRegistro,VentaHistoricoRechazoUsuarioIdRegistro,VentaHistoricoRechazoSessionId) SELECT Ventas.VentaId, Ventas.TarjetaId, Tarjetas.TarjetaNumero, Ventas.VentaUsuarioIdMP, RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreMP, Ventas.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleNombreComercial, UsuariosRegistro.UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, Ventas.VentaUsuarioIdRegistro, RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleSegundoNombre,'')) + ' ' + RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleApellidos,'')) AS VentaUsuarioNombreRegistro, Ventas.VentaFechaBaja, Ventas.VentaUsuarioIdBaja, Ventas.VentaSessionId, DATEADD(hour, 3, GETDATE()), ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", '$session_id' FROM Ventas INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId WHERE Ventas.VentaId = $VentaId");
+        //$this->db->query("INSERT INTO VentasHistoricosRechazos (VentaId,TarjetaId,TarjetaNumero,VentaUsuarioIdMP,VentaUsuarioNombreMP,DistribuidorId,DistribuidorDetalleId,DistribuidorDetalleCodigo,DistribuidorDetalleRazonSocial,DistribuidorDetalleNombreComercial,UsuarioDetalleId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaFechaRegistro,VentaUsuarioIdRegistro,VentaUsuarioNombreRegistro,VentaFechaBaja,VentaUsuarioIdBaja,VentaSessionId,VentaHistoricoRechazoFechaRegistro,VentaHistoricoRechazoUsuarioIdRegistro,VentaHistoricoRechazoSessionId) SELECT Ventas.VentaId, Ventas.TarjetaId, Tarjetas.TarjetaNumero, Ventas.VentaUsuarioIdMP, RTRIM(ISNULL(UsuariosMaestroPintor.UsuarioDetalleNombre,'')) AS VentaUsuarioNombreMP, Ventas.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleNombreComercial, UsuariosRegistro.UsuarioDetalleId, Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, Ventas.VentaUsuarioIdRegistro, RTRIM(ISNULL(UsuariosRegistro.UsuarioDetalleNombre,'')) AS VentaUsuarioNombreRegistro, Ventas.VentaFechaBaja, Ventas.VentaUsuarioIdBaja, Ventas.VentaSessionId, DATEADD(hour, 3, GETDATE()), ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).", '$session_id' FROM Ventas INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId LEFT OUTER JOIN UsuariosDetalles UsuariosMaestroPintor ON (Ventas.VentaUsuarioIdMP = UsuariosMaestroPintor.UsuarioId AND UsuariosMaestroPintor.UsuarioDetalleFechaBaja IS NULL) LEFT OUTER JOIN DistribuidoresDetalles ON Ventas.DistribuidorId = DistribuidoresDetalles.DistribuidorId LEFT OUTER JOIN UsuariosDetalles UsuariosRegistro ON Ventas.VentaUsuarioIdRegistro = UsuariosRegistro.UsuarioId WHERE Ventas.VentaId = $VentaId");
              if($cargaarchivo == 1){
         $this->db->query("UPDATE Ventas SET VentaNumeroTicket = '$numero_ticket_clean',VentaMontoTicket = '$monto_ticket_clean',VentaFotoTicket = '$imagen' WHERE VentaId = $VentaId");
             }else{
@@ -244,4 +244,10 @@ LEFT OUTER JOIN VentasAuditoriasObservaciones ON VentasAuditorias.VentaAuditoria
         $query	= $this->db->query($SQL);
         //echo  $this->db->last_query()."<br>"; 
     }   
+
+    public function ventas_auditoria_rechazados_model_count_ticket($ticket, $id_dist, $ventaid){
+        $query	= $this->db->query("SELECT COUNT(VentaNumeroTicket) AS counter FROM Ventas WHERE VentaNumeroTicket = '$ticket' AND VentaFechaBaja is null  AND DistribuidorId= $id_dist AND VentaId<>$ventaid");
+      //  echo  $this->db->last_query()."<br>"; 
+        return $query->row();
+    }
 }

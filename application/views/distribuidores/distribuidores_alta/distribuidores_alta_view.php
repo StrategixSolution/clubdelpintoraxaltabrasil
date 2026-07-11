@@ -35,7 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div id="error"></div>
                                     </div>
                                 </div>
-                                <div class="dyncol col-lg-6" id="div_segundo_nombre">
+                                <div class="dyncol col-lg-6" id="div_nombre_comercial">
                                     <div class="form-group">
                                         <label
                                             for="txt_nombre_comercial"><?= $this->lang->line('distribuidores_alta_controller_lang_input_nombre_comercial') ?><span

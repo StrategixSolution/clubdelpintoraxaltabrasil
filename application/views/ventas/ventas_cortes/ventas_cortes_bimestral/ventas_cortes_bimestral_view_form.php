@@ -56,11 +56,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('#div_btn_crear_corte').hide();
             $('#div_btn_ver_corte').hide();
             $('#div_excel').hide();
-            var anio = $('#cmb_anio').val();
-            if (anio==0){
+            var cmb_anio = $('#cmb_anio').val();
+            if (cmb_anio==0){
                 $('#div_mes').hide(300);                 
             } else {
-                ventas_cortes_bimestral_view_form_js_peroiodo();
+                ventas_cortes_bimestral_view_form_js_periodo();
                 $('#div_mes').show(300); 
             }
         });
@@ -68,10 +68,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('#div_btn_crear_corte').hide();
             $('#div_btn_ver_corte').hide();
             $('#div_excel').hide();
-            var anio = $('#cmb_anio').val();
-            var mes = $('#cmb_periodo').val();
-            if (mes==0){                
-                $('#div_btn_crear_corte1').hide();
+            var cmb_anio = $('#cmb_anio').val();
+            var cmb_periodo = $('#cmb_periodo').val();
+            if (cmb_periodo==0){                
+                $('#div_btn_crear_corte').hide();
                 $('#div_btn_ver_corte').hide();    
             } else {                                      
                 $('#loader_panel').show();  
@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     type: 'POST',
                     url: 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller/ventas_cortes_bimestral_controller_valida_boton',
                     dataType: 'json',
-                     data: {anio:anio,mes:mes},
+                     data: {cmb_anio: cmb_anio, cmb_periodo: cmb_periodo},
                     success: function(data){                 
                         if(data==0){
                             $('#div_btn_crear_corte').show();
@@ -98,8 +98,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     function ventas_cortes_bimestral_view_form_js_anio(){
         $('#loader_panel').show();  
         $.ajax({
-            type: 'POST',
-            url: 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller/ventas_cortes_bimestral_controller_cmb_anios',
+            type: 'POST',      
+            url: 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller/ventas_cortes_bimestral_controller_combo_anios',
             dataType: 'json',
              data: {id:0},
             success: function(data){                 
@@ -109,12 +109,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             complete: function(){ $('#loader_panel').hide(); }
         });
     }
-    function ventas_cortes_bimestral_view_form_js_peroiodo(){
+    function ventas_cortes_bimestral_view_form_js_periodo(){
         $('#loader_panel').show();  
         var cmb_anio = $('#cmb_anio').val();
         $.ajax({
             type: 'POST',
-            url: 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller/ventas_cortes_bimestral_controller_cmb_mes',
+            url: 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller/ventas_cortes_bimestral_controller_combo_mes',
             dataType: 'json',
              data: {cmb_anio:cmb_anio},
             success: function(data){                 
@@ -125,14 +125,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
     }
     function ventas_cortes_bimestral_view_form_js_crear_corte(){  
-        var anio = $('#cmb_anio').val();
-        var mes = $('#cmb_periodo').val();
+        var cmb_anio = $('#cmb_anio').val();
+        var cmb_periodo = $('#cmb_periodo').val();
         $('#loader_panel').show();
         $.ajax({
             type: 'POST',
             url: 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller/ventas_cortes_bimestral_controller_creacion',
             dataType: 'json',
-             data: {anio:anio,mes:mes},
+             data: {cmb_anio: cmb_anio, cmb_periodo: cmb_periodo},
             success: function(data){
                 switch (data) {
                     case 1: Swal.fire({ icon: 'error',title: '',text: '<?=$this->lang->line('ventas_cortes_bimestral_controller_lang_js_msg_error_corte')?>'});break;                    
@@ -153,15 +153,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
     function ventas_cortes_bimestral_view_form_js_excel(){
         $('#loader_panel').show();
-        var anio = $('#cmb_anio').val();
-        var mes = $('#cmb_periodo').val();      
+        var cmb_anio = $('#cmb_anio').val();
+        var cmb_periodo = $('#cmb_periodo').val();      
         $.ajax({
             type: 'POST',
             url: 'ventas/ventas_cortes/ventas_cortes_bimestral/ventas_cortes_bimestral_controller/ventas_cortes_bimestral_controller_excel',
             dataType: 'json',
-            data: {anio:anio,mes:mes},
-            success: function(data){                
-               $(location).attr('href','<?=funciones_strategix_version_url_random_base_url("uploads/excel/cortes/corte_bimestral/CorteVentasBimestral.xlsx")?>');
+            data: {cmb_anio: cmb_anio, cmb_periodo: cmb_periodo},
+            success: function(data){    
+                 $(location).attr('href', data);            
+              // $(location).attr('href','<?=funciones_strategix_version_url_random_base_url("uploads/excel/cortes/corte_bimestral/CorteVentasBimestral.xlsx")?>');
             },
             error: function(data){ },
             complete: function(){ $('#loader_panel').hide(); }

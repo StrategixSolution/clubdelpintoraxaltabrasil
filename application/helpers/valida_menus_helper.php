@@ -31,6 +31,9 @@ function valida_menus($pagina,$perfilId){
         case 9: 
             $seguridad_menu = array('Cero');
             break; //MAESTRO PINTOR         
+        case 10: 
+            $seguridad_menu = array('Cero');
+            break; //ADMINISTRADOR STRATEGIX SISTEMAS
     }   
 //    echo "pertfil:".$perfilId."<br>";
 //    echo "pagina:".$pagina."<br>";

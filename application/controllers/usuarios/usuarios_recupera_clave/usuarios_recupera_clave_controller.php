@@ -34,7 +34,7 @@ class Usuarios_recupera_clave_controller extends Base_Controller {
             }
             if($usuarios_crea_clave_view_chk_whatsapp==1){ 
                 $res = $this->usuarios_recupera_clave_model->usuarios_recupera_clave_model_data_whatsapp($usuarios_crea_clave_view_txt_whatsapp); 
-                $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre . " ". $res->UsuarioDetalleSegundoNombre. " ". $res->UsuarioDetalleApellidos));
+                $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre));
                 $this->infobip_library->infobip_library_send_whatsapp(8,"+52".$usuarios_crea_clave_view_txt_whatsapp,'recuperacion_contrasena2','"'.$nombre.'"','es',$this->uniqueId);  
 
                 $data['tipo']=2;
@@ -93,7 +93,7 @@ class Usuarios_recupera_clave_controller extends Base_Controller {
         return $response;
     }      
     public function usuarios_recupera_clave_controller_envio_correo_recupera_clave($res) {
-        $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre . " ". $res->UsuarioDetalleSegundoNombre. " ". $res->UsuarioDetalleApellidos));        
+        $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre));        
         $data       = array('nombre'=> "$nombre","perfil"=>$res->PerfilDescripcion,'sessionId'=>$this->uniqueId);
         $mail       = $this->load->view('mails/mails_usuarios/mails_usuarios_recupera_clave/mails_usuarios_recupera_clave_view' ,$data, TRUE);
         $to         = array('to' => "$res->UsuarioDetalleEmail",'cc'=>0,'bcc'=>$this->config->item('bcc'));

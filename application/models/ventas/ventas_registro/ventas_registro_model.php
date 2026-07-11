@@ -41,7 +41,7 @@ class Ventas_registro_model extends Base_Model {
     }
     public function ventas_registro_model_maestro_pintor_informacion($numero_tarjeta){
         $numero_tarjeta_clean = $this->security->xss_clean($numero_tarjeta);
-        $SQL    = "SELECT Usuarios.UsuarioId, UsuariosDetalles.UsuarioDetalleId, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos, Tarjetas.TarjetaNumero, UsuariosDetalles.UsuarioDetalleEmail,UsuariosDetalles.UsuarioDetalleCelular, UsuariosDetalles.UsuarioDetalleRFC,Tarjetas.TarjetaId FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Tarjetas.TarjetaFechaBaja IS NULL) AND (Tarjetas.TarjetaEstatusId = 2) AND (Tarjetas.TarjetaNumero = ?)";
+        $SQL    = "SELECT Usuarios.UsuarioId, UsuariosDetalles.UsuarioDetalleId, UsuariosDetalles.UsuarioDetalleNombre, Tarjetas.TarjetaNumero, UsuariosDetalles.UsuarioDetalleEmail,UsuariosDetalles.UsuarioDetalleCelular, UsuariosDetalles.UsuarioDetalleRFC,Tarjetas.TarjetaId FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Tarjetas.TarjetaFechaBaja IS NULL) AND (Tarjetas.TarjetaEstatusId = 2) AND (Tarjetas.TarjetaNumero = ?)";
         $query	= $this->db->query($SQL, array($numero_tarjeta_clean));
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row();
@@ -70,15 +70,15 @@ class Ventas_registro_model extends Base_Model {
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->VentaDetalleGalonDescripcion;
     }
-    public function ventas_registro_model_guardar_venta($numero_tarjeta,$numero_ticket,$monto_ticket,$imagen,$session_id,$maestro_pintor,$DistribuidorId){
+    public function ventas_registro_model_guardar_venta($numero_tarjeta,$numero_ticket,$monto_ticket,$imagen,$session_id,$maestro_pintor,$DistribuidorId,$total_monto_detalle,$total_cantidad,$VentaCantidadProdcutos){
         $numero_tarjeta_clean = $this->security->xss_clean($numero_tarjeta);
         $numero_ticket_clean = $this->security->xss_clean($numero_ticket);
         $monto_ticket_clean = $this->security->xss_clean($monto_ticket);
         $ditribuidor = $this->ventas_registro_model_datos_distribuidor($DistribuidorId);   
-        $nombre_maestro_pintor = strtoupper($maestro_pintor->UsuarioDetalleNombre) ." ". strtoupper($maestro_pintor->UsuarioDetalleSegundoNombre)." ". strtoupper($maestro_pintor->UsuarioDetalleApellidos);
+        $nombre_maestro_pintor = strtoupper($maestro_pintor->UsuarioDetalleNombre);
         // Simplificado: Solo columnas que existen en tabla Ventas después de desnormalización
-        $SQL    = "INSERT INTO Ventas (TarjetaId,VentaUsuarioIdMP,DistribuidorId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaUsuarioIdRegistro,VentaSessionId) VALUES (?,?,?,?,?,?,?,?)";
-        $this->db->query($SQL, array($maestro_pintor->TarjetaId,$maestro_pintor->UsuarioId,$ditribuidor->DistribuidorId,$numero_ticket_clean,$monto_ticket_clean,$imagen,$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')),$session_id));
+        $SQL    = "INSERT INTO Ventas (TarjetaId,VentaUsuarioIdMP,DistribuidorId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaUsuarioIdRegistro,VentaSessionId,VentaDetalleMontoTicket,VentaDetalleTotalCantidadProdcutos,VentaDetalleCantidadProdcutos) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        $this->db->query($SQL, array($maestro_pintor->TarjetaId,$maestro_pintor->UsuarioId,$ditribuidor->DistribuidorId,$numero_ticket_clean,$monto_ticket_clean,$imagen,$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')),$session_id,$total_monto_detalle,$total_cantidad,$VentaCantidadProdcutos));
 //        echo  $this->db->last_query()."<br>"; 
         $query  = $this->db->query("SELECT IDENT_CURRENT('Ventas') as last_id"); $res = $query->result(); $id = $res[0]->last_id;
         return $id;

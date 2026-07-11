@@ -19,7 +19,7 @@ class Ventas_auditoria_segunda_model extends Base_Model {
         /******************************************** TABLA DE AUDITORIAS ******************************************/
         $SQL1 = "SELECT Ventas.VentaId, VentasAuditorias.VentaAuditoriaId, Tarjetas.TarjetaNumero, 
         UsuariosMaestroPintor.UsuarioId as VentaUsuarioIdMP, 
-        CONCAT_WS(' ', UsuariosMaestroPintor.UsuarioDetalleNombre, UsuariosMaestroPintor.UsuarioDetalleSegundoNombre, UsuariosMaestroPintor.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP,
+        UsuariosMaestroPintor.UsuarioDetalleNombre AS VentaUsuarioNombreMP,
         DistribuidoresDetalles.DistribuidorId, 
         DistribuidoresDetalles.DistribuidorDetalleId, 
         DistribuidoresDetalles.DistribuidorDetalleCodigo, 
@@ -53,7 +53,7 @@ class Ventas_auditoria_segunda_model extends Base_Model {
 Ventas.VentaId, 
         Tarjetas.TarjetaNumero, 
         UsuariosMaestroPintor.UsuarioId as VentaUsuarioIdMP, 
-        CONCAT_WS(' ', UsuariosMaestroPintor.UsuarioDetalleNombre, UsuariosMaestroPintor.UsuarioDetalleSegundoNombre, UsuariosMaestroPintor.UsuarioDetalleApellidos ) AS VentaUsuarioNombreMP, 
+        UsuariosMaestroPintor.UsuarioDetalleNombre AS VentaUsuarioNombreMP,
         DistribuidoresDetalles.DistribuidorId ,
         DistribuidoresDetalles.DistribuidorDetalleCodigo,
         DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 

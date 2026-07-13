@@ -15,9 +15,6 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
     public function usuarios_actualizar_datos_controller_datos() {
         $data = array();
         $data['txt_nombre']             = utf8_encode($this->participante->UsuarioDetalleNombre);
-        $data['txt_segundo_nombre']     = utf8_encode($this->participante->UsuarioDetalleSegundoNombre);
-        $data['txt_apellidos']   = utf8_encode($this->participante->UsuarioDetalleApellidos);
-        $data['txt_telefono']           = utf8_encode($this->participante->UsuarioDetalleTelefono);              
         $data['txt_email']              = utf8_encode($this->participante->UsuarioDetalleEmail);
         $data['txt_celular']            = utf8_encode(strtoupper($this->participante->UsuarioDetalleCelular));
         $data['txt_rfc']                = utf8_encode(strtoupper($this->participante->UsuarioDetalleRFC));    
@@ -34,32 +31,26 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
     }
     private function usuarios_actualizar_datos_controller_set_rules() {
         $this->form_validation->set_rules('txt_nombre', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_nombre'), 'required|xss_clean|min_length[1]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');
-        $this->form_validation->set_rules('txt_segundo_nombre', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_segundo_nombre'), 'trim|xss_clean|min_length[1]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');
-        $this->form_validation->set_rules('txt_apellidos', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_apellido_paterno'), 'required|xss_clean|trim|min_length[1]|max_length[50]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');        
-        $this->form_validation->set_rules('txt_email', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_email'), 'required|valid_email|xss_clean|min_length[10]|max_length[50]|callback_usuarios_actualizar_datos_controller_valida_email_repetido');
-        $this->form_validation->set_rules('txt_telefono', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_telefono'), 'numeric|xss_clean|exact_length[10]');
-        $this->form_validation->set_rules('txt_celular', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_celular'), 'numeric|xss_clean|exact_length[10]|callback_usuarios_actualizar_datos_controller_valida_celular_repetido');
+         $this->form_validation->set_rules('txt_email', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_email'), 'required|valid_email|xss_clean|min_length[10]|max_length[50]|callback_usuarios_actualizar_datos_controller_valida_email_repetido');
+       $this->form_validation->set_rules('txt_celular', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_celular'), 'numeric|xss_clean|exact_length[10]|callback_usuarios_actualizar_datos_controller_valida_celular_repetido');
         $this->form_validation->set_rules('txt_clave_nueva', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_clave'), 'required|xss_clean|trim|min_length[6]|callback_usuarios_actualizar_datos_controller_valida_clave');
         if($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id'))>=6){
             $this->form_validation->set_rules('txt_rfc', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_rfc'), 'trim|min_length[10]|regex_match[/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/]|callback_usuarios_actualizar_datos_controller_valida_rfc');
         } 
     }
     private function usuarios_actualizar_datos_controller_form_error() {        
-        $json = $json_pais = $json_perfil = $json_nombre = $json_segundo_nombre = $json_apellidos = $json_email = $json_telefono = $json_rfc = $json_email = $json_celular = $json_clave_nueva = array();
+        $json = $json_nombre  = $json_email = $json_rfc = $json_email = $json_celular = $json_clave_nueva = array();
         if (!$this->form_validation->run()) {
             if (!empty(form_error('txt_nombre')))           { $json_nombre              =  array('txt_nombre' => form_error('txt_nombre', '<small class="mt-3 text-danger">', '</small>')); }
-            if (!empty(form_error('txt_segundo_nombre')))   { $json_segundo_nombre      =  array('txt_segundo_nombre' => form_error('txt_segundo_nombre', '<small class="mt-3 text-danger">', '</small>')); }
-            if (!empty(form_error('txt_apellidos')))        { $json_apellidos           =  array('txt_apellidos' => form_error('txt_apellidos', '<small class="mt-3 text-danger">', '</small>')); }                
             if (!empty(form_error('txt_email')))            { $json_email               =  array('txt_email' => form_error('txt_email', '<small class="mt-3 text-danger">', '</small>')); }
-            if (!empty(form_error('txt_telefono')))         { $json_telefono            =  array('txt_telefono' => form_error('txt_telefono', '<small class="mt-3 text-danger">', '</small>')); }
             if (!empty(form_error('txt_celular')))          { $json_celular             =  array('txt_celular' => form_error('txt_celular', '<small class="mt-3 text-danger">', '</small>')); }
             if (!empty(form_error('txt_clave_nueva')))      { $json_clave_nueva         =  array('txt_clave_nueva' => form_error('txt_clave_nueva', '<small class="mt-3 text-danger">', '</small>')); }
             if($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id'))>=6){
             if (!empty(form_error('txt_rfc'))) { 
                 $json_rfc =  array('txt_rfc' => form_error('txt_rfc', '<small class="mt-3 text-danger">', '</small>')); }
-                $json = array_merge($json_nombre,$json_segundo_nombre,$json_apellidos,$json_telefono,$json_email,$json_celular,$json_rfc,$json_clave_nueva);
+                $json = array_merge($json_nombre,$json_email,$json_celular,$json_rfc,$json_clave_nueva);
             } else {
-                $json = array_merge($json_nombre,$json_segundo_nombre,$json_apellidos,$json_telefono,$json_email,$json_celular,$json_clave_nueva);
+                $json = array_merge($json_nombre,$json_email,$json_celular,$json_clave_nueva);
             }
             return $json;
         } else {
@@ -122,13 +113,13 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
         $txt_rfc_trim   = trim($this->input->post('txt_rfc',TRUE)); $txt_rfc_utf8_decode = utf8_encode($txt_rfc_trim); $txt_rfc = strtoupper($txt_rfc_utf8_decode);
         $cp = (empty($this->participante->UsuarioDetalleCP))?"NULL":$this->participante->UsuarioDetalleCP;
         if ($this->session->userdata(funciones_strategix_sitio_alias("s_perfil_id"))<=5){
-           $datos = "'". utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellidos',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."'";
+           $datos = "'". utf8_decode($this->input->post('txt_nombre',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."'";
         } else {
-           $datos = "'".utf8_decode($this->input->post('txt_nombre',TRUE))."','".utf8_decode($this->input->post('txt_segundo_nombre',TRUE))."','".utf8_decode($this->input->post('txt_apellidos',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_telefono',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."','".$txt_rfc."'";
+           $datos = "'".utf8_decode($this->input->post('txt_nombre',TRUE))."','".$txt_clave."','".$this->input->post('txt_email',TRUE)."','".$this->input->post('txt_celular',TRUE)."','".$this->uniqueId."','".$txt_rfc."'";
         }        
         $resultado_update = $this->usuarios_actualizar_datos_model->usuarios_actualizar_datos_model_update_usaurio($this->participante->UsuarioDetalleId,$datos,$this->input->post('txt_email',TRUE),$this->uniqueId);
         if ($resultado_update==1){ 
-            $nombre_usuario = $this->input->post('txt_nombre',TRUE)." ".$this->input->post('txt_segundo_nombre',TRUE)." ".$this->input->post('txt_apellidos',TRUE);
+            $nombre_usuario = $this->input->post('txt_nombre',TRUE);
             $this->session->set_userdata(funciones_strategix_sitio_alias('s_actualiza_datos'),1); 
             $this->session->set_userdata(funciones_strategix_sitio_alias('s_usuario_nombre'),$nombre_usuario);
             return 1; 

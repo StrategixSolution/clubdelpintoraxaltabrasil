@@ -39,8 +39,7 @@ class Productos_reposicion_captura_model extends Base_Model {
         return $query->result();    
     }
     public function productos_reposicion_captura_model_cmb_participantes($mes,$anio,$idDitri){
-        $SQL = "SELECT distinct       ReposicionesProductosGanadores.ReposicionProductoGanadorId, ReposicionesProductosGanadores.ReposicionProductoGanadorPremioLugar, ReposicionesProductosGanadores.TarjetaId, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, 
-                         UsuariosDetalles.UsuarioDetalleApellidos
+        $SQL = "SELECT distinct       ReposicionesProductosGanadores.ReposicionProductoGanadorId, ReposicionesProductosGanadores.ReposicionProductoGanadorPremioLugar, ReposicionesProductosGanadores.TarjetaId, UsuariosDetalles.UsuarioDetalleNombre
                 FROM     ReposicionesProductosGanadores INNER JOIN
                          Tarjetas ON ReposicionesProductosGanadores.TarjetaId = Tarjetas.TarjetaId INNER JOIN
                          Usuarios ON Tarjetas.UsuarioId = Usuarios.UsuarioId INNER JOIN

@@ -44,7 +44,7 @@ class Reportes_maestro_pintores_model extends Base_Model {
         $SQL = "SELECT 
                   Usuarios.UsuarioId,
                   Usuarios.UsuarioFechaRegistro, 
-                  concat (UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos )as nombre, 
+                  UsuariosDetalles.UsuarioDetalleNombre as nombre, 
                   UsuariosDetalles.UsuarioDetalleEmail, 
                   UsuariosDetalles.UsuarioDetalleCelular,
                   UsuariosDetalles.UsuarioDetalleCiudad, 
@@ -61,9 +61,7 @@ class Reportes_maestro_pintores_model extends Base_Model {
                   Tarjetas.TarjetaNumero, 
                   Perfiles.PerfilId ,
                   Perfiles.PerfilDescripcion ,
-                  (SELECT  ud2.UsuarioDetalleNombre + ' ' + 
-                                        ISNULL(ud2.UsuarioDetalleSegundoNombre, '') + ' ' + 
-                                        ud2.UsuarioDetalleApellidos
+                  (SELECT  ud2.UsuarioDetalleNombre
                                   FROM usuarios u_ej
                                   INNER JOIN UsuariosDetalles ud2 ON ud2.UsuarioId = u_ej.UsuarioId
                                   INNER JOIN perfiles p ON u_ej.PerfilId = p.PerfilId
@@ -118,7 +116,7 @@ class Reportes_maestro_pintores_model extends Base_Model {
                     Usuarios.UsuarioId,
                     Usuarios.UsuarioFechaBajaParticipante, 
                     Usuarios.UsuarioFechaRegistro, 
-                    concat (UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos)as nombre, 
+                    UsuariosDetalles.UsuarioDetalleNombre as nombre, 
                     DistribuidoresDetalles.DistribuidorDetalleCodigo, 
                     DistribuidoresDetalles.DistribuidorDetalleRazonSocial 
                     FROM Usuarios 
@@ -141,9 +139,7 @@ class Reportes_maestro_pintores_model extends Base_Model {
                     DistribuidoresDetalles.DistribuidorDetalleUnidadFederativa, 
                     DistribuidoresDetalles.DistribuidorDetalleCiudad, 
                     DistribuidoresDetalles.DistribuidorDetalleBarrio,
-                    (SELECT  ud2.UsuarioDetalleNombre + ' ' + 
-                       ISNULL(ud2.UsuarioDetalleSegundoNombre, '') + ' ' + 
-                       ud2.UsuarioDetalleApellidos
+                    (SELECT  ud2.UsuarioDetalleNombre
                 FROM usuarios u_ej
                 INNER JOIN UsuariosDetalles ud2 ON ud2.UsuarioId = u_ej.UsuarioId
                 INNER JOIN perfiles p ON u_ej.PerfilId = p.PerfilId

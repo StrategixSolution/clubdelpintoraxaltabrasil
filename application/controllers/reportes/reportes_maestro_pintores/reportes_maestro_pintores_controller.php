@@ -41,7 +41,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $txt_nombre_mp = utf8_decode($txt_nombre_mp);
         $lista = $where = "";
         $where .= ($cmb_distribuidor != 0) ? "AND DistribuidoresDetalles.DistribuidorId =" . $cmb_distribuidor . " " : "";
-        $where .= ($txt_nombre_mp != "" ) ? "AND CONCAT(UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos) LIKE '%" . $txt_nombre_mp . "%' " : "";
+        $where .= ($txt_nombre_mp != "" ) ? "AND UsuariosDetalles.UsuarioDetalleNombre LIKE '%" . $txt_nombre_mp . "%' " : "";
         $maestros = $this->reportes_maestro_pintores_model->reportes_maestro_pintores_model_crea_tabla($where);
         foreach ($maestros as $row) {
             $fecha_registro = date("Y-m-d", strtotime($row->UsuarioFechaRegistro));
@@ -153,7 +153,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $sheet->getStyle('A1:O1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $where = "";
         $where .= ($cmb_distribuidor != 0) ? "AND DistribuidoresDetalles.DistribuidorId =" . $cmb_distribuidor . " " : "";
-        $where .= ($txt_nombre_mp != "" ) ? "AND CONCAT(UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos) LIKE '%" . $txt_nombre_mp . "%' " : "";
+        $where .= ($txt_nombre_mp != "" ) ? "AND (UsuariosDetalles.UsuarioDetalleNombre LIKE '%" . $txt_nombre_mp . "%') " : "";
         $maestros = $this->reportes_maestro_pintores_model->reportes_maestro_pintores_model_crea_tabla($where);
         $fila = 2;
         foreach ($maestros as $row) {
@@ -202,7 +202,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $sheet->getStyle('A1:C1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $where = "";
         $where .= ($cmb_distribuidor != 0) ? "AND DistribuidoresDetalles.DistribuidorId =" . $cmb_distribuidor . " " : "";
-        $where .= ($txt_nombre_mp != "" ) ? "AND CONCAT(UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos) LIKE '%" . $txt_nombre_mp . "%' " : "";
+        $where .= ($txt_nombre_mp != "" ) ? "AND (UsuariosDetalles.UsuarioDetalleNombre LIKE '%" . $txt_nombre_mp . "%')" : "";
         $maestrospintores = $this->reportes_maestro_pintores_model->reportes_usuarios_maestros_pintores_model_tabla_registros_por_mes($where);
         $x = 2;
         foreach ($maestrospintores as $row) {
@@ -241,7 +241,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $sheet->getStyle('A1:F1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
           $where = "";
        $where .= ($cmb_distribuidor != 0) ? "AND DistribuidoresDetalles.DistribuidorId =" . $cmb_distribuidor . " " : "";
-        $where .= ($txt_nombre_mp != "" ) ? "AND CONCAT(UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos) LIKE '%" . $txt_nombre_mp . "%' " : "";
+        $where .= ($txt_nombre_mp != "" ) ? "AND (UsuariosDetalles.UsuarioDetalleNombre LIKE '%" . $txt_nombre_mp . "%')" : "";
         $maestrospintores = $this->reportes_maestro_pintores_model->reportes_usuarios_maestros_pintores_model_tabla_bajas($where);
         $x = 2;
         foreach ($maestrospintores as $row) {
@@ -288,7 +288,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $sheet->getStyle('A1:G1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
           $where = "";
         $where .= ($cmb_distribuidor != 0) ? "AND DistribuidoresDetalles.DistribuidorId =" . $cmb_distribuidor . " " : "";
-        $where .= ($txt_nombre_mp != "" ) ? "AND CONCAT(UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos) LIKE '%" . $txt_nombre_mp . "%' " : "";
+        $where .= ($txt_nombre_mp != "" ) ? "AND (UsuariosDetalles.UsuarioDetalleNombre LIKE '%" . $txt_nombre_mp . "%')" : "";
         $distribiudores = $this->reportes_maestro_pintores_model->reportes_usuarios_maestros_pintores_model_por_distribuidores($where);
         $x = 2;
         foreach ($distribiudores as $row) {
@@ -327,7 +327,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $sheet->getStyle('A1:B1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
          $where = "";
         $where .= ($cmb_distribuidor != 0) ? "AND DistribuidoresDetalles.DistribuidorId =" . $cmb_distribuidor . " " : "";
-        $where .= ($txt_nombre_mp != "" ) ? "AND CONCAT(UsuariosDetalles.UsuarioDetalleNombre,' ',UsuariosDetalles.UsuarioDetalleSegundoNombre,' ',UsuariosDetalles.UsuarioDetalleApellidos) LIKE '%" . $txt_nombre_mp . "%' " : "";
+        $where .= ($txt_nombre_mp != "" ) ? "AND (UsuariosDetalles.UsuarioDetalleNombre LIKE '%" . $txt_nombre_mp . "%')" : "";
         $estados = $this->reportes_maestro_pintores_model->reportes_usuarios_maestros_pintores_model_por_ciudad($where);
         $x = 2;
         foreach ($estados as $row) {

@@ -47,7 +47,7 @@ $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_detalle']           
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_nombre']                         = 'NOME:';
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_email']                          = 'E-MAIL:';
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_celular']                        = 'CELULAR:';
-$lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_rfc']                            = 'NIT:';
+$lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_rfc']                            = 'CPF:';
 $lang['ventas_auditoria_rechazados_controller_lang_input_numero_tarjeta']                                   = '*NÚMERO DO CARTÃO:';
 $lang['ventas_auditoria_rechazados_controller_lang_tooltip_numero_tarjeta']                                 = '*CAMPO OBRIGATÓRIO *ESCANEIE O NÚMERO COM SUA CÂMERA OU ESCREVA SOMENTE NÚMEROS MÁXIMO 6 DÍGITOS';
 $lang['ventas_auditoria_rechazados_controller_lang_placeholder_numero_tarjeta']                             = 'NÚMERO DO CARTÃO';

@@ -30,29 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="error"></div>
                         </div>
                     </div>
-                    <div class="dyncol col-lg-3" id="div_segundo_nombre">
-                        <div class="form-group">
-                            <label for="txt_segundonombre">Segundo Nombre: <span data-toggle='tooltip' title='*MÁXIMO 100 CARACTERES *SOLO TEXTO'><i class="fas fa-question-circle"></i></span></label>
-                            <input type="text" name="txt_segundonombre" id="txt_segundonombre" class="form-control txt-mayus" placeholder="<?=$this->lang->line('usuarios_registro_maestro_pintor_placeholder_segundo_nombre')?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
-                            <div class="error"></div>
-                        </div>
-                    </div>
-                    <div class="dyncol col-lg-3">
-                        <div class="form-group">
-                            <label for="txt_apellidopaterno">Apellido Paterno: <span data-toggle='tooltip' title='*MÁXIMO 100 CARACTERES *CAMPO OBLIGATORIO *SOLO TEXTO'><i class="fas fa-question-circle"></i></span></label>
-                            <input type="text" name="txt_apellidopaterno" id="txt_apellidopaterno" class="form-control txt-mayus" placeholder="<?=$this->lang->line('usuarios_registro_maestro_pintor_placeholder_apaterno')?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
-                            <div class="error"></div>
-                        </div>
-                    </div>
                 </div>
                 <div class="row row-validator">
-                    <div class="dyncol col-lg-3">
-                        <div class="form-group">
-                            <label for="txt_apellidomaterno">Apellido Materno: <span data-toggle='tooltip' title='*MÁXIMO 100 CARACTERES *CAMPO OBLIGATORIO *SOLO TEXTO'><i class="fas fa-question-circle"></i></span></label>
-                            <input type="text" name="txt_apellidomaterno" id="txt_apellidomaterno" class="form-control txt-mayus" placeholder="<?=$this->lang->line('usuarios_registro_maestro_pintor_placeholder_amaterno')?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
-                            <div class="error"></div>
-                        </div>
-                    </div>
                     <div class="dyncol col-lg-3" >
                         <div class="form-group">
                             <label for="txt_celular">Celular: <span data-toggle='tooltip' title='*10 CARACTERES *SOLO NÚMEROS *CAMPO OBLIGATORIO'><i class="fas fa-question-circle"></i></span></label>

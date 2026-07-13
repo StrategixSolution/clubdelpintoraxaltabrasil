@@ -21,7 +21,7 @@ class Tarjetas_altas_model extends Base_Model
     }    
     public function tarjetas_altas_model_crea_tabla($where){
         $SQL = "SELECT Tarjetas.TarjetaId, Tarjetas.TarjetaNumero, Tarjetas.DistribuidorId, FORMAT(Tarjetas.TarjetaFechaRegistro, 'dd/MM/yyyy') AS TarjetaFechaRegistro, Tarjetas.TarjetaEstatusId, TarjetasEstatus.TarjetaEstatusDescripcion, 
-                Tarjetas.TarjetaUsuarioIdCaptura, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos, 
+                Tarjetas.TarjetaUsuarioIdCaptura, UsuariosDetalles.UsuarioDetalleNombre, 
                 UsuariosDetalles.UsuarioId,  DistribuidoresDetalles.DistribuidorDetalleNombreComercial,DistribuidoresDetalles.DistribuidorDetalleRazonSocial
                 FROM Tarjetas LEFT OUTER JOIN
                 Usuarios ON Usuarios.UsuarioId = Tarjetas.UsuarioId LEFT OUTER JOIN

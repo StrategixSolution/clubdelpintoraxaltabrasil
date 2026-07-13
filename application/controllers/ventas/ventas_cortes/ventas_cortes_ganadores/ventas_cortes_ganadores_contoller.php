@@ -38,21 +38,24 @@ class Ventas_cortes_ganadores_contoller extends Base_Controller {
         if ($this->ventas_cortes_ganadores_contoller_valida_corte($cmb_anio,$cmb_mes)==1){ $data['res'] = 1; echo json_encode($data); return false;}
         if ($this->ventas_cortes_ganadores_contoller_valida_ventas($cmb_anio,$cmb_mes,$mes_anterior)==0){ $data['res'] = 2; echo json_encode($data); return false;}
         if ($this->ventas_cortes_ganadores_contoller_valida_auditoria($cmb_anio,$cmb_mes,$mes_anterior)==1){ $data['res'] = 3; echo json_encode($data); return false;}
+        if ($this->ventas_cortes_ganadores_contoller_valida_recompensas($cmb_anio,$cmb_mes,$mes_anterior)==0){ $data['res'] = 5; echo json_encode($data); return false;}
         $corte_id = $this->base_controller_guarda_corte(2,$cmb_anio,$cmb_mes,0);
         $ventas_acumuladas  = $this->ventas_cortes_ganadores_model->ventas_cortes_ganadores_model_ganadores($cmb_anio,$cmb_mes,$mes_anterior);
         foreach ($ventas_acumuladas as $row) {
-            $recompensas = $this->ventas_cortes_ganadores_model->ventas_cortes_ganadores_model_recompensas($cmb_anio,$cmb_mes,$row->suma_monto);
+             $suma_productos = $this->ventas_cortes_ganadores_model->ventas_cortes_ganadores_model_ventas_total($cmb_anio,$cmb_mes,$mes_anterior,$row->UsuarioId,$row->DistribuidorId);
+          if (isset($suma_productos)) {$suma_productos = $suma_productos;} else{$suma_productos =0;}
+            $recompensas = $this->ventas_cortes_ganadores_model->ventas_cortes_ganadores_model_recompensas($cmb_anio,$cmb_mes,$suma_productos);
             if (!empty($recompensas)){ 
                 $lugar = $recompensas->RecompensaPremioLugar; 
-                $data_corte_ganadores = "$corte_id,$cmb_anio,$cmb_mes,$lugar,".$row->suma_monto.",".$row->cuenta_ventas.",".$row->DistribuidorId.",".$recompensas->RecompensaTipoId.",".$row->TarjetaId.",".$row->VentaUsuarioIdMP;
+                $data_corte_ganadores = "$corte_id,$cmb_anio,$cmb_mes,$lugar,".$suma_productos.",".$row->cuenta_ventas.",".$row->DistribuidorId.",".$recompensas->RecompensaTipoId.",".$row->TarjetaId.",".$row->VentaUsuarioIdMP;
                 $this->base_controller_guarda_corte_detalle("CortesGanadores",$data_corte_ganadores);
-                $data_reposiciones_productos_ganadores = "$cmb_anio,$cmb_mes,$lugar,".$row->suma_monto.",".$row->cuenta_ventas.",'GENERACION GANADORES',".$row->DistribuidorId.",".$row->TarjetaId.",".$recompensas->RecompensaTipoId.",".$row->UsuarioId;
+                $data_reposiciones_productos_ganadores = "$cmb_anio,$cmb_mes,$lugar,".$suma_productos.",".$row->cuenta_ventas.",'GENERACION GANADORES',".$row->DistribuidorId.",".$row->TarjetaId.",".$recompensas->RecompensaTipoId.",".$row->UsuarioId;
                 $this->ventas_cortes_ganadores_model->ventas_cortes_ganadores_model_reposiciones_productos_ganadores($data_reposiciones_productos_ganadores);
             $lista.= '<tr>
                         <td>'.$cmb_anio.'</td>
                         <td>'.$cmb_mes.'</td>
                         <td>'.$lugar.'</td>
-                        <td>'.number_format($row->suma_monto,2).'</td>
+                        <td>'.number_format($suma_productos,2).'</td>
                         <td>'.$row->cuenta_ventas.'</td>
                         <td>'.$row->TarjetaNumero.'</td>
                         <td>'.$row->DistribuidorDetalleCodigo.'</td>
@@ -75,5 +78,8 @@ class Ventas_cortes_ganadores_contoller extends Base_Controller {
     }      
     public function ventas_cortes_ganadores_contoller_valida_auditoria($cmb_anio,$cmb_mes,$mes_anterior) {
         return $this->base_controller_valida_ventas_auditoria($cmb_anio,$cmb_mes,$mes_anterior);
+    }
+    private function ventas_cortes_ganadores_contoller_valida_recompensas($cmb_anio,$cmb_mes,$mes_anterior) {
+        return $this->base_controller_valida_recompensas($cmb_anio,$cmb_mes,$mes_anterior);
     }
 }

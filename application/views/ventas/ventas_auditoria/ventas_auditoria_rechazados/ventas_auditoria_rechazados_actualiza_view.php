@@ -626,12 +626,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 text: '<?= $this->lang->line('ventas_registro_js_msg_error_guardar_detalle_venta') ?>'
                             });
                             break;
-                            break;
                         case 3:
                             Swal.fire({
                                 icon: 'error',
                                 title: '',
-                                text: '<?= $this->lang->line('ventas_registro_js_msg_error_guardar_ticket_repetido') ?>'
+                                text: '<?= $this->lang->line('ventas_registro_controller_lang_js_msg_error_guardar_ticket_repetido') ?>'
                             });
                             break;
                             break;

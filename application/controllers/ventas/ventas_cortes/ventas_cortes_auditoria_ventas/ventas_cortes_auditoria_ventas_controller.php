@@ -38,7 +38,7 @@ class Ventas_cortes_auditoria_ventas_controller extends Base_Controller {
         if ($this->base_controller_valida_corte(1, $anio, $mes,'')!=0){ $dato['res']   = 2;  echo json_encode($dato); return false;}
         if ($this->ventas_cortes_auditoria_ventas_model->ventas_cortes_auditoria_ventas_model_valida_auditoria($anio, $mes)==0){$dato['res']   = 3;  echo json_encode($dato); return false;}
         $CorteId = $this->base_controller_guarda_corte(1,$anio, $mes,0);
-        $data = "SELECT ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",$CorteId,Ventas.VentaId, Ventas.TarjetaId, Ventas.VentaUsuarioIdMP,  Ventas.DistribuidorId, 
+        $data = "".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",".$CorteId.",Ventas.VentaId, Ventas.TarjetaId, Ventas.VentaUsuarioIdMP,  Ventas.DistribuidorId, 
             Ventas.VentaNumeroTicket, Ventas.VentaMontoTicket, Ventas.VentaFotoTicket, Ventas.VentaFechaRegistro, Ventas.VentaUsuarioIdRegistro, Ventas.VentaFechaBaja, 
             Ventas.VentaUsuarioIdBaja, Ventas.VentaTienePromocion, Ventas.VentaSessionId FROM Ventas 
             INNER JOIN Tarjetas ON Ventas.TarjetaId = Tarjetas.TarjetaId 

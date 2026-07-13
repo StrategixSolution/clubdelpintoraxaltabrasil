@@ -10,7 +10,7 @@ $lang['ventas_registro_controller_lang_etiqueta_detalle']                       
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_nombre']              = 'NOME:';
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_email']               = 'EMAIL:';
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_celular']             = 'CELULAR:';
-$lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_rfc']                 = 'NIT:';
+$lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_rfc']                 = 'CPF:';
 $lang['ventas_registro_controller_lang_input_numero_tarjeta']                        = '*NÚMERO DO CARTÃO:';
 $lang['ventas_registro_controller_lang_tooltip_numero_tarjeta']                      = '*CAMPO OBRIGATÓRIO *ESCANEIE O NÚMERO COM SUA CÂMERA OU DIGITE APENAS NÚMEROS MÁXIMO 6 DÍGITOS';
 $lang['ventas_registro_controller_lang_placeholder_numero_tarjeta']                  = 'NÚMERO DO CARTÃO';
@@ -41,7 +41,7 @@ $lang['ventas_registro_controller_lang_placeholder_monto']                      
 $lang['ventas_registro_controller_lang_input_cantidad']                              = 'QUANTIDADE:';
 $lang['ventas_registro_controller_lang_tooltip_cantidad']                            = '*SOMENTE NÚMEROS *CAMPO OBRIGATÓRIO';
 $lang['ventas_registro_controller_lang_placeholder_cantidad']                        = 'QUANTIDADE';
-$lang['ventas_registro_controller_lang_input_litros']                                = 'GALÕES:';
+$lang['ventas_registro_controller_lang_input_litros']                                = 'VOLUME:';
 $lang['ventas_registro_controller_lang_tooltip_litros']                              = '*SELECIONE UMA OPÇÃO *CAMPO OBRIGATÓRIO';
 $lang['ventas_registro_controller_lang_placeholder_litros']                          = 'GALÕES';
 $lang['ventas_registro_controller_lang_combo_selecciona_linea']                      = 'SELECIONE UMA LINHA';

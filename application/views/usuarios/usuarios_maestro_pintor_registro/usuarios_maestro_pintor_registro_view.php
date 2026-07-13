@@ -19,11 +19,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </div>
         <div class="container">
-            <div class="row panel-white panel-white-alt">
-                <div class="col-lg-12">
-                    <div class="form-pr">
-                        <div class="row row-validator">
-                            <div class="dyncol col-lg-8">
+            <div class="panel-white">
+                <div class="row">
+                    <div class="col-lg-12">
+
+
+                        <div class="row">
+                            <div class="col-lg-8">
                                 <div class="form-group">
                                     <label
                                         for="txt_nombre"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_nombre') ?><span
@@ -49,7 +51,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <div id="error"></div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <div class="row row-validator">
                             <div class="dyncol col-lg-8">
                                 <div class="form-group">
@@ -212,13 +214,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </div>
 
                                 <div class="row row-validator">
-                                     <div class="col-lg-12">    
-                                <div class="form-group">
-                                    <label
-                                        for="cmb_tipo_tarjeta"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta') ?></label>
-                                    <select id="cmb_tipo_tarjeta" name="cmb_tipo_tarjeta" class="form-select"></select>
-                                </div>
-                                     </div>                                     
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label
+                                                for="cmb_tipo_tarjeta"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta') ?></label>
+                                            <select id="cmb_tipo_tarjeta" name="cmb_tipo_tarjeta" class="form-select"></select>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-12" style="display: none;" id="div_identificacion_qr">
                                         <div class="form-group">
                                             <label
@@ -324,8 +326,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <span class="btn-buscar-texto"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_btn_guardar') ?></span></button>
                             </div>
                         </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -438,7 +442,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             frm_usuarios_maestro_pintor_registro_view_js_firma_borrar();
         });
         $('#frm_usuarios_maestro_pintor_registro_view').submit(function(e) {
-            $('#loader_panel').show(); 
+            $('#loader_panel').show();
             e.preventDefault();
             $('#error').html(" ");
             $('#txt_identificacion').prop('disabled', false);
@@ -476,8 +480,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             signaturePad.clear();
                                             Swal.fire({
                                                 title: '',
-                                                html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_maestro_pintor_registrado') ?>
-                                                <br>Senha: <strong>' + data.contrasena + '</strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong>',
+                                                html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_maestro_pintor_registrado') ?> <
+                                                br > Senha: < strong > ' + data.contrasena + ' < /strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong > ',
                                                 icon: 'success',
                                                 showCancelButton: false,
                                                 confirmButtonColor: '#fd7e14',
@@ -496,8 +500,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 case 2:
                                     Swal.fire({
                                         title: '',
-                                        html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_error_envio_correo') ?>
-                                                    <br>Senha: <strong>' + data.contrasena + '</strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong>',
+                                        html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_error_envio_correo') ?> <
+                                        br > Senha: < strong > ' + data.contrasena + ' < /strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong > ',
                                         icon: 'success',
                                         showCancelButton: false,
                                         confirmButtonColor: '#fd7e14',
@@ -528,7 +532,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         }
                                     });
                                     break;
-                                    case 4:
+                                case 4:
                                     Swal.fire({
                                         title: '',
                                         html: 'Não há cartões digitais disponíveis para atribuição; entre em contato com seu administrador.',
@@ -552,13 +556,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         $('#' + key).addClass('is-invalid');
                                         $('#' + key).parents('.form-group').find('#error').html(value);
                                         if (primerError === null) {
-                                        primerError = $('#' + key);
+                                            primerError = $('#' + key);
                                         }
                                     });
                                     if (primerError) {
                                         $('html, body').animate({
-                                          //  scrollTop: primerError.offset().top - 100
-                                           scrollTop: primerError.offset().top
+                                            //  scrollTop: primerError.offset().top - 100
+                                            scrollTop: primerError.offset().top
                                         }, 500);
                                         primerError.focus();
                                     }
@@ -598,6 +602,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         });
     }
+
     function frm_usuarios_maestro_pintor_registro_view_js_combo_talla() {
         $('#loader_panel').show();
         $.ajax({
@@ -632,17 +637,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
             error: function(data) {},
             complete: function() {
                 $('#loader_panel').hide();
-                 var tipo = $('#cmb_tipo_tarjeta').val();
-                if(tipo == 1){
-                  $('#div_identificacion_qr').show();
-                                }
+                var tipo = $('#cmb_tipo_tarjeta').val();
+                if (tipo == 1) {
+                    $('#div_identificacion_qr').show();
+                }
             }
         });
     }
 
-    $('#cmb_tipo_tarjeta').on('change', function () {
+    $('#cmb_tipo_tarjeta').on('change', function() {
         var tipo = $(this).val();
-        if(tipo == 1){
+        if (tipo == 1) {
             $('#div_identificacion_qr').show();
         } else {
             $('#div_identificacion_qr').hide();

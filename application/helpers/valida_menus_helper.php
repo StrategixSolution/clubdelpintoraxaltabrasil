@@ -32,7 +32,7 @@ function valida_menus($pagina,$perfilId){
             $seguridad_menu = array('Cero');
             break; //MAESTRO PINTOR         
         case 10: 
-            $seguridad_menu = array('Cero');
+            $seguridad_menu = array('Cero','Usuarios_participantes_cargar_cartas_auditorias_controller','Ventas_auditoria_primera_controller','Ventas_auditoria_envio_correos_controller','Ventas_auditoria_segunda_controller','Ventas_promociones_cargas_controller','Ventas_cortes_auditoria_ventas_controller','Ventas_cortes_ganadores_contoller','Productos_reposicion_descarga_controller','Ventas_personal_top_controller','Ventas_reporte_ganadores_controller','Recompensas_controller','Productos_reposicion_carga_controller','Productos_reposicion_relacion_premios_productos_contoller','Ventas_auditoria_primera_controller','Ventas_auditoria_envio_correos_controller','Ventas_auditoria_segunda_controller','Ventas_promociones_cargas_controller','Ventas_cortes_ganadores_contoller','Multimedios_cargas_controller','Reporte_reposicion_productos_controller','Cargas_adjs_excel_controller','Cargas_adjs_mail_controller','Reporte_reposicion_producto_zona_controller','Reportes_distribuidores_admin1_controller','Tarjetas_controller','Tarjetas_altas_controller','Ventas_auditoria_promociones_controller','Ventas_cortes_apertura_cierre_controller','Reportes_distribuidores_controller','Reportes_maestro_pintores_controller','Reportes_ventas_registradas_controller','Distribuidores_controller','Distribuidores_alta_controller','Distribuidores_modificacion_controller');
             break; //ADMINISTRADOR STRATEGIX SISTEMAS
     }   
 //    echo "pertfil:".$perfilId."<br>";

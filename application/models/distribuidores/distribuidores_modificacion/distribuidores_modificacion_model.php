@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Enrique Arce Rosas                          * 
- * @CreateDate 01 Jun. 2024 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Distribuidores_modificacion_model extends Base_Model {	
@@ -14,8 +7,35 @@ class Distribuidores_modificacion_model extends Base_Model {
         parent::__construct();
     } 
     public function distribuidores_modificacion_model_row($DistribuidorId){
-        $SQL    = "SELECT Distribuidores.DistribuidorId, Distribuidores.PaisId, Distribuidores.DivisionId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleNombreComercial, DistribuidoresDetalles.DistribuidorDetalleCP, DistribuidoresDetalles.DistribuidorDetalleEstado, DistribuidoresDetalles.DistribuidorDetalleCiudad, DistribuidoresDetalles.DistribuidorDetalleMunicipio, DistribuidoresDetalles.DistribuidorDetalleCalle, DistribuidoresDetalles.DistribuidorDetalleRFC, DistribuidoresDetalles.DistribuidorDetalleTelefono, DistribuidoresDetalles.DistribuidorDetalleRegionId, DistribuidoresDetalles.DistribuidorDetalleFechaBaja, DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre, Divisiones.DivisionNombre, Paises.PaisNombre FROM Distribuidores INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId INNER JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId INNER JOIN Divisiones ON Distribuidores.DivisionId = Divisiones.DivisionId INNER JOIN Paises ON Distribuidores.PaisId = Paises.PaisId 
-                   WHERE  (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL) AND (Distribuidores.DistribuidorId = $DistribuidorId)";
+        $SQL    = "SELECT 
+            Distribuidores.DistribuidorId, 
+            DistribuidoresDetalles.DistribuidorDetalleId, 
+            DistribuidoresDetalles.DistribuidorDetalleCodigo, 
+            DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
+            DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
+            DistribuidoresDetalles.DistribuidorDetalleCEP, 
+            DistribuidoresDetalles.DistribuidorDetalleUnidadFederativa , 
+            UnidadFederativas.UnidadFederativaDescripcion,
+            DistribuidoresDetalles.DistribuidorDetalleCiudad, 
+            DistribuidoresDetalles.DistribuidorDetalleBarrio, 
+            DistribuidoresDetalles.DistribuidorDetalleDireccion, 
+            DistribuidoresDetalles.DistribuidorDetalleRegistroFederal, 
+            DistribuidoresDetalles.DistribuidorDetalleInscripcionEstatal, 
+            DistribuidoresDetalles.DistribuidorDetalleTelefono, 
+            DistribuidoresDetalles.DistribuidorDetalleRegionId, 
+            DistribuidoresDetalles.DistribuidorDetalleFechaBaja, 
+            DistribuidoresDetallesRegiones.DistribuidorDetalleRegionNombre ,
+            DistribuidoresDetalles.DistribuidorDetalleAgrupamientosId,
+            DistribuidoresDetallesAgrupamientos.DistribuidoresDetallesAgrupamientosNombre,
+            DistribuidoresDetalles.DistribuidorDetalleOficinasVentasId,
+            DistribuidoresDetallesOficinasVentas.DistribuidoresDetallesOficinasVentasNombre
+            FROM Distribuidores 
+            INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+            LEFT JOIN DistribuidoresDetallesRegiones ON DistribuidoresDetalles.DistribuidorDetalleRegionId = DistribuidoresDetallesRegiones.DistribuidorDetalleRegionId 
+            LEFT JOIN DistribuidoresDetallesOficinasVentas  ON DistribuidoresDetalles.DistribuidorDetalleOficinasVentasId = DistribuidoresDetallesOficinasVentas.DistribuidoresDetallesOficinasVentasId 
+            LEFT JOIN DistribuidoresDetallesAgrupamientos ON DistribuidoresDetalles.DistribuidorDetalleAgrupamientosId = DistribuidoresDetallesAgrupamientos.DistribuidoresDetallesAgrupamientosId 
+            LEFT JOIN UnidadFederativas ON DistribuidoresDetalles.DistribuidorDetalleUnidadFederativa = UnidadFederativas.UnidadFederativaId 
+            WHERE  (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)  AND (Distribuidores.DistribuidorId = $DistribuidorId)";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row_array();  

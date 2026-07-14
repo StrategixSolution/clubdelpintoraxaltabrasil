@@ -42,7 +42,7 @@ $lang['ventas_registro_controller_lang_tooltip_cantidad']                       
 $lang['ventas_registro_controller_lang_placeholder_cantidad']                        = 'CANTIDAD';
 $lang['ventas_registro_controller_lang_input_litros']                                = 'VOLUMEN:';
 $lang['ventas_registro_controller_lang_tooltip_litros']                              = '*SELECCIONE UNA OPCIÓN *CAMPO OBLIGATORIO';
-$lang['ventas_registro_controller_lang_placeholder_litros']                          = 'GALONES';
+$lang['ventas_registro_controller_lang_placeholder_litros']                          = 'VOLUMEN';
 $lang['ventas_registro_controller_lang_combo_selecciona_sector']                     = 'SELECCIONA UN SECTOR';
 $lang['ventas_registro_controller_lang_combo_selecciona_clase']                      = 'SELECCIONA UNA CLASE';
 $lang['ventas_registro_controller_lang_combo_selecciona_marca']                      = 'SELECCIONA UN MATERIAL';

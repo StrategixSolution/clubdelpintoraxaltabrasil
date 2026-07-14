@@ -1,0 +1,41 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['usuarios_participantes_controller_lang_pagina_titulo']                        = 'PERSONAL DE TIENDA';
+$lang['usuarios_participantes_controller_lang_etiqueta_distribuidoras']              = 'DISTRIBUIDOR:';
+$lang['usuarios_participantes_controller_lang_etiqueta_perfiles']                    = 'PERFILES:';
+$lang['usuarios_participantes_controller_lang_select_perfiles']                      = 'TODOS LOS PERFILES';
+$lang['usuarios_participantes_controller_lang_select_distribuidoras']                = 'TODOS LOS DISTRIBUIDORES';
+$lang['usuarios_participantes_controller_lang_boton_alta_ferreteraia']               = 'ALTA DE FERRETARÍA';
+$lang['usuarios_participantes_controller_lang_boton_buscar']                         = 'BUSCAR';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_codigo']                  = 'CÓDIGO';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_distribuidora']           = 'RAZÓN SOCIAL';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_nomcomercial']            = 'NOMBRE COMERCIAL';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_perfil']                  = 'PERFIL';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_rfc']                     = 'NIT DISTRIBUIDOR';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_rfc_pax']                 = 'NIT PARTICIPANTE';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_nombre']                  = 'NOMBRE';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_segundo_nombre']          = 'SEGUNDO NOMBRE';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_apellido_paterno']        = 'APELLIDO PATERNO';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_apellido_materno']        = 'APELLIDO MATERNO';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_email']                   = 'CORREO ELECTRÓNICO';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_telefono']                = 'TELÉFONO';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_extencion']               = 'EXTENSIÓN';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_celular']                 = 'CELULAR';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_editar']                  = 'EDITAR';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_eliminar']                = 'BAJA';
+$lang['usuarios_participantes_controller_lang_tabla_js_msg_titulo_success']          = 'BAJA DE PARTICIPANTE';
+$lang['usuarios_participantes_controller_lang_tabla_js_msg_texto_success']           = 'EL PARTICIPANTE HA SIDO DADO DE BAJA';
+$lang['usuarios_participantes_controller_lang_tabla_js_confirm_titulo']              = 'BAJA DE PARTICIPANTE';
+$lang['usuarios_participantes_controller_lang_tabla_js_confirm_texto']               = 'ACEPTA SI DESEAS DAR DE BAJA AL PARTICIPANTE';
+$lang['usuarios_participantes_controller_lang_tabla_js_confirm_boton_aprobado']      = 'ACEPTAR';
+$lang['usuarios_participantes_controller_lang_tabla_js_confirm_boton_rechazado']     = 'RECHAZAR';
+$lang['usuarios_participantes_controller_lang_tabla_js_msg_swal_error']              = 'ERROR';
+$lang['usuarios_participantes_controller_lang_tabla_js_msg_swal_guardado']           = 'GUARDADO';
+$lang['usuarios_participantes_controller_lang_tabla_js_msg_swal_ok']                 = 'OK';
+$lang['usuarios_participantes_controller_lang_tabla_js_msg_swal_selecciona_pais']    = 'SELECCIONA UN PAÍS';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_estatus']                 = 'ESTATUS';
+$lang['usuarios_participantes_controller_lang_combo_estatus']                        = 'ESTATUS:';
+$lang['usuarios_participantes_controller_lang_tabla_estatus_baja']                   = 'BAJA';
+$lang['usuarios_participantes_controller_lang_tabla_estatus_activo']                 = 'HABILITADO';
+

@@ -49,6 +49,9 @@ $route['NoticiasCirculares']                    = 'noticias_circulares/noticias_
 $route['Distribuidores']                        = 'distribuidores/distribuidores_controller';
 $route['DistribuidoresAlta']                    = 'distribuidores/distribuidores_alta/distribuidores_alta_controller';
 $route['DistribuidoresModificacion']            = 'distribuidores/distribuidores_modificacion/distribuidores_modificacion_controller';
+$route['UsuariosParticipantes']                 = 'usuarios/usuarios_participantes/usuarios_participantes_controller';
+$route['UsuariosParticipantesAltas']            = 'usuarios/usuarios_participantes/usuarios_participantes_altas/usuarios_participantes_altas_controller';
+$route['UsuariosParticipantesModificacion']     = 'usuarios/usuarios_participantes/usuarios_participantes_modificacion/usuarios_participantes_modificacion_controller';
 
 
 /*

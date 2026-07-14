@@ -58,7 +58,7 @@ $lang['ventas_registro_controller_lang_msg_archivo_error']                      
 $lang['ventas_registro_controller_lang_msg_error_formato_identificacion']            = 'O FORMATO ESTÁ INCORRETO, APENAS PNG, JPG E PDF SÃO PERMITIDOS.';
 $lang['ventas_registro_controller_lang_msg_error_tamanio_identificacion']            = 'O TAMANHO DO ARQUIVO É MUITO GRANDE, APENAS ARQUIVOS MENORES QUE 4MB SÃO PERMITIDOS';
 $lang['ventas_registro_controller_lang_msg_error_numeros_negativos']                 = 'APENAS NÚMEROS POSITIVOS MAIORES QUE ZERO SÃO PERMITIDOS';
-$lang['ventas_registro_controller_lang_msg_error_marca']                             = 'CAPTURE O PREÇO UNITÁRIO, A QUANTIDADE E OS GALÕES';
+$lang['ventas_registro_controller_lang_msg_error_marca']                             = 'CAPTURE O PREÇO UNITÁRIO, A QUANTIDADE E VOLUME';
 $lang['ventas_registro_controller_lang_placeholder_borrar']                          = 'APAGAR';
 $lang['ventas_registro_controller_lang_btn_aceptar']                                 = 'ACEITAR';
 $lang['ventas_registro_controller_lang_btn_cancelar']                                = 'CANCELAR';
@@ -69,7 +69,7 @@ $lang['ventas_registro_controller_lang_js_msg_error_guardar_venta']             
 $lang['ventas_registro_controller_lang_js_msg_venta_guardada_promociones_titulo']    = 'O TICKET FOI REGISTRADO CORRETAMENTE COM O VALOR TOTAL';
 $lang['ventas_registro_controller_lang_js_msg_venta_guardada_promociones_msg']       = 'SEU TICKET CONTÉM PRODUTOS DA PROMOÇÃO?';
 $lang['ventas_registro_controller_lang_js_msg_error_guardar_detalle_venta']          = 'FALTA A CAPTURA DE ARTIGOS';
-$lang['ventas_registro_controller_lang_js_msg_error_guardar_ticket_repetido']        = 'O TICKET JÁ ESTÁ REGISTRADO NO SISTEMA PARA SEU DISTRIBUIDOR';
+$lang['ventas_registro_controller_lang_js_msg_error_guardar_ticket_repetido']        = 'O NÚMERO DO BILHETE JÁ FOI REGISTRADO E NÃO PODE SER REPETIDO';
 $lang['ventas_registro_controller_lang_btn_si']                                      = 'SIM';
 $lang['ventas_registro_controller_lang_btn_no']                                      = 'NÃO';
 $lang['ventas_registro_controller_lang_etiqueta_aviso']                                      = 'Lembre-se de que você deve registrar as vendas no mês em que são geradas, caso contrário, serão rejeitadas na auditoria.<br>Certifique-se de sempre inserir o preço unitário, este valor é o que soma para seus Maestros Pintores.<br>';

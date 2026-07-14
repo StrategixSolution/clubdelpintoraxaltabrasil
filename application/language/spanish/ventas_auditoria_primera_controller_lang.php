@@ -43,7 +43,7 @@ $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_promocion']  
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_descripcion']                        = 'DESCRIPCIÓN';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_gms']                                = 'GMS';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_codigo']                             = 'CÓDIGO';
-$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_presentacion']                       = 'PRESENTACIÓN';
+$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_presentacion']                       = 'VOLUMEN';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_cantidad']                           = 'CANTIDAD';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_id']                                 = 'ID';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_nombre']                             = 'NOMBRE';
@@ -54,7 +54,7 @@ $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_sector']     
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_clase']                              = 'CLASE';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_marca']                              = 'MARCA';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_cantidad']                           = 'CANTIDAD';
-$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_litros']                             = 'LITROS';
-$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_galones']                            = 'GALONES';
+$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_litros']                             = 'VOLUMEN';
+$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_galones']                            = 'VOLUMEN';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_precio_unitario']                    = 'PRECIO UNITARIO';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_precio_unitario_total']              = 'PRECIO UNITARIO TOTAL';

@@ -96,7 +96,7 @@ class Ventas_auditoria_promociones_controller extends Base_Controller {
                     <td>'.utf8_encode(strtoupper($row->ProductoClaseDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper($row->ProductoMarcaDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleCantidad)).'</td>   
-                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleLitros)).'</td>
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleGalonDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper(number_format($row->VentaDetalleMonto,2))).'</td>
                     <td class="txt-center">'.utf8_encode(number_format($total_producto,2)).'</td>
                 </tr>' ;

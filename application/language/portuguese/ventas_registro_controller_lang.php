@@ -43,7 +43,7 @@ $lang['ventas_registro_controller_lang_tooltip_cantidad']                       
 $lang['ventas_registro_controller_lang_placeholder_cantidad']                        = 'QUANTIDADE';
 $lang['ventas_registro_controller_lang_input_litros']                                = 'VOLUME:';
 $lang['ventas_registro_controller_lang_tooltip_litros']                              = '*SELECIONE UMA OPÇÃO *CAMPO OBRIGATÓRIO';
-$lang['ventas_registro_controller_lang_placeholder_litros']                          = 'GALÕES';
+$lang['ventas_registro_controller_lang_placeholder_litros']                          = 'VOLUME';
 $lang['ventas_registro_controller_lang_combo_selecciona_linea']                      = 'SELECIONE UMA LINHA';
 $lang['ventas_registro_controller_lang_combo_selecciona_sector']                     = 'SELECIONE UM SETOR';
 $lang['ventas_registro_controller_lang_combo_selecciona_clase']                      = 'SELECIONE UMA CLASSE';
@@ -63,7 +63,7 @@ $lang['ventas_registro_controller_lang_placeholder_borrar']                     
 $lang['ventas_registro_controller_lang_btn_aceptar']                                 = 'ACEITAR';
 $lang['ventas_registro_controller_lang_btn_cancelar']                                = 'CANCELAR';
 $lang['ventas_registro_controller_lang_baja_prodcuto_titulo']                        = 'DESEJA DAR BAIXA NO PRODUTO?';
-$lang['ventas_registro_controller_lang_etiqueta_maestro_pintor']                     = 'MAESTRO PINTOR: ';
+$lang['ventas_registro_controller_lang_etiqueta_maestro_pintor']                     = 'MESTRE PINTOR: ';
 $lang['ventas_registro_controller_lang_js_msg_error_archivo']                        = 'O CAMPO TICKET É OBRIGATÓRIO.';
 $lang['ventas_registro_controller_lang_js_msg_error_guardar_venta']                  = 'ERRO, A VENDA NÃO FOI SALVA';
 $lang['ventas_registro_controller_lang_js_msg_venta_guardada_promociones_titulo']    = 'O TICKET FOI REGISTRADO CORRETAMENTE COM O VALOR TOTAL';

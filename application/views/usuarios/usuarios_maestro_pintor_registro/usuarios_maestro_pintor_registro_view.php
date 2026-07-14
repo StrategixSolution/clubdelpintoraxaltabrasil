@@ -195,7 +195,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_frase_identificacion') ?>
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6">
                                         <div class="form-check">
                                             <input type="checkbox" id="chk_camara" name="chk_camara" class="form-check-input" value="1">
@@ -203,7 +202,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 <?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_camara') ?></label>
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6">
                                         <div class="form-check">
                                             <input type="checkbox" id="chk_archivo" name="chk_archivo" class="form-check-input" value="1">
@@ -214,30 +212,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </div>
 
                                 <div class="row row-validator">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label
-                                                for="cmb_tipo_tarjeta"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta') ?></label>
-                                            <select id="cmb_tipo_tarjeta" name="cmb_tipo_tarjeta" class="form-select"></select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="display: none;" id="div_identificacion_qr">
-                                        <div class="form-group">
-                                            <label
-                                                for="txt_qr"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_codigoqr') ?><span
-                                                    data-toggle='tooltip'
-                                                    title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_codigoqr') ?>'><i
-                                                        class="fas fa-question-circle"></i></span></label>
-                                            <div class="input-group">
-                                                <input type="text" name="txt_qr" id="txt_qr" class="form-control"
-                                                    onKeyPress="return js_general_solo_numeros(event)"
-                                                    placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_codigoqr') ?>">
-                                                <button type="button" id="btn_usuarios_registro_maestro_pintor_qr"
-                                                    class="btn btn-axalta-sm"><span class="iconify" data-icon="bi:qr-code"></span></button>
-                                            </div>
-                                            <div id="error"></div>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-12" id="div_identificacion_camara">
                                         <div class="form-group">
                                             <label
@@ -269,6 +243,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <div id="error"></div>
                                         </div>
                                         <input id="ext_file_identificacion" name="ext_file_identificacion" type="hidden" value="">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label
+                                                for="cmb_tipo_tarjeta"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta') ?></label>
+                                            <select id="cmb_tipo_tarjeta" name="cmb_tipo_tarjeta" class="form-select"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12" style="display: none;" id="div_identificacion_qr">
+                                        <div class="form-group">
+                                            <label
+                                                for="txt_qr"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_codigoqr') ?><span
+                                                    data-toggle='tooltip'
+                                                    title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_codigoqr') ?>'><i
+                                                        class="fas fa-question-circle"></i></span></label>
+                                            <div class="input-group">
+                                                <input type="text" name="txt_qr" id="txt_qr" class="form-control"
+                                                    onKeyPress="return js_general_solo_numeros(event)"
+                                                    placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_codigoqr') ?>">
+                                                <button type="button" id="btn_usuarios_registro_maestro_pintor_qr"
+                                                    class="btn btn-axalta-sm"><span class="iconify" data-icon="bi:qr-code"></span></button>
+                                            </div>
+                                            <div id="error"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -455,6 +453,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $('#loader_panel').hide();
             } else {
                 if (frm_usuarios_maestro_pintor_registro_view_js_valida_form_firma()) {
+                    $('#loader_panel').show();
                     $.ajax({
                         url: 'usuarios/usuarios_maestro_pintor_registro/usuarios_maestro_pintor_registro_controller/usuarios_maestro_pintor_registro_controller_guarda',
                         type: "post",
@@ -480,8 +479,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             signaturePad.clear();
                                             Swal.fire({
                                                 title: '',
-                                                html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_maestro_pintor_registrado') ?> <
-                                                br > Senha: < strong > ' + data.contrasena + ' < /strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong > ',
+                                                html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_maestro_pintor_registrado') ?> <br> Senha: <strong>' + data.contrasena + '</strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong>',
                                                 icon: 'success',
                                                 showCancelButton: false,
                                                 confirmButtonColor: '#fd7e14',
@@ -500,8 +498,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 case 2:
                                     Swal.fire({
                                         title: '',
-                                        html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_error_envio_correo') ?> <
-                                        br > Senha: < strong > ' + data.contrasena + ' < /strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong > ',
+                                        html: '<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_msg_error_envio_correo') ?> <br> Senha: <strong>' + data.contrasena + '</strong><br>Número do cartão: <strong>' + data.numero_tarjeta + '</strong>',
                                         icon: 'success',
                                         showCancelButton: false,
                                         confirmButtonColor: '#fd7e14',
@@ -571,7 +568,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         },
                         error: function() {},
                         complete: function() {
-                            $('#loader_panel').hide();
+                             $('#loader_panel').hide();
                         }
                     });
                 }

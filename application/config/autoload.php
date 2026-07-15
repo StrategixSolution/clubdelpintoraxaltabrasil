@@ -47,6 +47,9 @@ $autoload['language']   = array(
     'reportes_ventas_registradas_controller_lang',
     'distribuidores_alta_controller_lang',
     'distribuidores_controller_lang',
-    'distribuidores_modificacion_controller_lang'
+    'distribuidores_modificacion_controller_lang',
+    'usuarios_participantes_altas_controller_lang',
+    'usuarios_participantes_controller_lang',
+    'usuarios_participantes_modificacion_controller_lang'
     );
 $autoload['model']      = array();

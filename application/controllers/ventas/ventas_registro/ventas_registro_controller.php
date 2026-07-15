@@ -54,7 +54,7 @@ class Ventas_registro_controller extends Base_Controller {
     public function ventas_registro_controller_ajax_combo_lista_litros() {
         $combo_litros = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_litros')."</option>";
         $marcas         = $this->ventas_registro_model->ventas_registro_model_combo_litros();
-        foreach ($marcas as $marca) { $combo_litros   .='<option value="'.$marca->VentaDetalleGalonEquivalencia.'">'.utf8_encode(strtoupper($marca->VentaDetalleGalonDescripcion)).'</option>'; } 
+        foreach ($marcas as $marca) { $combo_litros   .='<option value="'.$marca->VentaDetalleGalonId.'">'.utf8_encode(strtoupper($marca->VentaDetalleGalonDescripcion)).'</option>'; } 
         echo json_encode($combo_litros);
     }    
     public function ventas_registro_controller_ajax_qr_retorno() {
@@ -269,7 +269,7 @@ class Ventas_registro_controller extends Base_Controller {
                     <td>'.strtoupper($marca).'</td>
                     <td> '.number_format($items['monto'],2).'</td>
                     <td>'.$items['qty'].'</td>
-                    <td>'.$litros.' GALÃO</td>
+                    <td>'.$litros.'</td>
                     <td class="txt-center"><button type="button" id="'.$items['rowid'].'" data-position="left" data-tooltip="Eliminar" name="agregar" class="romove_cart btn waves-effect waves-light tooltipped red"><i class="fas fa-trash"></i></button></td>                                            
                 </tr> ';            
         }

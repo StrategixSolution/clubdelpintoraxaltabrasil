@@ -79,7 +79,7 @@ $tabla_participante['tabla'] = $this->load->view('ventas/ventas_auditoria/ventas
                     <td>'.utf8_encode(strtoupper($row->ProductoClaseDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper($row->ProductoMarcaDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleCantidad)).'</td>   
-                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleLitros)).'</td>
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleGalonDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper(number_format($row->VentaDetalleMonto,2))).'</td>
                     <td class="txt-center">'.utf8_encode(number_format($total_producto,2)).'</td>
                 </tr>' ;
@@ -162,7 +162,7 @@ $tabla_participante['tabla'] = $this->load->view('ventas/ventas_auditoria/ventas
                     <td>'.strtoupper($marca).'</td>
                     <td> '.number_format($items->VentaDetalleMonto,2).'</td>
                     <td>'.$items->VentaDetalleCantidad.'</td>
-                    <td>'.$litros.' GALÃO</td>
+                    <td>'.$litros.'</td>
                     <td class="txt-center"><button type="button" id="'.$items->VentaDetalleId.'" data-position="left" data-tooltip="Eliminar" name="eliminar_prod_ant" class="romove_cart btn waves-effect waves-light tooltipped red"><i class="fas fa-trash"></i></button></td>                                            
                 </tr> ';            
         }
@@ -355,7 +355,7 @@ $tabla_participante['tabla'] = $this->load->view('ventas/ventas_auditoria/ventas
     public function ventas_auditoria_rechazados_controller_ajax_combo_lista_litros() {
         $combo_litros = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_litros')."</option>";
         $marcas         = $this->ventas_auditoria_rechazados_model->ventas_auditoria_rechazados_model_combo_litros();
-        foreach ($marcas as $marca) { $combo_litros   .='<option value="'.$marca->VentaDetalleGalonEquivalencia.'">'.utf8_encode(strtoupper($marca->VentaDetalleGalonDescripcion)).'</option>'; } 
+        foreach ($marcas as $marca) { $combo_litros   .='<option value="'.$marca->VentaDetalleGalonId.'">'.utf8_encode(strtoupper($marca->VentaDetalleGalonDescripcion)).'</option>'; } 
         echo json_encode($combo_litros);
     } 
     public function ventas_auditoria_rechazados_controller_ajax_combo_lista_marca() {

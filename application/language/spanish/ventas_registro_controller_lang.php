@@ -42,7 +42,7 @@ $lang['ventas_registro_controller_lang_tooltip_cantidad']                       
 $lang['ventas_registro_controller_lang_placeholder_cantidad']                        = 'CANTIDAD';
 $lang['ventas_registro_controller_lang_input_litros']                                = 'VOLUMEN:';
 $lang['ventas_registro_controller_lang_tooltip_litros']                              = '*SELECCIONE UNA OPCIÓN *CAMPO OBLIGATORIO';
-$lang['ventas_registro_controller_lang_placeholder_litros']                          = 'GALONES';
+$lang['ventas_registro_controller_lang_placeholder_litros']                          = 'VOLUMEN';
 $lang['ventas_registro_controller_lang_combo_selecciona_sector']                     = 'SELECCIONA UN SECTOR';
 $lang['ventas_registro_controller_lang_combo_selecciona_clase']                      = 'SELECCIONA UNA CLASE';
 $lang['ventas_registro_controller_lang_combo_selecciona_marca']                      = 'SELECCIONA UN MATERIAL';
@@ -56,7 +56,7 @@ $lang['ventas_registro_controller_lang_msg_archivo_error']                      
 $lang['ventas_registro_controller_lang_msg_error_formato_identificacion']            = 'EL FORMATO ES INCORRECTO SOLO SE PERMITE PNG, JPG Y PDF.';
 $lang['ventas_registro_controller_lang_msg_error_tamanio_identificacion']            = 'EL TAMAÑO DEL ARCHIVO ES DEMASIADO GRANDE, SOLO SE PERMITE ARCHIVOS MENORES DE 4MB';
 $lang['ventas_registro_controller_lang_msg_error_numeros_negativos']                 = 'SOLO SE PERMITEN NÚMEROS POSITIVOS SUPERIOR A CERO';
-$lang['ventas_registro_controller_lang_msg_error_marca']                             = 'CAPTURA EL PRECIO UNITARIO, LA CANTIDAD Y GALONES';
+$lang['ventas_registro_controller_lang_msg_error_marca']                             = 'CAPTURA EL PRECIO UNITARIO, LA CANTIDAD Y EL VOLUMEN';
 $lang['ventas_registro_controller_lang_placeholder_borrar']                          = 'BORRAR';
 $lang['ventas_registro_controller_lang_btn_aceptar']                                 = 'ACEPTAR';
 $lang['ventas_registro_controller_lang_btn_cancelar']                                = 'CANCELAR';
@@ -67,7 +67,7 @@ $lang['ventas_registro_controller_lang_js_msg_error_guardar_venta']             
 $lang['ventas_registro_controller_lang_js_msg_venta_guardada_promociones_titulo']    = 'EL TICKET SE REGISTRÓ CORRECTAMENTE CON MONTO TOTAL';
 $lang['ventas_registro_controller_lang_js_msg_venta_guardada_promociones_msg']       = '¿TU TICKET CONTIENE PRODUCTOS DE LA PROMOCIÓN?';
 $lang['ventas_registro_controller_lang_js_msg_error_guardar_detalle_venta']          = 'FALTA LA CAPTURA DE ARTICULOS';
-$lang['ventas_registro_controller_lang_js_msg_error_guardar_ticket_repetido']        = 'EL TICKET YA ESTÁ REGISTRADO EN EL SISTEMA PARA TU DISTRIBUIDOR';
+$lang['ventas_registro_controller_lang_js_msg_error_guardar_ticket_repetido']        = 'EL NÚMERO DE TICKET YA SE REGISTRÓ ANTERIORMENTE Y NO SE PUEDE REPETIR';
 $lang['ventas_registro_controller_lang_btn_si']                                      = 'SI';
 $lang['ventas_registro_controller_lang_btn_no']                                      = 'NO';
 $lang['ventas_registro_controller_lang_etiqueta_aviso']                                      = 'Recuerda que debes registrar las ventas en el mes que se generan, de lo contrario serán rechazadas en auditoría.<br>Asegúrate de ingresar siempre el precio unitario, este monto es el que suma para tus Maestros Pintores.<br>';

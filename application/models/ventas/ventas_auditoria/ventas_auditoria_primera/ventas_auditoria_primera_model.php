@@ -98,10 +98,11 @@ class Ventas_auditoria_primera_model extends Base_Model {
     }
 
     public function ventas_auditoria_primera_model_detalle_ventas($VentaId){
-        $SQL    = "    SELECT        VentasDetalles.VentaDetalleId, VentasDetalles.VentaId, VentasDetalles.UsuarioIdCapturo, VentasDetalles.VentaDetalleMonto, VentasDetalles.VentaDetalleCantidad, VentasDetalles.VentaDetalleLitros, VentasDetalles.ProductoMarcaId, VentasDetalles.VentaDetalleFechaRegistro, VentasDetalles.VentaDetalleFechaBaja, ProductosMarcas.ProductoMarcaDescripcion, ProductosClases.ProductoClaseDescripcion
+        $SQL    = "    SELECT        VentasDetalles.VentaDetalleId, VentasDetalles.VentaId, VentasDetalles.UsuarioIdCapturo, VentasDetalles.VentaDetalleMonto, VentasDetalles.VentaDetalleCantidad, VentasDetalles.VentaDetalleLitros,VentasDetallesGalones.VentaDetalleGalonDescripcion , VentasDetalles.ProductoMarcaId, VentasDetalles.VentaDetalleFechaRegistro, VentasDetalles.VentaDetalleFechaBaja, ProductosMarcas.ProductoMarcaDescripcion, ProductosClases.ProductoClaseDescripcion
 FROM VentasDetalles 
 INNER JOIN ProductosMarcas ON VentasDetalles.ProductoMarcaId = ProductosMarcas.ProductoMarcaId 
-INNER JOIN ProductosClases ON ProductosMarcas.ProductoClaseId = ProductosClases.ProductoClaseId        
+INNER JOIN ProductosClases ON ProductosMarcas.ProductoClaseId = ProductosClases.ProductoClaseId 
+INNER JOIN VentasDetallesGalones ON VentasDetalles.VentaDetalleLitros = VentasDetallesGalones.VentaDetalleGalonId        
                 WHERE (VentasDetalles.VentaDetalleFechaBaja IS NULL) AND (VentasDetalles.VentaId = $VentaId) "; 
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 

@@ -34,7 +34,7 @@ class Ventas_registro_model extends Base_Model {
         return $query->result();
     }
     public function ventas_registro_model_combo_litros(){
-        $SQL    = "SELECT VentaDetalleGalonId,VentaDetalleGalonDescripcion,VentaDetalleGalonEquivalencia FROM VentasDetallesGalones";
+        $SQL    = "SELECT VentaDetalleGalonId,VentaDetalleGalonDescripcion FROM VentasDetallesGalones";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->result();
@@ -64,8 +64,8 @@ class Ventas_registro_model extends Base_Model {
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->ProductoMarcaDescripcion;
     }
-    public function ventas_registro_model_nombre_litros($ProductoMarcaId){
-        $SQL    = "SELECT VentaDetalleGalonId,VentaDetalleGalonDescripcion,VentaDetalleGalonEquivalencia FROM VentasDetallesGalones where VentaDetalleGalonEquivalencia=".$ProductoMarcaId;
+    public function ventas_registro_model_nombre_litros($VentaDetalleGalonId){
+        $SQL    = "SELECT VentaDetalleGalonId,VentaDetalleGalonDescripcion FROM VentasDetallesGalones where VentaDetalleGalonId=".$VentaDetalleGalonId;
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->VentaDetalleGalonDescripcion;

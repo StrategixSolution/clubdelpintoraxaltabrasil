@@ -6,12 +6,12 @@ $lang['ventas_promociones_controller_lang_input_promociones']                   
 $lang['ventas_promociones_controller_lang_tooltip_promociones']                                 = '*SELECIONE UMA PROMOÇÃO';
 $lang['ventas_promociones_controller_lang_placeholder_promociones']                             = 'TODAS';
 $lang['ventas_promociones_controller_lang_boton_buscar']                                        = 'BUSCAR';
-$lang['ventas_promociones_controller_lang_boton_guardar']                                       = 'GUARDAR';
+$lang['ventas_promociones_controller_lang_boton_guardar']                                       = 'SALVAR';
 $lang['ventas_promociones_controller_lang_tabla_titulo_promocion']                              = 'PROMOÇÃO';
 $lang['ventas_promociones_controller_lang_tabla_titulo_descripcion']                            = 'DESCRIÇÃO';
 $lang['ventas_promociones_controller_lang_tabla_titulo_gms']                                    = 'GMS';
 $lang['ventas_promociones_controller_lang_tabla_titulo_codigo']                                 = 'CÓDIGO';
-$lang['ventas_promociones_controller_lang_tabla_titulo_presentacion']                           = 'APRESENTAÇÃO';
+$lang['ventas_promociones_controller_lang_tabla_titulo_presentacion']                           = 'VOLUME';
 $lang['ventas_promociones_controller_lang_tabla_titulo_cantidad']                               = 'QUANTIDADE';
 $lang['ventas_promociones_controller_lang_js_btn_aceptar']                                      = 'ACEITAR';
 $lang['ventas_promociones_controller_lang_js_btn_cancelar']                                     = 'CANCELAR';

@@ -83,7 +83,7 @@ class Base_Model extends CI_Model {
         $query1	= $this->db->query($SQL1);
         //echo  $this->db->last_query()."<br>"; 
         $total_ventas = $query1->row()->tot;
-        $SQL2 = "SELECT COUNT(Ventas.VentaId) AS tot FROM Ventas LEFT OUTER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId WHERE (Ventas.VentaFechaBaja IS NULL)  AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaId IS NOT NULL) AND YEAR(Ventas.VentaFechaRegistro)=$CorteAnio AND MONTH(Ventas.VentaFechaRegistro) in ($CorteMesAnterior,$CorteMes)";
+        $SQL2 = "SELECT COUNT(Ventas.VentaId) AS tot FROM Ventas LEFT OUTER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId WHERE (Ventas.VentaFechaBaja IS NULL)  AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaId IS NOT NULL) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND YEAR(Ventas.VentaFechaRegistro)=$CorteAnio AND MONTH(Ventas.VentaFechaRegistro) in ($CorteMesAnterior,$CorteMes)";
         $query2	= $this->db->query($SQL2);
         //echo  $this->db->last_query()."<br>"; 
         $total_auditoria = $query2->row()->tot;

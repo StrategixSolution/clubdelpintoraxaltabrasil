@@ -182,12 +182,12 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $this->base_controller_valida_crea_carpetas('excel/');
         $this->base_controller_valida_crea_carpetas('excel/cortes/');
         $this->base_controller_valida_crea_carpetas('excel/cortes/corte_bimestral/');         
-        $spreadsheet = new Spreadsheet(4);
+        $spreadsheet = new Spreadsheet(3);
         $this->ventas_cortes_bimestral_controller_excel_ventas($spreadsheet,$corteId);
         $this->ventas_cortes_bimestral_controller_excel_maestro_pintor($spreadsheet,$corteId);
         $this->ventas_cortes_bimestral_controller_excel_distribuidor($spreadsheet,$corteId);
         $this->ventas_cortes_bimestral_controller_excel_productos_registrados($spreadsheet,$corteId);
-        $this->ventas_cortes_bimestral_controller_excel_litros_clase($spreadsheet,$corteId);
+       // $this->ventas_cortes_bimestral_controller_excel_litros_clase($spreadsheet,$corteId);
         $this->ventas_cortes_bimestral_controller_excel_perfiles($spreadsheet,$corteId);
         $direccion = funciones_strategix_version_url_random_base_url($archivo);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -212,14 +212,14 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_ticket'));
         $sheet->setCellValue('J1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_monto'));
         $sheet->setCellValue('K1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_cantidad'));
-        $sheet->setCellValue('L1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_litros'));
-        $sheet->setCellValue('M1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_promociones'));
-        $sheet->setCellValue('N1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_mes'));
-        $sheet->setCellValue('O1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus'));
-        $sheet->setCellValue('P1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria'));
-        $sheet->setCellValue('Q1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha'));
-        $sheet->getStyle("A1:Q1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-        $sheet->getStyle('A1:Q1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
+       // $sheet->setCellValue('L1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_litros'));
+        $sheet->setCellValue('L1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_promociones'));
+        $sheet->setCellValue('M1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_mes'));
+        $sheet->setCellValue('N1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus'));
+        $sheet->setCellValue('O1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria'));
+        $sheet->setCellValue('P1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha'));
+        $sheet->getStyle("A1:P1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+        $sheet->getStyle('A1:P1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $visualiza_corte = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_visualiza_corte($corteId);
         $fila = 2;
         foreach ($visualiza_corte as $row) {      
@@ -234,17 +234,17 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $sheet->setCellValue('I'.$fila, number_format($row->CorteBimestralVentaVentaMontoTicket,2));
             $sheet->setCellValue('J'.$fila, number_format($row->CorteBimestralVentaVentaDetalleMonto,2));
             $sheet->setCellValue('K'.$fila, $row->CorteBimestralVentaVentaDetalleCantidad);
-            $sheet->setCellValue('L'.$fila, $row->CorteBimestralVentaVentaDetalleLitros);
-            $sheet->setCellValue('M'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaPromocion)));
-            $sheet->setCellValue('N'.$fila, $row->CorteBimestralVentaMes);
-            $sheet->setCellValue('O'.$fila, $row->CorteBimestralVentaVentaEstatus);
-            $sheet->setCellValue('P'.$fila, $row->CorteBimestralVentaVentaAuditoriaEstatusDescripcion);            
-            $sheet->setCellValue('Q'.$fila, date("Y-m-d", strtotime($row->CorteBimestralVentaVentaFechaRegistro)));
+            // $sheet->setCellValue('L'.$fila, $row->CorteBimestralVentaVentaDetalleLitros);
+            $sheet->setCellValue('L'.$fila, utf8_encode(strtoupper($row->CorteBimestralVentaPromocion)));
+            $sheet->setCellValue('M'.$fila, $row->CorteBimestralVentaMes);
+            $sheet->setCellValue('N'.$fila, $row->CorteBimestralVentaVentaEstatus);
+            $sheet->setCellValue('O'.$fila, $row->CorteBimestralVentaVentaAuditoriaEstatusDescripcion);            
+            $sheet->setCellValue('P'.$fila, date("Y-m-d", strtotime($row->CorteBimestralVentaVentaFechaRegistro)));
             $fila++;
         }
         $limit = $fila-1;
-        foreach(range('A','Q') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
-        $sheet->getStyle("A1:Q1".$limit)->getFont()->setName('Arial')->setSize(8);
+        foreach(range('A','P') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
+        $sheet->getStyle("A1:P1".$limit)->getFont()->setName('Arial')->setSize(8);
     }
     public function ventas_cortes_bimestral_controller_excel_maestro_pintor($spreadsheet,$corteId){
         $sheet = $spreadsheet->createSheet(1); 
@@ -259,10 +259,10 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_monto_tickets'));
         $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_precio_unitario'));
         $sheet->setCellValue('J1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_cantidad_productos'));
-        $sheet->setCellValue('K1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_total_litros'));
-        $sheet->setCellValue('L1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_premio'));
-        $sheet->getStyle("A1:L1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-        $sheet->getStyle('A1:L1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
+        // $sheet->setCellValue('K1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_total_litros'));
+        $sheet->setCellValue('K1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_mp_titulo_premio'));
+        $sheet->getStyle("A1:K1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+        $sheet->getStyle('A1:K1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $visualiza_corte = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_visualiza_maestros_pintores($corteId);
         $fila = 2;
         foreach ($visualiza_corte as $row) {
@@ -277,13 +277,13 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $sheet->setCellValue('H'.$fila, number_format($row->CorteBimestralMaestroPintorVentaMontoTicket,2));
             $sheet->setCellValue('I'.$fila, number_format($row->CorteBimestralMaestroPintorVentaDetalleMonto,2));
             $sheet->setCellValue('J'.$fila, $row->CorteBimestralMaestroPintorVentaDetalleCantidad);
-            $sheet->setCellValue('K'.$fila, $row->CorteBimestralMaestroPintorVentaDetalleLitros);
-            $sheet->setCellValue('L'.$fila, $premio);
+           // $sheet->setCellValue('K'.$fila, $row->CorteBimestralMaestroPintorVentaDetalleLitros);
+            $sheet->setCellValue('K'.$fila, $premio);
                 $fila++;
         }
         $limit = $fila-1;
-        foreach(range('A','L') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
-        $sheet->getStyle("A1:L1".$limit)->getFont()->setName('Arial')->setSize(8);
+        foreach(range('A','K') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
+        $sheet->getStyle("A1:K1".$limit)->getFont()->setName('Arial')->setSize(8);
     }
     public function ventas_cortes_bimestral_controller_excel_distribuidor($spreadsheet,$corteId){
         $sheet = $spreadsheet->createSheet(2); 
@@ -296,9 +296,9 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $sheet->setCellValue('F1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_monto_tickets'));                
         $sheet->setCellValue('G1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_precio_unitario'));
         $sheet->setCellValue('H1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_cantidad_productos'));
-        $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_total_litros'));
-        $sheet->getStyle("A1:I1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-        $sheet->getStyle('A1:I1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
+       // $sheet->setCellValue('I1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_ds_titulo_total_litros'));
+        $sheet->getStyle("A1:H1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+         $sheet->getStyle('A1:H1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $visualiza_corte = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_visualiza_ditribuidores($corteId);
         $fila = 2;
         foreach ($visualiza_corte as $row) { 
@@ -311,12 +311,12 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $sheet->setCellValue('F'.$fila, number_format($row->CorteBimestralDistribuidorVentaMontoTicket,2));
             $sheet->setCellValue('G'.$fila, number_format($row->CorteBimestralDistribuidorVentaDetalleMonto,2));
             $sheet->setCellValue('H'.$fila, $row->CorteBimestralDistribuidorVentaDetalleCantidad);
-            $sheet->setCellValue('I'.$fila, $row->CorteBimestralDistribuidorVentaDetalleLitros);
+            //$sheet->setCellValue('I'.$fila, $row->CorteBimestralDistribuidorVentaDetalleLitros);
             $fila++;
         }
         $limit = $fila-1;
-        foreach(range('A','I') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
-        $sheet->getStyle("A1:I1".$limit)->getFont()->setName('Arial')->setSize(8);        
+        foreach(range('A','H') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
+        $sheet->getStyle("A1:H".$limit)->getFont()->setName('Arial')->setSize(8);
     }
     public function ventas_cortes_bimestral_controller_excel_productos_registrados($spreadsheet,$corteId) {
        $sheet = $spreadsheet->createSheet(3); 
@@ -333,15 +333,15 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $sheet->setCellValue('J1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_linea'));
         $sheet->setCellValue('K1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_clase'));
         $sheet->setCellValue('L1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_marca'));
-        $sheet->setCellValue('M1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_presentacion'));
-        $sheet->setCellValue('N1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_cantidad'));
-        $sheet->setCellValue('O1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_total_litros'));
-        $sheet->setCellValue('P1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_precio'));
-        $sheet->setCellValue('Q1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_precio_total'));       
-        $sheet->setCellValue('R1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_estatus'));
-        $sheet->setCellValue('S1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_fecha_registro'));
-        $sheet->getStyle("A1:S1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-        $sheet->getStyle('A1:S1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
+        // $sheet->setCellValue('M1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_presentacion'));
+        $sheet->setCellValue('M1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_cantidad'));
+        // $sheet->setCellValue('O1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_total_litros'));
+        $sheet->setCellValue('N1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_precio'));
+        $sheet->setCellValue('O1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_precio_total'));       
+        $sheet->setCellValue('P1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_estatus'));
+        $sheet->setCellValue('Q1', $this->lang->line('reportes_productos_registrados_controller_lang_tabla_titulo_fecha_registro'));
+        $sheet->getStyle("A1:Q1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+        $sheet->getStyle('A1:Q1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('C82127');
         $visualiza_corte = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_visualiza_productos_registrados($corteId);
         $fila = 2;
         foreach ($visualiza_corte as $row) {
@@ -358,20 +358,20 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $sheet->setCellValue('J'.$fila, utf8_encode(strtoupper($row->CorteBimestralProductoRegistradoProductoLineaDescripcion)));
             $sheet->setCellValue('K'.$fila, utf8_encode(strtoupper($row->CorteBimestralProductoRegistradoProductoClaseDescripcion)));
             $sheet->setCellValue('L'.$fila, utf8_encode(strtoupper($row->CorteBimestralProductoRegistradoProductoMarcaDescripcion)));
-            $sheet->setCellValue('M'.$fila, $row->CorteBimestralProductoRegistradoVentaDetalleLitros);
-            $sheet->setCellValue('N'.$fila, $row->CorteBimestralProductoRegistradoVentaDetalleCantidad);
-            $sheet->setCellValue('O'.$fila, $row->CorteBimestralProductoRegistradoVentaDetalleLitrosTotal);
-            $sheet->setCellValue('P'.$fila, number_format($row->CorteBimestralProductoRegistradoVentaDetalleMonto,2));
-            $sheet->setCellValue('Q'.$fila, number_format($row->CorteBimestralProductoRegistradoVentaDetalleMontoTotal,2));
-            $sheet->setCellValue('R'.$fila, $row->CorteBimestralProductoRegistradoVentaEstatus);
-            $sheet->setCellValue('S'.$fila, $row->CorteBimestralProductoRegistradoVentaFechaRegistro);
+           // $sheet->setCellValue('M'.$fila, $row->CorteBimestralProductoRegistradoVentaDetalleLitros);
+            $sheet->setCellValue('M'.$fila, $row->CorteBimestralProductoRegistradoVentaDetalleCantidad);
+           // $sheet->setCellValue('O'.$fila, $row->CorteBimestralProductoRegistradoVentaDetalleLitrosTotal);
+            $sheet->setCellValue('N'.$fila, number_format($row->CorteBimestralProductoRegistradoVentaDetalleMonto,2));
+            $sheet->setCellValue('O'.$fila, number_format($row->CorteBimestralProductoRegistradoVentaDetalleMontoTotal,2));
+            $sheet->setCellValue('P'.$fila, $row->CorteBimestralProductoRegistradoVentaEstatus);
+            $sheet->setCellValue('Q'.$fila, $row->CorteBimestralProductoRegistradoVentaFechaRegistro);
             $fila++;
         }
         $limit = $fila-1;
-        foreach(range('A','S') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
-        $sheet->getStyle("A1:S".$limit)->getFont()->setName('Arial')->setSize(8);
+        foreach(range('A','Q') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
+        $sheet->getStyle("A1:Q".$limit)->getFont()->setName('Arial')->setSize(8);
     }
-    public function ventas_cortes_bimestral_controller_excel_litros_clase($spreadsheet,$corteId) {
+  /* public function ventas_cortes_bimestral_controller_excel_litros_clase($spreadsheet,$corteId) {
         $sheet = $spreadsheet->createSheet(4); 
         $sheet->setTitle("RP Litros por Clases");
         $sheet->setCellValue('A1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excelds_titulo_id_distribuidor'));
@@ -401,9 +401,9 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $limit = $fila-1;
         foreach(range('A','H') as $columnID) { $sheet->getColumnDimension($columnID)->setAutoSize(true); }
         $sheet->getStyle("A1:H1".$limit)->getFont()->setName('Arial')->setSize(8);
-    }
+    }*/
     public function ventas_cortes_bimestral_controller_excel_perfiles($spreadsheet,$corteId){
-        $sheet = $spreadsheet->createSheet(5); 
+        $sheet = $spreadsheet->createSheet(4); 
         $sheet->setTitle("Montos Acumulados por RT|PT|AD");
         $sheet->setCellValue('A1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_id_distribuidor'));
         $sheet->setCellValue('B1', $this->lang->line('ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_codigo'));
@@ -427,11 +427,11 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $sheet->setCellValue('C'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorDetalleRazonSocial)));
             $sheet->setCellValue('D'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorDetalleNombreComercial)));
             $sheet->setCellValue('E'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorDetalleRegionNombre)));
-            $sheet->setCellValue('F'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorEstatus)));
+            $sheet->setCellValue('F'.$fila, utf8_encode('ATIVO'));
             $sheet->setCellValue('G'.$fila, $row->CortesBimestralPerfilDetalleUsuarioIdRegistro);
-            $sheet->setCellValue('H'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDetalleUsuarioRegistroNombre)));
-            $sheet->setCellValue('I'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDistribuidorPerfilDescripcion)));
-            $sheet->setCellValue('J'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilDetalleUsuarioRegistroEstatus)));
+            $sheet->setCellValue('H'.$fila, utf8_encode(strtoupper($row->UsuarioDetalleNombre)));
+            $sheet->setCellValue('I'.$fila, utf8_encode(strtoupper($row->CortesBimestralPerfilPerfilDescripcion)));
+            $sheet->setCellValue('J'.$fila, utf8_encode(strtoupper('ATIVO')));
             $sheet->setCellValue('K'.$fila, $row->CortesBimestralPerfilDistribuidorCantidadTicktes);
             $sheet->setCellValue('L'.$fila, '$ '.number_format($row->CortesBimestralPerfilDistribuidorVentaMontoTicket,2));
                 $fila++;

@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     default: 
                         $('#div_btn_crear_corte').hide();                 
                         $('#div_excel').show();  
-                        $(location).attr('href','<?=funciones_strategix_version_url_random_base_url("uploads/excel/cortes/corte_bimestral/CorteVentasBimestral.xlsx")?>');
+                       // $(location).attr('href','<?=funciones_strategix_version_url_random_base_url("uploads/excel/cortes/corte_bimestral/CorteVentasBimestral.xlsx")?>');
                         Swal.fire({ icon: 'success',title: '',text: '<?=$this->lang->line('ventas_cortes_bimestral_controller_lang_js_msg_creacion_corte')?>'});
                         break;
                 }                

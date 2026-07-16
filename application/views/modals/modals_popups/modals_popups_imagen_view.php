@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="modal-footer">
              <?PHP if ($download == 1) { ?>
                 <a href="<?= funciones_strategix_version_url_random_base_url($archivo) ?>" download="Imagen<?= $extension ?>"> <button type="button"
-                        class="btn btn-axalta-alt" aria-hidden="true">Descarga</button></a>
+                        class="btn btn-axalta-alt" aria-hidden="true">Baixar</button></a>
                 <button type="button" id="close_button_i_<?= $modalId ?>" class="btn btn-danger" data-dismiss="modal"
                     aria-hidden="true" data-id="<?= $modalId ?>">Aceitar</button>
             <?PHP } else { ?>

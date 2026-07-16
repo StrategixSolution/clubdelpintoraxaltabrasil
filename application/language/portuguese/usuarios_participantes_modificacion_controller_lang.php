@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['usuarios_participantes_modificacion_controller_lang_pagina_titulo']                          = 'EDIÇÃO PARA FUNCIONÁRIOS DA LOJA';
-$lang['usuarios_participantes_modificacion_controller_lang_input_nombre']                           = '*NOME:';
+$lang['usuarios_participantes_modificacion_controller_lang_input_nombre']                           = '*NOME COMPLETO:';
 $lang['usuarios_participantes_modificacion_controller_lang_etiqueta_distribuidora']                 = 'DISTRIBUIDOR:';
 $lang['usuarios_participantes_modificacion_controller_lang_etiqueta_perfil']                        = 'PERFIL:';
 $lang['usuarios_participantes_modificacion_controller_lang_placeholder_nombre']                     = 'NOME';

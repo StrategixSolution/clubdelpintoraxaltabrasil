@@ -7,7 +7,7 @@ $lang['ventas_registro_controller_lang_etiqueta_etiqueta_msg_ticket']           
 $lang['ventas_registro_controller_lang_etiqueta_camara']                             = 'CÂMERA';
 $lang['ventas_registro_controller_lang_etiqueta_archivo']                            = 'ARQUIVO';
 $lang['ventas_registro_controller_lang_etiqueta_detalle']                            = 'DESEJA ADICIONAR PRODUTOS?';
-$lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_nombre']              = 'NOME:';
+$lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_nombre']              = 'NOME COMPLETO:';
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_email']               = 'EMAIL:';
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_celular']             = 'CELULAR:';
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_rfc']                 = 'CPF:';

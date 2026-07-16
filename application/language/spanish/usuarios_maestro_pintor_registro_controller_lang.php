@@ -6,7 +6,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_sub_datos_usuario']     
 $lang['usuarios_maestro_pintor_registro_controller_lang_sub_datos_direccion']                   = 'DIRECCIÓN';
 $lang['usuarios_maestro_pintor_registro_controller_lang_sub_datos_archivos']                    = 'ARCHIVOS';
 $lang['usuarios_maestro_pintor_registro_controller_lang_sub_datos_firma']                       = 'FIRMA';
-$lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_nombre']                       = '*NOMBRE:';
+$lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_nombre']                       = '*NOMBRE COMPLETO:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_segundo_nombre']               = 'SEGUNDO NOMBRE:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_apaterno']                     = '*APELLIDO PATERNO:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_amaterno']                     = 'APELLIDO MATERNO:';

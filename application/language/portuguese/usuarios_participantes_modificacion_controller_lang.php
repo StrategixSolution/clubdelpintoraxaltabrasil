@@ -6,7 +6,7 @@ $lang['usuarios_participantes_modificacion_controller_lang_pagina_titulo']      
 $lang['usuarios_participantes_modificacion_controller_lang_input_nombre']                           = '*NOME COMPLETO:';
 $lang['usuarios_participantes_modificacion_controller_lang_etiqueta_distribuidora']                 = 'DISTRIBUIDOR:';
 $lang['usuarios_participantes_modificacion_controller_lang_etiqueta_perfil']                        = 'PERFIL:';
-$lang['usuarios_participantes_modificacion_controller_lang_placeholder_nombre']                     = 'NOME';
+$lang['usuarios_participantes_modificacion_controller_lang_placeholder_nombre']                     = 'NOME COMPLETO';
 $lang['usuarios_participantes_modificacion_controller_lang_tooltip_nombre']                         = '*MÁXIMO 100 CARACTERES *CAMPO OBRIGATÓRIO *SOMENTE TEXTO ';
 $lang['usuarios_participantes_modificacion_controller_lang_input_segundo_nombre']                   = 'SEGUNDO NOME:';
 $lang['usuarios_participantes_modificacion_controller_lang_placeholder_segundo_nombre']             = 'SEGUNDO NOME';

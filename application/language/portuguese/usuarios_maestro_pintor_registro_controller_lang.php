@@ -34,7 +34,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_acepto_terminos
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_frase_duenio'] = '"O PROPRIETÁRIO DAS INFORMAÇÕES DEVE ACEITAR":';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_btn_limpiar'] = 'LIMPAR';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_btn_guardar'] = 'SALVAR';
-$lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre'] = 'NOME';
+$lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre'] = 'NOME COMPLETO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_segundo_nombre'] = 'SEGUNDO NOME';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_apaterno'] = 'SOBRENOME';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_amaterno'] = 'SOBRENOME MATERNO';

@@ -19,7 +19,7 @@ $lang['ventas_auditoria_primera_controller_lang_tabla_ventano']                 
 $lang['ventas_auditoria_primera_controller_lang_tabla_ventaid']                                         = 'ID';
 $lang['ventas_auditoria_primera_controller_lang_tabla_pintor']                                          = 'PINTOR';
 $lang['ventas_auditoria_primera_controller_lang_tabla_distribuidor']                                    = 'DISTRIBUIDOR';
-$lang['ventas_auditoria_primera_controller_lang_tabla_nombre']                                          = 'NOME';
+$lang['ventas_auditoria_primera_controller_lang_tabla_nombre']                                          = 'NOME COMPLETO';
 $lang['ventas_auditoria_primera_controller_lang_tabla_numero_ticket']                                   = 'Nº DO TICKET';
 $lang['ventas_auditoria_primera_controller_lang_tabla_monto_ticket']                                    = 'VALOR DO TICKET';
 $lang['ventas_auditoria_primera_controller_lang_tabla_monto_ticket_capturado']                          = 'VALOR DO BILHETE CAPTURADO';
@@ -46,7 +46,7 @@ $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_codigo']     
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_presentacion']                       = 'VOLUME';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_cantidad']                           = 'QUANTIDADE';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_id']                                 = 'ID';
-$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_nombre']                             = 'NOME';
+$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_nombre']                             = 'NOME COMPLETO';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_folio']                              = 'Nº DO TICKET';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_monto']                              = 'VALOR';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_fecha']                              = 'DATA';

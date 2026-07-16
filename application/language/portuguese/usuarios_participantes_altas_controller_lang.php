@@ -7,8 +7,8 @@ $lang['usuarios_participantes_altas_controller_lang_etiqueta_distribuidora']    
 $lang['usuarios_participantes_altas_controller_lang_placeholder_distribuidora']              = 'SELECIONE UM DISTRIBUIDOR';
 $lang['usuarios_participantes_altas_controller_lang_etiqueta_perfil']                        = 'PERFIL:';
 $lang['usuarios_participantes_altas_controller_lang_placeholder_perfil']                     = 'SELECIONE UM PERFIL';
-$lang['usuarios_participantes_altas_controller_lang_input_nombre']                           = 'NOME:';
-$lang['usuarios_participantes_altas_controller_lang_placeholder_nombre']                     = 'NOME';
+$lang['usuarios_participantes_altas_controller_lang_input_nombre']                           = 'NOME COMPLETO:';
+$lang['usuarios_participantes_altas_controller_lang_placeholder_nombre']                     = 'NOME COMPLETO';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_distribuidora']                  = '*CAMPO OBLIGATORIO';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_perfil']                         = '*CAMPO OBLIGATORIO';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_nombre']                         = '*MÁXIMO 100 CARACTERES *CAMPO OBRIGATÓRIO *SOMENTE TEXTO ';

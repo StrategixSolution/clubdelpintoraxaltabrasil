@@ -21,7 +21,7 @@ $lang['productos_reposicion_captura_controller_lang_etiqueta_frase']            
 $lang['productos_reposicion_captura_controller_lang_etiqueta_firma']                         = 'FIRMAS';
 $lang['productos_reposicion_captura_controller_lang_etiqueta_ganador']                       = 'GANADORES';
 
-$lang['productos_reposicion_captura_controller_lang_msg_error_no_acceso']                    = 'EL MÓDULO ESTÁ TEMPORALMENTE DESACTIVADO';
+$lang['productos_reposicion_captura_controller_lang_msg_error_no_acceso']                    = 'EL SEÇÃO ESTÁ TEMPORALMENTE DESACTIVADO';
 $lang['productos_reposicion_captura_controller_lang_msg_succes']                             = 'DATOS GUARDADOS CORRECTAMENTE';
 $lang['productos_reposicion_captura_controller_lang_msg_succes_fotos']                       = 'IMÁGENES CARGADAS';
 $lang['productos_reposicion_captura_controller_lang_msg_reposicion_canjeada']                = 'PREMIO CANJEADO';

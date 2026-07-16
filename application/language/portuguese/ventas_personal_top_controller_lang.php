@@ -71,7 +71,7 @@ $lang['ventas_personal_top_controller_lang_etiqueta_etiqueta_msg_ticket']       
 $lang['ventas_personal_top_controller_lang_etiqueta_camara']                                        = 'CÂMERA';
 $lang['ventas_personal_top_controller_lang_etiqueta_archivo']                                       = 'ARQUIVO';
 $lang['ventas_personal_top_controller_lang_etiqueta_detalle']                                       = 'DESEJA ADICIONAR PRODUTOS?';
-$lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_nombre']                         = 'NOME:';
+$lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_nombre']                         = 'NOME COMPLETO:';
 $lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_email']                          = 'E-MAIL:';
 $lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_celular']                        = 'CELULAR:';
 $lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_rfc']                            = 'CPF:';

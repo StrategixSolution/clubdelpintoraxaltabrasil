@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['multimedios_cargas_controller_lang_titulo']                                       = 'CARGA DE MULTIMEDIOS';
-$lang['multimedios_cargas_controller_lang_etiqueta_modulos']                             = 'MÓDULO:';
+$lang['multimedios_cargas_controller_lang_etiqueta_modulos']                             = 'SEÇÃO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_tipos']                               = 'TIPO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_tipo_video']                          = 'TIPO VIDEO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_archvivo_multimedia_principal']       = 'ARCHIVO:';
@@ -10,7 +10,7 @@ $lang['multimedios_cargas_controller_lang_etiqueta_archvivo_multimedia_secundari
 $lang['multimedios_cargas_controller_lang_etiqueta_texto']                               = 'TEXTO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_titulo']                              = 'TITULO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_html']                                = 'HTML:';
-$lang['multimedios_cargas_controller_lang_placeholder_modulos']                          = 'SELECCIONE UN MÓDULO';
+$lang['multimedios_cargas_controller_lang_placeholder_modulos']                          = 'SELECCIONE UN SEÇÃO';
 $lang['multimedios_cargas_controller_lang_placeholder_tipos']                            = 'SELECCIONE UN TIPO';
 $lang['multimedios_cargas_controller_lang_placeholder_pais']                             = 'SELECCIONE LOS PAÍSES';
 $lang['multimedios_cargas_controller_lang_placeholder_perfil']                           = 'SELECCIONE LOS PERFILES';
@@ -28,7 +28,7 @@ $lang['multimedios_cargas_controller_lang_tabla_titulo_thumbnail']              
 $lang['multimedios_cargas_controller_lang_tabla_titulo_texto']                           = 'TEXTO, TITULO O HTML';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_fecha']                           = 'FECHA DE REGISTRO';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_tipo']                            = 'TIPO DE MULTIMEDIO';
-$lang['multimedios_cargas_controller_lang_tabla_titulo_modulo']                          = 'MÓDULO';
+$lang['multimedios_cargas_controller_lang_tabla_titulo_modulo']                          = 'SEÇÃO';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_tipo_video']                      = 'TIPO DE VIDEO';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_baja']                            = 'BAJA';
 $lang['multimedios_cargas_controller_lang_js_archivo_validar']                           = 'SELECCIONE UN ARCHIVO';

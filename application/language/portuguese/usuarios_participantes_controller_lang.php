@@ -15,7 +15,7 @@ $lang['usuarios_participantes_controller_lang_tabla_titulo_nomcomercial']       
 $lang['usuarios_participantes_controller_lang_tabla_titulo_perfil']                  = 'PERFIL';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_rfc']                     = 'NIT DISTRIBUIDOR';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_rfc_pax']                 = 'NIT PARTICIPANTE';
-$lang['usuarios_participantes_controller_lang_tabla_titulo_nombre']                  = 'NOME';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_nombre']                  = 'NOME COMPLETO';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_segundo_nombre']          = 'SEGUNDO NOME';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_apellido_paterno']        = 'SOBRENOME PATERNO';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_apellido_materno']        = 'SOBRENOME MATERNO';

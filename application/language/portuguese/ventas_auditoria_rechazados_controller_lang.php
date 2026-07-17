@@ -9,7 +9,7 @@ $lang['ventas_auditoria_rechazados_controller_lang_tabla_ventano']              
 $lang['ventas_auditoria_rechazados_controller_lang_tabla_ventaid']                                          = 'ID';
 $lang['ventas_auditoria_rechazados_controller_lang_tabla_pintor']                                           = 'PINTOR';
 $lang['ventas_auditoria_rechazados_controller_lang_tabla_distribuidor']                                     = 'DISTRIBUIDOR';
-$lang['ventas_auditoria_rechazados_controller_lang_tabla_nombre']                                           = 'NOME';
+$lang['ventas_auditoria_rechazados_controller_lang_tabla_nombre']                                           = 'NOME COMPLETO';
 $lang['ventas_auditoria_rechazados_controller_lang_tabla_numero_ticket']                                    = 'Nº DO TICKET';
 $lang['ventas_auditoria_rechazados_controller_lang_tabla_monto_ticket']                                     = 'VALOR DO TICKET';
 $lang['ventas_auditoria_rechazados_controller_lang_tabla_fecha_registro']                                   = 'DATA DE CADASTRO';
@@ -28,7 +28,7 @@ $lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_codigo']  
 $lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_presentacion']                       = 'APRESENTAÇÃO';
 $lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_cantidad']                           = 'QUANTIDADE';
 $lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_id']                                 = 'ID';
-$lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_nombre']                             = 'NOME';
+$lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_nombre']                             = 'NOME COMPLETO';
 $lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_folio']                              = 'FOLIO';
 $lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_monto']                              = 'VALOR';
 $lang['ventas_auditoria_rechazados_controller_lang_model_tabla_titulo_fecha']                              = 'DATA';
@@ -44,7 +44,7 @@ $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_etiqueta_msg_ticket'
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_camara']                                        = 'CÂMERA';
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_archivo']                                       = 'ARQUIVO';
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_detalle']                                       = 'DESEJA ADICIONAR PRODUTOS?';
-$lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_nombre']                         = 'NOME:';
+$lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_nombre']                         = 'NOME COMPLETO:';
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_email']                          = 'E-MAIL:';
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_celular']                        = 'CELULAR:';
 $lang['ventas_auditoria_rechazados_controller_lang_etiqueta_maestro_pintor_rfc']                            = 'CPF:';

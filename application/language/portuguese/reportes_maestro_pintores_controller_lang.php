@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['reportes_maestro_pintores_controller_lang_pagina_titulo']                             = 'RELATÓRIO MAESTRO PINTOR';
 $lang['reportes_maestro_pintores_controller_lang_etiqueta_distribuidor']                      = 'DISTRIBUIDOR:';
 $lang['reportes_maestro_pintores_controller_lang_select_combo_distribuidor']                   = 'SELECIONAR REVENDEDOR';
-$lang['reportes_maestro_pintores_controller_lang_etiqueta_nombre']                             = 'NOME:';
-$lang['reportes_maestro_pintores_controller_lang_placeholder_nombre']                          = 'NOME';
+$lang['reportes_maestro_pintores_controller_lang_etiqueta_nombre']                             = 'NOME COMPLETO:';
+$lang['reportes_maestro_pintores_controller_lang_placeholder_nombre']                          = 'NOME COMPLETO';
 $lang['reportes_maestro_pintores_controller_lang_select_combo_distribuidor_todos']             = 'TODOS';
 
 $lang['reportes_maestro_pintores_controller_lang_tabla_id']                                  = 'ID';
-$lang['reportes_maestro_pintores_controller_lang_tabla_nombre']                              = 'NOME';
+$lang['reportes_maestro_pintores_controller_lang_tabla_nombre']                              = 'NOME COMPLETO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_email']                               = 'EMAIL';
 $lang['reportes_maestro_pintores_controller_lang_tabla_perfil']                              = 'PERFIL';
 $lang['reportes_maestro_pintores_controller_lang_tabla_celular']                             = 'CELULAR';
@@ -31,7 +31,7 @@ $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_anio']           
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_mes']                         = 'MÊS';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_total']                       = 'TOTAL';
 $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_id']                          = 'ID';
-$lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_nombre']                      = 'NOME';
+$lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_nombre']                      = 'NOME COMPLETO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_codigo']                      = 'CÓDIGO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_distribuidor']                = 'DISTRIBUIDOR';
 $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_fecha_registro']              = 'DATA DE REGISTRO';
@@ -48,7 +48,7 @@ $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_anio']           
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_mes']                         = 'MÊS';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_total']                       = 'TOTAL';
 $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_id']                          = 'ID';
-$lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_nombre']                      = 'NOME';
+$lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_nombre']                      = 'NOME COMPLETO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_codigo']                      = 'CÓDIGO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_distribuidor']                = 'DISTRIBUIDOR';
 $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_fecha_registro']              = 'DATA DE INSCRIÇÃO';

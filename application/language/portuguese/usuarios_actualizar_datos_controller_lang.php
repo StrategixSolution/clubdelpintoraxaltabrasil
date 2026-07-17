@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['usuarios_actualizar_datos_controller_lang_pagina_titulo']                            = 'ATUALIZAR DADOS DO USUÁRIO';
 $lang['usuarios_actualizar_datos_controller_lang_input_nombre']                             = '*NOME:';
-$lang['usuarios_actualizar_datos_controller_lang_placeholder_nombre']                       = 'NOME';
+$lang['usuarios_actualizar_datos_controller_lang_placeholder_nombre']                       = 'NOME COMPLETO';
 $lang['usuarios_actualizar_datos_controller_lang_tooltip_nombre']                           = '*MÁXIMO 100 CARACTERES *CAMPO OBRIGATÓRIO *SOMENTE TEXTO ';
 $lang['usuarios_actualizar_datos_controller_lang_input_segundo_nombre']                     = 'SEGUNDO NOME:';
 $lang['usuarios_actualizar_datos_controller_lang_placeholder_segundo_nombre']               = 'SEGUNDO NOME';

@@ -19,7 +19,7 @@ $lang['ventas_auditoria_promociones_controller_lang_tabla_ventano']             
 $lang['ventas_auditoria_promociones_controller_lang_tabla_ventaid']                                         = 'ID';
 $lang['ventas_auditoria_promociones_controller_lang_tabla_pintor']                                          = 'PINTOR';
 $lang['ventas_auditoria_promociones_controller_lang_tabla_distribuidor']                                    = 'DISTRIBUIDOR';
-$lang['ventas_auditoria_promociones_controller_lang_tabla_nombre']                                          = 'NOME';
+$lang['ventas_auditoria_promociones_controller_lang_tabla_nombre']                                          = 'NOME COMPLETO';
 $lang['ventas_auditoria_promociones_controller_lang_tabla_numero_ticket']                                   = 'Nº DO TICKET';
 $lang['ventas_auditoria_promociones_controller_lang_tabla_monto_ticket']                                    = 'VALOR DO TICKET';
 $lang['ventas_auditoria_promociones_controller_lang_tabla_fecha_registro']                                  = 'DATA DE CADASTRO';
@@ -44,7 +44,7 @@ $lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_codigo'] 
 $lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_presentacion']                       = 'APRESENTAÇÃO';
 $lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_cantidad']                           = 'QUANTIDADE';
 $lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_id']                                 = 'ID';
-$lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_nombre']                             = 'NOME';
+$lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_nombre']                             = 'NOME COMPLETO';
 $lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_folio']                              = 'FOLIO';
 $lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_monto']                              = 'VALOR';
 $lang['ventas_auditoria_promociones_controller_lang_model_tabla_titulo_fecha']                              = 'DATA';

@@ -14,7 +14,7 @@ $lang['reportes_ventas_auditoria_estatus_en_auditoria'] = 'Em auditoria';
 $lang['reportes_ventas_auditoria_estatus_aprobada'] = 'Aprovada';
 $lang['reportes_ventas_auditoria_estatus_rechazada'] = 'Recusada';
 
-$lang['reportes_ventas_auditoria_th_nombre'] = 'NOME';
+$lang['reportes_ventas_auditoria_th_nombre'] = 'NOME COMPLETO';
 $lang['reportes_ventas_auditoria_th_ticket'] = 'Nº DE TICKET';
 $lang['reportes_ventas_auditoria_th_monto_ticket'] = 'VALOR DO TICKET';
 $lang['reportes_ventas_auditoria_th_total_montos'] = 'TOTAL VALORES';

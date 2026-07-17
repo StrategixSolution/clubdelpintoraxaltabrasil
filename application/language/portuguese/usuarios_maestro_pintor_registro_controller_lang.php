@@ -6,7 +6,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_sub_datos_usuario'] = 'D
 $lang['usuarios_maestro_pintor_registro_controller_lang_sub_datos_direccion'] = 'ENDEREÇO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_sub_datos_archivos'] = 'ARQUIVOS';
 $lang['usuarios_maestro_pintor_registro_controller_lang_sub_datos_firma'] = 'ASSINATURA';
-$lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_nombre'] = '*NOME:';
+$lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_nombre'] = '*NOME COMPLETO:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_segundo_nombre'] = 'SEGUNDO NOME:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_apaterno'] = '*SOBRENOME:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_amaterno'] = 'SOBRENOME MATERNO:';
@@ -34,7 +34,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_acepto_terminos
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_frase_duenio'] = '"O PROPRIETÁRIO DAS INFORMAÇÕES DEVE ACEITAR":';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_btn_limpiar'] = 'LIMPAR';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_btn_guardar'] = 'SALVAR';
-$lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre'] = 'NOME';
+$lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre'] = 'NOME COMPLETO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_segundo_nombre'] = 'SEGUNDO NOME';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_apaterno'] = 'SOBRENOME';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_amaterno'] = 'SOBRENOME MATERNO';
@@ -91,12 +91,12 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_msg_error_tamanio_identi
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_enviar_por']      = 'ENVIAR POR:';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_enviar_por_mail']      = 'E-MAIL';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_legal_aviso_titulo']      = 'AVISO DE PRIVACIDADE - TERMOS E CONDIÇÕES';
-$lang['usuarios_maestro_pintor_registro_controller_lang_mail_welcome']      = 'Bem-vindo ao Axalta Club do Pintor Brasil';
-$lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_1']      = 'É uma honra tê-lo como parte do Club do Pintor, onde reconhecemos seu esforço e lealdade.';
+$lang['usuarios_maestro_pintor_registro_controller_lang_mail_welcome']      = 'Bem-vindo ao Axalta Clube do Pintor Brasil';
+$lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_1']      = 'É uma honra tê-lo como parte do Clube do Pintor, onde reconhecemos seu esforço e lealdade.';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_2']      = 'Com prazer atenderemos suas dúvidas sobre o programa de incentivos, promoções, resultados ou temas relacionados ao funcionamento do site, a partir da página do programa <a href="https://www.clubdelpintoraxaltabrasil.com.br" style="mso-line-height-rule:exactly;text-decoration:none;color:#2690CE;font-size:14px">www.clubdelpintoraxaltabrasil.com.br</a> na aba de contato.';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_user']    = 'Usuário: ';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_pass']    = 'Senha: ';
-$lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_button_1']    = 'Club do Pintor';
+$lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_button_1']    = 'Clube do Pintor';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_3']      = 'Você conhece as regras do programa?';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_button_2']    = 'Ir para o site';
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_tipo_tarjeta']    = 'TIPO DE CARTÃO';

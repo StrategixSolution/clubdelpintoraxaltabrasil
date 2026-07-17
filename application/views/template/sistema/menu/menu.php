@@ -32,7 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </div>
                             </div>
                             <div class="col-lg-2 logout">
-                                <a href="logout"><span>SAIR </span> | <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
+                                <a href="logout"><span>CANCELAR </span> | <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>

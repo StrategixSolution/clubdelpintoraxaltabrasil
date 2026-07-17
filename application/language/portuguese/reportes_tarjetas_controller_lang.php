@@ -21,7 +21,7 @@ $lang['reportes_tarjetas_controller_lang_tabla_estatus_tarjeta']                
 $lang['reportes_tarjetas_controller_lang_tabla_maestro_pintor']                        = 'MAESTRO PINTOR';
 $lang['reportes_tarjetas_controller_lang_tabla_estatus_maestro']                       = 'ESTATUS MAESTRO PINTOR';
 $lang['reportes_tarjetas_controller_lang_tabla_estatus_perfil']                        = 'PERFIL';
-$lang['reportes_tarjetas_controller_lang_tabla_btn_descarga']                          = 'BAIXAR';
+$lang['reportes_tarjetas_controller_lang_tabla_btn_descarga']                          = 'BAIXAR RELATÓRIO';
 $lang['reportes_tarjetas_controller_lang_etiqueta_pais']                               = 'PAÍS:';
 $lang['reportes_tarjetas_controller_lang_etiqueta_segmento']                           = 'SEGMENTO:';
 $lang['reportes_tarjetas_controller_lang_placeholder_rango_fechas']                    = 'SELECIONE UM INTERVALO DE DATAS';

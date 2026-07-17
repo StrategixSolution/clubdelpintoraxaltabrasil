@@ -2,13 +2,13 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['ventas_auditoria_envio_correos_controller_lang_pagina_titulo']                                         = 'ENVIO DE E-MAILS – TICKETS RECUSADOS NA AUDITORIA';
+$lang['ventas_auditoria_envio_correos_controller_lang_pagina_titulo']                                         = 'ENVIO DE E-MAILS – COMPROVANTES REJEITADOS NA AUDITORIA';
 $lang['ventas_auditoria_envio_correos_controller_lang_modal_ticket_titulo']                                   = 'TICKET';
 $lang['ventas_auditoria_envio_correos_controller_lang_etiqueta_distribuidor']                                 = 'DISTRIBUIDOR';
 $lang['ventas_auditoria_envio_correos_controller_lang_etiqueta_estatus']                                      = 'STATUS';
 $lang['ventas_auditoria_envio_correos_controller_lang_etiqueta_total']                                        = 'TOTAL';
 $lang['ventas_auditoria_envio_correos_controller_lang_etiqueta_auditadas']                                    = 'AUDITADAS';
-$lang['ventas_auditoria_envio_correos_controller_lang_etiqueta_sin_auditar']                                  = 'SEM AUDITAR';
+$lang['ventas_auditoria_envio_correos_controller_lang_etiqueta_sin_auditar']                                  = 'PENDENTES DE AUDITORIA';
 $lang['ventas_auditoria_envio_correos_controller_lang_etiqueta_mes']                                          = 'MÊS:';
 $lang['ventas_auditoria_envio_correos_controller_lang_etiqueta_anio']                                         = 'ANO:';
 $lang['ventas_auditoria_envio_correos_controller_lang_placeholder_distribuidor']                              = 'TODOS';
@@ -20,21 +20,21 @@ $lang['ventas_auditoria_envio_correos_controller_lang_tabla_ventaid']           
 $lang['ventas_auditoria_envio_correos_controller_lang_tabla_pintor']                                          = 'PINTOR';
 $lang['ventas_auditoria_envio_correos_controller_lang_tabla_distribuidor']                                    = 'DISTRIBUIDOR';
 $lang['ventas_auditoria_envio_correos_controller_lang_tabla_nombre']                                          = 'NOME COMPLETO';
-$lang['ventas_auditoria_envio_correos_controller_lang_tabla_numero_ticket']                                   = 'Nº DO TICKET';
-$lang['ventas_auditoria_envio_correos_controller_lang_tabla_monto_ticket']                                    = 'VALOR DO TICKET';
-$lang['ventas_auditoria_envio_correos_controller_lang_tabla_fecha_registro']                                  = 'DATA DE CADASTRO';
+$lang['ventas_auditoria_envio_correos_controller_lang_tabla_numero_ticket']                                   = 'NÚMERO DO COMPROVANTE';
+$lang['ventas_auditoria_envio_correos_controller_lang_tabla_monto_ticket']                                    = 'VALOR DO COMPROVANTE';
+$lang['ventas_auditoria_envio_correos_controller_lang_tabla_fecha_registro']                                  = 'DATA DE REGISTRO';
 $lang['ventas_auditoria_envio_correos_controller_lang_tabla_ticket']                                          = 'TICKET';
-$lang['ventas_auditoria_envio_correos_controller_lang_tabla_estatus_auditoria']                               = 'STATUS AUDITORIA';
+$lang['ventas_auditoria_envio_correos_controller_lang_tabla_estatus_auditoria']                               = 'STATUS DA AUDITORIA';
 $lang['ventas_auditoria_envio_correos_controller_lang_tabla_fecha_auditoria']                                 = 'DATA AUDITORIA';
 $lang['ventas_auditoria_envio_correos_controller_lang_tabla_observaciones']                                   = 'OBSERVAÇÕES';
 $lang['ventas_auditoria_primera_controller_lang_tabla_accion']                                                = 'AÇÃO';
 $lang['ventas_auditoria_primera_controller_lang_tabla_fecha_auditoria']                                       = 'DATA DE AUDITORIA';
 $lang['ventas_auditoria_primera_controller_lang_tabla_fecha_envio_correo']                                    = 'DATA ENVIO DE E-MAIL';
-$lang['ventas_auditoria_primera_controller_lang_tabla_fecha_limite_correo']                                    = 'DATA LIMITE DE CORREÇÃO';
-$lang['ventas_auditoria_envio_correos_controller_lang_tabla_motivo']                                          = 'MOTIVO';
-$lang['ventas_auditoria_envio_correos_controller_lang_tabla_ticket_monto_repetido']                           = 'TICKETS COM VALOR REPETIDO';
+$lang['ventas_auditoria_primera_controller_lang_tabla_fecha_limite_correo']                                    = 'PRAZO PARA CORREÇÃO';
+$lang['ventas_auditoria_envio_correos_controller_lang_tabla_motivo']                                          = 'MOTIVO DA AUDITORIA';
+$lang['ventas_auditoria_envio_correos_controller_lang_tabla_ticket_monto_repetido']                           = 'COMPROVANTES COM VALOR REPETIDO';
 $lang['ventas_auditoria_envio_correos_controller_lang_alerta_pregunta_aceptar']                               = 'DESEJA APROVAR A VENDA?';
-$lang['ventas_auditoria_envio_correos_controller_lang_alerta_pregunta_rechazar']                              = 'DESEJA RECUSAR A VENDA?';
+$lang['ventas_auditoria_envio_correos_controller_lang_alerta_pregunta_rechazar']                              = 'DESEJA CORRIGIR DADOS A VENDA?';
 $lang['ventas_auditoria_envio_correos_controller_lang_alerta_respuesta_aprobada']                             = 'VENDA APROVADA';
 $lang['ventas_auditoria_envio_correos_controller_lang_alerta_respuesta_rechazo']                              = 'VENDA RECUSADA';
 $lang['ventas_auditoria_envio_correos_controller_lang_alerta_cancelar']                                       = 'CANCELAR';

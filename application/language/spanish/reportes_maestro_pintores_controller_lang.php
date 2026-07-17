@@ -12,7 +12,7 @@ $lang['reportes_maestro_pintores_controller_lang_tabla_id']                     
 $lang['reportes_maestro_pintores_controller_lang_tabla_nombre']                              = 'NOMBRE';
 $lang['reportes_maestro_pintores_controller_lang_tabla_email']                               = 'EMAIL';
 $lang['reportes_maestro_pintores_controller_lang_tabla_perfil']                              = 'PERFIL';
-$lang['reportes_maestro_pintores_controller_lang_tabla_celular']                             = 'CELULAR';
+$lang['reportes_maestro_pintores_controller_lang_tabla_celular']                             = 'CELULAR (WHATSAPP)';
 $lang['reportes_maestro_pintores_controller_lang_tabla_ntarjeta']                            = 'N° DE TARJETA';
 $lang['reportes_maestro_pintores_controller_lang_tabla_talla']                               = 'TALLA';
 $lang['reportes_maestro_pintores_controller_lang_tabla_iddistribuidor']                       = 'ID DISTRIBUIDOR';

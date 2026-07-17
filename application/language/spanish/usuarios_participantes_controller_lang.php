@@ -21,7 +21,7 @@ $lang['usuarios_participantes_controller_lang_tabla_titulo_apellido_materno']   
 $lang['usuarios_participantes_controller_lang_tabla_titulo_email']                   = 'CORREO ELECTRÓNICO';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_telefono']                = 'TELÉFONO';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_extencion']               = 'EXTENSIÓN';
-$lang['usuarios_participantes_controller_lang_tabla_titulo_celular']                 = 'CELULAR';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_celular']                 = 'CELULAR (WHATSAPP)';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_editar']                  = 'EDITAR';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_eliminar']                = 'BAJA';
 $lang['usuarios_participantes_controller_lang_tabla_js_msg_titulo_success']          = 'BAJA DE PARTICIPANTE';

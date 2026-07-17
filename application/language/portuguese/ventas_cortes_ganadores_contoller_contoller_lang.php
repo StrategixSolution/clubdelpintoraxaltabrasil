@@ -21,4 +21,4 @@ $lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_cuenta'] = 'TOTAL
 $lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_tarjeta'] = 'Nº CARTÃO';
 $lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_codigo'] = 'CÓDIGO';
 $lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_distribuidor'] = 'DISTRIBUIDOR';
-$lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_maestro_pintor'] = 'MESTRE PINTOR';
+$lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_maestro_pintor'] = 'PINTOR PARCEIRO';

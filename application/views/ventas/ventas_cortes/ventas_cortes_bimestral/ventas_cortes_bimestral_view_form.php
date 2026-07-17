@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             <div class="col-lg-2" id="div_excel" style="display:none">
                     <div class="btn-modulo" style="margin-top:20px;">
-                        <button type="button"  class="btn btn-axalta" id="ventas_cortes_bimestral_view_form_btn_excel">DESCARGAR <i class="fas fa-download"></i></button>                                
+                        <button type="button"  class="btn btn-axalta" id="ventas_cortes_bimestral_view_form_btn_excel">BAIXAR <i class="fas fa-download"></i></button>                                
                     </div>
                 </div>
         </div> 

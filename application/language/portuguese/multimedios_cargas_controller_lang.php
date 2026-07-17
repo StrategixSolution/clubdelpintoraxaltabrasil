@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['multimedios_cargas_controller_lang_titulo']                                       = 'ENVIO MULTIMÍDIA';
 $lang['multimedios_cargas_controller_lang_etiqueta_modulos']                             = 'SEÇÃO:';
-$lang['multimedios_cargas_controller_lang_etiqueta_tipos']                               = 'TIPO:';
+$lang['multimedios_cargas_controller_lang_etiqueta_tipos']                               = 'TIPO DE REGISTRO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_tipo_video']                          = 'INTERNO / EXTERNO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_archvivo_multimedia_principal']       = 'ARQUIVO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_archvivo_multimedia_secundario']      = 'THUMBNAIL:';
@@ -11,7 +11,7 @@ $lang['multimedios_cargas_controller_lang_etiqueta_texto']                      
 $lang['multimedios_cargas_controller_lang_etiqueta_titulo']                              = 'TÍTULO:';
 $lang['multimedios_cargas_controller_lang_etiqueta_html']                                = 'HTML:';
 $lang['multimedios_cargas_controller_lang_placeholder_modulos']                          = 'SELECIONE UM SEÇÃO';
-$lang['multimedios_cargas_controller_lang_placeholder_tipos']                            = 'SELECIONE UM TIPO';
+$lang['multimedios_cargas_controller_lang_placeholder_tipos']                            = 'SELECIONE UMA OPÇÃO';
 $lang['multimedios_cargas_controller_lang_placeholder_pais']                             = 'SELECIONE OS PAÍSES';
 $lang['multimedios_cargas_controller_lang_placeholder_perfil']                           = 'SELECIONE OS PERFIS';
 $lang['multimedios_cargas_controller_lang_placeholder_tipos_videos']                     = 'TIPO TUTORIAL';
@@ -37,19 +37,19 @@ $lang['multimedios_cargas_controller_lang_js_archivo_valida_pdf']               
 $lang['multimedios_cargas_controller_lang_js_archivo_valida_imagen']                     = 'TIPO DE ARQUIVO INVÁLIDO, USE APENAS JPG E PNG.';
 $lang['multimedios_cargas_controller_lang_placeholder_division']                         = 'TODOS';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_perfil']                          = 'PERFIL';
-$lang['multimedios_cargas_controller_lang_tabla_titulo_fecha_i']                          = 'DATA INÍCIO';
-$lang['multimedios_cargas_controller_lang_tabla_titulo_fecha_f']                          = 'DATA FIM';
+$lang['multimedios_cargas_controller_lang_tabla_titulo_fecha_i']                          = 'DATA DE INÍCIO';
+$lang['multimedios_cargas_controller_lang_tabla_titulo_fecha_f']                          = 'DATA DE TÉRMINO';
 $lang['multimedios_cargas_controller_lang_js_baja_confirm']                          = 'VOCÊ QUER CANCELAR A INSCRIÇÃO?';
-$lang['multimedios_cargas_controller_lang_js_aceptar']                          = 'ACEITAR';
+$lang['multimedios_cargas_controller_lang_js_aceptar']                          = 'CONFIRMAR';
 $lang['multimedios_cargas_controller_lang_js_cancelar']                          = 'CANCELAR';
 $lang['multimedios_cargas_controller_lang_js_baja_exitosa']                          = 'BAIXA EFETUADA COM SUCESSO';
 $lang['multimedios_cargas_controller_lang_tabla_js_all']                            = 'TODOS';
-$lang['multimedios_cargas_controller_lang_tabla_js_lengthMenu']                          = 'EXIBINDO _MENU_ REGISTROS POR PÁGINA';
+$lang['multimedios_cargas_controller_lang_tabla_js_lengthMenu']                          = 'MOSTRANDO _MENU_ REGISTROS POR PÁGINA';
 $lang['multimedios_cargas_controller_lang_tabla_js_zeroRecords']                         = 'NENHUM REGISTRO ENCONTRADO';
 $lang['multimedios_cargas_controller_lang_tabla_js_info']                                = 'PÁGINA _PAGE_ DE _PAGES_';
 $lang['multimedios_cargas_controller_lang_tabla_js_infoEmpty']                           = 'REGISTROS NÃO DISPONÍVEIS';
 $lang['multimedios_cargas_controller_lang_tabla_js_infoFiltered']                        = '(FILTRADO DE _MAX_ REGISTROS)';
-$lang['multimedios_cargas_controller_lang_tabla_js_search']                              = 'PESQUISAR:';
+$lang['multimedios_cargas_controller_lang_tabla_js_search']                              = 'BUSCAR:';
 $lang['multimedios_cargas_controller_lang_tabla_js_first']                               = 'PRIMEIRO';
 $lang['multimedios_cargas_controller_lang_tabla_js_last']                                = 'ÚLTIMO';
 $lang['multimedios_cargas_controller_lang_tabla_js_next']                                = 'PRÓXIMO';
@@ -62,8 +62,8 @@ $lang['multimedios_cargas_controller_lang_etiqueta_popup_creado']               
 $lang['multimedios_cargas_controller_lang_etiqueta_si']                               = 'SIM';
 $lang['multimedios_cargas_controller_lang_etiqueta_no']                               = 'NÃO';
 $lang['multimedios_cargas_controller_lang_etiqueta_todos']                               = 'TODOS';
-$lang['multimedios_cargas_controller_lang_etiqueta_descarga']                               = 'DESCARGAR';
-$lang['multimedios_cargas_controller_lang_tabla_titulo_descarga']                               = 'DESCARGAR';
+$lang['multimedios_cargas_controller_lang_etiqueta_descarga']                               = 'BAIXAR RELATÓRIO';
+$lang['multimedios_cargas_controller_lang_tabla_titulo_descarga']                               = 'BAIXAR RELATÓRIO';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_ver']                               = 'VER';
 $lang['multimedios_cargas_controller_lang_tabla_titulo_estatus']                               = 'STATUS';
 

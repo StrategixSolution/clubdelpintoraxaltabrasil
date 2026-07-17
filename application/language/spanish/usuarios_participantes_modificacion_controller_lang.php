@@ -29,9 +29,9 @@ $lang['usuarios_participantes_modificacion_controller_lang_tooltip_extencion']  
 $lang['usuarios_participantes_modificacion_controller_lang_placeholder_extencion']                  = 'EXTENSIÓN';
 $lang['usuarios_participantes_modificacion_controller_lang_input_celular']                          = '*CELULAR:';
 $lang['usuarios_participantes_modificacion_controller_lang_tooltip_celular']                        = '*MÁXIMO 20 - MÍNIMO 8 CARACTERES *CAMPO OBLIGATORIO *SOLO NÚMEROS';
-$lang['usuarios_participantes_modificacion_controller_lang_placeholder_celular']                    = 'CELULAR';
+$lang['usuarios_participantes_modificacion_controller_lang_placeholder_celular']                    = 'CELULAR (WHATSAPP)';
 $lang['usuarios_participantes_modificacion_controller_lang_msg_celular_repetido']                   = 'EL CELULAR %1$s YA EXISTE EN LA BASE DE DATOS FAVOR DE CAPTURAR OTRO';
-$lang['usuarios_participantes_modificacion_controller_lang_boton_guardar']                          = 'ACTUALIZAR';
+$lang['usuarios_participantes_modificacion_controller_lang_boton_guardar']                          = 'SALVAR ALTERAÇÕES';
 $lang['usuarios_participantes_modificacion_controller_lang_boton_regresar']                         = 'REGRESAR';
 $lang['usuarios_participantes_modificacion_controller_lang_js_confirm_boton_aprobado']              = 'ACEPTAR';
 $lang['usuarios_participantes_modificacion_controller_lang_js_confirm_boton_rechazado']             = 'RECHAZAR';

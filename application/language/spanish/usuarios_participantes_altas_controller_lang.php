@@ -38,7 +38,7 @@ $lang['usuarios_participantes_altas_controller_lang_tooltip_extencion']         
 $lang['usuarios_participantes_altas_controller_lang_placeholder_extencion']                  = 'EXTENSIÓN';
 $lang['usuarios_participantes_altas_controller_lang_input_celular']                          = '*CELULAR:';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_celular']                        = '*MÍNIMO 8 - MÁXIMO 15 CARACTERES *CAMPO OBLIGATORIO *SOLO NÚMEROS *AGREGAR LADA DE SU PAÍS';
-$lang['usuarios_participantes_altas_controller_lang_placeholder_celular']                    = 'CELULAR';
+$lang['usuarios_participantes_altas_controller_lang_placeholder_celular']                    = 'CELULAR (WHATSAPP)';
 $lang['usuarios_participantes_altas_controller_lang_msg_celular_repetido']                   = 'EL CELULAR %1$s YA EXISTE EN LA BASE DE DATOS FAVOR DE CAPTURAR OTRO';
 $lang['usuarios_participantes_altas_controller_lang_boton_guardar']                          = 'GUARDAR';
 $lang['usuarios_participantes_altas_controller_lang_boton_regresar']                         = 'REGRESAR';

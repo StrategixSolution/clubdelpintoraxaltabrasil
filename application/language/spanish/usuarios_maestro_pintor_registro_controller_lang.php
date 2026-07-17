@@ -40,7 +40,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_apaterno']  
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_amaterno']                  = 'APELLIDO MATERNO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_telefono']                  = 'TELÉFONO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_extencion']                 = 'EXTENSIÓN';
-$lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_celular']                   = 'CELULAR';
+$lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_celular']                   = 'CELULAR (WHATSAPP)';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_compañia']                  = 'SELECCIONA UNA COMPAÑIA';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_email']                     = 'CORREO ELECTRÓNICO';
 $lang['usuarios_maestro_pintor_registro_controller_lang_placeholder_puesto']                    = 'SELECCIONA UN PUESTO';

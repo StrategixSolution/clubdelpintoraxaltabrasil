@@ -11,9 +11,9 @@ $lang['ventas_promociones_controller_lang_tabla_titulo_promocion']              
 $lang['ventas_promociones_controller_lang_tabla_titulo_descripcion']                            = 'DESCRIÇÃO';
 $lang['ventas_promociones_controller_lang_tabla_titulo_gms']                                    = 'GMS';
 $lang['ventas_promociones_controller_lang_tabla_titulo_codigo']                                 = 'CÓDIGO';
-$lang['ventas_promociones_controller_lang_tabla_titulo_presentacion']                           = 'VOLUME';
+$lang['ventas_promociones_controller_lang_tabla_titulo_presentacion']                           = 'VOLUME (LITROS OU ML)';
 $lang['ventas_promociones_controller_lang_tabla_titulo_cantidad']                               = 'QUANTIDADE';
-$lang['ventas_promociones_controller_lang_js_btn_aceptar']                                      = 'ACEITAR';
+$lang['ventas_promociones_controller_lang_js_btn_aceptar']                                      = 'CONFIRMAR';
 $lang['ventas_promociones_controller_lang_js_btn_cancelar']                                     = 'CANCELAR';
 $lang['ventas_promociones_controller_lang_js_msg_promocion_guardada']                           = 'AS PROMOÇÕES FORAM SALVAS';
 $lang['ventas_promociones_controller_lang_js_msg_error_venta_capturada']                        = 'AS PROMOÇÕES JÁ FORAM REGISTRADAS';

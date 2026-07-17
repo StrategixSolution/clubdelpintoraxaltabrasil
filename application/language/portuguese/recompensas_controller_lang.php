@@ -10,7 +10,7 @@ $lang['recompensas_controller_etiqueta_multiple']                               
 $lang['recompensas_controller_etiqueta_ano']                                    = '*ANO:';
 $lang['recompensas_controller_etiqueta_mes']                                    = '*MÊS:';
 $lang['recompensas_controller_etiqueta_lugar']                                  = '*LUGAR:';
-$lang['recompensas_controller_etiqueta_tipo']                                   = '*TIPO:';
+$lang['recompensas_controller_etiqueta_tipo']                                   = '*TIPO DE REGISTRO:';
 $lang['recompensas_controller_etiqueta_rango_ini']                              = 'FAIXA INICIAL:';
 $lang['recompensas_controller_etiqueta_rango_fin']                              = 'FAIXA FINAL:';
 $lang['recompensas_controller_etiqueta_excel']                                  = 'ARQUIVO EXCEL:';
@@ -19,7 +19,7 @@ $lang['recompensas_controller_etiqueta_ejemplo']                                
 $lang['recompensas_controller_placeholder_anio']                                = 'SELECIONE UM ANO';
 $lang['recompensas_controller_placeholder_mes']                                 = 'SELECIONE UM MÊS';
 $lang['recompensas_controller_placeholder_lugar']                               = 'SELECIONE UM LUGAR';
-$lang['recompensas_controller_placeholder_tipo']                                = 'SELECIONE UM TIPO';
+$lang['recompensas_controller_placeholder_tipo']                                = 'SELECIONE UMA OPÇÃO';
 $lang['recompensas_controller_placeholder_rango_ini']                           = 'FAIXA INICIAL';
 $lang['recompensas_controller_placeholder_rango_fin']                           = 'FAIXA FINAL';
 

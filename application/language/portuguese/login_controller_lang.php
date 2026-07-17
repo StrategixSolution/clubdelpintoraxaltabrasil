@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['login_controller_lang_input_usuario']                                    = 'E-MAIL:';
 $lang['login_controller_lang_input_placeholder_usuario']                        = 'E-MAIL';
 $lang['login_controller_lang_input_tooltip_usuario']                            = 'O CAMPO É OBRIGATÓRIO *DEVE SER UM E-MAIL VÁLIDO';
-$lang['login_controller_lang_input_clave']                                      = 'SENHA:';
-$lang['login_controller_lang_input_placeholder_clave']                          = 'SENHA';
+$lang['login_controller_lang_input_clave']                                      = 'SENHA DE ACESSO:';
+$lang['login_controller_lang_input_placeholder_clave']                          = 'SENHA DE ACESSO';
 $lang['login_controller_lang_input_tooltip_clave']                              = '*O CAMPO É OBRIGATÓRIO *MAIS DE SEIS DÍGITOS *SEM ESPAÇOS';
 $lang['login_controller_lang_btn_ingresar']                                     = 'ENTRAR';
 $lang['login_controller_lang_usuario_erroneo']                                  = 'USUÁRIO INCORRETO';
@@ -18,7 +18,7 @@ $lang['login_controller_lang_recupera_clave']                                   
 $lang['login_controller_lang_copyright']                                        = 'company® ';
 $lang['login_controller_lang_cookie_titulo']                                    = 'AVISO DE COOKIES';
 $lang['login_controller_lang_cookie_texto']                                     = 'UTILIZAMOS COOKIES PRÓPRIOS E DE TERCEIROS PARA MELHORAR NOSSOS SERVIÇOS.';
-$lang['login_controller_lang_cookie_btn_acuerdo']                               = 'ACEITAR';
+$lang['login_controller_lang_cookie_btn_acuerdo']                               = 'CONFIRMAR';
 $lang['login_controller_lang_cookie_btn_aviso_cookie']                          = 'AVISO DE COOKIES';
 $lang['login_controller_lang_cookie_aviso_cookie_cerrar']                       = 'FECHAR';
 $lang['login_controller_lang_cookie_aviso_cookie_acepto']                       = 'ACEITO';
@@ -36,7 +36,7 @@ $lang['login_controller_lang_informacion_cookies']                              
         <p>Por fim, informamos que o site utiliza web BEACONS. Os web BEACONS também nos permitem monitorar seu comportamento em meios eletrônicos. Utilizamos web BEACONS para determinar quando e quantas vezes uma página foi visualizada. Utilizamos essas informações para fins de marketing, mas somente para nossas próprias práticas de marketing.</p>
             
         <p>Seu navegador aceitará os cookies e permitirá a coleta automática de informações, a menos que você altere as configurações padrão do navegador. A maioria dos navegadores web permite que você gerencie suas preferências de cookies.</p>
-        <p>Você pode ajustar seu navegador para recusar ou excluir cookies. Os links a seguir mostram como ajustar as configurações do navegador nos navegadores mais utilizados:</p>
+        <p>Você pode ajustar seu navegador para rejeitar ou excluir cookies. Os links a seguir mostram como ajustar as configurações do navegador nos navegadores mais utilizados:</p>
         <p><a href="https://support.mozilla.org/pt/kb/impedir-que-los-sitios-web-guarden-sus-preferencia" target="_blank">FIREFOX</a></p>
         <p><a href="https://support.apple.com/pt-br/guide/safari/sfri11471/mac#:~:text=En%20la%20app%20Safari%20del,%E2%80%9CImpedir%20seguimiento%20entre%20sitios%E2%80%9D" target="_blank">SAFARI</a></p>
         <p><a href="https://support.google.com/chrome/answer/95647?hl=pt" target="_blank">CHROME</a></p>

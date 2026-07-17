@@ -100,7 +100,7 @@ a[x-apple-data-detectors] {
               <th>Id</th>
               <th>Pintor</th>
               <th>Ticket</th>
-              <th>Valor do Ticket</th>
+              <th>VALOR DO COMPROVANTE</th>
               <th>Data de Registro</th>
               <th>Distribuidor</th>
               <th>Status</th>

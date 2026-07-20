@@ -16,7 +16,7 @@ $lang['usuarios_participantes_altas_controller_lang_input_nombre']              
 $lang['usuarios_participantes_altas_controller_lang_placeholder_nombre']                     = 'NOMBRE';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_distribuidora']                  = '*CAMPO OBLIGATORIO';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_perfil']                         = '*CAMPO OBLIGATORIO';
-$lang['usuarios_participantes_altas_controller_lang_tooltip_nombre']                         = '*MÁXIMO 100 CARACTERES *CAMPO OBLIGATORIO *SOLO TEXTO ';
+$lang['usuarios_participantes_altas_controller_lang_tooltip_nombre']                         = '*MÁXIMO 200 CARACTERES *CAMPO OBLIGATORIO *SOLO TEXTO ';
 $lang['usuarios_participantes_altas_controller_lang_input_segundo_nombre']                   = 'SEGUNDO NOMBRE:';
 $lang['usuarios_participantes_altas_controller_lang_placeholder_segundo_nombre']             = 'SEGUNDO NOMBRE';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_segundo_nombre']                 = '*MÁXIMO 50 CARACTERES *SOLO TEXTO ';

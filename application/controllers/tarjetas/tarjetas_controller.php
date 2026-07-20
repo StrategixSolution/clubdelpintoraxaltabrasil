@@ -20,7 +20,7 @@ class Tarjetas_controller extends Base_Controller {
         $where = $lista = "";
         $txt_distribuidor=null;
         $cmb_estatus            = $this->input->post('cmb_estatus',TRUE);
-        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) <= 4) {
+        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) <= 3 || $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) == 10){ 
         $where                 .=($cmb_estatus==0)?"":" AND Tarjetas.TarjetaEstatusId = ".$cmb_estatus;
         }else{
             $distribuidoresid = $this->tarjetas_model->tarjetas_model_usuario_ditribuidor();

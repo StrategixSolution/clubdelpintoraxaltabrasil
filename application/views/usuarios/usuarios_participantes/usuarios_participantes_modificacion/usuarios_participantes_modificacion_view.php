@@ -15,10 +15,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row panel-white panel-white-alt">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
           <div class="form-rf-1 form-pr" id="form-rf-1">
             <div class="row">
               <div class="col-lg-4">
@@ -33,10 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <p><?= $perfil ?></p>
                 </div>
               </div>
-            </div>
-            <!-- <div class="line-dashed-gray"></div> -->
-            <div class="row row-validator">
-              <div class="col-lg-3">
+              <div class="col-lg-4">
                 <div class="form-group">
                   <label
                     for="txtnombre"><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_nombre') ?><span
@@ -50,132 +46,46 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <div id="error"></div>
                 </div>
               </div>
-              <div class="col-lg-3" id="div_segundo_nombre">
-                <div class="form-group">
-                  <label
-                    for="txtsegundonombre"><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_segundo_nombre') ?><span
-                      data-toggle='tooltip'
-                      title='<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_tooltip_segundo_nombre') ?>'><i
-                        class="fas fa-question-circle"></i></span></label>
-                  <input type="text" name="txtsegundonombre" id="txtsegundonombre" value="<?= $txtsegundonombre ?>"
-                    class="form-control txt-mayus"
-                    placeholder="<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_placeholder_segundo_nombre') ?>"
-                    onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
-                  <div id="error"></div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="form-group">
-                  <label
-                    for="txtapellidopaterno"><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_apellido_paterno') ?><span
-                      data-toggle='tooltip'
-                      title='<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_tooltip_apellido_paterno') ?>'><i
-                        class="fas fa-question-circle"></i></span></label>
-                  <input type="text" name="txtapellidopaterno" id="txtapellidopaterno"
-                    value="<?= $txtapellidopaterno ?>" class="form-control txt-mayus"
-                    placeholder="<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_placeholder_apellido_paterno') ?>"
-                    onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
-                  <div id="error"></div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="form-group">
-                  <label
-                    for="txtapellidomaterno"><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_apellido_materno') ?><span
-                      data-toggle='tooltip'
-                      title='<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_tooltip_apellido_materno') ?>'><i
-                        class="fas fa-question-circle"></i></span></label>
-                  <input type="text" name="txtapellidomaterno" id="txtapellidomaterno"
-                    value="<?= $txtapellidomaterno ?>" class="form-control txt-mayus"
-                    placeholder="<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_placeholder_apellido_materno') ?>"
-                    onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="50">
-                  <div id="error"></div>
-                </div>
-              </div>
-            </div>
             <div class="row row-validator">
               <input type="hidden" name="IdUsuario" id="IdUsuario" value="<?= $UsusarioId ?>" class="form-control">
-              <?php if ($UsusarioId == 118) { ?>
-                <div class="col-lg-4">
-                  <div class="form-group">
+              <div class="col-lg-4">
+                <div class="form-group">
                   <label
                     for="txt_email"><?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_email') ?><span
                       data-toggle='tooltip'
                       title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_email') ?>'><i
-                        class="fas fa-question-circle"></i></span></label>  
-                  <input type="text" name="txt_email" id="txt_email"  value="<?= $email ?>" class="form-control"
+                        class="fas fa-question-circle"></i></span></label>
+                  <input type="text" name="txt_email" id="txt_email" value="<?= $email ?>" class="form-control"
                     placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_email') ?>"
                     maxlength="100">
                   <div id="error"></div>
-                  </div>
                 </div>
-                <div class="col-lg-3">
-                  <div class="form-group">
-                    <label><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_celular') ?></label>
-                    <input type="text" name="txtcelular" id="txtcelular" value="<?= $celular ?>" class="form-control"
-                      placeholder="<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_placeholder_celular') ?>"
-                      onKeyPress="return js_general_solo_numeros(event)" maxlength="20">
-                    <div id="error"></div>
-                  </div>
-                </div>
-              <?php } else { ?>
-                <div class="col-lg-4">
-                  <div class="form-group">
-                    <label><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_email') ?></label>
-                    <p><?= $email ?></p>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="form-group">
-                    <label><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_celular') ?></label>
-                    <p><?= $celular ?></p>
-                  </div>
-                </div>
-              <?php } ?>
-              <div class="col-lg-3">
+              </div>
+              <div class="col-lg-4">
                 <div class="form-group">
-                  <label
-                    for="texttelefono"><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_telefono') ?><span
-                      data-toggle='tooltip'
-                      title='<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_tooltip_telefono') ?>'><i
-                        class="fas fa-question-circle"></i></span></label>
-                  <input type="text" name="texttelefono" id="texttelefono" value="<?= $texttelefono ?>"
-                    class="form-control"
-                    placeholder="<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_placeholder_telefono') ?>"
-                    maxlength="20">
+                  <label><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_celular') ?></label>
+                  <input type="text" name="txtcelular" id="txtcelular" value="<?= $celular ?>" class="form-control"
+                    placeholder="<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_placeholder_celular') ?>"
+                    onKeyPress="return js_general_solo_numeros(event)" maxlength="14">
                   <div id="error"></div>
                 </div>
               </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label
-                    for="txtextencion"><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_extencion') ?><span
-                      data-toggle='tooltip'
-                      title='<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_tooltip_extencion') ?>'><i
-                        class="fas fa-question-circle"></i></span></label>
-                  <input type="text" name="txtextencion" id="txtextencion" value="<?= $txtextencion ?>"
-                    class="form-control"
-                    placeholder="<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_placeholder_extencion') ?>"
-                    maxlength="10">
-                  <div id="error"></div>
-                </div>
-              </div>
-            </div>
-            <div class="row row-validator">
-              <div class="col-lg-3">
+              <div class="col-lg-4">
                 <div class="form-group">
                   <label
                     for="txtrfc"><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_rfc') ?><span
                       data-toggle='tooltip'
                       title='<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_tooltip_rfc') ?>'><i
                         class="fas fa-question-circle"></i></span></label>
-                  <input type="text" name="txtrfc" id="txtrfc" value="<?= $txtrfc ?>" class="form-control txt-mayus"
+                  <input type="text" name="txtrfc" id="txtrfc" value="<?= $txtrfc ?>" class="form-control"
                     placeholder="<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_placeholder_rfc') ?>"
-                    onKeyPress="return js_general_nit(event)" maxlength="25">
+                    maxlength="14">
                   <div id="error"></div>
                 </div>
               </div>
+
             </div>
+   
             <div>
               <hr class="separador">
             </div>
@@ -194,13 +104,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
           </div>
         </div>
-        <div class="col-lg-3 no-cel"
-          style=" margin-top: -20px; margin-bottom: -20px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background: url(<?php echo funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/usuarios/personal_tienda/" . $this->session->userdata(funciones_strategix_sitio_alias('s_segmento_id')) . "/bg-form.jpg") ?>)  center center / cover no-repeat;">
-        </div>
       </div>
     </div>
   </section>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/inputmask@5/dist/inputmask.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Inputmask("(99)99999-9999").mask(document.querySelectorAll("#txtcelular"));
+        Inputmask("999.999.999-99").mask(document.querySelectorAll("#txtrfc"));
+    });
+</script>
 <script>
   $(document).ready(function () {
     /********************************************MSG ERROR******************************************************************************************/
@@ -225,25 +139,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
   function usuarios_participantes_modificacion_view_js_guardar() {
     $('#error').html(" ");
     var txtnombre = $('#txtnombre').val();
-    var txtsegundonombre = $('#txtsegundonombre').val();
-    var txtapellidopaterno = $('#txtapellidopaterno').val();
-    var txtapellidomaterno = $('#txtapellidomaterno').val();
-    var texttelefono = $('#texttelefono').val();
-    var txtextencion = $('#txtextencion').val();
     var IdUsuario = $('#IdUsuario').val();
     var txt_email = $('#txt_email').val();
     var txtcelular = $('#txtcelular').val();
     var distribuidora = '<?= $distribuidora ?>';
     var txtrfc = $('#txtrfc').val();
-    var datos = '<table class="table table-striped table-bordered" style="text-align:left; font-size:12px;"><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_etiqueta_perfil') ?></b></td><td><?= $perfil ?></td></tr>';
+    var datos = '<table class="table table-striped table-bordered" style="text-align:left; font-size:12px;">'+
+    '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_etiqueta_perfil') ?></b></td><td><?= $perfil ?></td></tr>';
     if (distribuidora !== '') {
-      datos = datos + '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_etiqueta_distribuidora') ?></b></td><td><?= $distribuidora ?></td></tr>';
+      datos = datos + 
+      '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_etiqueta_distribuidora') ?></b></td><td><?= $distribuidora ?></td></tr>';
     }
-    if (IdUsuario == 118) {
-      datos = datos + '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_nombre') ?></b></td><td>' + txtnombre + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_segundo_nombre') ?></b></td><td>' + txtsegundonombre + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_apellido_paterno') ?></b></td><td>' + txtapellidopaterno + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_apellido_materno') ?></b></td><td>' + txtapellidomaterno + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_email') ?></b></td><td>' + txt_email + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_telefono') ?></b></td><td>' + texttelefono + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_extencion') ?></b></td><td>' + txtextencion + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_celular') ?></b></td><td>' + txtcelular + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_rfc') ?></b></td><td>' + txtrfc + '</td></tr>';
-    } else {
-      datos = datos + '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_nombre') ?></b></td><td>' + txtnombre + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_segundo_nombre') ?></b></td><td>' + txtsegundonombre + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_apellido_paterno') ?></b></td><td>' + txtapellidopaterno + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_apellido_materno') ?></b></td><td>' + txtapellidomaterno + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_email') ?></b></td><td><?= $email ?></td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_telefono') ?></b></td><td>' + texttelefono + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_extencion') ?></b></td><td>' + txtextencion + '</td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_celular') ?></b></td><td><?= $celular ?></td></tr><tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_rfc') ?></b></td><td>' + txtrfc + '</td></tr>';
-    }
+      datos = datos + 
+      '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_nombre') ?></b></td><td>' + txtnombre + '</td></tr>' +
+      '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_email') ?></b></td><td>' + txt_email + '</td></tr>' +
+      '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_celular') ?></b></td><td>' + txtcelular + '</td></tr>' +
+      '<tr><td class="txt-right"><b><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_input_rfc') ?></b></td><td>' + txtrfc + '</td></tr>';
+   
     Swal.fire({
       title: '<?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_js_confirm_titulo') ?>',
       html: datos,

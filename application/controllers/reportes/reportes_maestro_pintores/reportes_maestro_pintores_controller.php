@@ -116,7 +116,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $txt_nombre_mp = utf8_decode($txt_nombre_mp);
         $spreadsheet = new Spreadsheet(4);
         $this->reportes_usuarios_maestros_pintores_controller_maestro_pintor($spreadsheet, $cmb_distribuidor, $txt_nombre_mp);
-        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) < 4) {
+       if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) <= 3 || $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) == 10){ 
             $this->reportes_usuarios_maestros_pintores_controller_registro_por_mes($spreadsheet, $cmb_distribuidor, $txt_nombre_mp);
             $this->reportes_usuarios_maestros_pintores_controller_bajas_maestros_pintores($spreadsheet, $cmb_distribuidor, $txt_nombre_mp);
             $this->reportes_usuarios_maestros_pintores_controller_por_distribuidora($spreadsheet, $cmb_distribuidor, $txt_nombre_mp);

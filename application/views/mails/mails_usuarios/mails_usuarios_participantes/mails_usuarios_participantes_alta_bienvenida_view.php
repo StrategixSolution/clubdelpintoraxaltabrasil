@@ -13,7 +13,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="telephone=no" name="format-detection">
-    <title><?= $this->lang->line('recupera_clave_mail_titulo') ?></title><!--[if (mso 16)]>
+    <title>CDP BRASIL</title><!--[if (mso 16)]>
     <style type="text/css">
     a {text-decoration: none;}
     </style>
@@ -478,7 +478,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="<?= funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/header.jpg") ?>" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="800"></td>
+                                                                <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="<?= funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/header-mail.png") ?>" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="800"></td>
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -525,10 +525,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                             </tr>
                                                             <tr>
                                                                 <td align="center" style="padding:10px;Margin:0">
-                                                                    <h4 style="Margin:0;line-height:21.6px;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:18px">Ya eres parte de la familia de <span style="color:#FF0000"></span><br type="_moz"></h4>
-                                                                    <h4 style="Margin:0;line-height:21.6px;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:18px;color:#ff0000">Axalta Club del Pintor<br type="_moz"></h4>
+                                                                    <h4 style="Margin:0;line-height:21.6px;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:18px">Você já faz parte da família <span style="color:#FF0000"></span><br type="_moz"></h4>
+                                                                    <h4 style="Margin:0;line-height:21.6px;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:18px;color:#ff0000">Axalta Clube do Pintor<br type="_moz"></h4>
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:27px;color:#333333;font-size:18px"><br></p>
-                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:27px;color:#333333;font-size:18px">Disfruta los beneficios que tenemos para ti.<br type="_moz"></p>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:27px;color:#333333;font-size:18px">Aproveite os benefícios que temos para você.<br type="_moz"></p>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -576,12 +576,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                             </tr>
                                                             <tr>
                                                                 <td align="center" style="padding:10px;Margin:0">
-                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:33px;color:#333333;font-size:22px">Este es tu usuario: <strong><?= $usuario ?></strong><br type="_moz"></p>
-                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:33px;color:#333333;font-size:22px">Para generar tu contraseña, da click en el botón.</p>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:33px;color:#333333;font-size:22px">Esta é a sua senha: <strong><?= $contrasena ?></strong><br type="_moz"></p>
                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="center" style="padding:10px;Margin:0"><span class="es-button-border" style="border-style:solid;border-color:#2cb543;background:#d8212f;border-width:0px;display:inline-block;border-radius:5px;width:auto"><a href="<?= funciones_strategix_version_url_random_base_url("UsuariosRecuperaCrearClave") ?>&ssfvr=<?= $sessionId ?>" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:18px;padding:10px 20px 10px 20px;display:inline-block;background:#d8212f;border-radius:5px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:21.6px;width:auto;text-align:center;mso-padding-alt:0;mso-border-alt:10px solid #d8212f">Club del Pintor</a></span></td>
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -610,7 +606,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td align="center" style="padding:15px;Margin:0"><span class="es-button-border" style="border-style:solid;border-color:#2cb543;background:#d8212f;border-width:0px;display:inline-block;border-radius:5px;width:auto"><a href="https://axaltaclubdelpintor.com/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:18px;padding:10px 20px 10px 20px;display:inline-block;background:#d8212f;border-radius:5px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:21.6px;width:auto;text-align:center;mso-padding-alt:0;mso-border-alt:10px solid #d8212f">Ir al sitio</a></span></td>
+                                                                <td align="center" style="padding:15px;Margin:0"><span class="es-button-border" style="border-style:solid;border-color:#2cb543;background:#d8212f;border-width:0px;display:inline-block;border-radius:5px;width:auto"><a href="https://www.clubdelpintoraxaltabrasil.com.br/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:18px;padding:10px 20px 10px 20px;display:inline-block;background:#d8212f;border-radius:5px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:21.6px;width:auto;text-align:center;mso-padding-alt:0;mso-border-alt:10px solid #d8212f">Ir al sitio</a></span></td>
                                                             </tr>
                                                             <tr>
                                                                 <td align="center" style="Margin:0;padding-left:20px;padding-right:20px;padding-top:30px;padding-bottom:35px;font-size:0">
@@ -700,8 +696,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <td align="left" style="padding:0;Margin:0;width:800px">
                                                         <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                                             <tr>
-                                                                <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://epurhb.stripocdn.email/content/guids/CABINET_7b4fbbf8c15c94c636784625d23fe33b6d2138a2e88430dc5545a55cbce7caa0/images/footermarcas_UgO.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="800"></td>
-                                                            </tr>
+                                                                <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="<?= base_url(funciones_strategix_version_url_random("application/views/template/sistema/imagenes/footer-mail.jpg")) ?>" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
+                                                           </tr>
                                                         </table>
                                                     </td>
                                                 </tr>
@@ -740,47 +736,3 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </body>
 
 </html>
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<head>
-<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-<title><?= $this->lang->line('recupera_clave_mail_titulo') ?></title>
-</head>
-<style>
-  @font-face {
-    font-family: poppins;
-    src: url('<?= funciones_strategix_version_url_random_base_url("application/views/template/login/fonts/poppins/Poppins-Regular.ttf") ?>');
-}
-</style>
-<body style="font-family:'poppins',sans-serif;">
-  <table width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='border:thin solid #CCC; border-radius:5px 5px 0px 0px;'>
-  <tr>
-    <td><img src ="<?= funciones_strategix_version_url_random_base_url("application/views/template/login/imagenes/mail_header.png") ?>" width='600' style='border-radius:5px 5px 0px 0px;'></td>
-  </tr>  
-   <tr>
-    <td>
-      <table width='550' border='0' align='center' cellpadding='0' cellspacing='0' style='padding: 0px 10px 40px 10px; text-align: center;'>
-        <tr style="margin:20px 0px 0px 0px; text-align: center;">
-          <td>
-            <h4 style="text-align: center; margin:0px;"><?= $nombre ?></h4>
-            <p style="font-size: 18px; text-align: center; margin:20px 0px;">Ya eres parte de la familia de <b style="color:#c82127">Axalta Club del Pintor</b></p>
-            <h4 style="text-align: center;">Este es tu usuario:<b style="color:#000000;"> <span><?= $usuario ?></span></b></h4>
-            <p style="font-size: 18px; text-align: center; margin:20px 0px;">Para generar tu contraseña, da click <b style="color:#c82127"><a href="<?= funciones_strategix_version_url_random_base_url("UsuariosRecuperaCrearClave") ?>&ssfvr=<?= $sessionId ?>" style=" text-decoration: none; ">aquí</a></b></p>
-            <p style="font-size: 14px; text-align: center; margin:20px 0px;">Disfruta los beneficios que tenemos para ti.</p>
-          </td> 
-        </tr>
-      </table>
-    </td>
-  </tr>
- <tr>
-    <td><img src ="<?= funciones_strategix_version_url_random_base_url("application/views/template/login/imagenes/mail_footer.png") ?>" width='600'></td>
-  </tr>  
-  </table>
-  </font>
-</body>
-</html> -->

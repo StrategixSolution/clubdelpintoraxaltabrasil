@@ -84,9 +84,8 @@
                     <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_titulo_codigo') ?></th>
                     <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_titulo_distribuidora') ?></th>
                     <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_titulo_nomcomercial') ?></th>
-
-                    <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_titulo_registro_federal') ?></th>
-                    <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_titulo_inscripcion_estatal') ?></th>
+                    <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_registro_federal') ?></th>
+                    <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_inscripcion_estatal') ?></th>
                     <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_titulo_nombre') ?></th>
                     <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_titulo_rfc_pax') ?></th>
                     <th><?= $this->lang->line('usuarios_participantes_controller_lang_tabla_titulo_email') ?></th>

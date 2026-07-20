@@ -18,6 +18,7 @@ class Distribuidores_controller extends Base_Controller {
             case 1://ADMINISTRADORES STRATEGIX
             case 2://ATENCIÓN A CLIENTES
             case 3://ADMINISTRADORES AXALTA
+            case 10://ADMINISTRADORES AXALTA DESARROLLO
                 $distribuidores = $this->distribuidores_model->distribuidores_model_combo_distribuidor_administradores($where);
                 break;
             case 4://GERENTE REGIONAL
@@ -39,7 +40,7 @@ class Distribuidores_controller extends Base_Controller {
         $where                 .=($cmb_distribuidres==0)?"":" AND Distribuidores.DistribuidorId = $cmb_distribuidres";
         $where                 .=($cmb_estatus==0)?"":"";
         $txt_distribuidor=null;
-        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) <= 3) {
+        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) <= 3 || $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) == 10){ 
             $where .=($cmb_distribuidres==0)?"":" AND DistribuidoresDetalles.DistribuidorId = $cmb_distribuidres ";
         }else{
             $distribuidoresid = $this->distribuidores_model->distribuidores_model_usuario_ditribuidor();

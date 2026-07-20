@@ -39,3 +39,5 @@ $lang['usuarios_participantes_controller_lang_combo_estatus']                   
 $lang['usuarios_participantes_controller_lang_tabla_estatus_baja']                   = 'BAJA';
 $lang['usuarios_participantes_controller_lang_tabla_estatus_activo']                 = 'HABILITADO';
 
+$lang['usuarios_participantes_controller_lang_tabla_registro_federal']                           = 'REGISTRO FEDERAL';
+$lang['usuarios_participantes_controller_lang_tabla_inscripcion_estatal']                        = 'INSCRIPCIÓN ESTATAL';

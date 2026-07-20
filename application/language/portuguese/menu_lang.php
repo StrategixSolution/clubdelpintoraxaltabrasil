@@ -81,5 +81,5 @@ $lang['menu_submenu_reposicion_productos_reporte']                              
 $lang['menu_submenu_reposicion_productos_descarga']                             = 'BAIXAR ARQUIVOS DE REPOSIÇÃO';
 
 $lang['menu_tutoriales']                             = 'TUTORIAIS';
-$lang['menu_noticias']                             = 'NOTÍCIAS';
+$lang['menu_noticias']                             = 'PROMOÇÕES E VENCEDORES';
 $lang['menu_submenu_admin_distribuidores']                                      = 'DISTRIBUIDORES';

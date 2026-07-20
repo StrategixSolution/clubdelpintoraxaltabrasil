@@ -62,7 +62,7 @@ class Usuarios_participantes_controller extends Base_Controller {
         }        
         $participantes       = $this->usuarios_participantes_model->usuarios_participantes_model_tabla($where);
         foreach ($participantes as $participante) {      
-            $nombre = utf8_encode(strtoupper($participante->UsuarioDetalleNombre))." ".utf8_encode(strtoupper($participante->UsuarioDetalleSegundoNombre))." ".utf8_encode(strtoupper($participante->UsuarioDetalleApellidoPaterno))." ".utf8_encode(strtoupper($participante->UsuarioDetalleApellidoMaterno));
+            $nombre = utf8_encode(strtoupper($participante->UsuarioDetalleNombre));
             if ($participante->UsuarioFechaBajaParticipante=="" AND $participante->UsuarioFechaBajaDistribuidora==""){
                 $estatus = $this->lang->line('usuarios_participantes_controller_lang_tabla_estatus_activo');
             } else {

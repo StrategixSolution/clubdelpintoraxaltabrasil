@@ -18,7 +18,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $perfil_id = $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id'));
         $distribuidores = $this->reportes_maestro_pintores_model->reportes_maestro_pintores_model_combo_distribuidor($perfil_id);
         $combo_distribuidores = '';
-        if (in_array($perfil_id, [1, 2, 3])) {
+        if (in_array($perfil_id, [1, 2, 3,10])) {
             $combo_distribuidores .= '<option value="0">' . 
                 $this->lang->line('reportes_maestro_pintores_controller_lang_select_combo_distribuidor_todos') . 
                 '</option>';

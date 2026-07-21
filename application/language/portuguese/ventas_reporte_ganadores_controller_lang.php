@@ -12,4 +12,4 @@ $lang['ventas_reporte_ganadores_controller_lang_select_combo_distribuidor'] = 'S
 
 $lang['ventas_reporte_ganadores_controller_lang_btn_excel'] = 'BAIXAR RELATÓRIO';
 
-$lang['ventas_reporte_ganadores_controller_lang_btn_buscar'] = 'BUSCAR';
+$lang['ventas_reporte_ganadores_controller_lang_btn_buscar'] = 'PROCURAR';

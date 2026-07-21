@@ -31,7 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <select id="cmb_estatus" name="cmb_estatus" class="form-select">
                                     <option value="0">TODOS</option>
                                     <option value="1">HABILITADO</option>
-                                    <option value="2">BAJA</option>
+                                    <option value="2">DESATIVADO</option>
                                 </select>
                             </div>
                         </div>

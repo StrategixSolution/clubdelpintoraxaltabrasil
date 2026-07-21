@@ -52,7 +52,10 @@ $route['DistribuidoresModificacion']            = 'distribuidores/distribuidores
 $route['UsuariosParticipantes']                 = 'usuarios/usuarios_participantes/usuarios_participantes_controller';
 $route['UsuariosParticipantesAltas']            = 'usuarios/usuarios_participantes/usuarios_participantes_altas/usuarios_participantes_altas_controller';
 $route['UsuariosParticipantesModificacion']     = 'usuarios/usuarios_participantes/usuarios_participantes_modificacion/usuarios_participantes_modificacion_controller';
-
+$route['ReporteReposicionProductos']            = 'reportes/reposicion_productos/reporte_reposicion_productos_controller';
+$route['ReporteGanadores']                      = 'reportes/ventas/ventas_reporte_ganadores_controller';
+$route['ReportePersonalTienda']                 = 'reportes/personal_tienda/reportes_personal_tienda_controller/index';
+$route['ReportePersonalTiendaBuscar']           = 'reportes/personal_tienda/reportes_personal_tienda_controller/buscar';
 
 /*
 
@@ -86,10 +89,10 @@ $route['TicketsActualiza']                      = 'ventas/ventas_auditoria/venta
 
 
 $route['ReporteVentasPersonalTop']             = 'reportes/ventas/ventas_personal_top_controller';
-$route['ReporteGanadores']                      = 'reportes/ventas/ventas_reporte_ganadores_controller';
+
 
 $route['ReporteAuditoriaVentas']               = 'reportes/ventas/reportes_ventas_auditoria_controller';
-$route['ReporteReposicionProductos']           = 'reportes/reposicion_productos/reporte_reposicion_productos_controller';
+
 
 $route['DistribuidorasAdjsExcel']                   = 'distribuidora/adjs/cargas_adjs_excel_controller';
 $route['DistribuidorasAdjsMail']                   = 'distribuidora/adjs/cargas_adjs_mail_controller';

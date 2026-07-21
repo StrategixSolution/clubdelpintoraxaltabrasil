@@ -202,7 +202,7 @@ class Reportes_ventas_registradas_controller extends Base_Controller {
 $combo_distribuidores = '';
         
         // Solo administradores (perfiles 1,2,3) pueden ver opción "Todos"
-        if (in_array($perfil_id, [1, 2, 3])) {
+        if (in_array($perfil_id, [1, 2, 3,10])) {
             $combo_distribuidores .= '<option value="0">' . 
                 $this->lang->line('reportes_ventas_registradas_controller_lang_combo_todos') . 
                 '</option>';

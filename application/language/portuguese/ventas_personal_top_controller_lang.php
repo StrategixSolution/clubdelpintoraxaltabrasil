@@ -91,4 +91,4 @@ $lang['ventas_personal_top_controller_lang_placeholder_ticket']                 
 $lang['ventas_personal_top_controller_lang_boton_regresar']                                         = 'VOLTAR';
 $lang['ventas_personal_top_controller_lang_msg_archivo']                                            = 'O FORMATO DO ARQUIVO DEVE SER PNG, JPG, JPEG, PDF E SEU TAMANHO MENOR QUE 2MB.';
 $lang['ventas_personal_top_controller_lang_msg_archivo_error']                                      = 'O FORMATO DO ARQUIVO SELECIONADO NÃO É VÁLIDO, POR FAVOR INSIRA UM ARQUIVO PNG, JPG, PDF, JPEG MENOR QUE 2MB.';
-$lang['ventas_personal_top_controller_lang_msg_error_tamanio_identificacion']                       = 'EL TAMAÑO DEL ARCHIVO ES DEMASIADO GRANDE, SOLO SE PERMITE ARCHIVOS MENORES DE 2MB';
+$lang['ventas_personal_top_controller_lang_msg_error_tamanio_identificacion']                       = 'EL TAMAÑO DEL ARQUIVO ES DEMASIADO GRANDE, SOLO SE PERMITE ARQUIVOS MENORES DE 2MB';

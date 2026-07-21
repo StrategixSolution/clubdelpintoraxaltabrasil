@@ -174,14 +174,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="row justify-content-center">
                                 <div class="col-lg-3">
                                     <div class="form-group">
-                                        <label for="">ARCHIVO LAYOUT</label><br>
+                                        <label for="">ARQUIVO LAYOUT</label><br>
                                         <a href="<?= base_url('application/views/template/sistema/archivos/excel/recompensas_carga/recompensas_carga.xlsx')?>">
                                             <button type="button" class="btn btn-axalta"><i class="fas fa-download"></i><span class="btn-buscar-texto"><?=$this->lang->line('recompensas_controller_etiqueta_ejemplo')?></span> </button>
                                         </a>
                                     </div>       
                                 </div>       
                                 <div class="col-lg-9" id="div_identificacion_file">
-                                    <label for="productos_reposicion_carga_file_excel" class="label">SELECCIONA UN ARCHIVO<span class="tooltip-pl" data-toggle='tooltip' title='<?=$this->lang->line('ventas_registro_controller_msg_archivo')?>'><i class="fas fa-question-circle"></i></span></label>
+                                    <label for="productos_reposicion_carga_file_excel" class="label">SELECCIONA UN ARQUIVO<span class="tooltip-pl" data-toggle='tooltip' title='<?=$this->lang->line('ventas_registro_controller_msg_archivo')?>'><i class="fas fa-question-circle"></i></span></label>
                                     <div class="input-group mb-3">
                                         <input type="file" name="recompensas_view_form_file_excel" id="recompensas_view_form_file_excel" class="form-control" placeholder="<?=$this->lang->line('usuarios_registro_maestro_pintor_placeholder_identificacion')?>" >
                                         <button type="submit" id="btn_Recompensas_Guardar_multiple" class="btn btn-black-sm" style="border-radius:0px 5px 5px 0px;"><i class="far fa-save"></i><span class="btn-buscar-texto" >SUBIR</span></button>

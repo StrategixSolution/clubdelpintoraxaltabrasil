@@ -39,7 +39,7 @@ $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_fecha_baja']     
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_codigo']            = 'CÓDIGO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_razon_social']      = 'RAZÃO SOCIAL';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_total']             = 'TOTAL';
-$lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_estatus']           = 'ESTATUS';
+$lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_estatus']           = 'STATUS';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_ejecutivo']         = 'EXECUTIVO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_ciudad']            = 'CIDADE';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_estado']            = 'ESTADO';

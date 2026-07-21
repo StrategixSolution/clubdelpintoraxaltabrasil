@@ -129,7 +129,7 @@ class Base_Controller extends CI_Controller {
                 $res['file_name']  = strtolower($filenewname);
                 $res['ext']  = strtolower($ext);
             } else {                
-                $res['msg'] = "Error al cargar el archivo ".$this->upload->display_errors();
+                $res['msg'] = "Error al cargar el arquivo ".$this->upload->display_errors();
                 $res['resultado']  = 0; 
             }
         } else {

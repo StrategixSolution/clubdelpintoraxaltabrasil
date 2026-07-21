@@ -42,7 +42,7 @@ $lang['menu_submenu_admin_recompensas']                                         
 $lang['menu_submenu_admin_reposicion_prodcutos']                                = 'REPOSIÇÃO DE PRODUTOS';
 $lang['menu_submenu_admin_reposicion_prodcutos_descarga']                       = 'DOWNLOAD DE REPOSIÇÃO DE PRODUTOS';
 $lang['menu_submenu_admin_carga_promociones']                                   = 'IMPORTAR PROMOÇÕES';
-$lang['menu_submenu_admin_reposicion_prodcutos_premios_productros']             = 'CARGA DE PRODUTOS';
+$lang['menu_submenu_admin_reposicion_prodcutos_premios_productros']             = 'CARREGAR DE PRODUTOS';
 $lang['menu_submenu_admin_reposicion_prodcutos_premios']                        = 'CRIAÇÃO DE PRÊMIOS';
 $lang['menu_submenu_admin_reposicion_prodcutos_premios_relacion']               = 'RELAÇÃO PRÊMIOS VS PRODUTOS';
 $lang['menu_submenu_admin_cortes_promociones']                                  = 'CORTE DE VENDAS DE PROMOÇÕES';

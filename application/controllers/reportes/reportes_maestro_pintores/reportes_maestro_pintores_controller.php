@@ -45,7 +45,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $maestros = $this->reportes_maestro_pintores_model->reportes_maestro_pintores_model_crea_tabla($where);
         foreach ($maestros as $row) {
             $fecha_registro = date("Y-m-d", strtotime($row->UsuarioFechaRegistro));
-            if ($row->UsuarioFechaBajaParticipante == "") {                $estatus = "HABILITADO";            } else {                $estatus = "BAJA";            }
+            if ($row->UsuarioFechaBajaParticipante == "") {                $estatus = "HABILITADO";            } else {                $estatus = "DESATIVADO";            }
             $lista .= '<tr id="id-comercio-td-' . $row->UsuarioId . '">                    
                     <td>' . utf8_encode(strtoupper($row->UsuarioId)) . '</td>
                     <td>' . utf8_encode(strtoupper($row->nombre)) . '</td>
@@ -158,7 +158,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $fila = 2;
         foreach ($maestros as $row) {
         $fecha_registro = date("Y-m-d", strtotime($row->UsuarioFechaRegistro));
-            if ($row->UsuarioFechaBajaParticipante == "") {                $estatus = "HABILITADO";            } else {                $estatus = "BAJA";            }
+            if ($row->UsuarioFechaBajaParticipante == "") {                $estatus = "HABILITADO";            } else {                $estatus = "DESATIVADO";            }
             $sheet->setCellValue('A' . $fila, utf8_encode(strtoupper($row->UsuarioId)));
             $sheet->setCellValue('B' . $fila, utf8_encode(strtoupper($row->nombre)));
             $sheet->setCellValue('C' . $fila, utf8_encode(strtoupper($row->UsuarioDetalleEmail)));

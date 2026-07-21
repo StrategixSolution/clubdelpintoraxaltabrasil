@@ -46,7 +46,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div class="btn-modulo">
                                     <a href="<?php echo funciones_strategix_version_url_random_base_url("DistribuidoresAlta") ?>">
                                         <button type="button" class="btn btn-axalta btn-buscar-ancho">
-                                            <i class="fas fa-store"></i><span class="btn-buscar-texto">ALTA</span>
+                                            <i class="fas fa-store"></i><span class="btn-buscar-texto">CADASTRAR</span>
                                         </button>
                                     </a>
                                 </div>

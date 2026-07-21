@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <div class="form-check form-check-inline">
                                 <input type="checkbox" id="chk_archivo" name="chk_archivo" value="1">
-                                <label for="chk_archivo"> ARCHIVO</label>
+                                <label for="chk_archivo"> ARQUIVO</label>
                             </div>
                             <br>
                         </div>
@@ -113,9 +113,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>          
                     <div class="col-lg-6" id="div_ine_archivo" style="display: none;">
                         <div class="form-group">
-                            <label for="txt_ine_archivo">INE: <span data-toggle='tooltip' title='EL FORMATO DEL ARCHIVO DEBE SER PDF, PNG, JPG, JPEG Y SU TAMAÑO MENOR A 4MB.'><i class="fas fa-question-circle"></i></span></label>
+                            <label for="txt_ine_archivo">INE: <span data-toggle='tooltip' title='EL FORMATO DEL ARQUIVO DEBE SER PDF, PNG, JPG, JPEG Y SU TAMAÑO MENOR A 4MB.'><i class="fas fa-question-circle"></i></span></label>
                             <input type="file" name="txt_ine_archivo" id="txt_ine_archivo" class="form-control" placeholder="INE">
-                            <small class="txt-10"><b>Verifica que la foto no sea borrosa. Archivos permitidos PDF, JPG, PNG, JPEG (El archivo no debe superar 4 MB)</b></small>
+                            <small class="txt-10"><b>Verifica que la foto no sea borrosa. Arquivos permitidos PDF, JPG, PNG, JPEG (El arquivo no debe superar 4 MB)</b></small>
                             <div class="error"></div>
                         </div>
                     </div>   
@@ -164,7 +164,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $('#txt-qr').on('change', function(){ ine_view_js_valida_qr(); });        
         $('#chk_camara').prop('checked',true);
-        js_general_valida_uploads_archivos('txt_ine_archivo',['pdf','png','jpg','jpeg'],'EL ARCHIVO SUPERA EL LÍMITE PERMITIDO','SOLO SE PERMITEN ARCHIVOS CON EXTENSIÓN PDF, PNG, JPG O JPEG');     
+        js_general_valida_uploads_archivos('txt_ine_archivo',['pdf','png','jpg','jpeg'],'EL ARQUIVO SUPERA EL LÍMITE PERMITIDO','SOLO SE PERMITEN ARQUIVOS CON EXTENSIÓN PDF, PNG, JPG O JPEG');
 
 
         let iduser = $("#idu").val();

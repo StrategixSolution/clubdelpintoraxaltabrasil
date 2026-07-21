@@ -7,7 +7,7 @@ $lang['usuarios_participantes_controller_lang_etiqueta_distribuidoras']         
 $lang['usuarios_participantes_controller_lang_etiqueta_perfiles']                    = 'PERFIL:';
 $lang['usuarios_participantes_controller_lang_select_perfiles']                      = 'TODOS OS PERFIS';
 $lang['usuarios_participantes_controller_lang_select_distribuidoras']                = 'TODOS OS DISTRIBUIDORES';
-$lang['usuarios_participantes_controller_lang_boton_alta_ferreteraia']               = 'LOJA DE FERRAGENS ALTA';
+$lang['usuarios_participantes_controller_lang_boton_alta_ferreteraia']               = 'LOJA DE FERRAGENS CADASTRAR';
 $lang['usuarios_participantes_controller_lang_boton_buscar']                         = 'PROCURAR';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_codigo']                  = 'CÓDIGO';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_distribuidora']           = 'NOME DA EMPRESA';
@@ -24,7 +24,7 @@ $lang['usuarios_participantes_controller_lang_tabla_titulo_telefono']           
 $lang['usuarios_participantes_controller_lang_tabla_titulo_extencion']               = 'EXTENSIÓN';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_celular']                 = 'CELULAR (WHATSAPP)';
 $lang['usuarios_participantes_controller_lang_tabla_titulo_editar']                  = 'EDITAR';
-$lang['usuarios_participantes_controller_lang_tabla_titulo_eliminar']                = 'BAJA';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_eliminar']                = 'DESATIVADO';
 $lang['usuarios_participantes_controller_lang_tabla_js_msg_titulo_success']          = 'BAIXA DO PARTICIPANTE';
 $lang['usuarios_participantes_controller_lang_tabla_js_msg_texto_success']           = 'O PARTICIPANTE FOI DADO DE BAIXA';
 $lang['usuarios_participantes_controller_lang_tabla_js_confirm_titulo']              = 'BAIXA DO PARTICIPANTE';
@@ -34,8 +34,8 @@ $lang['usuarios_participantes_controller_lang_tabla_js_confirm_boton_rechazado']
 $lang['usuarios_participantes_controller_lang_tabla_js_msg_swal_error']              = 'ERRO';
 $lang['usuarios_participantes_controller_lang_tabla_js_msg_swal_guardado']           = 'GUARDADO';
 $lang['usuarios_participantes_controller_lang_tabla_js_msg_swal_ok']                 = 'OK';
-$lang['usuarios_participantes_controller_lang_tabla_titulo_estatus']                 = 'ESTATUS';
-$lang['usuarios_participantes_controller_lang_combo_estatus']                        = 'ESTATUS:';
+$lang['usuarios_participantes_controller_lang_tabla_titulo_estatus']                 = 'STATUS';
+$lang['usuarios_participantes_controller_lang_combo_estatus']                        = 'STATUS:';
 $lang['usuarios_participantes_controller_lang_tabla_estatus_baja']                   = 'BAIXA';
 $lang['usuarios_participantes_controller_lang_tabla_estatus_activo']                 = 'HABILITADO';
 $lang['usuarios_participantes_controller_lang_tabla_registro_federal']                           = 'REGISTRO FEDERAL';

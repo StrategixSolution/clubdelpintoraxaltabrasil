@@ -128,7 +128,7 @@ $tabla_participante['tabla'] = $this->load->view('ventas/ventas_auditoria/ventas
             $fechaEnvioCorreoCierre = new DateTime($venta->VentaAuditoriaFechaEnvioCorreoCierre);
             $data["VentaAuditoriaFechaEnvioCorreoCierre"] = $fechaEnvioCorreoCierre->format('Y-m-d H:i:s');
             $data["link_modal_ticket"] = '<a href= "javascript:ventas_auditoria_rechazados_tabla_view_js_modal_ticket('.$venta->VentaId.');"><i class="fas fa-ticket-alt"></i></a>';
-            $data["link_actualiza_venta"] = '<a href= "'.funciones_strategix_version_url_random_base_url("TicketsActualiza").'&'.$VentaVariableGet.'='.$venta->VentaId.'"> ACTUALIZAR</a>';
+            $data["link_actualiza_venta"] = '<a href= "'.funciones_strategix_version_url_random_base_url("TicketsActualiza").'&'.$VentaVariableGet.'='.$venta->VentaId.'"> ATUALIZAR</a>';
             return $data;
     }
     public function ventas_auditoria_rechazados_controller_actualiza_venta(){

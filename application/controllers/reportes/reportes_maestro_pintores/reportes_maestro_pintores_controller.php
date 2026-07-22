@@ -18,7 +18,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $perfil_id = $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id'));
         $distribuidores = $this->reportes_maestro_pintores_model->reportes_maestro_pintores_model_combo_distribuidor($perfil_id);
         $combo_distribuidores = '';
-        if (in_array($perfil_id, [1, 2, 3])) {
+        if (in_array($perfil_id, [1, 2, 3,10])) {
             $combo_distribuidores .= '<option value="0">' . 
                 $this->lang->line('reportes_maestro_pintores_controller_lang_select_combo_distribuidor_todos') . 
                 '</option>';
@@ -45,7 +45,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $maestros = $this->reportes_maestro_pintores_model->reportes_maestro_pintores_model_crea_tabla($where);
         foreach ($maestros as $row) {
             $fecha_registro = date("Y-m-d", strtotime($row->UsuarioFechaRegistro));
-            if ($row->UsuarioFechaBajaParticipante == "") {                $estatus = "HABILITADO";            } else {                $estatus = "BAJA";            }
+            if ($row->UsuarioFechaBajaParticipante == "") {                $estatus = "HABILITADO";            } else {                $estatus = "DESATIVADO";            }
             $lista .= '<tr id="id-comercio-td-' . $row->UsuarioId . '">                    
                     <td>' . utf8_encode(strtoupper($row->UsuarioId)) . '</td>
                     <td>' . utf8_encode(strtoupper($row->nombre)) . '</td>
@@ -116,7 +116,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $txt_nombre_mp = utf8_decode($txt_nombre_mp);
         $spreadsheet = new Spreadsheet(4);
         $this->reportes_usuarios_maestros_pintores_controller_maestro_pintor($spreadsheet, $cmb_distribuidor, $txt_nombre_mp);
-        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) < 4) {
+       if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) <= 3 || $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) == 10){ 
             $this->reportes_usuarios_maestros_pintores_controller_registro_por_mes($spreadsheet, $cmb_distribuidor, $txt_nombre_mp);
             $this->reportes_usuarios_maestros_pintores_controller_bajas_maestros_pintores($spreadsheet, $cmb_distribuidor, $txt_nombre_mp);
             $this->reportes_usuarios_maestros_pintores_controller_por_distribuidora($spreadsheet, $cmb_distribuidor, $txt_nombre_mp);
@@ -158,7 +158,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $fila = 2;
         foreach ($maestros as $row) {
         $fecha_registro = date("Y-m-d", strtotime($row->UsuarioFechaRegistro));
-            if ($row->UsuarioFechaBajaParticipante == "") {                $estatus = "HABILITADO";            } else {                $estatus = "BAJA";            }
+            if ($row->UsuarioFechaBajaParticipante == "") {                $estatus = "HABILITADO";            } else {                $estatus = "DESATIVADO";            }
             $sheet->setCellValue('A' . $fila, utf8_encode(strtoupper($row->UsuarioId)));
             $sheet->setCellValue('B' . $fila, utf8_encode(strtoupper($row->nombre)));
             $sheet->setCellValue('C' . $fila, utf8_encode(strtoupper($row->UsuarioDetalleEmail)));

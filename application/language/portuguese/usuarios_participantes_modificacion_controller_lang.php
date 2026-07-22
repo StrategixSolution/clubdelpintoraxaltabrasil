@@ -29,12 +29,12 @@ $lang['usuarios_participantes_modificacion_controller_lang_tooltip_extencion']  
 $lang['usuarios_participantes_modificacion_controller_lang_placeholder_extencion']                  = 'EXTENSÃO';
 $lang['usuarios_participantes_modificacion_controller_lang_input_celular']                          = '*CELULAR:';
 $lang['usuarios_participantes_modificacion_controller_lang_tooltip_celular']                        = '*MÁXIMO 20 - MÍNIMO 8 CARACTERES *CAMPO OBRIGATÓRIO *SOMENTE NÚMEROS';
-$lang['usuarios_participantes_modificacion_controller_lang_placeholder_celular']                    = 'CELULAR';
+$lang['usuarios_participantes_modificacion_controller_lang_placeholder_celular']                    = 'CELULAR (WHATSAPP)';
 $lang['usuarios_participantes_modificacion_controller_lang_msg_celular_repetido']                   = 'O CELULAR %1$s JÁ EXISTE NA BASE DE DADOS, FAVOR DE INSERIR OUTRO';
-$lang['usuarios_participantes_modificacion_controller_lang_boton_guardar']                          = 'ATUALIZAR';
+$lang['usuarios_participantes_modificacion_controller_lang_boton_guardar']                          = 'SALVAR ALTERAÇÕES';
 $lang['usuarios_participantes_modificacion_controller_lang_boton_regresar']                         = 'VOLTAR';
-$lang['usuarios_participantes_modificacion_controller_lang_js_confirm_boton_aprobado']              = 'ACEITAR';
-$lang['usuarios_participantes_modificacion_controller_lang_js_confirm_boton_rechazado']             = 'REJEITAR';
+$lang['usuarios_participantes_modificacion_controller_lang_js_confirm_boton_aprobado']              = 'CONFIRMAR';
+$lang['usuarios_participantes_modificacion_controller_lang_js_confirm_boton_rechazado']             = 'CORRIGIR DADOS';
 $lang['usuarios_participantes_modificacion_controller_lang_js_confirm_titulo']                      = 'VALIDAÇÃO DE DADOS';
 $lang['usuarios_participantes_modificacion_controller_lang_js_confirm_texto']                       = 'OS DADOS CAPTURADOS ESTÃO CORRETOS?';
 $lang['usuarios_participantes_modificacion_controller_lang_js_msg_limite_participante']             = 'VOCÊ ATINGIU O LIMITE DE USUÁRIOS POR PERFIL';

@@ -26,7 +26,7 @@ $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_litros'
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_promociones']             = 'PROMOCIÓN';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_mes']              = 'MES';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus']          = 'ESTATUS';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria']        = 'ESTATUS AUDITORIA';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria']        = 'ESTATUS DA AUDITORIA';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha']            = 'FECHA REGISTRO';
 
 

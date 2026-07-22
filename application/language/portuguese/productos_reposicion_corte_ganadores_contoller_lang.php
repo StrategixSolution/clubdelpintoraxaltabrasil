@@ -15,17 +15,17 @@ $lang['productos_reposicion_corte_ganadores_contoller_js_msg_error_corte_correct
 $lang['productos_reposicion_corte_ganadores_contoller_js_msg_error_btn_ok'] = 'OK';
 
 
-$lang['productos_reposicion_corte_ganadores_contoller_tabla_js_lengthMenu']                       = 'EXIBINDO _MENU_ REGISTROS POR PÁGINA';
+$lang['productos_reposicion_corte_ganadores_contoller_tabla_js_lengthMenu']                       = 'MOSTRANDO _MENU_ REGISTROS POR PÁGINA';
 $lang['productos_reposicion_corte_ganadores_contoller_tabla_js_zeroRecords']                      = 'SEM REGISTROS ENCONTRADOS';
 $lang['productos_reposicion_corte_ganadores_contoller_tabla_js_info']                             = 'PÁGINA _PAGE_ DE _PAGES_';
 $lang['productos_reposicion_corte_ganadores_contoller_tabla_js_infoEmpty']                        = 'REGISTROS NÃO DISPONÍVEIS';
-$lang['productos_reposicion_corte_ganadores_contoller_tabla_js_infoFiltered']                     = '(EXIBINDO _MAX_ REGISTROS NO TOTAL)';
+$lang['productos_reposicion_corte_ganadores_contoller_tabla_js_infoFiltered']                     = '(MOSTRANDO _MAX_ REGISTROS NO TOTAL)';
 $lang['productos_reposicion_corte_ganadores_contoller_tabla_js_search']                           = 'BUSCAR:';
 $lang['productos_reposicion_corte_ganadores_contoller_tabla_js_first']                            = 'PRIMEIRO';
 $lang['productos_reposicion_corte_ganadores_contoller_tabla_js_last']                             = 'ÚLTIMO';
 $lang['productos_reposicion_corte_ganadores_contoller_tabla_js_next']                             = 'PRÓXIMO';
 $lang['productos_reposicion_corte_ganadores_contoller_tabla_js_previous']                         = 'ANTERIOR';
-$lang['productos_reposicion_corte_ganadores_contoller_tabla_btn_descarga']                        = 'BAIXAR';
+$lang['productos_reposicion_corte_ganadores_contoller_tabla_btn_descarga']                        = 'BAIXAR RELATÓRIO';
 
 $lang['productos_reposicion_corte_ganadores_contoller_datatable_titulo_anio'] = 'ANO';
 $lang['productos_reposicion_corte_ganadores_contoller_datatable_titulo_mes'] = 'MÊS';
@@ -35,4 +35,4 @@ $lang['productos_reposicion_corte_ganadores_contoller_datatable_titulo_cuenta'] 
 $lang['productos_reposicion_corte_ganadores_contoller_datatable_titulo_tarjeta'] = 'Nº CARTÃO';
 $lang['productos_reposicion_corte_ganadores_contoller_datatable_titulo_codigo'] = 'CÓDIGO';
 $lang['productos_reposicion_corte_ganadores_contoller_datatable_titulo_distribuidor'] = 'DISTRIBUIDOR';
-$lang['productos_reposicion_corte_ganadores_contoller_datatable_titulo_maestro_pintor'] = 'MESTRE PINTOR';
+$lang['productos_reposicion_corte_ganadores_contoller_datatable_titulo_maestro_pintor'] = 'PINTOR PARCEIRO';

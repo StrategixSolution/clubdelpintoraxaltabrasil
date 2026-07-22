@@ -31,12 +31,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <select id="cmb_estatus" name="cmb_estatus" class="form-select">
                                     <option value="0">TODOS</option>
                                     <option value="1">HABILITADO</option>
-                                    <option value="2">BAJA</option>
+                                    <option value="2">DESATIVADO</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-2 col-12">
-                            <button type="button" id="distribuidores_form_view_boton_buscar" class="btn btn-axalta btn-buscar-ancho"><i class="fas fa-search"></i><span class="btn-buscar-texto">PESQUISAR</span></button>
+                            <button type="button" id="distribuidores_form_view_boton_buscar" class="btn btn-axalta btn-buscar-ancho"><i class="fas fa-search"></i><span class="btn-buscar-texto">BUSCAR</span></button>
                             <!-- <div class="form-group">
                                 
                             </div> -->
@@ -46,7 +46,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div class="btn-modulo">
                                     <a href="<?php echo funciones_strategix_version_url_random_base_url("DistribuidoresAlta") ?>">
                                         <button type="button" class="btn btn-axalta btn-buscar-ancho">
-                                            <i class="fas fa-store"></i><span class="btn-buscar-texto">ALTA</span>
+                                            <i class="fas fa-store"></i><span class="btn-buscar-texto">CADASTRAR</span>
                                         </button>
                                     </a>
                                 </div>

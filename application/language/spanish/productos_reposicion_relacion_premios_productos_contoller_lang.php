@@ -19,7 +19,7 @@ $lang['productos_reposicion_relacion_premios_productos_contoller_lang_etiqueta_l
 $lang['productos_reposicion_relacion_premios_productos_contoller_lang_tooltip_lugar']           = '*SELECCIONA EL NÚMERO DE LUGARES *CAMPO OBLIGATORIO';
 $lang['productos_reposicion_relacion_premios_productos_contoller_lang_placeholder_lugar']       = 'SELECCIONA EL NÚMERO DE LUGARES';
 
-$lang['productos_reposicion_relacion_premios_productos_contoller_lang_btn_actualizar']          = 'ACTUALIZAR';
+$lang['productos_reposicion_relacion_premios_productos_contoller_lang_btn_actualizar']          = 'SALVAR ALTERAÇÕES';
 
 $lang['productos_reposicion_relacion_premios_productos_contoller_lang_js_msg_error']            = 'SELECCIONE UN PRODUCTO';
 $lang['productos_reposicion_relacion_premios_productos_contoller_lang_js_msg_susses']           = 'PRODUCTOS GUARDADOS EN EL PREMIO';

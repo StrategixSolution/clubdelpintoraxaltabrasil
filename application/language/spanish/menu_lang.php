@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**************************MENUS PRINCIPALES*********************************************/
 $lang['menu_salir']                                                             = 'SALIR';
-$lang['menu_actualizar_datos']                                                  = 'ACTUALIZAR DATOS';
+$lang['menu_actualizar_datos']                                                  = 'ATUALIZAR DATOS';
 $lang['menu_mis_mensajes']                                                      = 'MIS MENSAJES';
 $lang['menu_legal']                                                             = 'LEGAL';
 $lang['menu_admin']                                                             = 'ADMINISTRACIÓN';
@@ -67,7 +67,7 @@ $lang['menu_submenu_reportes_ventas_auditoria']                                 
 $lang['menu_submenu_reportes_estado_cuentas']                                   = 'REPORTE ESTADO DE CUENTAS';
 $lang['menu_submenu_ventas_personal_top']                                       = 'REPORTE VENTAS DE PERSONAL TOP 40';
 $lang['menu_submenu_reporte_ganadores']                                         = 'REPORTE DE GANADORES';
-$lang['menu_submenu_reporte_maestros_pintores']                                 = 'REPORTE DE MAESTROS PINTORES';
+$lang['menu_submenu_reporte_maestros_pintores']                                 = 'REPORTE DE PINTORES PARCEIROS';
 $lang['menu_submenu_reporte_ventas_registradas']                                = 'REPORTE DE VENTAS REGISTRADAS';
 /**************************USUARIOS******************************************************/
 $lang['menu_submenu_usuarios_registro_mp']                                      = 'REGISTRO DE MAESTRO PINTOR';

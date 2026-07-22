@@ -16,11 +16,11 @@ $lang['reportes_ventas_auditoria_estatus_rechazada'] = 'Recusada';
 
 $lang['reportes_ventas_auditoria_th_nombre'] = 'NOME COMPLETO';
 $lang['reportes_ventas_auditoria_th_ticket'] = 'Nº DE TICKET';
-$lang['reportes_ventas_auditoria_th_monto_ticket'] = 'VALOR DO TICKET';
+$lang['reportes_ventas_auditoria_th_monto_ticket'] = 'VALOR DO COMPROVANTE';
 $lang['reportes_ventas_auditoria_th_total_montos'] = 'TOTAL VALORES';
 $lang['reportes_ventas_auditoria_th_total_cantidades'] = 'TOTAL QUANTIDADES';
 $lang['reportes_ventas_auditoria_th_total_litros'] = 'TOTAL LITROS';
 $lang['reportes_ventas_auditoria_th_ticket_modal'] = 'TICKET';
 $lang['reportes_ventas_auditoria_th_fecha_registro'] = 'DATA DE REGISTRO';
-$lang['reportes_ventas_auditoria_th_estatus_auditoria'] = 'STATUS AUDITORIA';
+$lang['reportes_ventas_auditoria_th_estatus_auditoria'] = 'STATUS DA AUDITORIA';
 $lang['reportes_ventas_auditoria_th_fecha_auditoria'] = 'DATA AUDITORIA';

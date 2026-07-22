@@ -65,7 +65,7 @@ class Reportes_distribuidores_model extends Base_Model {
         $usuario_id = (int)$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
         
         // Perfiles 1,2,3: Administradores (todos los distribuidores)
-        if (in_array($perfil_id, [1, 2, 3])) {
+        if (in_array($perfil_id, [1, 2, 3,10])) {
             $SQL = "SELECT Distribuidores.DistribuidorId, 
                            DistribuidoresDetalles.DistribuidorDetalleCodigo, 
                            DistribuidoresDetalles.DistribuidorDetalleRazonSocial,

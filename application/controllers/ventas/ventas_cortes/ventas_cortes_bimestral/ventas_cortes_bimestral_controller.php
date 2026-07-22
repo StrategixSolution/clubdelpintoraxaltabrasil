@@ -40,7 +40,7 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $cmb_anio = $this->input->post('cmb_anio',true);
         $cmb_periodo = $this->input->post('cmb_periodo',true);      
         $mes_anterior=$cmb_periodo-1;
-        if ($this->ventas_cortes_bimestral_controller_valida_corte()==1){ echo 1; return false; }
+        if ($this->ventas_cortes_bimestral_controller_valida_corte()==1){ echo 1; return f|alse; }
         if ($this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_valida_corte_cambio_estatus($cmb_anio,$cmb_periodo,$mes_anterior)==1){ echo 2; return false; }
         if ($this->base_controller_valida_corte(1, $cmb_anio, $cmb_periodo,0)==0){ echo 4; return false; }
         if ($this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_valida_ventas_auditorias($cmb_anio,$cmb_periodo,$mes_anterior)==1){ echo 3; return false; }
@@ -49,7 +49,7 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         $this->ventas_cortes_bimestral_controller_creacion_maestro_pintor($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id);
         $this->ventas_cortes_bimestral_controller_creacion_distribuidores($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id);
         $this->ventas_cortes_bimestral_controller_creacion_productos_registrados($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id);
-        $this->ventas_cortes_bimestral_controller_creacion_litros_clase($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id);
+      //  $this->ventas_cortes_bimestral_controller_creacion_litros_clase($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id);
         $this->ventas_cortes_bimestral_controller_creacion_perfiles($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id);
         $this->ventas_cortes_bimestral_controller_visualizacion($cmb_anio, $cmb_periodo);
     }
@@ -58,8 +58,7 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
         foreach ($ventas as $row) {
             $validapromocion = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_tiene_promociones($row->VentaId);
             $txt_promociones =""; $txt_promociones = ($validapromocion == 1)?$this->ventas_cortes_bimestral_controller_txt_promociones($row->VentaId):""; 
-            $nombre = $row->UsuarioDetalleNombre;
-            $data = $corte_id.",".$row->TarjetaId.",".$row->VentaId.",".$row->VentaUsuarioIdMP.",".$row->DistribuidorId.",'".$row->VentaNumeroTicket."',".$row->VentaDetalleMontoTicket.",'".mb_strtoupper(funciones_strategix_mes_numero_texto(date("m", strtotime($row->VentaFechaRegistro))))."','ACTIVA',".$row->VentaAuditoriaEstatusId.",'".funciones_strategix_convertir_fecha_hora_actual($row->VentaFechaRegistro)."'";
+            $data = $corte_id.",".$row->TarjetaId.",".$row->VentaId.",".$row->VentaUsuarioIdMP.",".$row->DistribuidorId.",'".$row->VentaNumeroTicket."',".$row->VentaMontoTicket.",'".mb_strtoupper(funciones_strategix_mes_numero_texto(date("m", strtotime($row->VentaFechaRegistro))))."','ACTIVA',".$row->VentaAuditoriaEstatusId.",'".funciones_strategix_convertir_fecha_hora_actual($row->VentaFechaRegistro)."'";
             $this->base_controller_guarda_corte_detalle("CortesBimestralVentas",$data);
         }
     }
@@ -78,13 +77,13 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
     private function ventas_cortes_bimestral_controller_creacion_maestro_pintor($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) {
         $ventas = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_maestros_pintores($cmb_anio,$cmb_periodo,$mes_anterior);
         foreach ($ventas as $row) {            
-            $ganador = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_lugar($cmb_anio,$cmb_periodo,$row->DistribuidorId,$row->UsuarioId);
+            $ganador = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_lugar($cmb_anio,$cmb_periodo,$row->DistribuidorId,$row->VentaUsuarioIdMP);
             $lugar = (empty($ganador))?0:$ganador->ReposicionProductoGanadorPremioLugar;
             if ($lugar==0){
-                $ganador2 = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_lugar($cmb_anio,$cmb_periodo,$row->DistribuidorId,$row->UsuarioId);
+                $ganador2 = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_lugar($cmb_anio,$cmb_periodo,$row->DistribuidorId,$row->VentaUsuarioIdMP);
                 $lugar = (empty($ganador2))?0:$ganador2->ReposicionProductoGanadorPremioLugar;
             }
-            $data = $corte_id.",".$row->DistribuidorId.",".$row->VentaUsuarioIdMP.",".$row->CountTickets.",".$row->SumaMontoTicket.",'".$lugar."'";
+            $data = $corte_id.",".$row->DistribuidorId.",".$row->VentaUsuarioIdMP.",".$row->CountTickets.",".$row->VentaMontoTicket.",'".$lugar."'";
             $this->base_controller_guarda_corte_detalle("CortesBimestralMaestrosPintores",$data);
         } 
     }
@@ -115,13 +114,13 @@ class Ventas_cortes_bimestral_controller extends Base_Controller {
             $this->base_controller_guarda_corte_detalle("CortesBimestralProductosRegistrados",$data);            
         }
     }    
-    private function ventas_cortes_bimestral_controller_creacion_litros_clase($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) {
+    /*private function ventas_cortes_bimestral_controller_creacion_litros_clase($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) {
         $ventas = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_litros_clase($cmb_anio,$cmb_periodo,$mes_anterior);
         foreach ($ventas as $row) {  
             $data = $corte_id.",".$row->DistribuidorId.",".$row->ProductoClaseId.",".$row->TotalLitros.",".$row->TotalMonto;
             $this->base_controller_guarda_corte_detalle("CortesBimestralVentasLitrosClases",$data);     
         }
-    }
+    }*/
     private function ventas_cortes_bimestral_controller_creacion_perfiles($cmb_anio,$cmb_periodo,$mes_anterior,$corte_id) {
         $ventas = $this->ventas_cortes_bimestral_model->ventas_cortes_bimestral_model_perfiles($cmb_anio,$cmb_periodo,$mes_anterior);
         foreach ($ventas as $row) {

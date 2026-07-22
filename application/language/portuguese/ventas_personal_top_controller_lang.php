@@ -5,12 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['ventas_personal_top_controller_lang_pagina_titulo']                                          = 'RELATÓRIO DE VENDAS PESSOAL TOP 40';
 
 $lang['ventas_personal_top_controller_lang_etiqueta_anio']                        = 'ANO:';
-$lang['ventas_personal_top_controller_lang_etiqueta_periodo']                        = 'PERÍODO:';
+$lang['ventas_personal_top_controller_lang_etiqueta_periodo']                        = 'PERÍODO (MÊS DE REFERÊNCIA):';
 $lang['ventas_personal_top_controller_lang_combo_selecciona_anio']                                    = 'SELECIONE ANO';
 $lang['ventas_personal_top_controller_lang_combo_selecciona_periodo']                                    = 'SELECIONE PERÍODO';
 
 $lang['ventas_personal_top_controller_lang_tabla_anio']                                    = 'ANO';
-$lang['ventas_personal_top_controller_lang_tabla_periodo']                                    = 'PERÍODO';
+$lang['ventas_personal_top_controller_lang_tabla_periodo']                                    = 'PERÍODO (MÊS DE REFERÊNCIA)';
 $lang['ventas_personal_top_controller_lang_tabla_id_distribuidor']                                    = 'ID DISTRIBUIDOR';
 $lang['ventas_personal_top_controller_lang_tabla_codigo']                                    = 'CÓDIGO DO DISTRIBUIDOR';
 $lang['ventas_personal_top_controller_lang_tabla_razon_social']                                    = 'RAZÃO SOCIAL';
@@ -30,23 +30,23 @@ $lang['ventas_personal_top_controller_lang_tabla_total_monto']                  
 
 
 
-$lang['ventas_personal_top_controller_lang_pagina_titulo_actualiza']                                = 'EDIÇÃO DO TICKET RECUSADO';
+$lang['ventas_personal_top_controller_lang_pagina_titulo_actualiza']                                = 'EDIÇÃO DO COMPROVANTE RECUSADO';
 $lang['ventas_personal_top_controller_lang_modal_ticket_titulo']                                    = 'TICKET';
 $lang['ventas_personal_top_controller_lang_tabla_ventano']                                          = 'Nº';
 $lang['ventas_personal_top_controller_lang_tabla_ventaid']                                          = 'ID';
 $lang['ventas_personal_top_controller_lang_tabla_pintor']                                           = 'PINTOR';
 $lang['ventas_personal_top_controller_lang_tabla_distribuidor']                                     = 'DISTRIBUIDOR';
 $lang['ventas_personal_top_controller_lang_tabla_nombre']                                           = 'NOME COMPLETO';
-$lang['ventas_personal_top_controller_lang_tabla_numero_ticket']                                    = 'Nº DO TICKET';
-$lang['ventas_personal_top_controller_lang_tabla_monto_ticket']                                     = 'VALOR DO TICKET';
-$lang['ventas_personal_top_controller_lang_tabla_fecha_registro']                                   = 'DATA DE CADASTRO';
+$lang['ventas_personal_top_controller_lang_tabla_numero_ticket']                                    = 'NÚMERO DO COMPROVANTE';
+$lang['ventas_personal_top_controller_lang_tabla_monto_ticket']                                     = 'VALOR DO COMPROVANTE';
+$lang['ventas_personal_top_controller_lang_tabla_fecha_registro']                                   = 'DATA DE REGISTRO';
 $lang['ventas_personal_top_controller_lang_tabla_ticket']                                           = 'TICKET';
-$lang['ventas_personal_top_controller_lang_tabla_estatus_auditoria']                                = 'STATUS AUDITORIA';
+$lang['ventas_personal_top_controller_lang_tabla_estatus_auditoria']                                = 'STATUS DA AUDITORIA';
 $lang['ventas_personal_top_controller_lang_tabla_fecha_auditoria']                                  = 'DATA AUDITORIA';
 $lang['ventas_personal_top_controller_lang_tabla_observaciones']                                    = 'OBSERVAÇÕES';
-$lang['ventas_personal_top_controller_lang_tabla_motivo']                                           = 'MOTIVO';
+$lang['ventas_personal_top_controller_lang_tabla_motivo']                                           = 'MOTIVO DA AUDITORIA';
 $lang['ventas_personal_top_controller_lang_tabla_fecha_notificacion']                               = 'DATA DE NOTIFICAÇÃO';
-$lang['ventas_personal_top_controller_lang_tabla_fecha_limite']                                     = 'DATA LIMITE DE CORREÇÃO';
+$lang['ventas_personal_top_controller_lang_tabla_fecha_limite']                                     = 'PRAZO PARA CORREÇÃO';
 $lang['ventas_personal_top_controller_lang_tabla_accion']                                           = 'AÇÃO';
 $lang['ventas_personal_top_controller_lang_model_tabla_titulo_promocion']                          = 'PROMOÇÃO';
 $lang['ventas_personal_top_controller_lang_model_tabla_titulo_descripcion']                        = 'DESCRIÇÃO';
@@ -67,7 +67,7 @@ $lang['ventas_personal_top_controller_lang_model_tabla_titulo_litros']          
 $lang['ventas_personal_top_controller_lang_model_tabla_titulo_galones']                            = 'GALÕES';
 $lang['ventas_personal_top_controller_lang_model_tabla_titulo_precio_unitario']                    = 'PREÇO UNITÁRIO';
 $lang['ventas_personal_top_controller_lang_model_tabla_titulo_precio_unitario_total']              = 'PREÇO UNITÁRIO TOTAL';
-$lang['ventas_personal_top_controller_lang_etiqueta_etiqueta_msg_ticket']                           = 'SELECIONE UMA OPÇÃO PARA ADICIONAR SEU TICKET:';
+$lang['ventas_personal_top_controller_lang_etiqueta_etiqueta_msg_ticket']                           = 'SELECIONE UMA OPÇÃO PARA ADICIONAR SEU COMPROVANTE:';
 $lang['ventas_personal_top_controller_lang_etiqueta_camara']                                        = 'CÂMERA';
 $lang['ventas_personal_top_controller_lang_etiqueta_archivo']                                       = 'ARQUIVO';
 $lang['ventas_personal_top_controller_lang_etiqueta_detalle']                                       = 'DESEJA ADICIONAR PRODUTOS?';
@@ -78,12 +78,12 @@ $lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_rfc']        
 $lang['ventas_personal_top_controller_lang_input_numero_tarjeta']                                   = '*NÚMERO DO CARTÃO:';
 $lang['ventas_personal_top_controller_lang_tooltip_numero_tarjeta']                                 = '*CAMPO OBRIGATÓRIO *ESCANEIE O NÚMERO COM SUA CÂMERA OU ESCREVA SOMENTE NÚMEROS MÁXIMO 6 DÍGITOS';
 $lang['ventas_personal_top_controller_lang_placeholder_numero_tarjeta']                             = 'NÚMERO DO CARTÃO';
-$lang['ventas_personal_top_controller_lang_input_numero_ticket']                                    = '*NÚMERO DO TICKET:';
+$lang['ventas_personal_top_controller_lang_input_numero_ticket']                                    = '*NÚMERO DO COMPROVANTE:';
 $lang['ventas_personal_top_controller_lang_tooltip_numero_ticket']                                  = '*CAMPO OBRIGATÓRIO *MÁXIMO 20 CARACTERES';
-$lang['ventas_personal_top_controller_lang_placeholder_numero_ticket']                              = 'NÚMERO DO TICKET';
-$lang['ventas_personal_top_controller_lang_input_monto_ticket']                                     = '*VALOR DO TICKET:';
+$lang['ventas_personal_top_controller_lang_placeholder_numero_ticket']                              = 'NÚMERO DO COMPROVANTE';
+$lang['ventas_personal_top_controller_lang_input_monto_ticket']                                     = '*VALOR DO COMPROVANTE:';
 $lang['ventas_personal_top_controller_lang_tooltip_monto_ticket']                                   = '*SOMENTE NUMÉRICO *CAMPO OBRIGATÓRIO';
-$lang['ventas_personal_top_controller_lang_placeholder_monto_ticket']                               = 'VALOR DO TICKET';
+$lang['ventas_personal_top_controller_lang_placeholder_monto_ticket']                               = 'VALOR DO COMPROVANTE';
 $lang['ventas_personal_top_controller_lang_input_ticket']                                           = '*TICKET:';
 $lang['ventas_personal_top_controller_lang_tooltip_ticket_foto']                                    = '*CLIQUE NO ÍCONE PARA ATIVAR A CÂMERA *CAMPO OBRIGATÓRIO';
 $lang['ventas_personal_top_controller_lang_tooltip_ticket_archivo']                                 = '*O FORMATO DO ARQUIVO DEVE SER PNG E SEU TAMANHO MENOR QUE 2MB. *CAMPO OBRIGATÓRIO';
@@ -91,4 +91,4 @@ $lang['ventas_personal_top_controller_lang_placeholder_ticket']                 
 $lang['ventas_personal_top_controller_lang_boton_regresar']                                         = 'VOLTAR';
 $lang['ventas_personal_top_controller_lang_msg_archivo']                                            = 'O FORMATO DO ARQUIVO DEVE SER PNG, JPG, JPEG, PDF E SEU TAMANHO MENOR QUE 2MB.';
 $lang['ventas_personal_top_controller_lang_msg_archivo_error']                                      = 'O FORMATO DO ARQUIVO SELECIONADO NÃO É VÁLIDO, POR FAVOR INSIRA UM ARQUIVO PNG, JPG, PDF, JPEG MENOR QUE 2MB.';
-$lang['ventas_personal_top_controller_lang_msg_error_tamanio_identificacion']                       = 'EL TAMAÑO DEL ARCHIVO ES DEMASIADO GRANDE, SOLO SE PERMITE ARCHIVOS MENORES DE 2MB';
+$lang['ventas_personal_top_controller_lang_msg_error_tamanio_identificacion']                       = 'EL TAMAÑO DEL ARQUIVO ES DEMASIADO GRANDE, SOLO SE PERMITE ARQUIVOS MENORES DE 2MB';

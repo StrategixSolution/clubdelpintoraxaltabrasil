@@ -34,7 +34,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 class="fas fa-question-circle"></i></span></label>
                                     <input type="text" name="txt_nombre" id="txt_nombre" class="form-control txt-mayus"
                                         placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre') ?>"
-                                        onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
+                                        onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="200">
                                     <div id="error"></div>
                                 </div>
                             </div>
@@ -74,8 +74,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             title='<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_tooltips_celular') ?>'><i
                                                 class="fas fa-question-circle"></i></span></label>
                                     <input type="text" name="txt_celular" id="txt_celular" class="form-control"
-                                        placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_celular') ?>"
-                                        maxlength="14">
+                                        placeholder="<?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_celular') ?>" onKeyPress="return js_general_solo_numeros(event)" maxlength="15">
                                     <div id="error"></div>
                                 </div>
                             </div>

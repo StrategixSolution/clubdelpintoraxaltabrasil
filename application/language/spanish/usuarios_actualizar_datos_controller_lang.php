@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-$lang['usuarios_actualizar_datos_controller_lang_pagina_titulo']                            = 'ACTUALIZAR DATOS DE USUARIO';
+$lang['usuarios_actualizar_datos_controller_lang_pagina_titulo']                            = 'ATUALIZAR DATOS DE USUARIO';
 $lang['usuarios_actualizar_datos_controller_lang_input_nombre']                             = '*NOMBRE:';
 $lang['usuarios_actualizar_datos_controller_lang_placeholder_nombre']                       = 'NOMBRE';
 $lang['usuarios_actualizar_datos_controller_lang_tooltip_nombre']                           = '*MÁXIMO 100 CARACTERES *CAMPO OBLIGATORIO *SOLO TEXTO ';
@@ -28,7 +28,7 @@ $lang['usuarios_actualizar_datos_controller_lang_tooltip_extencion']            
 $lang['usuarios_actualizar_datos_controller_lang_placeholder_extencion']                    = 'EXTENSIÓN';
 $lang['usuarios_actualizar_datos_controller_lang_input_celular']                            = 'CELULAR:';
 $lang['usuarios_actualizar_datos_controller_lang_tooltip_celular']                          = '*DEBE SER 10 CARACTERES *SOLO NÚMEROS *AGREGAR EL LADA SIN ESPACIOS';
-$lang['usuarios_actualizar_datos_controller_lang_placeholder_celular']                      = 'CELULAR';
+$lang['usuarios_actualizar_datos_controller_lang_placeholder_celular']                      = 'CELULAR (WHATSAPP)';
 $lang['usuarios_actualizar_datos_controller_lang_msg_celular_repetido']                     = 'EL CELULAR %1$s YA EXISTE EN LA BASE DE DATOS FAVOR DE CAPTURAR OTRO';
 $lang['usuarios_actualizar_datos_controller_lang_input_rfc']                                = 'RFC:';
 $lang['usuarios_actualizar_datos_controller_lang_tooltip_rfc']                              = '*MÍNIMO 4 CARACTERES MÁXIMO 12 *ALFANUMÉRICO';
@@ -37,7 +37,7 @@ $lang['usuarios_actualizar_datos_controller_lang_input_clave']                  
 $lang['usuarios_actualizar_datos_controller_lang_placeholder_clave']                        = 'CLAVE';
 $lang['usuarios_actualizar_datos_controller_lang_tooltip_clave']                            = '*MÁXIMO 20 CARACTERES *CAMPO OBLIGATORIO *LA CONTRASEÑA NUEVA DEBE TENER AL MENOS UNA LETRA MINÚSCULA, UNA LETRA MAYÚSCULA,UN CARÁCTER NUMÉRICO';
 $lang['usuarios_actualizar_datos_controller_lang_msg_rfc_repetido']                         = 'EL RFC %1$s YA EXISTE EN LA BASE DE DATOS FAVOR DE CAPTURAR OTRO';
-$lang['usuarios_actualizar_datos_controller_lang_boton_guardar']                            = 'ACTUALIZAR';
+$lang['usuarios_actualizar_datos_controller_lang_boton_guardar']                            = 'SALVAR ALTERAÇÕES';
 $lang['usuarios_actualizar_datos_controller_lang_boton_regresar']                           = 'REGRESAR';
 $lang['usuarios_actualizar_datos_controller_lang_boton_salir']                              = 'SALIR';
 $lang['usuarios_actualizar_datos_controller_lang_js_confirm_boton_aprobado']                = 'ACEPTAR';

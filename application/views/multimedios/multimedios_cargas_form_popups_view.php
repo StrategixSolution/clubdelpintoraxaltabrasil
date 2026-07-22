@@ -41,7 +41,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script>
     $(document).ready(function() {
         /********************************************MSG ERROR******************************************************************************************/
-        js_general_valida_uploads_archivos('multimedios_cargas_form_view_file', ['mp4', 'pdf', 'png', 'jpg', 'jpeg'], 'EL ARCHIVO SUPERA EL LÍMITE PERMITIDO', 'ARCHIVO CON EXTENSIÓN NO PERMITIDA');
+        js_general_valida_uploads_archivos('multimedios_cargas_form_view_file', ['mp4', 'pdf', 'png', 'jpg', 'jpeg'], 'EL ARQUIVO SUPERA EL LÍMITE PERMITIDO', 'ARQUIVO CON EXTENSIÓN NO PERMITIDA');
         $('#frm_multimedios_cargas_form_view input').on('keyup', function() {
             js_general_limpiar_errores(this);
         });

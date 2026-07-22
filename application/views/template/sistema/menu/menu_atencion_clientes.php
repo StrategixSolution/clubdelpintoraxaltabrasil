@@ -42,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <li class="nav-item dropdown" id="nav_catalogos">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">DISTRIBUIDORA ADJs</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("DistribuidorasAdjsExcel"); ?>">CARGA EXCEL DISTRIBUIDORA ADJs</a></li> 
+                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("DistribuidorasAdjsExcel"); ?>">CARREGAR EXCEL DISTRIBUIDORA ADJs</a></li> 
                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("DistribuidorasAdjsMail"); ?>">ENVIO DE MAILS ADJs</a></li>
             </ul>
         </li>

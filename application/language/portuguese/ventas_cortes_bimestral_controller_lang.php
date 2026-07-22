@@ -5,11 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['ventas_cortes_bimestral_controller_lang_titulo']                               = 'CORTE DE VENDAS BIMESTRAL';
 $lang['ventas_cortes_bimestral_controller_lang_combo_anio']                           = 'ANO:';
 $lang['ventas_cortes_bimestral_controller_lang_select_combo_anio']                    = 'SELECIONE UM ANO';
-$lang['ventas_cortes_bimestral_controller_lang_combo_periodo']                        = 'PERÍODO:';
+$lang['ventas_cortes_bimestral_controller_lang_combo_periodo']                        = 'PERÍODO (MÊS DE REFERÊNCIA):';
 $lang['ventas_cortes_bimestral_controller_lang_select_combo_periodo']                 = 'SELECIONE UM PERÍODO';
 
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_venta']         = 'ID VENDA';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_usuario']       = 'ID MESTRE PINTOR';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_usuario']       = 'ID PINTOR PARCEIRO';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_nombre_pintor']    = 'NOME DO PINTOR';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus_mp']       = 'STATUS MP';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_distribuidor']  = 'ID DISTRIBUIDOR';
@@ -19,15 +19,15 @@ $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_nombre_comerc
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_region_distri']    = 'REGIÃO DISTRIBUIDORA';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus_distri']   = 'STATUS DISTRIBUIDORA';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_numero_ticket']    = 'NÚMERO DE TICKETS';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_ticket']     = 'VALOR DO TICKET';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_ticket']     = 'VALOR DO COMPROVANTE';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_monto']             = 'TOTAL PREÇOS UNITÁRIOS';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_cantidad']          = 'TOTAL QUANTIDADES';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_litros']            = 'TOTAL LITROS';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_promociones']             = 'PROMOÇÃO';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_mes']              = 'MÊS';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus']          = 'STATUS';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria']        = 'STATUS AUDITORIA';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha']            = 'DATA DE CADASTRO';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria']        = 'STATUS DA AUDITORIA';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha']            = 'DATA DE REGISTRO';
 
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_id_distribuidor']      = 'ID DISTRIBUIDOR';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_codigo']               = 'CÓDIGO DO DISTRIBUIDOR';
@@ -35,8 +35,8 @@ $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_razon_social']   
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_nombre_comercial']     = 'NOME COMERCIAL';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_region_distri']        = 'REGIÃO DISTRIBUIDORA';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_estatus_distri']       = 'STATUS DISTRIBUIDORA';
-$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_id_usuario']           = 'ID MESTRE PINTOR';
-$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_nombre_pintor']        = 'NOME DO MESTRE PINTOR';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_id_usuario']           = 'ID PINTOR PARCEIRO';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_nombre_pintor']        = 'NOME DO PINTOR PARCEIRO';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_numero_tickets']        = 'NÚMERO DE TICKET';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_cantidad_tickets']      = 'TOTAL CANTIDADES';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_monto_tickets']         = 'MONTO TICKETS';
@@ -82,11 +82,11 @@ $lang['reportes_productos_registrados_controller_lang_tabla_titulo_codigo']     
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_razon_social']               = 'NOME DA EMPRESA';
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_nombre_distribuidor']        = 'NOME COMERCIAL';
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_id_usuario']                 = 'ID USUARIO';
-$lang['reportes_productos_registrados_controller_lang_tabla_titulo_maestro_pintor']             = 'MESTRE PINTOR';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_maestro_pintor']             = 'PINTOR PARCEIRO';
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_tarjeta']                    = 'N° CARTÃO';
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_ticket']                     = 'N° TÍQUETE';
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_monto_ticket']               = 'VALOR TOTAL DO TÍQUETE';
-$lang['reportes_productos_registrados_controller_lang_tabla_titulo_linea']                     = 'LINHA';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_linea']                     = 'LINHA DE PRODUTO';
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_sector']                     = 'SETOR';
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_clase']                      = 'CLASSE';
 $lang['reportes_productos_registrados_controller_lang_tabla_titulo_marca']                      = 'MARCA';

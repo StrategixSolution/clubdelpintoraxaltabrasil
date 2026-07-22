@@ -1,11 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Ventas_cortes_bimestral_model extends Base_Model {	
-    public function __construct(){
+class Ventas_cortes_bimestral_model extends Base_Model
+{
+    public function __construct()
+    {
         parent::__construct();
     }
-        
+
     public function ventas_cortes_bimestral_model_combo_anios()
     {
         $SQL = "SELECT DISTINCT CorteAnio AS anio FROM Cortes WHERE CorteTipoId = 1";
@@ -18,7 +20,7 @@ class Ventas_cortes_bimestral_model extends Base_Model {
         $query = $this->db->query($SQL);
         return $query->result();
     }
-    
+
     public function ventas_cortes_bimestral_model_promociones($VentaId)
     {
         $SQL = "SELECT distinct VentasPromociones.VentaPromocionNombre FROM VentasUsuariosPromociones INNER JOIN Ventas ON VentasUsuariosPromociones.VentaId = Ventas.VentaId INNER JOIN VentasPromocionesDetalles INNER JOIN VentasPromociones ON VentasPromocionesDetalles.VentaPromocionId = VentasPromociones.VentaPromocionId ON VentasUsuariosPromociones.VentaPromocionDetalleId = VentasPromocionesDetalles.VentaPromocionDetalleId WHERE (Ventas.VentaId = $VentaId) ";
@@ -28,101 +30,121 @@ class Ventas_cortes_bimestral_model extends Base_Model {
     }
     public function ventas_cortes_bimestral_model_ventas($anio, $mes, $mes_anterior)
     {
-        $SQL = "SELECT Ventas.VentaUsuarioIdMP, Ventas.VentaMontoTicket,Ventas.VentaId, Ventas.TarjetaId, Ventas.DistribuidorId, Ventas.VentaNumeroTicket, Ventas.VentaDetalleMontoTicket, Ventas.VentaFechaRegistro, VentasAuditorias.VentaAuditoriaEstatusId,UsuariosDetalles.UsuarioId, UsuariosDetalles.UsuarioDetalleNombre,DistribuidoresDetalles.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleNombreComercial,VentasAuditoriasEstatus.VentaAuditoriaEstatusDescripcion,vdsuma.monto,vdsuma.cantidad,vdsuma.litros
-                FROM Ventas 
-                INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
-                INNER JOIN Usuarios ON Usuarios.UsuarioId = Ventas.VentaUsuarioIdMP
-                INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
-                INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId
-                INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
-                INNER JOIN VentasAuditoriasEstatus ON VentasAuditorias.VentaAuditoriaEstatusId = VentasAuditoriasEstatus.VentaAuditoriaEstatusId
-                INNER JOIN (SELECT  VentasDetalles.VentaId , SUM(VentasDetalles.VentaDetalleMonto * VentasDetalles.VentaDetalleCantidad) AS monto, SUM(VentasDetalles.VentaDetalleCantidad) AS cantidad, SUM(VentasDetalles.VentaDetalleLitros * VentasDetalles.VentaDetalleCantidad) AS litros FROM VentasDetalles WHERE (VentaDetalleFechaBaja IS NULL) GROUP BY VentaId ) AS vdsuma ON vdsuma.VentaId = Ventas.VentaId 
-                WHERE (Ventas.VentaFechaBaja IS NULL) 
-                AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) 
-                AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL) 
-                AND Usuarios.UsuarioFechaBajaParticipante IS NULL 
-                AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) 
-                AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) 
-                AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL)
-                AND YEAR(Ventas.VentaFechaRegistro)='" . $anio . "' AND MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $mes)";
+        $SQL = "SELECT 
+         Ventas.TarjetaId,
+         Ventas.VentaId,
+         Ventas.VentaUsuarioIdMP, 
+         Ventas.DistribuidorId, 
+         Ventas.VentaNumeroTicket,
+         Ventas.VentaMontoTicket,
+         Ventas.VentaFechaRegistro, 
+         VentasAuditorias.VentaAuditoriaEstatusId,
+         Ventas.VentaDetalleMontoTicket as monto,
+         Ventas.VentaDetalleCantidadProdcutos as cantidad
+         FROM Ventas 
+         INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
+         WHERE (Ventas.VentaFechaBaja IS NULL) 
+         AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) 
+         AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) 
+         AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL)
+         AND YEAR(Ventas.VentaFechaRegistro)='" . $anio . "' AND MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $mes)";
         $query = $this->db->query($SQL);
         return $query->result();
     }
     public function ventas_cortes_bimestral_model_maestros_pintores($anio, $mes, $mes_anterior)
     {
-        $SQL = "SELECT UsuariosDetalles.UsuarioId, DistribuidoresDetalles.DistribuidorDetalleId,Ventas.DistribuidorId, SUM(Ventas.VentaDetalleMontoTicket) AS SumaMontoTicket,Ventas.VentaUsuarioIdMP, UsuariosDetalles.UsuarioDetalleNombre, DistribuidoresDetalles.DistribuidorDetalleCodigo,DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleNombreComercial, SUM(vdsuma.monto) AS SumaMonto, SUM(vdsuma.cantidad) AS SumaCantidad, SUM(vdsuma.litros) AS SumaLitros,COUNT(Ventas.VentaId) AS CountTickets
+        $SQL = "SELECT 
+        Ventas.DistribuidorId,
+        Ventas.VentaUsuarioIdMP,
+        COUNT(Ventas.VentaId) AS CountTickets,
+        SUM(Ventas.VentaMontoTicket) AS VentaMontoTicket 
                 FROM Ventas 
                 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
-                INNER JOIN Usuarios ON Usuarios.UsuarioId = Ventas.VentaUsuarioIdMP
-                INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
-                INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId
-                INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
-                INNER JOIN (SELECT VentaId, SUM(VentaDetalleMonto * VentaDetalleCantidad) AS monto, SUM(VentaDetalleCantidad) AS cantidad, SUM(VentaDetalleLitros * VentaDetalleCantidad) AS litros FROM VentasDetalles WHERE (VentaDetalleFechaBaja IS NULL) GROUP BY VentaId) AS vdsuma ON vdsuma.VentaId = Ventas.VentaId
                 WHERE (Ventas.VentaFechaBaja IS NULL) 
-                AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL)
-                 AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)
-                AND Usuarios.UsuarioFechaBajaParticipante IS NULL 
                 AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) 
                 AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL)
                 AND YEAR(Ventas.VentaFechaRegistro)='" . $anio . "' AND MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $mes) 
                 AND VentasAuditorias.VentaAuditoriaFechaBaja IS NULL
-                GROUP BY Ventas.DistribuidorId, UsuariosDetalles.UsuarioId, Ventas.VentaUsuarioIdMP, UsuariosDetalles.UsuarioDetalleNombre, DistribuidoresDetalles.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial,DistribuidoresDetalles.DistribuidorDetalleNombreComercial";
+                GROUP BY Ventas.DistribuidorId, Ventas.VentaUsuarioIdMP";
         $query = $this->db->query($SQL);
         return $query->result();
     }
     public function ventas_cortes_bimestral_model_distribuidores($anio, $mes, $mes_anterior)
     {
-        $SQL = "SELECT Ventas.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial,DistribuidoresDetalles.DistribuidorDetalleNombreComercial, COUNT(Ventas.VentaId) AS CuentaTickete,
-         SUM(Ventas.VentaDetalleMontoTicket) AS SumaMontoTickets, 
-         SUM(vdsuma.monto) AS SumaMonto, SUM(vdsuma.cantidad) AS SumaCantidad, SUM(vdsuma.litros) AS SumaLitros
+        $SQL = "SELECT 
+        Ventas.DistribuidorId,
+        COUNT(Ventas.VentaId) AS CuentaTickete,
+        SUM(Ventas.VentaMontoTicket) AS SumaMontoTickets 
                 FROM Ventas 
                 INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
-                INNER JOIN Usuarios ON Usuarios.UsuarioId = Ventas.VentaUsuarioIdMP
-                INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId 
-                INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId
-                INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
-               INNER JOIN (SELECT VentaId, SUM(VentaDetalleMonto * VentaDetalleCantidad) AS monto, SUM(VentaDetalleCantidad) AS cantidad, SUM(VentaDetalleLitros * VentaDetalleCantidad) AS litros FROM VentasDetalles WHERE (VentaDetalleFechaBaja IS NULL) GROUP BY VentaId) AS vdsuma ON vdsuma.VentaId = Ventas.VentaId
                 WHERE (Ventas.VentaFechaBaja IS NULL) 
-                AND Usuarios.UsuarioFechaBajaParticipante IS NULL  
                 AND (VentasAuditorias.VentaAuditoriaEstatusId = 2) 
                 AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL)
-                AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL)
-                 AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)
-                 AND YEAR(Ventas.VentaFechaRegistro)='" . $anio . "' AND MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $mes) 
+                AND YEAR(Ventas.VentaFechaRegistro)='" . $anio . "' AND MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $mes) 
                 AND VentasAuditorias.VentaAuditoriaFechaBaja IS NULL
-                GROUP BY Ventas.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial,DistribuidoresDetalles.DistribuidorDetalleNombreComercial";
+                GROUP BY Ventas.DistribuidorId";
         $query = $this->db->query($SQL);
         return $query->result();
     }
     public function ventas_cortes_bimestral_model_productos_registrados($anio, $mes, $mes_anterior)
     {
-        $SQL = "SELECT Distribuidores.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleId, DistribuidoresDetalles.DistribuidorDetalleCodigo, 
-            DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
-DistribuidoresDetalles.DistribuidorDetalleNombreComercial, UsuariosDetalles.UsuarioId, UsuariosDetalles.UsuarioDetalleId, Tarjetas.TarjetaId, 
-Tarjetas.TarjetaNumero, VentasDetalles.VentaId, Ventas.VentaNumeroTicket, 
-Ventas.VentaDetalleMontoTicket,Ventas.VentaMontoTicket, VentasDetalles.VentaDetalleMonto, VentasDetalles.VentaDetalleTotal, VentasDetalles.VentaDetalleLitros, 
-VentasDetalles.VentaDetalleCantidad, Ventas.VentaFechaRegistro, ProductosMarcas.ProductoMarcaId , ProductosMarcas.ProductoMarcaDescripcion,
-ProductosMarcas.ProductoMarcaDescripcion,ProductosClases.ProductoClaseId, ProductosClases.ProductoClaseDescripcion, 
-VentasAuditorias.VentaAuditoriaEstatusId, 
-UsuariosDetalles.UsuarioDetalleNombre AS nombrepax
-FROM VentasDetalles 
-INNER JOIN Ventas ON VentasDetalles.VentaId = Ventas.VentaId 
-INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
-INNER JOIN Usuarios ON Usuarios.UsuarioId = Ventas.VentaUsuarioIdMP
-INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId  
-INNER JOIN Tarjetas ON (Ventas.TarjetaId = Tarjetas.TarjetaId AND Tarjetas.UsuarioId =  Usuarios.UsuarioId ) 
-INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId
-INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
-INNER JOIN ProductosMarcas ON VentasDetalles.ProductoMarcaId = ProductosMarcas.ProductoMarcaId 
-INNER JOIN ProductosClases ON ProductosMarcas.ProductoClaseId = ProductosClases.ProductoClaseId 
-WHERE  (Ventas.VentaFechaBaja IS NULL) AND VentasDetalles.VentaDetalleFechaBaja IS NULL AND Usuarios.UsuarioFechaBajaParticipante IS NULL  AND (VentasAuditorias.VentaAuditoriaEstatusId = 2)
-AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)
-AND YEAR(Ventas.VentaFechaRegistro)='" . $anio . "' AND MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $mes)
-AND VentasAuditorias.VentaAuditoriaFechaBaja IS NULL";
+        $SQL = "SELECT 
+        Ventas.DistribuidorId, 
+        Ventas.VentaUsuarioIdMP AS UsuarioId,
+        Ventas.TarjetaId,
+        Ventas.VentaId,
+        Ventas.VentaNumeroTicket, 
+        Ventas.VentaMontoTicket as VentaDetalleMontoTicket,
+        ProductosClases.ProductoClaseId, 
+        ProductosMarcas.ProductoMarcaId ,
+        VentasDetalles.VentaDetalleLitros, 
+        VentasDetalles.VentaDetalleCantidad,
+        Ventas.VentaDetalleMontoTicket as VentaDetalleMonto, --VentaFechaRegistro
+        VentasDetalles.VentaDetalleLitros, 
+        VentasDetalles.VentaDetalleCantidad,
+        VentasAuditorias.VentaAuditoriaEstatusId,
+        VentasDetalles.VentaDetalleTotal,
+        Ventas.VentaFechaRegistro
+       -- DistribuidoresDetalles.DistribuidorDetalleId,
+       -- DistribuidoresDetalles.DistribuidorDetalleCodigo, 
+       -- DistribuidoresDetalles.DistribuidorDetalleRazonSocial, 
+       -- DistribuidoresDetalles.DistribuidorDetalleNombreComercial, 
+       -- UsuariosDetalles.UsuarioId, 
+       -- UsuariosDetalles.UsuarioDetalleId, 
+        --Tarjetas.TarjetaId, 
+       -- Tarjetas.TarjetaNumero, 
+        --VentasDetalles.VentaId,        
+       -- Ventas.VentaDetalleMontoTicket,
+       -- Ventas.VentaMontoTicket, 
+       -- VentasDetalles.VentaDetalleMonto, 
+       -- VentasDetalles.VentaDetalleTotal,         
+       -- Ventas.VentaFechaRegistro,          
+       --- ProductosMarcas.ProductoMarcaDescripcion,       -- 
+        --ProductosClases.ProductoClaseDescripcion, 
+        ----VentasAuditorias.VentaAuditoriaEstatusId, 
+       -- UsuariosDetalles.UsuarioDetalleNombre AS nombrepax
+        FROM VentasDetalles 
+        INNER JOIN Ventas ON VentasDetalles.VentaId = Ventas.VentaId 
+        INNER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId 
+       -- INNER JOIN Usuarios ON Usuarios.UsuarioId = Ventas.VentaUsuarioIdMP
+       -- INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId  
+       -- INNER JOIN Tarjetas ON (Ventas.TarjetaId = Tarjetas.TarjetaId AND Tarjetas.UsuarioId =  Usuarios.UsuarioId ) 
+       -- INNER JOIN Distribuidores ON Ventas.DistribuidorId = Distribuidores.DistribuidorId
+       -- INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId 
+        INNER JOIN ProductosMarcas ON VentasDetalles.ProductoMarcaId = ProductosMarcas.ProductoMarcaId 
+        INNER JOIN ProductosClases ON ProductosMarcas.ProductoClaseId = ProductosClases.ProductoClaseId 
+        WHERE  (Ventas.VentaFechaBaja IS NULL) 
+        AND VentasDetalles.VentaDetalleFechaBaja IS NULL 
+        --AND Usuarios.UsuarioFechaBajaParticipante IS NULL  
+        AND (VentasAuditorias.VentaAuditoriaEstatusId = 2)
+        --AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) 
+        --AND (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL)
+        AND YEAR(Ventas.VentaFechaRegistro)='" . $anio . "' AND MONTH(Ventas.VentaFechaRegistro) IN ($mes_anterior, $mes)
+        AND VentasAuditorias.VentaAuditoriaFechaBaja IS NULL";
         $query = $this->db->query($SQL);
         return $query->result();
     }
-    public function ventas_cortes_bimestral_model_litros_clase($anio, $mes, $mes_anterior)
+  /*  public function ventas_cortes_bimestral_model_litros_clase($anio, $mes, $mes_anterior)
     {
         $SQL = "SELECT 
             DistribuidoresDetalles.DistribuidorId, 
@@ -158,7 +180,7 @@ AND VentasAuditorias.VentaAuditoriaFechaBaja IS NULL";
             ORDER BY DistribuidoresDetalles.DistribuidorId";
         $query = $this->db->query($SQL);
         return $query->result();
-    }
+    }*/
 
     public function ventas_cortes_bimestral_model_perfiles($anio, $mes, $mes_anterior)
     {
@@ -379,7 +401,8 @@ AND VentasAuditorias.VentaAuditoriaFechaBaja IS NULL";
         return $query->result();
     }
 
-    public function ventas_cortes_bimestral_model_corte_perfil($CorteId) {
+    public function ventas_cortes_bimestral_model_corte_perfil($CorteId)
+    {
         $SQL = "SELECT 
             CBP.CorteId,
             CBP.CortesBimestralPerfilDistribuidorId,
@@ -400,22 +423,22 @@ AND VentasAuditorias.VentaAuditoriaFechaBaja IS NULL";
         LEFT OUTER JOIN Perfiles P ON CBP.CortesBimestralPerfilDetalleUsuarioIdRegistro = P.PerfilId
         INNER JOIN UsuariosDetalles UD ON CBP.CortesBimestralPerfilDetalleUsuarioIdRegistro = UD.UsuarioId AND UD.UsuarioDetalleFechaBaja IS NULL
         WHERE CBP.CorteId = $CorteId";
-        $query	= $this->db->query($SQL);
-        return $query->result();        
-    }    
+        $query = $this->db->query($SQL);
+        return $query->result();
+    }
     public function ventas_cortes_bimestral_model_valida_ventas_auditorias($anio, $mes, $mes_anterior)
     {
         $SQL1 = "SELECT COUNT(VentaId) tot FROM Ventas WHERE VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)=$anio AND MONTH(VentaFechaRegistro) in ($mes_anterior,$mes)";
-        $query1	= $this->db->query($SQL1);
-//        echo  $this->db->last_query()."<br>"; 
+        $query1 = $this->db->query($SQL1);
+        //        echo  $this->db->last_query()."<br>"; 
         $total_ventas = $query1->row()->tot;
         $SQL2 = "SELECT COUNT(Ventas.VentaId) AS tot FROM Ventas 
         LEFT OUTER JOIN VentasAuditorias ON Ventas.VentaId = VentasAuditorias.VentaId "
-                . "WHERE (Ventas.VentaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaId IS NOT NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId != 1) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND YEAR(Ventas.VentaFechaRegistro)=$anio AND MONTH(Ventas.VentaFechaRegistro) in ($mes_anterior,$mes)";
-        $query2	= $this->db->query($SQL2);
-//        echo  $this->db->last_query()."<br>"; 
+            . "WHERE (Ventas.VentaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaFechaBaja IS NULL) AND (VentasAuditorias.VentaAuditoriaId IS NOT NULL) AND (VentasAuditorias.VentaAuditoriaEstatusId != 1) AND (VentasAuditorias.VentaAuditoriaFechaActualizado IS NULL) AND YEAR(Ventas.VentaFechaRegistro)=$anio AND MONTH(Ventas.VentaFechaRegistro) in ($mes_anterior,$mes)";
+        $query2 = $this->db->query($SQL2);
+        //        echo  $this->db->last_query()."<br>"; 
         $total_auditoria = $query2->row()->tot;
-        return ($total_ventas==$total_auditoria)?0:1;
+        return ($total_ventas == $total_auditoria) ? 0 : 1;
     }
     public function ventas_cortes_bimestral_model_valida_corte_cambio_estatus($anio, $mes, $mes_anterior)
     {
@@ -436,5 +459,5 @@ AND VentasAuditorias.VentaAuditoriaFechaBaja IS NULL";
         //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->tot;
     }
-    
+
 }

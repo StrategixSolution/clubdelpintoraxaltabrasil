@@ -35,7 +35,7 @@ $lang['reportes_distribuidores_controller_lang_tabla_tickets_registrados']      
 $lang['reportes_distribuidores_controller_lang_tabla_maestros_registrados']                = 'MESTRES REGISTRADOS';
 $lang['reportes_distribuidores_controller_lang_tabla_monto_tickets']                       = 'VALOR DOS TICKETS';
 $lang['reportes_distribuidores_controller_lang_actividad']                                 = 'ATIVO / INATIVO';
-$lang['reportes_distribuidores_controller_lang_tabla_btn_descarga']                        = 'BAIXAR';
+$lang['reportes_distribuidores_controller_lang_tabla_btn_descarga']                        = 'BAIXAR RELATÓRIO';
 
 
 

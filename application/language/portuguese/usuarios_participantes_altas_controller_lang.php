@@ -11,7 +11,7 @@ $lang['usuarios_participantes_altas_controller_lang_input_nombre']              
 $lang['usuarios_participantes_altas_controller_lang_placeholder_nombre']                     = 'NOME COMPLETO';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_distribuidora']                  = '*CAMPO OBLIGATORIO';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_perfil']                         = '*CAMPO OBLIGATORIO';
-$lang['usuarios_participantes_altas_controller_lang_tooltip_nombre']                         = '*MÁXIMO 100 CARACTERES *CAMPO OBRIGATÓRIO *SOMENTE TEXTO ';
+$lang['usuarios_participantes_altas_controller_lang_tooltip_nombre']                         = '*MÁXIMO 200 CARACTERES *CAMPO OBRIGATÓRIO *SOMENTE TEXTO ';
 $lang['usuarios_participantes_altas_controller_lang_input_segundo_nombre']                   = 'SEGUNDO NOME:';
 $lang['usuarios_participantes_altas_controller_lang_placeholder_segundo_nombre']             = 'SEGUNDO NOME';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_segundo_nombre']                 = '*MÁXIMO 50 CARACTERES *SOMENTE TEXTO ';
@@ -33,12 +33,12 @@ $lang['usuarios_participantes_altas_controller_lang_tooltip_extencion']         
 $lang['usuarios_participantes_altas_controller_lang_placeholder_extencion']                  = 'EXTENSÃO';
 $lang['usuarios_participantes_altas_controller_lang_input_celular']                          = '*CELULAR:';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_celular']                        = '*MÍNIMO 8 - MÁXIMO 15 CARACTERES *CAMPO OBRIGATÓRIO *SOMENTE NÚMEROS *INCLUA O DDD DO SEU PAÍS';
-$lang['usuarios_participantes_altas_controller_lang_placeholder_celular']                    = 'CELULAR';
+$lang['usuarios_participantes_altas_controller_lang_placeholder_celular']                    = 'CELULAR (WHATSAPP)';
 $lang['usuarios_participantes_altas_controller_lang_msg_celular_repetido']                   = 'O CELULAR %1$s JÁ EXISTE NA BASE DE DADOS, FAVOR INSERIR OUTRO';
 $lang['usuarios_participantes_altas_controller_lang_boton_guardar']                          = 'MANTER';
 $lang['usuarios_participantes_altas_controller_lang_boton_regresar']                         = 'VOLTAR';
-$lang['usuarios_participantes_altas_controller_lang_js_confirm_boton_aprobado']              = 'ACEITAR';
-$lang['usuarios_participantes_altas_controller_lang_js_confirm_boton_rechazado']             = 'REJEITAR';
+$lang['usuarios_participantes_altas_controller_lang_js_confirm_boton_aprobado']              = 'CONFIRMAR';
+$lang['usuarios_participantes_altas_controller_lang_js_confirm_boton_rechazado']             = 'CORRIGIR DADOS';
 $lang['usuarios_participantes_altas_controller_lang_js_confirm_titulo']                      = 'VALIDAÇÃO DE DADOS';
 $lang['usuarios_participantes_altas_controller_lang_js_confirm_texto']                       = 'OS DADOS CAPTURADOS ESTÃO CORRETOS?';
 $lang['usuarios_participantes_altas_controller_lang_js_msg_limite_participante']             = 'VOCÊ ATINGIU O LIMITE DE USUÁRIOS POR PERFIL';

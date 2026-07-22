@@ -14,7 +14,7 @@ $lang['ventas_cortes_auditoria_ventas_controller_lang_tabla_titulo_total_ticket'
 $lang['ventas_cortes_auditoria_ventas_controller_lang_tabla_titulo_total_monto']                               = 'TOTAL PRECIOS UNITARIOS';
 $lang['ventas_cortes_auditoria_ventas_controller_lang_tabla_titulo_total_cantidad']                            = 'TOTAL CANTIDADES';
 $lang['ventas_cortes_auditoria_ventas_controller_lang_tabla_titulo_total_litros']                              = 'TOTAL LITROS';
-$lang['ventas_cortes_auditoria_ventas_controller_lang_tabla_titulo_auditoria']                                 = 'ESTATUS AUDITORIA';
+$lang['ventas_cortes_auditoria_ventas_controller_lang_tabla_titulo_auditoria']                                 = 'ESTATUS DA AUDITORIA';
 $lang['ventas_cortes_auditoria_ventas_controller_lang_tabla_titulo_fecha']                                     = 'FECHA REGISTRO';
 $lang['ventas_cortes_auditoria_ventas_controller_lang_etiqueta_anio']                                          = 'AÑO:';
 $lang['ventas_cortes_auditoria_ventas_controller_lang_etiqueta_mes']                                           = 'MES:';

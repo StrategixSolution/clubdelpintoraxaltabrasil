@@ -12,9 +12,9 @@ $lang['reportes_maestro_pintores_controller_lang_tabla_id']                     
 $lang['reportes_maestro_pintores_controller_lang_tabla_nombre']                              = 'NOME COMPLETO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_email']                               = 'EMAIL';
 $lang['reportes_maestro_pintores_controller_lang_tabla_perfil']                              = 'PERFIL';
-$lang['reportes_maestro_pintores_controller_lang_tabla_celular']                             = 'CELULAR';
+$lang['reportes_maestro_pintores_controller_lang_tabla_celular']                             = 'CELULAR (WHATSAPP)';
 $lang['reportes_maestro_pintores_controller_lang_tabla_ntarjeta']                            = 'N° DE CARTÃO';
-$lang['reportes_maestro_pintores_controller_lang_tabla_talla']                               = 'TAMANHO';
+$lang['reportes_maestro_pintores_controller_lang_tabla_talla']                               = 'TAMANHO DE SUA CAMISA';
 $lang['reportes_maestro_pintores_controller_lang_tabla_iddistribuidor']                       = 'ID DISTRIBUIDOR';
 $lang['reportes_maestro_pintores_controller_lang_tabla_codigo']                              = 'CÓDIGO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_razon_social']                        = 'RAZÃO SOCIAL';
@@ -39,11 +39,11 @@ $lang['reportes_maestro_pintores_controller_lang_tabla_baja_mp_fecha_baja']     
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_codigo']            = 'CÓDIGO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_razon_social']      = 'RAZÃO SOCIAL';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_total']             = 'TOTAL';
-$lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_estatus']           = 'ESTATUS';
+$lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_estatus']           = 'STATUS';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_ejecutivo']         = 'EXECUTIVO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_ciudad']            = 'CIDADE';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_distribuidora_estado']            = 'ESTADO';
-$lang['reportes_maestro_pintores_controller_lang_tabla_btn_descarga']                        = 'BAIXAR';
+$lang['reportes_maestro_pintores_controller_lang_tabla_btn_descarga']                        = 'BAIXAR RELATÓRIO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_anio']                        = 'ANO';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_mes']                         = 'MÊS';
 $lang['reportes_maestro_pintores_controller_lang_tabla_por_mes_total']                       = 'TOTAL';

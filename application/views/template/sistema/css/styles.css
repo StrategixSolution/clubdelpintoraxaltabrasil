@@ -329,6 +329,9 @@ a{
 .txt-white{
     color: #fff !important;
 }
+.txt-400{
+    font-weight: 400 !important;
+}
 .txt-700{
     font-weight: 700;
 }
@@ -1350,7 +1353,8 @@ table.dataTable th, table.dataTable td{
     padding: 40px 0px;
 }
 #productos .imagenproductos img{
-    width: 750px;
+    /* width: 750px; */
+    width: 100%;
 }
 
 #reposiciom_captura_carga_fotos .carga{

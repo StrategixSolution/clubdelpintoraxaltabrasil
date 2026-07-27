@@ -40,9 +40,9 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-2 btn-buscar-posicion" style="display:none;" id="div_buscar">
+                        <div class="col-lg-2" style="display:none;" id="div_buscar">
                             <div class="form-group">
-                                <button type="button" id="ganadores_btn_buscar" class="btn btn-axalta btn-buscar-ancho">
+                                <button type="button" id="ganadores_btn_buscar" class="btn btn-axalta btn-buscar-ancho btn-buscar-posicion">
                                     <i class="fas fa-search"></i><span class="btn-buscar-texto"><?= $this->lang->line('ventas_reporte_ganadores_controller_lang_btn_buscar') ?></span>
                                 </button>
                             </div>
@@ -51,9 +51,9 @@
                     </div>
                 </div>
             </div>
-
+            <div id="ganadores_tabla_contenedor"></div>
         </div>
-        <div id="ganadores_tabla_contenedor"></div>
+        
         
     </div>
 </section>

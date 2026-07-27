@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 
 <section class="ganadores_tabla_view">
-    <div class="panel-white">
-        <div class="row">
+    <hr class="separador">
+    <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive table-axalta">
                     <table class="table table-bordered" id="ganadores_tabla_view">
@@ -25,7 +25,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <script>

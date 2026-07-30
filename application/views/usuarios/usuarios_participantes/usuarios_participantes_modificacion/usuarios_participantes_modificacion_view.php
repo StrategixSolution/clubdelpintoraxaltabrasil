@@ -6,14 +6,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <form id="frrm_usuarios_participantes_modificacion_view" role="form" method="post" accept-charset="utf-8"> <input
     type="hidden" id="ParticipanteId" name="ParticipanteId" value="<?= $ParticipanteId ?>">
-  <section id="altaferretera">
-    <div
-      style="background: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.50)), url(<?php echo funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/usuarios/personal_tienda/" . $this->session->userdata(funciones_strategix_sitio_alias('s_segmento_id')) . "/bg-title.jpg") ?>)  center center / cover no-repeat;">
-      <div class="container">
-        <div class="title-modulo">
-          <h2><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_pagina_titulo') ?></h2>
+  <section id="altausuario">
+        <div class="panel-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2><?= $this->lang->line('usuarios_participantes_modificacion_controller_lang_pagina_titulo') ?></h2>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div class="container">
       <div class="row panel-white panel-white-alt">

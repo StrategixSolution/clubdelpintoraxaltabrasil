@@ -58,6 +58,18 @@ $(document).ready(function () {
         buttons: [
             {
                 extend: 'excelHtml5',
+                exportOptions: {
+                    columns: [0,1,2,3,4,5,6,8,9,10,11]
+                },
+                customizeData: function(data) {
+                    for (var i = 0; i < data.body.length; i++) {
+                        for (var j = 0; j < data.body[i].length; j++) {
+                            if (data.body[i][j] === null || data.body[i][j] === '') {
+                                data.body[i][j] = ' ';
+                            }
+                        }
+                    }
+                },
                 text: '<?= $this->lang->line('data_table_js_lang_btn_descarga') ?> <span class="iconify" data-icon="file-icons:microsoft-excel" style="font-size:20px;"></span>',
                 className: 'btn btn-axalta',
                 title: 'SEGUNDO RELATÓRIO DE AUDITORIA',

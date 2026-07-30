@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="col-lg-2" style="text-align:left;margin-top:20px;display:none;" id="div_buscar">
-                            <div class="form-group">
+                            <div class="">
                                 <button type="button" id="ganadores_btn_buscar" class="btn btn-axalta btn-buscar-ancho">
                                     <i class="fas fa-search"></i><span class="btn-buscar-texto">PROCURAR</span>
                                 </button>
@@ -45,8 +45,9 @@
                     </div>
                 </div>
             </div>
+            <div id="reposicion_productos_tabla_contenedor"></div>
         </div>
-        <div id="reposicion_productos_tabla_contenedor"></div>
+        <!-- <div id="reposicion_productos_tabla_contenedor"></div> -->
     </div>
 </section>
 

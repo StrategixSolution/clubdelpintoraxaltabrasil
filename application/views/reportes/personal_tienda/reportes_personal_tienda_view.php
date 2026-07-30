@@ -22,7 +22,7 @@ $textoTodas    = $puedeVerTodas ? 'TODOS OS DISTRIBUIDORES' : 'TODOS OS MEUS DIS
             <div class="row">
                 <div class="form-rf-1" id="form-rf-1">
                     <div class="row row-validator">
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label>DISTRIBUIDOR</label>
                                 <select id="reporte_personal_tienda_cmb_distribuidor" class="form-select">
@@ -44,32 +44,31 @@ $textoTodas    = $puedeVerTodas ? 'TODOS OS DISTRIBUIDORES' : 'TODOS OS MEUS DIS
                             </div>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
                                 <label>CÓDIGO DISTRIBUIDOR</label>
                                 <input type="text" id="reporte_personal_tienda_txt_codigo" class="form-control" maxlength="100" placeholder="CÓDIGO">
                             </div>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label>RAZÃO SOCIAL / NOME COMERCIAL</label>
                                 <input type="text" id="reporte_personal_tienda_txt_nombre" class="form-control" maxlength="250" placeholder="DISTRIBUIDORA">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row row-validator">
-                        <div class="col-lg-12 text-right" style="margin-top:10px;">
-                            <button type="button" id="reporte_personal_tienda_btn_buscar" class="btn btn-axalta btn-buscar-ancho">
+                        <div class="col-lg-2 col-12 text-right">
+                            <button type="button" id="reporte_personal_tienda_btn_buscar" class="btn btn-axalta btn-buscar-ancho btn-buscar-posicion">
                                 <i class="fas fa-search"></i><span class="btn-buscar-texto">PROCURAR</span>
                             </button>
                         </div>
                     </div>
+
                 </div>
+                <div id="reporte_personal_tienda_tabla_contenedor"></div>
             </div>
 
-            <div id="reporte_personal_tienda_tabla_contenedor"></div>
+            
         </div>
     </div>
 </section>

@@ -97,7 +97,7 @@ class Ventas_reporte_ganadores_controller extends Base_Controller {
                 <td>'.utf8_encode(strtoupper($r->EJECUTIVO)).'</td>
                 <td>'.utf8_encode(strtoupper($r->CIUDAD_ESTADO)).'</td>
                 <td>'.utf8_encode(strtoupper($r->LUGAR)).'</td>
-                <td  style="white-space: pre-line;">'.utf8_encode(strtoupper($r->DESCRIPCION_PREMIO)).'</td>
+                <td  style="white-space: pre-line;">'.trim(utf8_encode(strtoupper($r->DESCRIPCION_PREMIO))).'</td>
             </tr>';
             $i++;
         }

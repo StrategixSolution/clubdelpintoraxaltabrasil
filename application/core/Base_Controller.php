@@ -28,7 +28,7 @@ class Base_Controller extends CI_Controller {
         $this->load->view('template/sistema/header',$dataheader);
         $this->load->view('template/sistema/menu/menu', $datanav);
         $this->load->view($view, $data);
-        $this->load->view('template/sistema/footer', $datafooter); 
+        // $this->load->view('template/sistema/footer', $datafooter); 
     }
     public function base_controller_create_view_login($view, $data = array()){  
         $data['token']                      = $this->base_controller_csrf_input_token(); 

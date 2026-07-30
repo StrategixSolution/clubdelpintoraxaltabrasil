@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-lg-12">
                 <div class="imagenreglas">
-                    <img src="application/views/template/sistema/imagenes/construccion.jpg" alt="">
+                    <img src="application/views/template/sistema/imagenes/reglas.jpg" alt="">
                 </div>
             </div>
         </div>

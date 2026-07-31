@@ -17,50 +17,40 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="container">
         <div class="panel-white">
             <div class="row">
-                <div class="col-lg-10 borde-r-pt">
-                    <div class="row" id="div_distribuidoras">
-                        <div class="col-lg-7" id="div_distribuidoras">
-                            <div class="form-group">
-                                <label for="cmb_distribuidoras"><?= $this->lang->line('usuarios_participantes_controller_lang_etiqueta_distribuidoras') ?></label>
-                                <select id="cmb_distribuidoras" name="cmb_distribuidoras" class="form-select"></select>
-                            </div>
-                        </div>
+                <div class="col-lg-4" id="div_distribuidoras">
+                    <div class="form-group">
+                        <label for="cmb_distribuidoras"><?= $this->lang->line('usuarios_participantes_controller_lang_etiqueta_distribuidoras') ?></label>
+                        <select id="cmb_distribuidoras" name="cmb_distribuidoras" class="form-select"></select>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-5" id="div_perfiles">
-                            <div class="form-group">
-                                <label for="cmb_perfil"><?= $this->lang->line('usuarios_participantes_controller_lang_etiqueta_perfiles') ?></label>
-                                <select id="cmb_perfil" name="cmb_perfil" class="form-select"></select>
-                            </div>
-                        </div>
-                        <div class="col-lg-5" id="div_estatus">
-                            <div class="form-group">
-                                <label for="cmb_estatus"><?= $this->lang->line('usuarios_participantes_controller_lang_combo_estatus') ?></label>
-                                <select id="cmb_estatus" name="cmb_estatus" class="form-select">
-                                    <option value="0">TODOS</option>
-                                    <option value="1">HABILITADO</option>
-                                    <option value="2">BAJA</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" id="div_buscar">
-                            <div class="form-group">
-                                <button type="button" id="usuarios_participantes_controller_lang_boton_buscar" class="btn btn-axalta"><i class="fas fa-search"></i></button><a href="<?php echo funciones_strategix_version_url_random_base_url("ParticipantesAlta") ?>"></a>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-lg-2" id="div_perfiles">
+                    <div class="form-group">
+                        <label for="cmb_perfil"><?= $this->lang->line('usuarios_participantes_controller_lang_etiqueta_perfiles') ?></label>
+                        <select id="cmb_perfil" name="cmb_perfil" class="form-select"></select>
+                    </div>
+                </div>
+                <div class="col-lg-2" id="div_estatus">
+                    <div class="form-group">
+                        <label for="cmb_estatus"><?= $this->lang->line('usuarios_participantes_controller_lang_combo_estatus') ?></label>
+                        <select id="cmb_estatus" name="cmb_estatus" class="form-select">
+                            <option value="0">TODOS</option>
+                            <option value="1">HABILITADO</option>
+                            <option value="2">BAJA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-2" id="div_buscar">
+                    <div class="form-group">
+                        <button type="button" id="usuarios_participantes_controller_lang_boton_buscar" class="btn btn-axalta btn-buscar-ancho"><i class="fas fa-search"></i><span class="btn-buscar-texto">PESQUISAR</span></button><a href="<?php echo funciones_strategix_version_url_random_base_url("ParticipantesAlta") ?>"></a>
                     </div>
                 </div>
                 <div class="col-lg-2" id="div_alta">
-                    <div class="row">
-                        <div class="">
-                            <div class="btn-modulo">
-                                <a href="<?php echo funciones_strategix_version_url_random_base_url("UsuariosParticipantesAltas") ?>">
-                                    <button type="button" class="btn btn-axalta">
-                                        <i class="fas fa-user-plus"></i>
-                                    </button><br>
-                                </a>
-                            </div>
-                        </div>
+                    <div class="btn-modulo">
+                        <a href="<?php echo funciones_strategix_version_url_random_base_url("UsuariosParticipantesAltas") ?>">
+                            <button type="button" class="btn btn-axalta btn-buscar-ancho">
+                                <i class="fas fa-user-plus"></i><span class="btn-buscar-texto">CADASTRAR</span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -78,10 +68,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $('#div_buscar').hide();
             usuarios_participantes_form_view_js_buscar_tabla();
         } else {
-         usuarios_participantes_form_view_js_combo_distribuidora();
+            usuarios_participantes_form_view_js_combo_distribuidora();
             usuarios_participantes_form_view_js_combo_perfil();
-         
-          
+
+
             $('#cmb_distribuidoras').on('change', function() {
                 $('#tabla_participante').empty();
             });
@@ -112,6 +102,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         });
     }
+
     function usuarios_participantes_form_view_js_combo_perfil() {
         $('#loader_panel').show();
         $.ajax({
@@ -130,6 +121,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         });
     }
+
     function usuarios_participantes_form_view_js_buscar_tabla() {
         $('#loader_panel').show();
         var cmb_distribuidoras = $('#cmb_distribuidoras').val();

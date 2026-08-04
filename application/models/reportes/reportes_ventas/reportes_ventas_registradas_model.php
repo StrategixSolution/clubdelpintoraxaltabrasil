@@ -362,7 +362,7 @@ class Reportes_ventas_registradas_model extends Base_Model {
 
                 (
                     ISNULL(DD.DistribuidorDetalleCiudad,'') + ' / ' +
-                    ISNULL(DD.DistribuidorDetalleUnidadFederativa,'')
+                    ISNULL(CAST(DD.DistribuidorDetalleUnidadFederativa AS VARCHAR),'')
                 ) AS CIUDAD_ESTADO,
 
                 V.VentaNumeroTicket AS NUM_TICKET,

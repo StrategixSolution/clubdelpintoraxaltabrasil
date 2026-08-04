@@ -35,6 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReportePersonalTienda"); ?>">RELATÓRIO DA EQUIPE DA LOJA</a></li>
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteAuditoriaVentas"); ?>">RELATÓRIO DE AUDITORIA DE VENDAS</a></li>
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteSegundaVueltaAuditoria"); ?>">RELATÓRIO DE SEGUNDA VOLTA DE AUDITORIA</a></li>
+            <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteParticipantes") ?>"><?=$this->lang->line('menu_submenu_reportes_ejecutivos')?></a></li>
             </ul>
         </li>
 

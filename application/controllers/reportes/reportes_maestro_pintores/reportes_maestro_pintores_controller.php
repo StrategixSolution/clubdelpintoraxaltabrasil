@@ -77,12 +77,6 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $data['div_inicio'] = "";
         $data['div_fin'] = "";
         $data['modalId'] = "myModal";
-        $tipo = $this->input->post('tipo', true);
-        switch ($tipo) {
-            case 1:                $pag = 'modals/popups/popupvideo';                $data['titulo'] = "VIDEO";                break;
-            case 2:                $pag = 'modals/popups/popuppdf';                $data['titulo'] = "PDF";                break;
-            case 3:                $pag = 'modals/popups/popupimage';                $data['titulo'] = "IMAGEN";                break;
-        }
         $pag = $this->load->view('modals/popups/popupimage', $data, true);
         echo json_encode($pag);
     }
@@ -93,12 +87,6 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
         $data['div_inicio'] = "";
         $data['div_fin'] = "";
         $data['modalId'] = "myModal";
-        $tipo = $this->input->post('tipo', true);
-        switch ($tipo) {
-            case 1:                $pag = 'modals/popups/popupvideo';                $data['titulo'] = "VIDEO";                break;
-            case 2:                $pag = 'modals/popups/popuppdf';                $data['titulo'] = "PDF";                break;
-            case 3:                $pag = 'modals/popups/popupimage';                $data['titulo'] = "IMAGEN";                break;
-        }
         $pag = $this->load->view('modals/popups/popupimage', $data, true);
         echo json_encode($pag);
     }

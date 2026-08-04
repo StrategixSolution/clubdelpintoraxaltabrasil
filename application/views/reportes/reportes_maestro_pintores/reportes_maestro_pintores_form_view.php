@@ -53,6 +53,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>        
     </div>
 </section>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
 <script>    
  $(document).ready(function() {

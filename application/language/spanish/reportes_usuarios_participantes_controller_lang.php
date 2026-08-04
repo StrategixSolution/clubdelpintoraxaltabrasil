@@ -1,0 +1,31 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['reportes_usuarios_participantes_controller_lang_pagina_titulo']                        = 'REPORTE DE PARTICIPANTES';
+$lang['reportes_usuarios_participantes_controller_lang_etiqueta_distribuidoras']              = 'DISTRIBUIDOR:';
+$lang['reportes_usuarios_participantes_controller_lang_etiqueta_perfiles']                    = 'PERFILES:';
+$lang['reportes_usuarios_participantes_controller_lang_select_perfiles']                      = 'TODOS';
+$lang['reportes_usuarios_participantes_controller_lang_select_distribuidoras']                = 'TODOS';
+$lang['reportes_usuarios_participantes_controller_lang_combo_estatus']                        = 'ESTATUS:';
+$lang['reportes_usuarios_participantes_controller_lang_combo_estatus_TODOS']                  = 'TODOS';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_estatus_baja']                   = 'BAJA';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_estatus_activo']                 = 'HABILITADO';
+$lang['reportes_usuarios_participantes_controller_lang_btn_descarga']                         = 'DESCARGA';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_id_distribuidor']         = 'ID DISTRIBUIDOR';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_codigo']                  = 'CÓDIGO';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_distribuidora']           = 'RAZÓN SOCIAL';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_nomcomercial']            = 'NOMBRE COMERCIAL';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_perfil']                  = 'PERFIL';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_rfc']                     = 'REGISTRO FEDERAL DISTRIBUIDOR';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_estatal']                 = 'INSCRIPCION ESTATAL DISTRIBUIDOR';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_rfc_pax']                 = 'NIT USUARIO';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_id_usuario']              = 'ID USUARIO';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_nombre']                  = 'NOMBRE';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_email']                   = 'CORREO ELECTRÓNICO';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_telefono']                = 'TELÉFONO';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_extencion']               = 'EXTENSIÓN';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_celular']                 = 'CELULAR';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_estatus']                 = 'ESTATUS USUARIO';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_estatus_distribuidor']    = 'ESTATUS DISTRIBUIDOR';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_fecha_registro']                 = 'FECHA REGISTRO';
+$lang['reportes_usuarios_participantes_controller_lang_tabla_titulo_usuario']                 = 'USUARIO';

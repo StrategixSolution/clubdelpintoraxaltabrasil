@@ -120,7 +120,7 @@ class Ventas_reporte_ganadores_model extends Base_Model {
                     WHERE UDIS.DistribuidorId = RG.DistribuidorId
                 ), 'SIN EJECUTIVO') AS EJECUTIVO,
 
-                (ISNULL(DD.DistribuidorDetalleCiudad,'') + ' / ' + ISNULL(UF.UnidadFederativaDescripcion,'')) AS CIUDAD_ESTADO,
+                (ISNULL(DD.DistribuidorDetalleCiudad,'') + ' / ' + ISNULL(CAST(DD.DistribuidorDetalleUnidadFederativa AS VARCHAR),'')) AS CIUDAD_ESTADO,
 
                 ISNULL(RG.ReposicionProductoGanadorPremioLugar,'') AS LUGAR,
 

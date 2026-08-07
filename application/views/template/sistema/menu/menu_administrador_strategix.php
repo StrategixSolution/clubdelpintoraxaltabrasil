@@ -30,6 +30,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteReposicionProductos"); ?>">RELATÓRIO DE SUBSTITUIÇÃO DE PRODUTO</a></li> 
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteGanadores"); ?>"><?=$this->lang->line('menu_submenu_reporte_ganadores')?></a></li> 
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReportePersonalTienda"); ?>">RELATÓRIO DA EQUIPE DA LOJA</a></li>
+            <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteAuditoriaVentas"); ?>">RELATÓRIO DE AUDITORIA DE VENDAS</a></li>
+            <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteSegundaVueltaAuditoria"); ?>">RELATÓRIO DE SEGUNDA VOLTA DE AUDITORIA</a></li>
             <!-- <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteVentasPersonalTop"); ?>"><?=$this->lang->line('menu_submenu_ventas_personal_top')?></a></li>
 				
                 

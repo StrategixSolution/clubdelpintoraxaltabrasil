@@ -70,6 +70,7 @@ $lang['menu_submenu_ventas_personal_top']                                       
 $lang['menu_submenu_reporte_ganadores']                                         = 'RELATÓRIO DE GANHADORES';
 $lang['menu_submenu_reporte_maestros_pintores']                                 = 'RELATÓRIO DE MESTRES PINTOR';
 $lang['menu_submenu_reporte_ventas_registradas']                                = 'RELATÓRIO DE VENDAS REGISTRADAS';
+$lang['menu_submenu_reportes_ejecutivos']                                       = 'RELATÓRIO DE PARTICIPANTES';
 /**************************USUÁRIOS*****************************************************/
 $lang['menu_submenu_usuarios_registro_mp']                                      = 'CADASTRO DO PINTOR PARCEIRO';
 /**************************TICKETS*********************************************/

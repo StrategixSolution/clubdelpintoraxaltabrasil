@@ -69,7 +69,7 @@ class Base_Controller extends CI_Controller {
             'protocol'      => "smtp",
             'smtp_host'     => "smtp-legacy.office365.com",
             'smtp_user'     => "contacto@clubdelpintoraxalta.com.mx",
-            'smtp_pass'     => "X5!mJ8#qT4@vR1%k",
+            'smtp_pass'     => "a82?Gx!41=EuN",
             'smtp_port'     => "587",
             'smtp_crypto'   => "tls",
             'mailtype'      => "html",

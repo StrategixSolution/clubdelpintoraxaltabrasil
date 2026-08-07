@@ -69,6 +69,7 @@ $lang['menu_submenu_ventas_personal_top']                                       
 $lang['menu_submenu_reporte_ganadores']                                         = 'REPORTE DE GANADORES';
 $lang['menu_submenu_reporte_maestros_pintores']                                 = 'REPORTE DE PINTORES PARCEIROS';
 $lang['menu_submenu_reporte_ventas_registradas']                                = 'REPORTE DE VENTAS REGISTRADAS';
+$lang['menu_submenu_reportes_ejecutivos']                                       = 'REPORTE DE PARTICIPANTES';
 /**************************USUARIOS******************************************************/
 $lang['menu_submenu_usuarios_registro_mp']                                      = 'REGISTRO DE MAESTRO PINTOR';
 /**************************TICKETS*********************************************/

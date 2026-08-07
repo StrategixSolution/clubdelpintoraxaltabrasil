@@ -58,7 +58,7 @@ $route['ReportePersonalTienda']                 = 'reportes/personal_tienda/repo
 $route['ReportePersonalTiendaBuscar']           = 'reportes/personal_tienda/reportes_personal_tienda_controller/buscar';
 $route['ReporteAuditoriaVentas']                = 'reportes/ventas/reportes_ventas_auditoria_controller';
 $route['ReporteSegundaVueltaAuditoria']         = 'reportes/ventas/reportes_segunda_vuelta_auditoria_controller';
-
+$route['ReporteParticipantes']                  = 'reportes/reportes_usuarios_participantes/reportes_usuarios_participantes_controller';
 
 /*
 

@@ -57,9 +57,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
             </div>
+            <div id="tabla_reporte_auditoria_ventas"></div>
         </div>
 
-        <div id="tabla_reporte_auditoria_ventas"></div>
+        
 
         <!-- Modal container (reutiliza el modal existente) -->
         <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

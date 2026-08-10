@@ -41,9 +41,8 @@
                     </button>
                 </div>
             </div>
+            <div id="segunda_vuelta_tabla_contenedor"></div>
         </div>
-
-        <div id="segunda_vuelta_tabla_contenedor"></div>
     </div>
 </section>
 

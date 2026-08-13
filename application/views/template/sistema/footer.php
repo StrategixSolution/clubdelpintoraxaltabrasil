@@ -54,13 +54,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
     }
 </script>
 </div>
-<footer>
+<!--<footer>
     <div class="row">
         <div class="col-lg-12">
             <img src="application/views/template/sistema/imagenes/footer.png" alt="" width="800px">
         </div>
     </div>
-</footer>
+</footer>-->
 </body>
 
 </html>

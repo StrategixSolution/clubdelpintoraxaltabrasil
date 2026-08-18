@@ -52,6 +52,8 @@ $lang['menu_submenu_admin_cortes_promociones']                                  
 $lang['menu_submenu_admin_cortes_bimestral']                                    = 'CORTE DE VENDAS BIMESTRAL';
 $lang['menu_submenu_admin_carga_producto_premios']                              = 'CADASTRAR PRÊMIOS';
 $lang['menu_submenu_admin_apertura_cierre_reposicion_producto']                 = 'ABERTURA E FECHAMENTO DE REPOSIÇÃO DE PRODUTOS';
+$lang['menu_submenu_mail_promocion_bimestral']                                  = 'ENVIO MAIL PROMOÇÃO BIMESTRAL';
+$lang['menu_submenu_mail_ganador_bimestral']                                    = 'ENVIO DE E-MAIL PARA OS VENCEDORES BIMESTRAIS';
 /**************************AUDITORIAS****************************************************/
 $lang['menu_submenu_auditorias_primera']                                        = 'PRIMEIRA RODADA';
 $lang['menu_submenu_auditorias_envio_correos']                                  = 'ENVIO DE E-MAILS';

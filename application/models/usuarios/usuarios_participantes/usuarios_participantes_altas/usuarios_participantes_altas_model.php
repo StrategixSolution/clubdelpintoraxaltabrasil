@@ -73,7 +73,7 @@ class Usuarios_participantes_altas_model extends Base_Model {
     }*/
     public function participantes_altas_model_update_email($UsuarioId) {
         $UsuarioId_clean = $this->security->xss_clean($UsuarioId); 
-        $SQL    = "UPDATE Usuarios SET UsuarioFechaEnvioMailRegistro = GETDATE() WHERE UsuarioId = $UsuarioId_clean";
+        $SQL    = "UPDATE Usuarios SET UsuarioFechaEnvioMailRegistro = DATEADD(hour, 3, GETDATE()) WHERE UsuarioId = $UsuarioId_clean";
         $this->db->query($SQL);
         return 1;
     } 

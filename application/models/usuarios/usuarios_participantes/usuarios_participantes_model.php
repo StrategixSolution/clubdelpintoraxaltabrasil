@@ -27,7 +27,7 @@ class Usuarios_participantes_model extends Base_Model {
     }
     public function participante_model_baja_usuario($UsuarioId) {
         $UsuarioId_clean = $this->security->xss_clean($UsuarioId); 
-        $SQL = "UPDATE Usuarios set UsuarioFechaBajaParticipante = GETDATE(),UsuarioBajaParticipanteUsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." where UsuarioId = $UsuarioId_clean";
+        $SQL = "UPDATE Usuarios set UsuarioFechaBajaParticipante = DATEADD(hour, 3, GETDATE()),UsuarioBajaParticipanteUsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." where UsuarioId = $UsuarioId_clean";
         $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>";
         return 1;    

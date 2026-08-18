@@ -82,8 +82,8 @@ class Base_Controller extends CI_Controller {
         $this->email->subject($subject);
         $this->email->message($content);
         if ($file != ''){ $this->email->attach($file); }
-		//$this->email->to('luis.rangel@strategix.com.mx');
-        $this->email->to('luis.rangel@strategix.com.mx,luis.mandujano@strategix.com.mx,patricia.carteno@strategix.com.mx,ejecutivocdpbrasil@strategix.com.mx');
+		$this->email->to('luis.rangel@strategix.com.mx');
+       // $this->email->to('luis.rangel@strategix.com.mx,luis.mandujano@strategix.com.mx,patricia.carteno@strategix.com.mx,ejecutivocdpbrasil@strategix.com.mx');
 		/*$this->email->to($to['to']); 
 		if (array_key_exists('cc',$to) && $to['cc'] != "" ){ $this->email->cc($to['cc']); };
         $this->email->bcc('contacto@clubdelpintoraxalta.com.mx,patricia.carteno@strategix.com.mx');*/
@@ -112,7 +112,19 @@ class Base_Controller extends CI_Controller {
         return $data;
     }
     public function base_controller_valida_crea_carpetas($carpeta){
-        $folder = set_realpath('uploads/'.$carpeta); if(!is_dir($folder)){ mkdir($folder,777); } return $folder;
+        $carpeta = trim((string)$carpeta, "/\\");
+        $folder = FCPATH . 'uploads' . DIRECTORY_SEPARATOR . $carpeta . DIRECTORY_SEPARATOR;
+
+        if(!is_dir($folder)){
+            // Crea subcarpetas faltantes con permisos correctos para carga de archivos.
+            @mkdir($folder, 0775, true);
+        }
+
+        if(!is_writable($folder)){
+            @chmod($folder, 0775);
+        }
+
+        return $folder;
     }
     public function base_controller_cargas_upload_archivo($input_file_name,$directorio,$extenciones,$nombre_archivo){
         if(!empty($_FILES[$input_file_name]['name'])){

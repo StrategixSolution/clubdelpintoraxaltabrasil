@@ -59,7 +59,10 @@ $route['ReportePersonalTiendaBuscar']           = 'reportes/personal_tienda/repo
 $route['ReporteAuditoriaVentas']                = 'reportes/ventas/reportes_ventas_auditoria_controller';
 $route['ReporteSegundaVueltaAuditoria']         = 'reportes/ventas/reportes_segunda_vuelta_auditoria_controller';
 $route['ReporteParticipantes']                  = 'reportes/reportes_usuarios_participantes/reportes_usuarios_participantes_controller';
-
+$route['MailPromocionBimestral']                = 'promocion/promocion_bimestral/mail_promocion_bimestral_controller';
+$route['MailGanadorBimestral']                  = 'ganadores_bimestral/ganadores_bimestrales_controller';
+$route['ReporteTarjetas']                       = 'reportes/tarjetas/reportes_tarjetas_controller/index';
+$route['ReporteTarjetasBuscar']                 = 'reportes/tarjetas/reportes_tarjetas_controller/buscar';
 /*
 
 

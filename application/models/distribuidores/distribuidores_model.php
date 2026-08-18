@@ -67,9 +67,9 @@ class Distribuidores_model extends Base_Model {
     }
     public function distribuidores_model_baja($distribuidorid) {
         $DistribuidorId_clean = $this->security->xss_clean($distribuidorid); 
-        $SQL = "UPDATE Distribuidores set DistribuidorFechaBaja = GETDATE(),DistribuidorUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." where DistribuidorId = $DistribuidorId_clean";
+        $SQL = "UPDATE Distribuidores set DistribuidorFechaBaja = DATEADD(hour, 3, GETDATE()),DistribuidorUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." where DistribuidorId = $DistribuidorId_clean";
         $this->db->query($SQL);
-        $SQL2 = "UPDATE u set u.UsuarioFechaBajaDistribuidora = GETDATE(),u.UsuarioBajaDistribuidoraUsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." FROM Usuarios u INNER JOIN UsuariosDistribuidores ud ON u.UsuarioId = ud.UsuarioId where u.PerfilId in (7,8,9) AND ud.DistribuidorId = $DistribuidorId_clean";
+        $SQL2 = "UPDATE u set u.UsuarioFechaBajaDistribuidora = DATEADD(hour, 3, GETDATE()),u.UsuarioBajaDistribuidoraUsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." FROM Usuarios u INNER JOIN UsuariosDistribuidores ud ON u.UsuarioId = ud.UsuarioId where u.PerfilId in (7,8,9) AND ud.DistribuidorId = $DistribuidorId_clean";
         $this->db->query($SQL2);        
 //        echo  $this->db->last_query()."<br>";
         return 1;    

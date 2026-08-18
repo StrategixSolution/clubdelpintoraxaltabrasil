@@ -51,7 +51,8 @@ $lang['menu_submenu_admin_cortes_promociones']                                  
 $lang['menu_submenu_admin_cortes_bimestral']                                    = 'TARJETAS';
 $lang['menu_submenu_admin_carga_producto_premios']                              = 'CARGA DE PRODUCTOS DE PREMIOS';
 $lang['menu_submenu_admin_apertura_cierre_reposicion_producto']                 = 'APERTURA CIERRE REPOSICIÓN PRODUCTO';
-
+$lang['menu_submenu_mail_promocion_bimestral']                                  = 'ENVIO MAIL PROMOCIÓN BIMESTRAL';
+$lang['menu_submenu_mail_ganador_bimestral']                                    = 'ENVIO MAIL GANADORES BIMESTRALES';
 /**************************AUDITORIAS****************************************************/
 $lang['menu_submenu_auditorias_primera']                                        = 'PRIMERA VUELTA';
 $lang['menu_submenu_auditorias_envio_correos']                                  = 'ENVIO DE CORREOS';

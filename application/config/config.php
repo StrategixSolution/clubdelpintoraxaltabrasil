@@ -50,15 +50,15 @@ $config['time_reference']           = 'local';
 $config['rewrite_short_tags']       = FALSE;
 $config['proxy_ips']                = '';
 /**********************STRATEGIX CONFIG******************************* $this->config->item('google_key') */
-$config['site_title']               = 'CLUB DEL PINTOR AXALTA';
+$config['site_title']               = 'CLUBE DO PINTOR AXALTA BRASIL';
 //  $config['bcc']                      = "luis.rangel@strategix.com.mx,luis.rivera@strategix.com.mx,patricia.carteno@strategix.com.mx";
 $config['bcc']                      = "luis.rangel@strategix.com.mx";
 /**********************STRATEGIX COOKIE*******************************/
 $config['cookie_name']              = "CDPBR20250401COOKIE";
 $config['cookie_value']             = "B1GFR84B18918BT9RB4TRYHY";
 /**********************STRATEGIX GOOGLE*******************************/
-$config['google_key']               = '6LeDaRErAAAAAETcjJxldNJHMhnApdKVAVtm4cvi';
-$config['google_secret']            = '6LeDaRErAAAAAHKDHrED4mz9eqwOeMVuU7nnuo58';
+$config['google_key']               = '6Lcm94AtAAAAAH8Hf9L2J41KTNzo_ZX73d0AINSs';
+$config['google_secret']            = '6Lcm94AtAAAAAHs0UUMcqqMG-UFuvbyOhW3SQQgd';
 $config['google_url']               = 'https://www.google.com/recaptcha/api/siteverify';
 /**********************STRATEGIX INFOBIT*******************************/
 $config['infobip_key']              = 'App 1f1a18f035453f6cce53fbbc469e9a1d-d38bd0e4-efa4-4e5c-87c5-bec171304cf6';

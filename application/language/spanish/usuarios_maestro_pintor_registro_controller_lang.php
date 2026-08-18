@@ -93,7 +93,7 @@ $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_enviar_por_mail
 $lang['usuarios_maestro_pintor_registro_controller_lang_etiqueta_legal_aviso_titulo']      = 'AVISO DE PRIVACIDAD - TÉRMINOS Y CONDICIONES';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_welcome']      = 'Bienvenido a Axalta Club del Pintor Brasil';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_1']      = 'Es un honor tenerte como parte del Club del Pintor, donde reconocemos tu esfuerzo y lealtad.';
-$lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_2']      = 'Con gusto atenderemos tus dudas sobre el programa de incentivos, promociones, resultados o temas relacionados con el funcionamiento del sitio, desde la página del programa <a href="https://www.clubdelpintoraxaltabrasil.com.br" style="mso-line-height-rule:exactly;text-decoration:none;color:#2690CE;font-size:14px">www.clubdelpintoraxaltabrasil.com.br</a> en la pestaña de contacto.';
+$lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_2']      = 'Con gusto atenderemos tus dudas sobre el programa de incentivos, promociones, resultados o temas relacionados con el funcionamiento del sitio, desde la página del programa <a href="https://cadastro.clubedopintoraxalta.com.br/" style="mso-line-height-rule:exactly;text-decoration:none;color:#2690CE;font-size:14px">cadastro.clubedopintoraxalta.com.br</a> en la pestaña de contacto.';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_user']    = 'Usuario: ';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_pass']    = 'Contraseña: ';
 $lang['usuarios_maestro_pintor_registro_controller_lang_mail_body_button_1']    = 'Club del Pintor';

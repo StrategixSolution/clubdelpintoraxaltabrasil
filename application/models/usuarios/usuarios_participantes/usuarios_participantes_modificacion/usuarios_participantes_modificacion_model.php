@@ -33,7 +33,7 @@ class Usuarios_participantes_modificacion_model extends Base_Model {
         $data_clean             = utf8_decode($this->security->xss_clean($data));
         $SQLINSERT              = "INSERT INTO UsuariosDetalles (UsuarioId,UsuarioDetalleNombre, UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleRFC,UsuarioDetalleCelular,UsuarioDetalleUsuarioIdRegistro,UsuarioDetalleSessionId) VALUES ($data_clean)";
         $this->db->query($SQLINSERT);
-        $SQLUPDATE              = "UPDATE UsuariosDetalles SET UsuariosDetalles.UsuarioDetalleFechaBaja = GETDATE(),UsuariosDetalles.UsuarioDetalleUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE UsuariosDetalles.UsuarioDetalleId = $DetalleUsuarioId_clean";
+        $SQLUPDATE              = "UPDATE UsuariosDetalles SET UsuariosDetalles.UsuarioDetalleFechaBaja = DATEADD(hour, 3, GETDATE()),UsuariosDetalles.UsuarioDetalleUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE UsuariosDetalles.UsuarioDetalleId = $DetalleUsuarioId_clean";
         $this->db->query($SQLUPDATE);
         return 1;
     } 

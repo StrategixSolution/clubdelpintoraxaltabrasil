@@ -3,13 +3,20 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 ?>
- <!--  <li class="nav-item dropdown" id="nav_catalogos">
+   <li class="nav-item dropdown" id="nav_catalogos">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_admin')?></a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("Distribuidores")?>"><?=$this->lang->line('menu_submenu_admin_distribuidores')?></a></li> 
-                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("UsuariosParticipantes")?>"><?=$this->lang->line('menu_submenu_admin_usuarios')?></a></li> 
+                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("Distribuidores")?>"><?=$this->lang->line('menu_submenu_admin_distribuidores')?></a></li>
+                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("UsuariosParticipantes")?>"><?=$this->lang->line('menu_submenu_admin_usuarios')?></a></li>
+                <!-- <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("Tarjetas"); ?>"><?=$this->lang->line('menu_submenu_admin_tarjetas')?></a></li> -->
+                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("CargaMultimedios"); ?>"><?=$this->lang->line('menu_submenu_admin_carga_multimedia')?></a></li>
+                 <!-- <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("Distribuidores"); ?>"><?=$this->lang->line('menu_admin_submenu_distribuidores')?></a></li> 
+                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("Participantes"); ?>"><?=$this->lang->line('menu_admin_submenu_usuarios')?></a></li> 
+                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("AltaTarjetas"); ?>"><?=$this->lang->line('menu_admin_submenu_tarjetas')?></a></li>-->
+                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("MailPromocionBimestral") ?>"><?=$this->lang->line('menu_submenu_mail_promocion_bimestral')?></a></li>
+                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("MailGanadorBimestral") ?>"><?=$this->lang->line('menu_submenu_mail_ganador_bimestral')?></a></li>
             </ul>
-        </li> -->
+        </li> 
      
         <li class="nav-item dropdown" id="nav_catalogos">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_auditorias')?></a>
@@ -32,6 +39,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReportePersonalTienda"); ?>">RELATÓRIO DA EQUIPE DA LOJA</a></li>
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteAuditoriaVentas"); ?>">RELATÓRIO DE AUDITORIA DE VENDAS</a></li>
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteSegundaVueltaAuditoria"); ?>">RELATÓRIO DE SEGUNDA VOLTA DE AUDITORIA</a></li>
+            <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteTarjetas"); ?>">RELATÓRIO DO CARTÃO</a></li>
             <!-- <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteVentasPersonalTop"); ?>"><?=$this->lang->line('menu_submenu_ventas_personal_top')?></a></li>
 				
                 

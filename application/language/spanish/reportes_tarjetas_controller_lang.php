@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['reportes_tarjetas_controller_lang_pagina_titulo']                               = 'REPORTE DE TARJETAS';
+$lang['reportes_tarjetas_controller_lang_pagina_titulo']                               = 'RELATÓRIO DO CARTÃO';
 $lang['reportes_tarjetas_controller_lang_etiqueta_distribuidor']                       = 'DISTRIBUIDOR:';
 $lang['reportes_tarjetas_controller_lang_etiqueta_estatus']                            = 'ESTATUS:';
 $lang['reportes_tarjetas_controller_lang_etiqueta_fecha_registro']                     = 'FECHA REGISTRO:';

@@ -18,6 +18,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("CargaProductosPremios"); ?>"><?=$this->lang->line('menu_submenu_admin_carga_producto_premios')?></a></li>
                 <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("CargaPromociones"); ?>"><?=$this->lang->line('menu_submenu_admin_carga_promociones')?></a></li>
                <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("CorteAuditoriaVentas"); ?>"><?=$this->lang->line('menu_submenu_admin_cortes')?></a></li>
+               <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("MailPromocionBimestral") ?>"><?=$this->lang->line('menu_submenu_mail_promocion_bimestral')?></a></li>
+               <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("MailGanadorBimestral") ?>"><?=$this->lang->line('menu_submenu_mail_ganador_bimestral')?></a></li>
             </ul>
         </li> 
 
@@ -43,6 +45,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteAuditoriaVentas"); ?>">RELATÓRIO DE AUDITORIA DE VENDAS</a></li>
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteSegundaVueltaAuditoria"); ?>">RELATÓRIO DE SEGUNDA VOLTA DE AUDITORIA</a></li>
             <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteParticipantes") ?>"><?=$this->lang->line('menu_submenu_reportes_ejecutivos')?></a></li>
+            <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteTarjetas"); ?>">RELATÓRIO DO CARTÃO</a></li>
             <!-- <li><a class="dropdown-item" href="<?php echo funciones_strategix_version_url_random_base_url("ReporteVentasPersonalTop"); ?>"><?=$this->lang->line('menu_submenu_ventas_personal_top')?></a></li>
 				
                 

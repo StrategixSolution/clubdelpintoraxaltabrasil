@@ -13,8 +13,8 @@ $lang['tarjetas_altas_controller_lang_tabla_idtarjeta']                         
 $lang['tarjetas_altas_controller_lang_tabla_ntarjeta']                          = 'N° DO CARTÃO';
 $lang['tarjetas_altas_controller_lang_tabla_id']                                = 'ID DO DISTRIBUIDOR';
 $lang['tarjetas_altas_controller_lang_tabla_razon_social']                      = 'RAZÃO SOCIAL';
-$lang['tarjetas_altas_controller_lang_tabla_id_maestro_pintor']                 = 'ID DO MAESTRO PINTOR';
-$lang['tarjetas_altas_controller_lang_tabla_maestro_pintor']                    = 'MAESTRO PINTOR';
+$lang['tarjetas_altas_controller_lang_tabla_id_maestro_pintor']                 = 'ID DO PINTOR PARCEIRO';
+$lang['tarjetas_altas_controller_lang_tabla_maestro_pintor']                    = 'PINTOR PARCEIRO';
 $lang['tarjetas_altas_controller_lang_tabla_fecha_registro']                    = 'DATA DE REGISTRO';
 $lang['tarjetas_altas_controller_lang_tabla_estatus_tarjeta']                   = 'STATUS DO CARTÃO';
 $lang['tarjetas_altas_controller_lang_tabla_estatus_accion']                    = 'OBSERVAÇÃO';

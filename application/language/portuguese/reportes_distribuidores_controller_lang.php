@@ -31,9 +31,9 @@ $lang['reportes_distribuidores_controller_lang_tabla_estado']                   
 $lang['reportes_distribuidores_controller_lang_tabla_cp']                                  = 'CEP';
 $lang['reportes_distribuidores_controller_lang_tabla_ejecutivo']                           = 'EXECUTIVO';
 $lang['reportes_distribuidores_controller_lang_tabla_estatus']                             = 'STATUS';
-$lang['reportes_distribuidores_controller_lang_tabla_tickets_registrados']                 = 'TICKETS REGISTRADOS';
+$lang['reportes_distribuidores_controller_lang_tabla_tickets_registrados']                 = 'COMPROVANTES REGISTRADOS';
 $lang['reportes_distribuidores_controller_lang_tabla_maestros_registrados']                = 'MESTRES REGISTRADOS';
-$lang['reportes_distribuidores_controller_lang_tabla_monto_tickets']                       = 'VALOR DOS TICKETS';
+$lang['reportes_distribuidores_controller_lang_tabla_monto_tickets']                       = 'VALOR DOS COMPROVANTES';
 $lang['reportes_distribuidores_controller_lang_actividad']                                 = 'ATIVO / INATIVO';
 $lang['reportes_distribuidores_controller_lang_tabla_btn_descarga']                        = 'BAIXAR RELATÓRIO';
 
@@ -46,7 +46,7 @@ $lang['reportes_distribuidores_controller_lang_combo_selecciona_mes_all']       
 
 $lang['reportes_distribuidores_controller_lang_tabla_categoria']                    = 'CATEGORIA';
 $lang['reportes_distribuidores_controller_lang_tabla_ciudad_estado']                      = 'CIDADE / UF';
-$lang['reportes_distribuidores_controller_lang_tabla_segmento']                           = 'SEGMENTO';
+$lang['reportes_distribuidores_controller_lang_tabla_segmento']                           = 'CATEGORIA';
 $lang['reportes_distribuidores_controller_lang_tabla_numero']                             = 'NUMERO';
 $lang['reportes_distribuidores_controller_lang_tabla_fase']                               = 'FASE';
 $lang['reportes_distribuidores_controller_lang_tabla_etapa']                              = 'ETAPA';

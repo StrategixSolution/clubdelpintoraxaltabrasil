@@ -47,9 +47,9 @@ $lang['distribuidores_alta_controller_lang_guardado_js_msg_swal_aceptar']       
 $lang['distribuidores_alta_controller_lang_guardado_js_msg_swal_cancelar']                      = 'NÃO';
 $lang['distribuidores_alta_controller_lang_combo_selecciona_agrupamiento']                      = 'SELECIONE UM AGRUPAMENTO *CAMPO OBRIGATÓRIO';
 $lang['distribuidores_alta_controller_lang_input_codigo_agrupamiento']                          = '*AGRUPAMENTO:';
-$lang['distribuidores_alta_controller_lang_input_registro_federal']                          = '*REGISTRO FEDERAL:';
+$lang['distribuidores_alta_controller_lang_input_registro_federal']                          = 'REGISTRO FEDERAL:';
 $lang['distribuidores_alta_controller_lang_input_inscripcion_estatal']                     = '*INSCRIÇÃO ESTADUAL:';
-$lang['distribuidores_alta_controller_lang_tooltip_registro_federal']                     = 'MÁXIMO 14 CARACTERES SOMENTE NÚMEROS *CAMPO OBRIGATÓRIO';
+$lang['distribuidores_alta_controller_lang_tooltip_registro_federal']                     = 'MÁXIMO 14 CARACTERES';
 $lang['distribuidores_alta_controller_lang_tooltip_inscripcion_estatal']                     = 'MÁXIMO 14 CARACTERES SOMENTE NÚMEROS *CAMPO OBRIGATÓRIO';
 $lang['distribuidores_alta_controller_lang_combo_tooltip_agrupamiento']                     = 'SELECIONE UM AGRUPAMENTO *CAMPO OBRIGATÓRIO';
 

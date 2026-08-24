@@ -274,7 +274,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="col-lg-2 col-6">
                         <div class="d-grid gap-2">
                             <button type="button" id="ventas_auditoria_rechazados_actualiza_view_guardar_venta"
-                                class="btn btn-axalta"><i class="far fa-save"></i><span class="btn-buscar-texto">MANTER</span></button>
+                                class="btn btn-axalta"><i class="far fa-save"></i><span class="btn-buscar-texto">SALVAR</span></button>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ $lang['ventas_registro_controller_lang_etiqueta_detalle']                       
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_nombre']              = 'NOMBRE:';
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_email']               = 'EMAIL:';
 $lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_celular']             = 'CELULAR:';
-$lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_rfc']                 = 'NIT:';
+$lang['ventas_registro_controller_lang_etiqueta_maestro_pintor_rfc']                 = 'CPF:';
 $lang['ventas_registro_controller_lang_input_numero_tarjeta']                        = '*NÚMERO DE TARJETA:';
 $lang['ventas_registro_controller_lang_tooltip_numero_tarjeta']                      = '*CAMPO OBLIGATORIO *ESCANEA EL NÚMERO CON TU CÁMARA O ESCRIBE SOLO NÚMEROS MÁXIMO 6 DÍGITOS';
 $lang['ventas_registro_controller_lang_placeholder_numero_tarjeta']                  = 'NÚMERO DE TARJETA';

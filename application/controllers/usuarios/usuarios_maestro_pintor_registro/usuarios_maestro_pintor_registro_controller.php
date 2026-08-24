@@ -23,7 +23,7 @@ public function __construct(){
         $cmbtalla ="<option  value='0'>".$this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_talla')."</option>";
         $tallas         = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_tallas();
         foreach ($tallas as $talla) {            
-             $cmbtalla .="<option value=$talla->UsuarioDetalleTallaId>".$talla->UsuarioDetalleTallaClave." - ".$talla->UsuarioDetalleTallaDescripcion."</option>";
+             $cmbtalla .="<option value=$talla->UsuarioDetalleTallaId>".$talla->UsuarioDetalleTallaClave." - ".utf8_encode($talla->UsuarioDetalleTallaDescripcion)."</option>";
         }
         echo json_encode($cmbtalla);
     }    

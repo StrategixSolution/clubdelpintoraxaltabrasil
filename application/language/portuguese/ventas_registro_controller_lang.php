@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['ventas_registro_controller_lang_titulo']                                      = 'RECORDE DE VENDAS';
+$lang['ventas_registro_controller_lang_titulo']                                      = 'REGISTRO DE VENDAS';
 $lang['ventas_registro_controller_lang_etiqueta_etiqueta_msg_ticket']                = 'SELECCIONA UMA OPÇÃO PARA ADICIONAR SEU COMPROVANTE:';
 $lang['ventas_registro_controller_lang_etiqueta_camara']                             = 'CÂMERA';
 $lang['ventas_registro_controller_lang_etiqueta_archivo']                            = 'ARQUIVO';

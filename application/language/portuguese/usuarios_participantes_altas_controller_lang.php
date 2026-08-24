@@ -35,7 +35,7 @@ $lang['usuarios_participantes_altas_controller_lang_input_celular']             
 $lang['usuarios_participantes_altas_controller_lang_tooltip_celular']                        = '*MÍNIMO 8 - MÁXIMO 15 CARACTERES *CAMPO OBRIGATÓRIO *SOMENTE NÚMEROS *INCLUA O DDD DO SEU PAÍS';
 $lang['usuarios_participantes_altas_controller_lang_placeholder_celular']                    = 'CELULAR (WHATSAPP)';
 $lang['usuarios_participantes_altas_controller_lang_msg_celular_repetido']                   = 'O CELULAR %1$s JÁ EXISTE NA BASE DE DADOS, FAVOR INSERIR OUTRO';
-$lang['usuarios_participantes_altas_controller_lang_boton_guardar']                          = 'MANTER';
+$lang['usuarios_participantes_altas_controller_lang_boton_guardar']                          = 'SALVAR';
 $lang['usuarios_participantes_altas_controller_lang_boton_regresar']                         = 'VOLTAR';
 $lang['usuarios_participantes_altas_controller_lang_js_confirm_boton_aprobado']              = 'CONFIRMAR';
 $lang['usuarios_participantes_altas_controller_lang_js_confirm_boton_rechazado']             = 'CORRIGIR DADOS';
@@ -48,8 +48,8 @@ $lang['usuarios_participantes_altas_controller_lang_js_msg_participante_error_co
 $lang['usuarios_participantes_altas_controller_lang_tabla_js_msg_swal_error']                = 'ERROR';
 $lang['usuarios_participantes_altas_controller_lang_tabla_js_msg_swal_guardado']             = 'SALVO';
 $lang['usuarios_participantes_altas_controller_lang_tabla_js_msg_swal_ok']                   = 'OK';
-$lang['usuarios_participantes_altas_controller_lang_input_rfc']                              = 'NIT:';
-$lang['usuarios_participantes_altas_controller_lang_error_rfc']                              = 'O CAMPO NIT É OBRIGATÓRIO';
+$lang['usuarios_participantes_altas_controller_lang_input_rfc']                              = 'CPF:';
+$lang['usuarios_participantes_altas_controller_lang_error_rfc']                              = 'O CAMPO CPF É OBRIGATÓRIO';
 $lang['usuarios_participantes_altas_controller_lang_tooltip_rfc']                            = '*MÍNIMO 4 CARACTERES MÁXIMO 25 *ALFANUMÉRICO';
-$lang['usuarios_participantes_altas_controller_lang_placeholder_rfc']                        = 'NIT';
-$lang['usuarios_participantes_altas_controller_lang_msg_rfc_repetido']                       = 'O NIT %1$s JÁ EXISTE NA BASE DE DADOS, FAVOR INSERIR OUTRO';
+$lang['usuarios_participantes_altas_controller_lang_placeholder_rfc']                        = 'CPF';
+$lang['usuarios_participantes_altas_controller_lang_msg_rfc_repetido']                       = 'O CPF %1$s JÁ EXISTE NA BASE DE DADOS, FAVOR INSERIR OUTRO';

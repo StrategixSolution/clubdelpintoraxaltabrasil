@@ -23,12 +23,12 @@ $lang['reportes_tarjetas_controller_lang_tabla_estatus_maestro']                
 $lang['reportes_tarjetas_controller_lang_tabla_estatus_perfil']                        = 'PERFIL';
 $lang['reportes_tarjetas_controller_lang_tabla_btn_descarga']                          = 'DESCARGAR';
 $lang['reportes_tarjetas_controller_lang_etiqueta_pais']                               = 'PAÍS:';
-$lang['reportes_tarjetas_controller_lang_etiqueta_segmento']                           = 'SEGMENTO:';
+$lang['reportes_tarjetas_controller_lang_etiqueta_segmento']                           = 'CATEGORIA:';
 $lang['reportes_tarjetas_controller_lang_placeholder_rango_fechas']                    = 'SELECCIONA UN RANGO DE FECHAS';
 $lang['reportes_tarjetas_controller_lang_combo_selecciona_pais']                       = 'SELECCIONA UN PAÍS';
 $lang['reportes_tarjetas_controller_lang_combo_selecciona_pais_all']                   = 'TODOS';
-$lang['reportes_tarjetas_controller_lang_combo_selecciona_segmento']                   = 'SELECCIONA UN SEGMENTO';
+$lang['reportes_tarjetas_controller_lang_combo_selecciona_segmento']                   = 'SELECCIONA UNA CATEGORÍA';
 $lang['reportes_tarjetas_controller_lang_combo_selecciona_segmento_all']               = 'TODOS';
 $lang['reportes_tarjetas_controller_lang_tabla_pais']                                  = 'PAÍS';
-$lang['reportes_tarjetas_controller_lang_tabla_segmento']                              = 'SEGMENTO';
+$lang['reportes_tarjetas_controller_lang_tabla_segmento']                              = 'CATEGORÍA';
 $lang['reportes_tarjetas_controller_lang_combo_selecciona_distribuidor_all']           = 'TODOS';

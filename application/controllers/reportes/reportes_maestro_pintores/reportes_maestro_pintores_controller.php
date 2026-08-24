@@ -121,7 +121,7 @@ class Reportes_maestro_pintores_controller extends Base_Controller {
     }
     public function reportes_usuarios_maestros_pintores_controller_maestro_pintor($spreadsheet,  $cmb_distribuidor, $txt_nombre_mp)    {
         $sheet = $spreadsheet->getActiveSheet(0);
-        $sheet->setTitle("Mestres Pintores");
+        $sheet->setTitle("Pintores Parceiros");
         $sheet->setCellValue('A1', $this->lang->line('reportes_maestro_pintores_controller_lang_tabla_id'));
         $sheet->setCellValue('B1', $this->lang->line('reportes_maestro_pintores_controller_lang_tabla_nombre'));
         $sheet->setCellValue('C1', $this->lang->line('reportes_maestro_pintores_controller_lang_tabla_email'));

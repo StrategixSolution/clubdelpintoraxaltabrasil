@@ -41,9 +41,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                     <div class="col-lg-2" style="text-align: right; display: none;" id="div_buscar">
                         <div class="form-group">
-                            <button type="submit" id="ventas_registradas_mp_btn_buscar" class="btn btn-axalta"
-                                style="margin-top: 1.68em;"><i class="far fa-save"></i>
-                                <?= $this->lang->line('mail_promocion_bimestral_controller_lang_etiqueta_btn_guardar') ?></button>
+                            <button type="submit" id="ventas_registradas_mp_btn_buscar" class="btn btn-axalta btn-buscar-ancho"
+                                style="margin-top: 1.68em;"><i class="far fa-save"></i><span class="btn-buscar-texto"><?= $this->lang->line('mail_promocion_bimestral_controller_lang_etiqueta_btn_guardar') ?></span>
+                                </button>
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     let htmlTags = `<div class="col"  style="border:1px solid #c82127; border-radius:10px; margin:5px 10px;">
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" id="${d}" name="perfil[]" value="${d}" style="margin:6px 0px 0px 0px;">
-                                            <label class="form-check-label ml-10" for="${d}"> ${v}</label></div>
+                                            <label class="form-check-label ml-10 btn-buscar-texto" for="${d}"> ${v}</label></div>
                                         </div> 
                                     </div> 
                                    `;

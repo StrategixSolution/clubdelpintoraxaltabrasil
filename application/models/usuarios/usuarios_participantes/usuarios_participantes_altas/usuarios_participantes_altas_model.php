@@ -79,7 +79,7 @@ class Usuarios_participantes_altas_model extends Base_Model {
     } 
     public function participantes_altas_model_get_participante($UsuarioId){
         $UsuarioId_clean = $this->security->xss_clean($UsuarioId); 
-        $SQL = "SELECT p.PerfilId,p.PerfilDescripcion, ud.UsuarioDetalleId, u.UsuarioId, ud.UsuarioDetalleNombre, ud.UsuarioDetalleSegundoNombre, ud.UsuarioDetalleApellidoPaterno, ud.UsuarioDetalleApellidoMaterno, ud.UsuarioDetalleUsuario, ud.UsuarioDetalleClave, ud.UsuarioDetalleEmail, ud.UsuarioDetalleTelefono, ud.UsuarioDetalleExtension, ud.UsuarioDetalleCelular, ud.UsuarioDetalleFechaRegistro, ud.UsuarioDetalleUsuarioIdRegistro, ud.UsuarioDetalleSessionId, ud.UsuarioDetalleFechaBaja, ud.UsuarioDetalleUsuarioIdBaja
+        $SQL = "SELECT p.PerfilId,p.PerfilDescripcion, ud.UsuarioDetalleId, u.UsuarioId, ud.UsuarioDetalleNombre, ud.UsuarioDetalleClave, ud.UsuarioDetalleEmail, ud.UsuarioDetalleTelefono, ud.UsuarioDetalleExtension, ud.UsuarioDetalleCelular, ud.UsuarioDetalleFechaRegistro, ud.UsuarioDetalleUsuarioIdRegistro, ud.UsuarioDetalleSessionId, ud.UsuarioDetalleFechaBaja, ud.UsuarioDetalleUsuarioIdBaja
                 FROM Usuarios u INNER JOIN UsuariosDetalles ud ON u.UsuarioId = ud.UsuarioId INNER JOIN Perfiles p ON u.PerfilId = p.PerfilId
                 WHERE (u.UsuarioId = $UsuarioId_clean) AND (u.UsuarioFechaBajaParticipante IS NULL) AND (u.UsuarioFechaBajaDistribuidora IS NULL) AND (ud.UsuarioDetalleFechaBaja IS NULL)";
         $query	= $this->db->query($SQL);

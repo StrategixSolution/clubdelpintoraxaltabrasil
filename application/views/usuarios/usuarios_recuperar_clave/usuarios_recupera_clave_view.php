@@ -49,10 +49,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <input type="checkbox" id="usuarios_crea_clave_view_chk_email" name="usuarios_crea_clave_view_chk_email" value="1" class="form-check-input">
                                 <label for="" class="form-check-label"><?= $this->lang->line('usuarios_recupera_clave_controller_lang_label_check_mail') ?></label>
                             </div>
-                            <!-- <div class="form-check form-check-inline">
+                             <div class="form-check form-check-inline">
                                 <input type="checkbox" id="usuarios_crea_clave_view_chk_whatsapp" name="usuarios_crea_clave_view_chk_whatsapp" value="1" class="form-check-input">
                                 <label for="" class="form-check-label"><?= $this->lang->line('usuarios_recupera_clave_controller_lang_label_check_whatsapp') ?></label>
-                            </div>-->
+                            </div>
                         </div>
                         <div class="col-lg-8" id="usuarios_crea_clave_view_div_email">
                             <p><?= $this->lang->line('usuarios_recupera_clave_controller_lang_msg_email') ?></p>
@@ -205,6 +205,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     text: '<?= $this->lang->line('login_usuario_captcha_erroneo') ?>'
                                 });
                                 break
+                                 case 3:
+                                Swal.fire({ icon: 'error', allowOutsideClick:false, text: data.res_text});
+                                break  
                             default:
                                 $.each(data, function(key, value) {
                                     $('#' + key).addClass('is-invalid');

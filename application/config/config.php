@@ -55,13 +55,13 @@ $config['site_title']               = 'CLUBE DO PINTOR AXALTA BRASIL';
 $config['bcc']                      = "luis.rangel@strategix.com.mx";
 /**********************STRATEGIX COOKIE*******************************/
 $config['cookie_name']              = "CDPBR20250401COOKIE";
-$config['cookie_value']             = "B1GFR84B18918BT9RB4TRYHY";
+$config['cookie_value']             = "M7K9P2X5R8T1Q4V6Y3N8D2L6C9F1H5J7";
 /**********************STRATEGIX GOOGLE*******************************/
 $config['google_key']               = '6Lcm94AtAAAAAH8Hf9L2J41KTNzo_ZX73d0AINSs';
 $config['google_secret']            = '6Lcm94AtAAAAAHs0UUMcqqMG-UFuvbyOhW3SQQgd';
 $config['google_url']               = 'https://www.google.com/recaptcha/api/siteverify';
 /**********************STRATEGIX INFOBIT*******************************/
-$config['infobip_key']              = 'App 1f1a18f035453f6cce53fbbc469e9a1d-d38bd0e4-efa4-4e5c-87c5-bec171304cf6';
+$config['infobip_key']              = 'App 734d66f68e31dc66be0256b9ec91807f-8228a7ed-430b-4f6f-bd12-4f5356b4eb9b';
 $config['infobip_url_sms']          = 'https://xrrxle.api.infobip.com/sms/2/text/advanced';
 $config['infobip_url_whatsapp']     = 'https://xrrxle.api.infobip.com/whatsapp/1/message/template';
 $config['infobip_phone_whatsapp']   = '5215527452226';

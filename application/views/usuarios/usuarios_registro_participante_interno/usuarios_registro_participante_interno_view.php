@@ -75,6 +75,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
+                <div class="row row-validator">
+              <div class="col-lg-3">
+                <div>ENVIAR POR:</div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-check mt-0">
+                  <input type="checkbox" id="usuarios_registro_maestro_pintor_view_chk_email"
+                    name="usuarios_registro_maestro_pintor_view_chk_email" value="1" class="form-check-input">
+                  <label for="" class="form-check-label"> CORREO ELECTRÓNICO</label>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-check mt-0">
+                  <input type="checkbox" id="usuarios_registro_maestro_pintor_view_chk_whatsapp"
+                    name="usuarios_registro_maestro_pintor_view_chk_whatsapp" value="1" class="form-check-input">
+                  <label for="chk_archivo" class="form-check-label"> WHATSAPP</label><br>
+                </div>
+              </div>
+            </div>
+            <br>
                     <div class="row row-validator">
                         <div class="col-lg-4"><b>SELECCIONA UNA OPCIÓN PARA AGREGAR LA FOTO DEL INE DEL MAESTRO PINTOR:</b></div>
                         <div class="col-md-3">
@@ -158,6 +178,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
 
     $(document).ready(function() {
+
+    $('#usuarios_registro_maestro_pintor_view_chk_email').prop('checked', true);
+    /**************************************************************************************************************************************/
+    $('#usuarios_registro_maestro_pintor_view_chk_email').on('change', function () {
+      if ($('#usuarios_registro_maestro_pintor_view_chk_email').prop('checked')) {
+        $('#usuarios_registro_maestro_pintor_view_chk_whatsapp').prop('checked', false).removeAttr('checked');
+      }
+    });
+    $('#usuarios_registro_maestro_pintor_view_chk_whatsapp').on('change', function () {
+      if ($('#usuarios_registro_maestro_pintor_view_chk_whatsapp').prop('checked')) {
+        $('#usuarios_registro_maestro_pintor_view_chk_email').prop('checked', false).removeAttr('checked');
+      }
+    });
 
         $("#tarjeta_view_btn_qr").click(function(){ ine_view_js_modal_qr(); });
         $("#ine_view_boton_guardar_foto").click(function(){ ine_view_js_camara(); });

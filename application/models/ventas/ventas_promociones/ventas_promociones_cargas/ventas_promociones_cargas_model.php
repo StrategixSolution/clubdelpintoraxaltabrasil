@@ -13,4 +13,34 @@ class ventas_promociones_cargas_model extends Base_Model {
         $this->db->query($SQL2);
         return 1;
     }    
-}
+    public function ventas_promociones_cargas_model_obtener_tabla()
+    {
+        $SQL = "select 
+                VentaPromocionDetalleId,
+                VentaPromocionNombre,                
+                VentaPromocionDetalleGMC,
+                VentaPromocionDetalleCodigo,
+                VentaPromocionDetalleDescripcion,
+                VentaPromocionDetallePresentacion,
+                VentaPromocionFechaInicio,
+                VentaPromocionFechaFin,
+                VentaPromocionDetalleFechaBaja
+                from VentasPromocionesDetalles vpd
+                inner join VentasPromociones vp on vp.VentaPromocionId = vpd.VentaPromocionId";
+        $query = $this->db->query($SQL);
+        //        echo  $this->db->last_query()."<br>"; 
+        return $query->result();
+    }
+    public function ventas_promociones_cargas_model_baja_datos($id) {
+        $SQL = "UPDATE VentasPromocionesDetalles SET VentaPromocionDetalleFechaBaja = DATEADD(hour, 3, GETDATE()) WHERE VentaPromocionDetalleId = ".$id;
+        $this->db->query($SQL);
+        //echo  $this->db->last_query()."<br>"; 
+        return 1;
+    }
+} 
+
+
+
+
+
+

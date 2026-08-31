@@ -71,11 +71,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <table class="table table-bordered table-striped table-axalta" id="tabla_resultado">
     <thead>
         <th><?=$this->lang->line('ventas_promociones_cargas_tabla_id_carga')?></th>
-        <th><?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_descripcion')?></th>
+        <th><?=$this->lang->line('ventas_promociones_cargas_tabla_nombre')?></th>
         <th><?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_gms')?></th>
         <th><?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_codigo')?></th>
+        <th><?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_descripcion')?></th>
         <th><?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_presentacion')?></th>
-        <th><?=$this->lang->line('ventas_promociones_cargas_tabla_error')?></th>
+        <th><?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_fecha_inicio')?></th>
+        <th><?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_fecha_fin')?></th>
+        <th><?=$this->lang->line('ventas_promociones_cargas_tabla_estatus')?></th>
+        <th><?=$this->lang->line('ventas_promociones_cargas_tabla_accion')?></th>
     </thead>
     <tbody>
         <?=$tabla?>

@@ -45,10 +45,10 @@ $lang['usuarios_participantes_modificacion_controller_lang_tabla_js_msg_swal_err
 $lang['usuarios_participantes_modificacion_controller_lang_tabla_js_msg_swal_guardado']             = 'SALVO';
 $lang['usuarios_participantes_modificacion_controller_lang_tabla_js_msg_swal_ok']                   = 'OK';
 $lang['usuarios_participantes_modificacion_controller_lang_datos_js_titulo_swal_error']             = 'ERRO AO ENVIAR E-MAIL';
-$lang['usuarios_participantes_modificacion_controller_lang_input_rfc']                              = 'NIT:';
+$lang['usuarios_participantes_modificacion_controller_lang_input_rfc']                              = 'CPF:';
 $lang['usuarios_participantes_modificacion_controller_lang_tooltip_rfc']                            = '*MÍNIMO 4 CARACTERES MÁXIMO 25 *ALFANUMÉRICO';
-$lang['usuarios_participantes_modificacion_controller_lang_placeholder_rfc']                        = 'NIT';
-$lang['usuarios_participantes_modificacion_controller_lang_msg_rfc_repetido']                       = 'O NIT %1$s JÁ EXISTE NA BASE DE DADOS, FAVOR DE INSERIR OUTRO';
-$lang['usuarios_participantes_modificacion_controller_lang_error_rfc']                              = 'O CAMPO NIT É OBRIGATÓRIO';
+$lang['usuarios_participantes_modificacion_controller_lang_placeholder_rfc']                        = 'CPF';
+$lang['usuarios_participantes_modificacion_controller_lang_msg_rfc_repetido']                       = 'O CPF %1$s JÁ EXISTE NA BASE DE DADOS, FAVOR DE INSERIR OUTRO';
+$lang['usuarios_participantes_modificacion_controller_lang_error_rfc']                              = 'O CAMPO CPF É OBRIGATÓRIO';
 $lang['usuarios_participantes_modificacion_controller_lang_msg_celular_vacio']                   = 'O CAMPO É OBRIGATÓRIO.';
 $lang['usuarios_participantes_modificacion_controller_lang_msg_mail_vacio']                   = 'O CAMPO É OBRIGATÓRIO.';

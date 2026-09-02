@@ -559,7 +559,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </tr>
                                         <tr>
                                           <td align="left" style="Margin:0;padding-top:15px;padding-bottom:15px;padding-left:20px;padding-right:20px">
-                                            <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:30px;color:#ffffff;font-size:20px;text-align:justify">Anexo você encontrará a lista de Mestres Pintores vencedores do Bimestre <?= $bimestre ?>. <br><br>Lembre-se de tirar foto dos mestres com seu prêmio.</p>
+                                            <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:30px;color:#ffffff;font-size:20px;text-align:justify">Anexo você encontrará a lista de Pintores Parceiros vencedores do Bimestre <?= $bimestre ?>. <br><br>Lembre-se de tirar foto dos mestres com seu prêmio.</p>
                                           </td>
                                         </tr>
                                       </tbody>

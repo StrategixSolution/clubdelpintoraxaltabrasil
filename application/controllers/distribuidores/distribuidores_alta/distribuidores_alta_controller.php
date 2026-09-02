@@ -52,7 +52,7 @@ class Distribuidores_alta_controller extends Base_Controller {
         $this->form_validation->set_rules('txt_nombre_comercial', $this->lang->line('distribuidores_alta_controller_lang_placeholder_nombre_comercial'), 'required|xss_clean');
         $this->form_validation->set_rules('txt_codigo_distribuidor', $this->lang->line('distribuidores_alta_controller_lang_placeholder_codigo_distribuidor'), 'required|xss_clean');
         $this->form_validation->set_rules('cmb_agrupamiento', $this->lang->line('distribuidores_alta_controller_lang_combo_selecciona_agrupamiento'), 'required|callback_distribuidores_alta_controller_valida_combo_agrupamiento');
-        $this->form_validation->set_rules('txt_registro_federal', $this->lang->line('distribuidores_alta_controller_lang_placeholder_registro_federal'), 'required|xss_clean');
+        $this->form_validation->set_rules('txt_registro_federal', $this->lang->line('distribuidores_alta_controller_lang_placeholder_registro_federal'), 'xss_clean');
         $this->form_validation->set_rules('txt_inscripcion_estatal', $this->lang->line('distribuidores_alta_controller_lang_placeholder_inscripcion_estatal'), 'required|xss_clean');
         $this->form_validation->set_rules('cmb_unidad_federativa', $this->lang->line('distribuidores_alta_controller_lang_combo_selecciona_unidad_federativa'), 'required|callback_distribuidores_alta_controller_valida_combo_unidad_federativa');
         $this->form_validation->set_rules('txt_ciudad', $this->lang->line('distribuidores_alta_controller_lang_placeholder_ciudad'), 'required|xss_clean');

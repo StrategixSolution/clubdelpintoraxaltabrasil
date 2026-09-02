@@ -90,6 +90,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <label for="" class="form-check-label"> <?= $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_etiqueta_enviar_por_mail') ?></label>
                                 </div>
                             </div>
+                            <div class="col-lg-3">
+                <div class="form-check mt-0">
+                  <input type="checkbox" id="usuarios_registro_maestro_pintor_view_chk_whatsapp"
+                    name="usuarios_registro_maestro_pintor_view_chk_whatsapp" value="1" class="form-check-input">
+                  <label for="chk_archivo" class="form-check-label"> WHATSAPP</label><br>
+                </div>
+              </div>
                         </div>
                         <div>
                             <hr class="separador" style="margin-top: 0; margin-bottom: 2rem">

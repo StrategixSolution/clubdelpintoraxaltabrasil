@@ -10,14 +10,14 @@
                     <th>Nome Comercial</th>
                     <th>Regiao</th>
                     <th>Cidade / UF</th>
-                    <th>Segmento</th>
+                    <th>Categoria</th>
                     <th>Endereco</th>
                     <th>Bairro</th>
                     <th>Municipio</th>
                     <th>CEP</th>
-                    <th>Tickets Registrados</th>
-                    <th>Mestres Pintores Registrados</th>
-                    <th>Valor dos Tickets</th>
+                    <th>Comprovantes Registrados</th>
+                    <th>Pintores Parceiros Registrados</th>
+                    <th>Valor dos Comprovantes</th>
                     <th>Executivo</th>
                 </thead>
                 <tbody>

@@ -41,9 +41,7 @@ class Reportes_usuarios_participantes_controller extends Base_Controller
             $estatus = ($participante->UsuarioFechaBajaParticipante == "" and $participante->UsuarioFechaBajaDistribuidora == "") ? $this->lang->line('reportes_usuarios_participantes_controller_lang_tabla_estatus_activo') : $this->lang->line('reportes_usuarios_participantes_controller_lang_tabla_estatus_baja');
             $estatusdis = ($participante->UsuarioFechaBajaDistribuidora == "") ? $this->lang->line('reportes_usuarios_participantes_controller_lang_tabla_estatus_activo') : ($participante->UsuarioFechaBajaDistribuidora == "");
             $fecha_registro = date("Y-m-d", strtotime($participante->UsuarioFechaRegistro));
-           // $segundoNombre = ($participante->UsuarioDetalleSegundoNombre != "") ? utf8_encode(strtoupper($participante->UsuarioDetalleSegundoNombre)) : "&nbsp";
-          //  $apMaterno = ($participante->UsuarioDetalleApellidoMaterno != "") ? utf8_encode(strtoupper($participante->UsuarioDetalleApellidoMaterno)) : "&nbsp";
-            $nitPax = ($participante->UsuarioDetalleRFC != "") ? utf8_encode(strtoupper($participante->UsuarioDetalleRFC)) : "&nbsp";
+           $nitPax = ($participante->UsuarioDetalleRFC != "") ? utf8_encode(strtoupper($participante->UsuarioDetalleRFC)) : "&nbsp";
           //  $telefono = ($participante->UsuarioDetalleTelefono != "") ? utf8_encode(strtoupper($participante->UsuarioDetalleTelefono)) : "&nbsp";
           //  $extension = ($participante->UsuarioDetalleExtension != "") ? utf8_encode(strtoupper($participante->UsuarioDetalleExtension)) : "&nbsp";
             $nitDistribuidor = ($participante->DistribuidorDetalleRegistroFederal != "") ? utf8_encode(strtoupper($participante->DistribuidorDetalleRegistroFederal)) : "&nbsp";

@@ -43,7 +43,7 @@ $lang['reportes_distribuidores_controller_lang_combo_selecciona_mes_all']       
 
 $lang['reportes_distribuidores_controller_lang_tabla_categoria']                    = 'CATEGORÍA';
 $lang['reportes_distribuidores_controller_lang_tabla_ciudad_estado']                              = 'CIUDAD / ESTADO';
-$lang['reportes_distribuidores_controller_lang_tabla_segmento']                              = 'SEGMENTO';
+$lang['reportes_distribuidores_controller_lang_tabla_segmento']                              = 'CATEGORÍA';
 $lang['reportes_distribuidores_controller_lang_tabla_numero']                              = 'NÚMERO';
 $lang['reportes_distribuidores_controller_lang_tabla_fase']                              = 'FASE';
 $lang['reportes_distribuidores_controller_lang_tabla_etapa']                             = 'ETAPA';

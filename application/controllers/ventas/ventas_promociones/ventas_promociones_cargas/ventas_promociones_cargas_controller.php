@@ -69,4 +69,44 @@ class Ventas_promociones_cargas_controller extends Base_Controller {
         }                
         return $data;
     } 
+    public function ventas_promociones_cargas_controller_tabla(){
+        $tabla = $this->ventas_promociones_cargas_model->ventas_promociones_cargas_model_obtener_tabla();
+        $data['tabla'] = $this->ventas_promociones_cargas_controller_tabla_rows($tabla);
+        $tabla_participante['tabla'] = $this->load->view('ventas/ventas_promociones/ventas_promociones_cargas/ventas_promociones_cargas_tabla_view', $data, TRUE);
+        echo json_encode($tabla_participante);
+    }
+    private function ventas_promociones_cargas_controller_tabla_rows($tabla){
+        $lista = "";
+        if (!empty($tabla)) {
+            foreach ($tabla as $row) {
+                if ($row->VentaPromocionDetalleFechaBaja==""){
+                $baja_btn = '<a href="javascript:ventas_promociones_cargas_form_view_js_baja('.$row->VentaPromocionDetalleId.')"><i class="fas fa-trash"></i></a>';
+                $estatus = $this->lang->line('ventas_promociones_cargas_tabla_titulo_etiqueta_si');
+            } else {
+                $baja_btn = "---";
+                $estatus = $this->lang->line('ventas_promociones_cargas_tabla_titulo_etiqueta_no');
+            }
+                $lista .= '<tr>
+                    <td>'.(isset($row->VentaPromocionDetalleId) ? $row->VentaPromocionDetalleId : '').'</td>
+                    <td>'.(isset($row->VentaPromocionNombre) ? utf8_encode(strtoupper($row->VentaPromocionNombre)) : '').'</td>
+                    <td>'.(isset($row->VentaPromocionDetalleGMC) ? utf8_encode(strtoupper($row->VentaPromocionDetalleGMC)) : '').'</td>
+                    <td>'.(isset($row->VentaPromocionDetalleCodigo) ? utf8_encode(strtoupper($row->VentaPromocionDetalleCodigo)) : '').'</td>
+                    <td>'.(isset($row->VentaPromocionDetalleDescripcion) ? utf8_encode(strtoupper($row->VentaPromocionDetalleDescripcion)) : '').'</td>
+                    <td>'.(isset($row->VentaPromocionDetallePresentacion) ? utf8_encode(strtoupper($row->VentaPromocionDetallePresentacion)) : '').'</td>
+                    <td>'.(isset($row->VentaPromocionFechaInicio) ? utf8_encode(strtoupper($row->VentaPromocionFechaInicio)) : '').'</td>
+                    <td>'.(isset($row->VentaPromocionFechaFin) ? utf8_encode(strtoupper($row->VentaPromocionFechaFin)) : '').'</td>
+                    <td>'.$estatus.'</td>
+                    <td>'.$baja_btn.'</td>
+                </tr>';
+            }
+        }
+        return $lista;
+    }
+
+    public function ventas_promociones_cargas_controller_baja() {
+        $id = $this->input->post("id",true);
+        $this->ventas_promociones_cargas_model->ventas_promociones_cargas_model_baja_datos($id);
+        $datos['tabla'] = $this->ventas_promociones_cargas_controller_tabla_rows($this->ventas_promociones_cargas_model->ventas_promociones_cargas_model_obtener_tabla());
+        echo json_encode($datos);
+    }
 }

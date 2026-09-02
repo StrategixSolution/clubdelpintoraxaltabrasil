@@ -228,7 +228,7 @@ Além disso, os dados pessoais indicados acima serão mantidos em nosso sistema 
 Transferência dos dados para terceiros
 </h3>
 <p>
-Ao aceitar esse Aviso de Privacidade, você concorda que nós podemos compartilhar alguns de seus dados com parceiros de negócios e outras entidades, como empresas de armazenamento em nuvem, empresas que prestaremos serviços para que possam controlar a entrada de nossos colaboradores, escritórios de advocacia e contabilidade, empresas do Grupo Axalta, dentre outras. Somente iremos compartilhar seus dados pessoais quando necessário e sempre orientaremos esses terceiros sobre como tratar seus dados, mantê-los seguros e cumprir a lei. 
+Ao aceitar esse Aviso de Privacidade, você concorda que nós podemos compartilhar alguns de seus dados com parceiros de negócios e outras entidades, como empresas de armazenamento em nuvem, empresas que prestam serviços para que possam controlar a entrada de nossos colaboradores, escritórios de advocacia e contabilidade, empresas do Grupo Axalta, dentre outras. Somente iremos compartilhar seus dados pessoais quando necessário e sempre orientaremos esses terceiros sobre como tratar seus dados, mantê-los seguros e cumprir a lei. 
 </p>
 <p>
 Seus dados pessoais não serão transferidos, comercializados ou divulgados de qualquer maneira que não esteja escrito nesse Aviso de Privacidade. 
@@ -276,22 +276,22 @@ Caso você tenha eventuais dúvidas sobre as práticas adotadas pela AXALTA em r
 <a href="tel:+551124658143">+55 11 2465-8143</a>
 </p>
 
-<h2 class="mb-4">DISCLAIMER LGPD</h2>
+<h2 class="mb-4">Aviso Legal - LGPD ​</h2>
 <p>
-A AXALTA está comprometida a seguir a Lei Geral de Proteção de Dados (Lei 13.709/2018) e respeita todos os direitos dos Titulares de Dados Pessoais com relação aos dados pessoais fornecidos.
+A AXALTA está comprometida com o cumprimento da Lei Geral de Proteção de Dados (Lei nº 13.709/2018) e respeita todos os direitos dos titulares de dados pessoais previstos na legislação brasileira.
 </p>
 <p>
-A coleta e tratamento dos dados pessoais indicados neste instrumento tem como finalidade exclusiva o envio das informações solicitadas por este canal (e-mail ou WhatsApp).
+A coleta e tratamento dos dados pessoais indicados neste instrumento tem como finalidade exclusiva o envio das informações solicitadas por este canal (e-mail ou aplicativo de mensagens).
 </p>
 <p>
 A AXALTA se compromete a não transferir, vender, divulgar, compartilhar ou armazenar, além dos limites permitidos em lei, os dados pessoais do Titular.
 </p>
 <p>
-Informamos que poderemos eventualmente utilizar os dados pessoais fornecidos para envio de informações sobre produtos e serviços. Caso não esteja de acordo, por favor nos envie um e-mail para o endereço <strong>(xxxxxxxx)</strong> e não enviaremos mais nenhuma comunicação nesse sentido.
+Informamos que poderemos eventualmente utilizar os dados pessoais fornecidos para envio de informações sobre produtos e serviços. Caso não esteja de acordo, envie um e-mail para o endereço informado e suspenderemos o envio de comunicações e não enviaremos mais nenhuma comunicação nesse sentido.
 </p>
 <p>
 Se você tiver alguma dúvida, observação, solicitação ou reclamação sobre a coleta ou o uso de dados pessoais, entre em contato com o encarregado pela proteção de dados da Axalta Brasil por intermédio do e-mail: 
-<a href="mailto:DPO-Data-Protection-Office@axalta.com">DPO-Data-Protection-Office@axalta.com</a>
+<a href="mailto:DPO-Data-Protection-Officer@axalta.com">DPO-Data-Protection-Officer@axalta.com</a>
 </p>
 
 

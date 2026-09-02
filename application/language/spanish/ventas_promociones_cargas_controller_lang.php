@@ -39,3 +39,12 @@ $lang['ventas_promociones_cargas_tabla_titulo_codigo']                          
 $lang['ventas_promociones_cargas_tabla_titulo_presentacion']                    = 'PRESENTACIÓN';
 $lang['ventas_promociones_cargas_tabla_precio']                                 = 'PRECIO';
 $lang['ventas_promociones_cargas_tabla_error']                                  = 'ERROR';
+$lang['ventas_promociones_cargas_tabla_nombre']                                 = 'NOMBRE';
+$lang['ventas_promociones_cargas_tabla_estatus']                                 = 'ACTIVO';
+$lang['ventas_promociones_cargas_tabla_titulo_fecha_inicio']                     = 'FECHA INICIO';
+$lang['ventas_promociones_cargas_tabla_titulo_fecha_fin']                        = 'FECHA FIN';
+$lang['ventas_promociones_cargas_tabla_titulo_etiqueta_si']                               = 'SI';
+$lang['ventas_promociones_cargas_tabla_titulo_etiqueta_no']                               = 'NO';
+$lang['ventas_promociones_cargas_tabla_accion']                                 = 'ACCIÓN';
+$lang['ventas_promociones_cargas_controller_lang_js_baja_confirm']                                 = '¿ESTÁ SEGURO DE DAR DE BAJA ESTE REGISTRO?';
+$lang['ventas_promociones_cargas_controller_lang_js_baja_exitosa']                               = 'LA BAJA SE REALIZÓ CON ÉXITO';

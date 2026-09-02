@@ -76,6 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     var fecha_inicio;
     var fecha_fin;    
     $(document).ready(function(){
+        ventas_promociones_cargas_form_view_js_tabla()
         $('#fechas').daterangepicker({ autoUpdateInput: false, locale: { cancelLabel: 'Cancelar', applyLabel: 'Aplicar' } });
         $('#fechas').on('apply.daterangepicker', function(ev, picker) {
             $(this).val(picker.startDate.format('YYYY-MM-DD') + ' - ' + picker.endDate.format('YYYY-MM-DD'));
@@ -113,8 +114,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 contentType: false,
                 processData:false,
                 success: function(data){
-//                    console.log('entro success');
-//                    console.log(data);
                     switch(data.resultados){
                         case 0: 
                             Swal.fire({ icon: 'error',title: '',text: data.msg}); $("#ventas_promociones_cargas_controller_guardar").attr('disabled',false); 
@@ -134,12 +133,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             $("#ventas_promociones_cargas_controller_guardar").attr('disabled',false);
                             break;
                     }
-                    $('#tabla_cargas').html(data.tabla);
+                    ventas_promociones_cargas_form_view_js_tabla();
+                   // $('#tabla_cargas').html(data.tabla);
                     $("#ventas_promociones_cargas_controller_guardar").attr('disabled',false);
                 },
                 error: function(data){
-//                    console.log('entro error');
-//                    console.log(data);
                     $("#ventas_promociones_cargas_controller_guardar").attr('disabled',false);
                 },
                 complete: function(){
@@ -173,5 +171,60 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             });
         });
     }( document, window, 0 ));
+
+    function ventas_promociones_cargas_form_view_js_tabla(){
+        $('#loader_panel').show();        
+        $.ajax({
+            type: 'POST',
+            url: 'ventas/ventas_promociones/ventas_promociones_cargas/ventas_promociones_cargas_controller/ventas_promociones_cargas_controller_tabla',
+            dataType: 'json',
+            data: {1:1},
+            success: function(data){
+                $("#tabla_cargas").html('');
+                $('#tabla_cargas').html(data.tabla);
+            },
+            error: function(data){ },
+            complete: function(){ $('#loader_panel').hide(); }
+        });
+    }
+
+     function ventas_promociones_cargas_form_view_js_baja(id) {
+        Swal.fire({
+            title: '',
+            html: "<?=$this->lang->line('ventas_promociones_cargas_controller_lang_js_baja_confirm')?>",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#fd7e14',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: '<?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_etiqueta_si')?>',
+            cancelButtonText: '<?=$this->lang->line('ventas_promociones_cargas_tabla_titulo_etiqueta_no')?>',
+            allowOutsideClick: false
+        }).then((valida) => {
+            if (valida.isConfirmed) {
+                $('#loader_panel').show();
+                $.ajax({
+                    type: 'POST',
+                    url: 'ventas/ventas_promociones/ventas_promociones_cargas/ventas_promociones_cargas_controller/ventas_promociones_cargas_controller_baja',
+                    dataType: 'json',
+                    data: {id: id },
+                    success: function (data) {
+                        ventas_promociones_cargas_form_view_js_tabla();
+                      //  $('#tabla_cargas').empty();
+                       // $('#tabla_cargas').html(data.tabla);
+                        Swal.fire({
+                            icon: 'success',
+                            title: '',
+                            text: '<?=$this->lang->line('ventas_promociones_cargas_controller_lang_js_baja_exitosa')?>'
+                        });
+                    },
+                    error: function (data) { },
+                    complete: function () {
+                        $('#loader_panel').hide();
+                    }
+                });
+            }
+        });
+
+    }
 
 </script>

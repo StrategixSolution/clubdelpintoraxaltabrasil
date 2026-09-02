@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="form-rf-1" id="form-rf-1">
                     <div class="row row-validator">
-                        <div class="col-lg-8">
+                        <div class="col-lg-10">
                             <div class="form-group">
                                 <label>DISTRIBUIDOR</label>
                                 <select id="reporte_tarjetas_cmb_distribuidor" class="form-select">

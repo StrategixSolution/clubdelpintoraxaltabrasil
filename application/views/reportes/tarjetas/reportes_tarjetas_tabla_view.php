@@ -11,8 +11,8 @@ $totalTarjetas = is_array($tabla) ? count($tabla) : 0;
 ?>
 
 <section class="reportes_tarjetas_tabla_view">
-    <div class="panel-white">
-        <div class="row mb-10 text-right">
+    <hr class="separador">
+    <div class="row mb-10 text-right">
             <div class="col-lg-12 text-right">
                 <div class="alert alert-danger text-right" style="margin-bottom:10px; text-align:end;">
                     <strong>TOTAL DE CARTÃO:</strong>
@@ -55,7 +55,6 @@ $totalTarjetas = is_array($tabla) ? count($tabla) : 0;
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <script>
@@ -101,6 +100,15 @@ $(document).ready(function() {
                     }
                 }
             },
+            customizeData: function(data) {
+                    for (var i = 0; i < data.body.length; i++) {
+                        for (var j = 0; j < data.body[i].length; j++) {
+                            if (data.body[i][j] === null || data.body[i][j] === '') {
+                                data.body[i][j] = ' ';
+                            }
+                        }
+                    }
+                },
             excelStyles: [{
                 cells: "1",
                 style: {

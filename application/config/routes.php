@@ -63,48 +63,4 @@ $route['MailPromocionBimestral']                = 'promocion/promocion_bimestral
 $route['MailGanadorBimestral']                  = 'ganadores_bimestral/ganadores_bimestrales_controller';
 $route['ReporteTarjetas']                       = 'reportes/tarjetas/reportes_tarjetas_controller/index';
 $route['ReporteTarjetasBuscar']                 = 'reportes/tarjetas/reportes_tarjetas_controller/buscar';
-/*
-
-
-
-$route['construccion']                          = 'construccion/construccion_controller';
-$route['recuperaclave']                         = 'usuarios/usuarios_recupera_clave/usuarios_recupera_clave_controller';
-$route['recuperacrearclave']                    = 'usuarios/usuarios_crea_clave/usuarios_crea_clave_controller';
-$route['actualizardatos']                       = 'usuarios/usuarios_actualizar/usuarios_actualizar_datos_controller';
-
-$route['UsuariosActualizarDatosValidaEmail']    = 'usuarios/usuarios_actualizar_datos/usuarios_actualizar_datos_controller/usuarios_actualizar_datos_controller_validar_correo_token';
-$route['Registromaestropintorexterno']          = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller';
-$route['Registroexitoso']                       = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/registro_exitoso_maestro_pintor';
-$route['Registromaestropintorexternodatos']     = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_datosregistro_controller';
-$route['Registromaestropintorinterno']          = 'usuarios/usuarios_registro_mp_interno/usuarios_registro_mp_interno_controller';
-
-
-
-
-
-
-
-
-
-
-$route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
-
-
-$route['TicketsRechazados']                     = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller';
-$route['TicketsActualiza']                      = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_actualiza_venta';
-
-
-$route['ReporteVentasPersonalTop']             = 'reportes/ventas/ventas_personal_top_controller';
-
-
-$route['ReporteAuditoriaVentas']               = 'reportes/ventas/reportes_ventas_auditoria_controller';
-
-
-$route['DistribuidorasAdjsExcel']                   = 'distribuidora/adjs/cargas_adjs_excel_controller';
-$route['DistribuidorasAdjsMail']                   = 'distribuidora/adjs/cargas_adjs_mail_controller';
-$route['ReporteReposicionProductoZonas']= 'reportes/reposicion_productos/reporte_reposicion_producto_zona_controller';
-$route['ReporteDistribuidoresAdmin1']          = 'reportes/distribuidores/reportes_distribuidores_admin1_controller/index';
-$route['ReporteDistribuidoresAdmin1Buscar']    = 'reportes/distribuidores/reportes_distribuidores_admin1_controller/buscar';
-
-
-*/
+$route['ReporteAuditoriaPromociones']           = 'reportes/ventas/reportes_auditoria_promociones_controller';

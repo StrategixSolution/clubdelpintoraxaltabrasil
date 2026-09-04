@@ -54,6 +54,7 @@ $autoload['language']   = array(
     'reportes_ventas_auditoria_controller_lang',
     'reportes_usuarios_participantes_controller_lang',
     'mail_promocion_bimestral_controller_lang',
-    'ganadores_bimestrales_controller_lang'
+    'ganadores_bimestrales_controller_lang',
+    'reportes_auditoria_promociones_controller_lang'
     );
 $autoload['model']      = array();

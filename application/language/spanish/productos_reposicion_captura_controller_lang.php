@@ -40,3 +40,5 @@ $lang['productos_reposicion_captura_controller_lang_form_validate_mes']         
 $lang['productos_reposicion_captura_controller_lang_form_validate_participante']             = 'PARTICIPANTE';
 $lang['productos_reposicion_captura_controller_lang_form_validate_division']                 = 'DIVISIÓN';
 $lang['productos_reposicion_captura_controller_lang_form_validate_fecha_entrega']            = 'FECHA DE ENTREGA';
+$lang['productos_reposicion_captura_controller_lang_placeholder_distribuidor']                        = 'SELECCIONA UN DISTRIBUIDOR';
+$lang['productos_reposicion_captura_controller_lang_placeholder_anio']                        = 'SELECCIONA UN AÑO';

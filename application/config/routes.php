@@ -64,3 +64,4 @@ $route['MailGanadorBimestral']                  = 'ganadores_bimestral/ganadores
 $route['ReporteTarjetas']                       = 'reportes/tarjetas/reportes_tarjetas_controller/index';
 $route['ReporteTarjetasBuscar']                 = 'reportes/tarjetas/reportes_tarjetas_controller/buscar';
 $route['ReporteAuditoriaPromociones']           = 'reportes/ventas/reportes_auditoria_promociones_controller';
+$route['ReposicionProductoCapturaAdmin']        = 'productos/productos_reposicion/productos_reposicion_captura/productos_reposicion_captura_admin_controller';

@@ -117,7 +117,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </main>
             </div>
             <div class="row justify-content-end">
-                <div class="col-lg-2 col-12" style="margin-top:20px;" id="btn_guardar">
+                <div class="col-lg-2 col-12" style="margin-top:20px; display: none;" id="btn_guardar">
                     <button type="button" id="reposicionCaptura_boton_guardar" class="btn btn-axalta btn-buscar-ancho"><i class="far fa-save"></i><span class="btn-buscar-texto">SALVAR REGISTRO</span></button>
                 </div>
             </div>
@@ -179,6 +179,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $('#cmb_participantes').val(0);
             $('#cmb_premio').val(0);
             $('#fecha_entrega').val('');
+            $('#reposiciom_captura_carga_fotos').hide();
+            $('#btn_guardar').hide();
         });
 
         $('#cmb_anio').on('change', function() {
@@ -187,6 +189,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $('#cmb_participantes').val(0);
             $('#cmb_premio').val(0);
             $('#fecha_entrega').val('');
+            $('#reposiciom_captura_carga_fotos').hide();
+            $('#btn_guardar').hide();
         });
 
       
@@ -194,6 +198,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $('#cmb_participantes').val(0);
             $('#cmb_premio').val(0);
             $('#fecha_entrega').val('');
+            $('#reposiciom_captura_carga_fotos').hide();
+            $('#btn_guardar').hide();
             var distribuidor = $('#cmb_distribuidor').val();
             var anio = $('#cmb_anio').val();
             var mes = $('#cmb_mes').val();
@@ -325,7 +331,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     fecha_inicio = data.fecha_inicio;
                 }
                 if (fecha_inicio) {
-                    $('#fecha_entrega').attr('min', String(fecha_inicio).substring(0, 10));
+                  //$('#fecha_entrega').attr('min', String(fecha_inicio).substring(0, 10));
                 }
                 $('#div_fecha_entrega').show(300);
             },

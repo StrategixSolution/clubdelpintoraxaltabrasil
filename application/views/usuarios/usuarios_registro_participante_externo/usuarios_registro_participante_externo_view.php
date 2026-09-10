@@ -8,7 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			--aviso-texto: #333333;
 			--aviso-suave: #f7f8fa;
 			padding: 56px 20px;
-			background-color: var(--aviso-suave);
+			/* background-color: var(--aviso-suave); */
 		}
 
 		.aviso-registro__contenido {

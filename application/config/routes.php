@@ -64,3 +64,6 @@ $route['MailGanadorBimestral']                  = 'ganadores_bimestral/ganadores
 $route['ReporteTarjetas']                       = 'reportes/tarjetas/reportes_tarjetas_controller/index';
 $route['ReporteTarjetasBuscar']                 = 'reportes/tarjetas/reportes_tarjetas_controller/buscar';
 $route['ReporteAuditoriaPromociones']           = 'reportes/ventas/reportes_auditoria_promociones_controller';
+$route['ReposicionProductoCapturaAdmin']        = 'productos/productos_reposicion/productos_reposicion_captura/productos_reposicion_captura_admin_controller';
+$route['Registromaestropintorexterno']          = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller';
+$route['Registroexitoso']                       = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/registro_exitoso_maestro_pintor';

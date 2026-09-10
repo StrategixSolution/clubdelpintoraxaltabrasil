@@ -126,7 +126,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			<strong>Importante:</strong> quem já possui cadastro continua acessando normalmente com e-mail e senha. Pedimos desculpas por qualquer inconveniente e comunicaremos a previsão de conclusão assim que disponível, por meio dos distribuidores parceiros e canais oficiais.
 		</p>
 		<p class="aviso-registro__sac">
-			SAC: (11) 99112-5567 / Equipe Clube do Pintor Axalta Brasil.
+			<i class="fas fa-phone-alt"></i> SAC: (11) 99112-5567 / Equipe Clube do Pintor Axalta Brasil.
 		</p>
 		<div class="aviso-registro__acciones">
 			<a class="aviso-registro__boton" href="<?= base_url("Login") ?>">

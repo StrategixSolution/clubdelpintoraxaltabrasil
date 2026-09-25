@@ -1,17 +1,9 @@
 <?php
-
-/*
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             *
- * @programmer  Luis Felipe Rangel                          *
- * @CreateDate 01 MARZO 2026 09:00:00                       *
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**************************MENUS PRINCIPALES*********************************************/
 $lang['menu_salir']                                                             = 'SALIR';
-$lang['menu_actualizar_datos']                                                  = 'ACTUALIZAR DATOS';
+$lang['menu_actualizar_datos']                                                  = 'ATUALIZAR DATOS';
 $lang['menu_mis_mensajes']                                                      = 'MIS MENSAJES';
 $lang['menu_legal']                                                             = 'LEGAL';
 $lang['menu_admin']                                                             = 'ADMINISTRACIÓN';
@@ -59,7 +51,8 @@ $lang['menu_submenu_admin_cortes_promociones']                                  
 $lang['menu_submenu_admin_cortes_bimestral']                                    = 'TARJETAS';
 $lang['menu_submenu_admin_carga_producto_premios']                              = 'CARGA DE PRODUCTOS DE PREMIOS';
 $lang['menu_submenu_admin_apertura_cierre_reposicion_producto']                 = 'APERTURA CIERRE REPOSICIÓN PRODUCTO';
-
+$lang['menu_submenu_mail_promocion_bimestral']                                  = 'ENVIO MAIL PROMOCIÓN BIMESTRAL';
+$lang['menu_submenu_mail_ganador_bimestral']                                    = 'ENVIO MAIL GANADORES BIMESTRALES';
 /**************************AUDITORIAS****************************************************/
 $lang['menu_submenu_auditorias_primera']                                        = 'PRIMERA VUELTA';
 $lang['menu_submenu_auditorias_envio_correos']                                  = 'ENVIO DE CORREOS';
@@ -75,6 +68,9 @@ $lang['menu_submenu_reportes_ventas_auditoria']                                 
 $lang['menu_submenu_reportes_estado_cuentas']                                   = 'REPORTE ESTADO DE CUENTAS';
 $lang['menu_submenu_ventas_personal_top']                                       = 'REPORTE VENTAS DE PERSONAL TOP 40';
 $lang['menu_submenu_reporte_ganadores']                                         = 'REPORTE DE GANADORES';
+$lang['menu_submenu_reporte_maestros_pintores']                                 = 'REPORTE DE PINTORES PARCEIROS';
+$lang['menu_submenu_reporte_ventas_registradas']                                = 'REPORTE DE VENTAS REGISTRADAS';
+$lang['menu_submenu_reportes_ejecutivos']                                       = 'REPORTE DE PARTICIPANTES';
 /**************************USUARIOS******************************************************/
 $lang['menu_submenu_usuarios_registro_mp']                                      = 'REGISTRO DE MAESTRO PINTOR';
 /**************************TICKETS*********************************************/
@@ -84,3 +80,7 @@ $lang['menu_submenu_tickets_rechazados']                                        
 $lang['menu_submenu_reposicion_productos_captura']                              = 'CAPTURA DE REPOSICIÓN';
 $lang['menu_submenu_reposicion_productos_reporte']                              = 'REPORTE DE REPOSICIÓN DE PRODUCTOS';
 $lang['menu_submenu_reposicion_productos_descarga']                             = 'DESCARGA DE ARCHIVOS REPOSICIÓN DE PRODUCTOS';
+
+$lang['menu_tutoriales']                             = 'TUTORIALES';
+$lang['menu_noticias']                             = 'NOTICIAS';
+$lang['menu_submenu_admin_distribuidores']                                      = 'DISTRIBUIDORES';

@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPBR                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 MARZO 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ventas_auditoria_primera_controller_lang_pagina_titulo']                                         = 'AUDITORÍA DE VENTAS';
@@ -50,7 +43,7 @@ $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_promocion']  
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_descripcion']                        = 'DESCRIPCIÓN';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_gms']                                = 'GMS';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_codigo']                             = 'CÓDIGO';
-$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_presentacion']                       = 'PRESENTACIÓN';
+$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_presentacion']                       = 'VOLUMEN';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_cantidad']                           = 'CANTIDAD';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_id']                                 = 'ID';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_nombre']                             = 'NOMBRE';
@@ -61,7 +54,7 @@ $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_sector']     
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_clase']                              = 'CLASE';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_marca']                              = 'MARCA';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_cantidad']                           = 'CANTIDAD';
-$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_litros']                             = 'LITROS';
-$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_galones']                            = 'GALONES';
+$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_litros']                             = 'VOLUMEN';
+$lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_galones']                            = 'VOLUMEN';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_precio_unitario']                    = 'PRECIO UNITARIO';
 $lang['ventas_auditoria_primera_controller_lang_modal_tabla_titulo_precio_unitario_total']              = 'PRECIO UNITARIO TOTAL';

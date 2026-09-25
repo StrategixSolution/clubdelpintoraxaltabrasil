@@ -1,11 +1,6 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPBR                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 09 MARZO 2026 09:00:00                        * 
- */
+
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -45,52 +40,30 @@ $route['CorteVentasBimestral']                  = 'ventas/ventas_cortes/ventas_c
 $route['ReposicionProductoCaptura']             = 'productos/productos_reposicion/productos_reposicion_captura/productos_reposicion_captura_controller';
 $route['DescargaReposicionProductos']           = 'productos/productos_reposicion/productos_reposicion_descarga/productos_reposicion_descarga_controller';
 $route['AperturaCierreRepProd']                 = 'ventas/ventas_cortes/ventas_cortes_apertura_cierre/ventas_cortes_apertura_cierre_controller';
-
-
-
-/*
-
-
-
-$route['construccion']                          = 'construccion/construccion_controller';
-$route['recuperaclave']                         = 'usuarios/usuarios_recupera_clave/usuarios_recupera_clave_controller';
-$route['recuperacrearclave']                    = 'usuarios/usuarios_crea_clave/usuarios_crea_clave_controller';
-$route['actualizardatos']                       = 'usuarios/usuarios_actualizar/usuarios_actualizar_datos_controller';
-
-$route['UsuariosActualizarDatosValidaEmail']    = 'usuarios/usuarios_actualizar_datos/usuarios_actualizar_datos_controller/usuarios_actualizar_datos_controller_validar_correo_token';
+$route['ReporteDistribuidores']                 = 'reportes/reportes_distribuidores/reportes_distribuidores_controller';
+$route['ReporteMaestrosPintores']               = 'reportes/reportes_maestro_pintores/reportes_maestro_pintores_controller';
+$route['TutorialesInternos']                    = 'tutoriales/tutoriales_internos/tutoriales_internos_controller';
+$route['TutorialesAxaltaCDP']                   = 'tutoriales/tutoriales_externos/tutoriales_externos_controller';
+$route['ReporteVentasRegistradas']             = 'reportes/reportes_ventas/reportes_ventas_registradas_controller';
+$route['NoticiasCirculares']                    = 'noticias_circulares/noticias_circulares_controller';
+$route['Distribuidores']                        = 'distribuidores/distribuidores_controller';
+$route['DistribuidoresAlta']                    = 'distribuidores/distribuidores_alta/distribuidores_alta_controller';
+$route['DistribuidoresModificacion']            = 'distribuidores/distribuidores_modificacion/distribuidores_modificacion_controller';
+$route['UsuariosParticipantes']                 = 'usuarios/usuarios_participantes/usuarios_participantes_controller';
+$route['UsuariosParticipantesAltas']            = 'usuarios/usuarios_participantes/usuarios_participantes_altas/usuarios_participantes_altas_controller';
+$route['UsuariosParticipantesModificacion']     = 'usuarios/usuarios_participantes/usuarios_participantes_modificacion/usuarios_participantes_modificacion_controller';
+$route['ReporteReposicionProductos']            = 'reportes/reposicion_productos/reporte_reposicion_productos_controller';
+$route['ReporteGanadores']                      = 'reportes/ventas/ventas_reporte_ganadores_controller';
+$route['ReportePersonalTienda']                 = 'reportes/personal_tienda/reportes_personal_tienda_controller/index';
+$route['ReportePersonalTiendaBuscar']           = 'reportes/personal_tienda/reportes_personal_tienda_controller/buscar';
+$route['ReporteAuditoriaVentas']                = 'reportes/ventas/reportes_ventas_auditoria_controller';
+$route['ReporteSegundaVueltaAuditoria']         = 'reportes/ventas/reportes_segunda_vuelta_auditoria_controller';
+$route['ReporteParticipantes']                  = 'reportes/reportes_usuarios_participantes/reportes_usuarios_participantes_controller';
+$route['MailPromocionBimestral']                = 'promocion/promocion_bimestral/mail_promocion_bimestral_controller';
+$route['MailGanadorBimestral']                  = 'ganadores_bimestral/ganadores_bimestrales_controller';
+$route['ReporteTarjetas']                       = 'reportes/tarjetas/reportes_tarjetas_controller/index';
+$route['ReporteTarjetasBuscar']                 = 'reportes/tarjetas/reportes_tarjetas_controller/buscar';
+$route['ReporteAuditoriaPromociones']           = 'reportes/ventas/reportes_auditoria_promociones_controller';
+$route['ReposicionProductoCapturaAdmin']        = 'productos/productos_reposicion/productos_reposicion_captura/productos_reposicion_captura_admin_controller';
 $route['Registromaestropintorexterno']          = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller';
 $route['Registroexitoso']                       = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/registro_exitoso_maestro_pintor';
-$route['Registromaestropintorexternodatos']     = 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_datosregistro_controller';
-$route['Registromaestropintorinterno']          = 'usuarios/usuarios_registro_mp_interno/usuarios_registro_mp_interno_controller';
-
-
-
-
-
-
-
-
-
-
-$route['AuditoriaPrimera']                      = 'ventas/ventas_auditoria/ventas_auditoria_primera/ventas_auditoria_primera_controller';
-
-
-$route['TicketsRechazados']                     = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller';
-$route['TicketsActualiza']                      = 'ventas/ventas_auditoria/ventas_auditoria_rechazados/ventas_auditoria_rechazados_controller/ventas_auditoria_rechazados_controller_actualiza_venta';
-
-
-$route['ReporteVentasPersonalTop']             = 'reportes/ventas/ventas_personal_top_controller';
-$route['ReporteGanadores']                      = 'reportes/ventas/ventas_reporte_ganadores_controller';
-$route['ReporteVentasRegistradas']             = 'reportes/ventas/ventas_registradas_controller/index';
-$route['ReporteAuditoriaVentas']               = 'reportes/ventas/reportes_ventas_auditoria_controller';
-$route['ReporteReposicionProductos']           = 'reportes/reposicion_productos/reporte_reposicion_productos_controller';
-
-$route['DistribuidorasAdjsExcel']                   = 'distribuidora/adjs/cargas_adjs_excel_controller';
-$route['DistribuidorasAdjsMail']                   = 'distribuidora/adjs/cargas_adjs_mail_controller';
-$route['ReporteReposicionProductoZonas']= 'reportes/reposicion_productos/reporte_reposicion_producto_zona_controller';
-$route['ReporteDistribuidoresAdmin1']          = 'reportes/distribuidores/reportes_distribuidores_admin1_controller/index';
-$route['ReporteDistribuidoresAdmin1Buscar']    = 'reportes/distribuidores/reportes_distribuidores_admin1_controller/buscar';
-$route['NoticiasCirculares']                    = 'noticias_circulares/noticias_circulares_controller';
-$route['TutorialesAxaltaCDP']                      = 'tutoriales/tutoriales_externos/tutoriales_externos_controller';
-$route['TutorialesInternos']                    = 'tutoriales/tutoriales_internos/tutoriales_internos_controller';
-*/

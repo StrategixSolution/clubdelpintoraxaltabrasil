@@ -1,11 +1,4 @@
-/* 
- * Sistema Web Responsivo CDPBR 					*
- * @author	Strategic Solutions S.A. de C.V             	* 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
- /* Regular*/
+/* Regular*/
  @font-face {
     font-family: 'Axalta';
     src: url('../fonts/NeoSansProRegular.OTF');
@@ -105,8 +98,23 @@ footer{
 .btn-axalta{
     background-color: var(--rojo);
     color: #fff;
+    border: 2px solid var(--rojo);
 }
-
+.btn-axalta:hover{
+    background-color: transparent;
+    color: var(--rojo) !important;
+    border: 2px solid var(--rojo);
+}
+.btn-axalta:active{
+    background-color: var(--rojo);
+    color: #fff;
+    border: 2px solid var(--rojo);
+}
+.btn-axalta:focus{
+    background-color: transparent;
+    color: var(--rojo) !important;
+    border: 2px solid var(--rojo);
+}
 .btn-black{
     background-color: #000000;
     color:#ffffff;
@@ -120,10 +128,17 @@ footer{
     background-color:var(--gris);
     color:#ffffff;
 }
+
 .btn-gray{
     background-color: var(--gris);
-    color:#ffffff;
+    color:#ffffff !important;
+    border: 2px solid var(--gris);
     width: 100%;
+}
+.btn-gray:hover{
+    background-color: transparent;
+    color: var(--gris) !important;
+    border: 2px solid var(--gris);
 }
 .center{
     text-align: center;
@@ -314,6 +329,9 @@ a{
 .txt-white{
     color: #fff !important;
 }
+.txt-400{
+    font-weight: 400 !important;
+}
 .txt-700{
     font-weight: 700;
 }
@@ -449,10 +467,10 @@ a{
 .table-axalta tbody tr td input{
     font-size: 10px;
 }
-.table-axalta tbody tr td i{
+/* .table-axalta tbody tr td i{
     color:var(--rojo);
     font-size: 12px;
-}
+} */
 .tooltip-inner{
     font-family: 'Axalta', Helvetica, sans-serif;
     max-width:200px;
@@ -966,7 +984,7 @@ div.dataTables_scrollBody{
 ********************************************/
 #participantes button{
     margin-top: 20px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 /********************************************
@@ -974,7 +992,13 @@ div.dataTables_scrollBody{
 ********************************************/
 #distribuidores button{
     margin-top: 20px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+}
+
+@media screen and (max-width: 991px) {
+    #alta_distribuidires button {
+        margin-top: 20px;
+    }
 }
 
 /********************************************
@@ -1116,7 +1140,33 @@ div.dataTables_wrapper div.dataTables_filter {
 }
 .texto-aviso-modal p{
     font-size: 12px;
+    color: #000;
 }
+.texto-aviso-modal ul li{
+    font-size: 12px;
+    color: #000;
+}
+
+.texto-aviso-modal table {
+        border-collapse: collapse; 
+        width: 100%;
+        text-align: center;
+    }
+.texto-aviso-modal th {
+        border: 1px solid #000; 
+        padding: 8px;
+    }
+.texto-aviso-modal td {
+        border: 1px solid #000; 
+        padding: 8px;
+        color: #000;
+    }
+.texto-aviso-modal th {
+        background-color: var(--rojo); 
+        color: white;
+    }
+
+    
 #reader{
     width: 100% !important;
 }
@@ -1146,6 +1196,8 @@ div.dataTables_wrapper div.dataTables_filter {
     text-align: center;
     background-color: var(--rojo);
     color:#fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 /********************************************
    Noticias y circulares
@@ -1290,7 +1342,7 @@ table.dataTable th, table.dataTable td{
     padding: 40px 0px;
 }
 #reglas .imagenreglas img{
-    width: 750px;
+    width: 950px;
 }
 
 /********************************************
@@ -1301,7 +1353,8 @@ table.dataTable th, table.dataTable td{
     padding: 40px 0px;
 }
 #productos .imagenproductos img{
-    width: 750px;
+    /* width: 750px; */
+    width: 100%;
 }
 
 #reposiciom_captura_carga_fotos .carga{
@@ -1320,7 +1373,7 @@ table.dataTable th, table.dataTable td{
     width: 100%;
 }
 .btn-buscar-texto{
-    padding-left: 10px; 
+    padding-left: 5px; 
     font-size: 12px !important;
 }
 
@@ -1345,4 +1398,98 @@ table.dataTable th, table.dataTable td{
 
 #tabla_auditoria_ventas .form-group {
     height: 60px;
+}
+
+/***********************************************
+    ESTILOS CORTE AUDITORÍA DE VENTAS
+***********************************************/    
+
+.menu-cortes a {
+    text-decoration: none;
+}
+.menu-cortes .btn-axalta {
+    min-height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/***********************************************
+    ESTILOS CARGA DE PRODUCTOS
+***********************************************/   
+
+.tooltip-pl{
+    padding-left: 3px;
+}
+
+/***********************************************
+    ESTILOS TUTORIALES INTERNOS
+***********************************************/ 
+#tutoriales a{
+    text-decoration: none;
+}
+
+#tutoriales a:hover{
+    color: var(--rojo);
+}
+.tutoriales-titulo{
+    font-weight: 700;
+}
+
+.panel-white .sombra .links-tutoriales img{
+    width: 100%;
+}
+
+
+/***********************************************
+    ESTILOS TUTORIALES EXTERNOS
+***********************************************/ 
+
+.panel-title-ext{
+    background-color: #000;
+    padding: 25px 0px;
+}
+.panel-title-ext h1{
+    color: #FFF;
+    font-weight: 700;
+}
+.title-div-align-l{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.title-div-align-r{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+@media screen and (max-width: 768px){
+    .title-div-align-l{
+        justify-content: center;
+    }
+.title-div-align-r{
+        justify-content: center;
+    }
+        .links-inicio-mb{
+        margin-bottom: 30px;
+    }
+}
+.panel-title-ext img{
+    max-width: 6rem;
+}
+.page-link {
+    position: relative;
+    display: block;
+    color: var(--rojo);
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: var(--rojo);
+    border-color: var(--rojo);
 }

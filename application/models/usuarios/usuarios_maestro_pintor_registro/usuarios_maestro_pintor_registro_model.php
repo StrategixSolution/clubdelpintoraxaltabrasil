@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_maestro_pintor_registro_model extends Base_Model {	
@@ -19,6 +11,12 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
     }
     public function usuarios_maestro_pintor_registro_model_tallas() {
         $SQL = "SELECT UsuarioDetalleTallaId, UsuarioDetalleTallaDescripcion, UsuarioDetalleTallaClave FROM UsuariosDetallesTallas";
+        $query	= $this->db->query($SQL);
+//         echo  $this->db->last_query()."<br>"; 
+        return $query->result();    
+    }
+     public function usuarios_maestro_pintor_registro_model_tipos_tarjeta() {
+        $SQL = "SELECT TarjetasTipoId, TarjetasTipoDescripcion FROM TarjetasTipos WHERE TarjetasTipoFechaBaja IS NULL;";
         $query	= $this->db->query($SQL);
 //         echo  $this->db->last_query()."<br>"; 
         return $query->result();    
@@ -60,14 +58,14 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
     }
     public function usuarios_maestro_pintor_registro_model_insert_participante($dataHead,$dataDetalle,$distribuidora){
         $distribuidora_clean = $this->security->xss_clean($distribuidora); 
-        $SQL1    = "INSERT INTO Usuarios (UsuarioCapturaId,PerfilId,UsuarioSessionId,UsuarioTipoRegistroId,UsuarioFechaAceptoTerminosTarjetaDigital,UsuarioFechaAceptoAvisoPrivacidadTarjetaDigital) VALUES ($dataHead,1,GETDATE(),GETDATE())"; 
+        $SQL1    = "INSERT INTO Usuarios (UsuarioCapturaId,PerfilId,UsuarioSessionId,UsuarioTipoRegistroId,UsuarioFechaAceptoTerminosTarjetaDigital,UsuarioFechaAceptoAvisoPrivacidadTarjetaDigital) VALUES ($dataHead,1,DATEADD(hour, 3, GETDATE()),DATEADD(hour, 3, GETDATE()))"; 
         $this->db->query($SQL1);        
         //echo  $this->db->last_query()."<br>";
         $query  = $this->db->query("SELECT IDENT_CURRENT('Usuarios') as last_id"); 
         $res    = $query->result(); 
         $id     = $res[0]->last_id;
         //echo  $this->db->last_query()."<br>";        
-        $SQL2    = "INSERT INTO UsuariosDetalles (UsuarioId,UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleExtension,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCiudad,UsuarioDetalleTallaId,UsuarioDetalleFechaNacimiento,UsuarioDetallePuestoId,UsuarioDetalleNombreTaller,UsuarioDetallePersonasTaller,UsuarioDetalleAutosPorsemana,UsuarioDetalleUsuarioIdRegistro,UsuarioDetalleSessionId,UsuarioDetalleObservaciones,UsuarioDetalleClave) VALUES ($id,$dataDetalle)";
+        $SQL2    = "INSERT INTO UsuariosDetalles (UsuarioId,UsuarioDetalleNombre,UsuarioDetalleEmail,UsuarioDetalleCelular,UsuarioDetalleRFC,UsuarioDetalleCiudad,UsuarioDetalleTallaId,UsuarioDetalleFechaNacimiento,UsuarioDetallePuestoId,UsuarioDetalleNombreTaller,UsuarioDetallePersonasTaller,UsuarioDetalleAutosPorsemana,UsuarioDetalleUsuarioIdRegistro,UsuarioDetalleSessionId,UsuarioDetalleObservaciones,UsuarioDetalleClave) VALUES ($id,$dataDetalle)";
         $this->db->query($SQL2);
         $DistribuidoraId = $distribuidora_clean;
         $SQL3    = "INSERT INTO UsuariosDistribuidores (UsuarioId,DistribuidorId) VALUES ($id,$DistribuidoraId)"; $this->db->query($SQL3); //echo  $this->db->last_query()."<br>";
@@ -86,14 +84,23 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
     }
     public function usuarios_maestro_pintor_registro_model_update_email($UsuarioId) {
         $UsuarioId_clean = $this->security->xss_clean($UsuarioId); 
-        $SQL    = "UPDATE Usuarios SET UsuarioFechaEnvioMailRegistro = GETDATE() WHERE UsuarioId = $UsuarioId_clean";
+        $SQL    = "UPDATE Usuarios SET UsuarioFechaEnvioMailRegistro = DATEADD(hour, 3, GETDATE()) WHERE UsuarioId = $UsuarioId_clean";
         $this->db->query($SQL);
         return 1;
     }
-    public function  usuarios_maestro_pintor_registro_model_update_tarjeta($UsuarioId,$IDdistribudor,$idtarjeta) {
+    public function  usuarios_maestro_pintor_registro_model_update_tarjeta_fisica($UsuarioId,$IDdistribudor,$idtarjeta) {
         $IDdistribudor_clean = utf8_decode($this->security->xss_clean($IDdistribudor));
         $idtarjeta_clean             = $this->security->xss_clean($idtarjeta);
-        $SQLUPDATE              = "UPDATE Tarjetas SET Tarjetas.TarjetaEstatusId = 2,Tarjetas.UsuarioId = $UsuarioId,Tarjetas.TarjetaFechaAsigno = GETDATE(),Tarjetas.TarjetaUsuarioIdAsigno = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE Tarjetas.TarjetaNumero = $idtarjeta_clean AND Tarjetas.DistribuidorId = $IDdistribudor_clean ";
+        $SQLUPDATE              = "UPDATE Tarjetas SET Tarjetas.TarjetaEstatusId = 2,Tarjetas.UsuarioId = $UsuarioId,Tarjetas.TarjetaFechaAsigno = DATEADD(hour, 3, GETDATE()),Tarjetas.TarjetaUsuarioIdAsigno = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE Tarjetas.TarjetaNumero = $idtarjeta_clean AND Tarjetas.DistribuidorId = $IDdistribudor_clean ";
+//        echo $SQLUPDATE;
+        $this->db->query($SQLUPDATE);
+        return 1;
+    }
+
+     public function  usuarios_maestro_pintor_registro_model_update_tarjeta_digital($UsuarioId,$IDdistribudor,$idtarjeta) {
+        $IDdistribudor_clean = utf8_decode($this->security->xss_clean($IDdistribudor));
+        $idtarjeta_clean             = $this->security->xss_clean($idtarjeta);
+        $SQLUPDATE              = "UPDATE Tarjetas SET Tarjetas.DistribuidorId = $IDdistribudor_clean ,Tarjetas.TarjetaEstatusId = 2,Tarjetas.UsuarioId = $UsuarioId,Tarjetas.TarjetaFechaAsigno = DATEADD(hour, 3, GETDATE()),Tarjetas.TarjetaUsuarioIdAsigno = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE Tarjetas.TarjetaNumero = $idtarjeta_clean AND Tarjetas.TarjetasTipoId = 2 AND Tarjetas.TarjetaEstatusId = 1 ";
 //        echo $SQLUPDATE;
         $this->db->query($SQLUPDATE);
         return 1;
@@ -105,5 +112,17 @@ class Usuarios_maestro_pintor_registro_model extends Base_Model {
         $res    = $query->result();
         $id     = $res[0]->last_id;
         return $id;
+    }
+
+     public function usuarios_maestro_pintor_registro_model_obtener_siguiente_tarjeta_numero() {
+        // Convertimos TarjetaNumero a INT en la consulta
+        $query = $this->db->query("SELECT MIN(CAST(TarjetaNumero AS INT)) AS last_card_number FROM Tarjetas WHERE TarjetasTipoId =2 AND TarjetaEstatusId=1");
+        $result = $query->row();
+
+        // Si no hay registros, asumimos 0
+        $last_card_number = isset($result->last_card_number) ? (int)$result->last_card_number : 0;
+       // $next_card_number = $last_card_number + 1;
+
+        return $last_card_number;
     }
 }

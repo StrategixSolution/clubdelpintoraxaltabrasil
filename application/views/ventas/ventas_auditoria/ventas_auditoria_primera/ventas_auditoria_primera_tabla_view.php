@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPMEX                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 ABRIL 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 ?>
@@ -33,7 +26,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
         <div class="col-lg-2" style="margin-top:20px;">
             <div class="form-group">
-                <button type="button" id="auditoria_ventas_btn_crea_random" class="btn btn-axalta btn-buscar-ancho">CREAR RANDOM</button>
+                <button type="button" id="auditoria_ventas_btn_crea_random" class="btn btn-axalta btn-buscar-ancho">GERAR ALEATÓRIO</button>
             </div>
         </div>
     </div>
@@ -286,7 +279,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             inputOptions: inputOptionsPromise,
             inputPlaceholder: 'SELECIONE UMA OBSERVAÇÃO',
             showCancelButton: true,
-            confirmButtonText: 'ACEITAR',
+            confirmButtonText: 'CONFIRMAR',
             cancelButtonText: 'CANCELAR',
             inputValidator: (value) => {
                 return new Promise((resolve) => {

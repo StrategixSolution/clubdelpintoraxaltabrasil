@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
@@ -19,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <div class="modal-body">
             <object data="<?=funciones_strategix_version_url_random_base_url($archivo)?>" type="application/pdf" width="100%" height="500px">
-                <p>Tu navegador no tiene el plugin para previsualizar documentos pdf.</p>
-                <p>Puedes descargarte el archivo desde <a href="<?=base_url($archivo)?>?v=1">aquí</a></p>
+                <p>Seu navegador não possui o plugin necessário para visualizar documentos PDF.</p>
+                <p>Você pode baixar o arquivo em <a href="<?=base_url($archivo)?>?v=1">aqui</a></p>
             </object>
       </div>
     </div>

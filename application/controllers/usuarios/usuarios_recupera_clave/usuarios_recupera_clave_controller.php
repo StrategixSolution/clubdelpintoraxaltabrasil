@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 marzo 2026 09:00:00                       * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_recupera_clave_controller extends Base_Controller {
@@ -39,18 +31,30 @@ class Usuarios_recupera_clave_controller extends Base_Controller {
                 $res =$this->usuarios_recupera_clave_model->usuarios_recupera_clave_model_datos_mail($txt_email); 
                 $resEmail = $this->usuarios_recupera_clave_controller_envio_correo_recupera_clave($res);
                 $data['tipo']=1;
-            }
-            if($usuarios_crea_clave_view_chk_whatsapp==1){ 
-                $res = $this->usuarios_recupera_clave_model->usuarios_recupera_clave_model_data_whatsapp($usuarios_crea_clave_view_txt_whatsapp); 
-                $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre . " ". $res->UsuarioDetalleSegundoNombre. " ". $res->UsuarioDetalleApellidos));
-                $this->infobip_library->infobip_library_send_whatsapp(8,"+52".$usuarios_crea_clave_view_txt_whatsapp,'recuperacion_contrasena2','"'.$nombre.'"','es',$this->uniqueId);  
-
-                $data['tipo']=2;
-            }
             $dato ="'".$res->UsuarioId."','".$info['ip_address']."','".$res->UsuarioDetalleClave."','".$txt_email."','".$sessCaptcha."','".$inputCaptcha."','".$this->uniqueId."'";
             $this->usuarios_recupera_clave_model->usuarios_recupera_clave_model_email_historico($dato,$res->UsuarioId);                     
             $data['res']=1;
             echo json_encode($data);
+            }
+            //$template_id, $phone_to, $temeplate_name, $body_texto, $lang, $body_url
+            if($usuarios_crea_clave_view_chk_whatsapp==1){ 
+                $res = $this->usuarios_recupera_clave_model->usuarios_recupera_clave_model_data_whatsapp($usuarios_crea_clave_view_txt_whatsapp); 
+                $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre ));
+                $res_curl =$this->infobip_library->infobip_library_send_whatsapp(8,"+55".$usuarios_crea_clave_view_txt_whatsapp,'recuperacion_contrasena2','"'.$nombre.'"','es',$this->uniqueId);  
+              //$res_curl =$this->infobip_library->infobip_library_send_whatsapp(8,"+525526745070",'recuperacion_contrasena2','"'.$nombre.'"','es',$this->uniqueId);  
+                if($res_curl['messages'][0]['status']['groupId'] != 1)
+                            {
+                              $data['res']=3;
+                              $data['res_text']= $res_curl['messages'][0]['status']['name'] .' - '. $res_curl['messages'][0]['status']['description'];
+                               echo json_encode($data);
+                            }else{
+                                 $data['tipo']=2;
+                                 $dato ="'".$res->UsuarioId."','".$info['ip_address']."','".$res->UsuarioDetalleClave."','".$txt_email."','".$sessCaptcha."','".$inputCaptcha."','".$this->uniqueId."'";
+                                    $this->usuarios_recupera_clave_model->usuarios_recupera_clave_model_email_historico($dato,$res->UsuarioId);                     
+                                    $data['res']=1;
+                                    echo json_encode($data);
+                            }      
+            }
         } else {
             $this->output->set_content_type('application/json')->set_output(json_encode($res_errors)); 
         }
@@ -101,7 +105,7 @@ class Usuarios_recupera_clave_controller extends Base_Controller {
         return $response;
     }      
     public function usuarios_recupera_clave_controller_envio_correo_recupera_clave($res) {
-        $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre . " ". $res->UsuarioDetalleSegundoNombre. " ". $res->UsuarioDetalleApellidos));        
+        $nombre     = utf8_encode(strtoupper($res->UsuarioDetalleNombre));        
         $data       = array('nombre'=> "$nombre","perfil"=>$res->PerfilDescripcion,'sessionId'=>$this->uniqueId);
         $mail       = $this->load->view('mails/mails_usuarios/mails_usuarios_recupera_clave/mails_usuarios_recupera_clave_view' ,$data, TRUE);
         $to         = array('to' => "$res->UsuarioDetalleEmail",'cc'=>0,'bcc'=>$this->config->item('bcc'));

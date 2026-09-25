@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Luis Felipe Rangel  * 
- * @CreateDate 29 jun. 2026 23:36:58 * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <section id="productos">
@@ -19,11 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
             <div class="col-lg-12">
                 <div class="imagenproductos">
-                    <img src="application/views/template/sistema/imagenes/construccion.jpg" alt="">
+                    <img src="application/views/template/sistema/imagenes/productos.jpeg" class="img-fluid" alt="">
                 </div>
             </div>
         </div>

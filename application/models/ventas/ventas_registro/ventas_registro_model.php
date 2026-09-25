@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ventas_registro_model extends Base_Model {	
@@ -16,36 +8,49 @@ class Ventas_registro_model extends Base_Model {
 
     public function ventas_registro_model_cmb_distribuidor($UsuarioId){
         $UsuarioId_clean = $this->security->xss_clean($UsuarioId); 
-        $SQL = "SELECT DistribuidoresDetalles.DistribuidorDetalleRazonSocial,DistribuidoresDetalles.DistribuidorDetalleNombreComercial, DistribuidoresDetalles.DistribuidorId FROM UsuariosDistribuidores INNER JOIN DistribuidoresDetalles ON UsuariosDistribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId WHERE  (UsuariosDistribuidores.UsuarioId = $UsuarioId_clean)";
+        $SQL = "SELECT DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleRazonSocial, DistribuidoresDetalles.DistribuidorDetalleNombreComercial, DistribuidoresDetalles.DistribuidorId FROM UsuariosDistribuidores INNER JOIN DistribuidoresDetalles ON UsuariosDistribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId WHERE  (UsuariosDistribuidores.UsuarioId = $UsuarioId_clean)";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->result();
     }
 
-    public function ventas_registro_model_combo_clases(){
-        $SQL    = "SELECT ProductoClaseId,ProductoClaseDescripcion FROM ProductosClases WHERE ProductoClaseFechaBaja IS NULL";
+    public function ventas_registro_model_combo_lineas(){
+        $SQL    = "SELECT ProductoLineaId,ProductoLiniaNombre FROM ProductosLineas WHERE ProductoLiniaFechaBaja IS NULL";
         $query	= $this->db->query($SQL);
      //   echo  $this->db->last_query()."<br>"; 
         return $query->result();
     }
-    public function ventas_registro_model_combo_marcas($ProductoClaseId){
-        $SQL    = "SELECT ProductoMarcaId,ProductoClaseId,ProductoMarcaDescripcion FROM ProductosMarcas WHERE ProductoClaseId=".$ProductoClaseId." AND ProductoMarcaFechaBaja IS NULL";
+
+    public function ventas_registro_model_combo_clases($ProductoLineaId){
+        $SQL    = "SELECT ProductoClaseId,ProductoClaseDescripcion FROM ProductosClases WHERE ProductoLineaId=".$ProductoLineaId." AND ProductoClaseFechaBaja IS NULL";
+        $query	= $this->db->query($SQL);
+     //   echo  $this->db->last_query()."<br>"; 
+        return $query->result();
+    }
+    public function ventas_registro_model_combo_marcas($cmb_linea, $ProductoClaseId){
+        $SQL    = "SELECT ProductoMarcaId,ProductoMarcaDescripcion FROM ProductosMarcas WHERE ProductoLineaId=".$cmb_linea." AND ProductoClaseId=".$ProductoClaseId." AND ProductoMarcaFechaBaja IS NULL";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->result();
     }
     public function ventas_registro_model_combo_litros(){
-        $SQL    = "SELECT VentaDetalleGalonId,VentaDetalleGalonDescripcion,VentaDetalleGalonEquivalencia FROM VentasDetallesGalones ";
+        $SQL    = "SELECT VentaDetalleGalonId,VentaDetalleGalonDescripcion FROM VentasDetallesGalones";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->result();
-    }    
+    }
     public function ventas_registro_model_maestro_pintor_informacion($numero_tarjeta){
         $numero_tarjeta_clean = $this->security->xss_clean($numero_tarjeta);
-        $SQL    = "SELECT Usuarios.UsuarioId, UsuariosDetalles.UsuarioDetalleId, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos, Tarjetas.TarjetaNumero, UsuariosDetalles.UsuarioDetalleEmail,UsuariosDetalles.UsuarioDetalleCelular, UsuariosDetalles.UsuarioDetalleRFC,Tarjetas.TarjetaId FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Tarjetas.TarjetaFechaBaja IS NULL) AND (Tarjetas.TarjetaEstatusId = 2) AND (Tarjetas.TarjetaNumero = ?)";
+        $SQL    = "SELECT Usuarios.UsuarioId, UsuariosDetalles.UsuarioDetalleId, UsuariosDetalles.UsuarioDetalleNombre, Tarjetas.TarjetaNumero, UsuariosDetalles.UsuarioDetalleEmail,UsuariosDetalles.UsuarioDetalleCelular, UsuariosDetalles.UsuarioDetalleRFC,Tarjetas.TarjetaId FROM Usuarios INNER JOIN UsuariosDetalles ON Usuarios.UsuarioId = UsuariosDetalles.UsuarioId INNER JOIN Tarjetas ON Usuarios.UsuarioId = Tarjetas.UsuarioId WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) AND (UsuariosDetalles.UsuarioDetalleFechaBaja IS NULL) AND (Tarjetas.TarjetaFechaBaja IS NULL) AND (Tarjetas.TarjetaEstatusId = 2) AND (Tarjetas.TarjetaNumero = ?)";
         $query	= $this->db->query($SQL, array($numero_tarjeta_clean));
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row();
+    }
+    public function ventas_registro_model_nombre_lineas($ProductoLineaId){
+        $SQL    = "SELECT ProductoLineaId,ProductoLiniaNombre FROM ProductosLineas WHERE ProductoLineaId =".$ProductoLineaId;
+        $query	= $this->db->query($SQL);
+        //echo  $this->db->last_query()."<br>"; 
+        return $query->row()->ProductoLiniaNombre;
     }
     public function ventas_registro_model_nombre_clases($ProductoClaseId){
         $SQL    = "SELECT ProductoClaseId,ProductoClaseDescripcion FROM ProductosClases WHERE ProductoClaseId =".$ProductoClaseId;
@@ -59,20 +64,21 @@ class Ventas_registro_model extends Base_Model {
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->ProductoMarcaDescripcion;
     }
-    public function ventas_registro_model_nombre_litros($ProductoMarcaId){
-        $SQL    = "SELECT VentaDetalleGalonId,VentaDetalleGalonDescripcion,VentaDetalleGalonEquivalencia FROM VentasDetallesGalones where VentaDetalleGalonEquivalencia=".$ProductoMarcaId;
+    public function ventas_registro_model_nombre_litros($VentaDetalleGalonId){
+        $SQL    = "SELECT VentaDetalleGalonId,VentaDetalleGalonDescripcion FROM VentasDetallesGalones where VentaDetalleGalonId=".$VentaDetalleGalonId;
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->VentaDetalleGalonDescripcion;
     }
-    public function ventas_registro_model_guardar_venta($numero_tarjeta,$numero_ticket,$monto_ticket,$imagen,$session_id,$maestro_pintor,$DistribuidorId){
+    public function ventas_registro_model_guardar_venta($numero_tarjeta,$numero_ticket,$monto_ticket,$imagen,$session_id,$maestro_pintor,$DistribuidorId,$total_monto_detalle,$total_cantidad,$VentaCantidadProdcutos){
         $numero_tarjeta_clean = $this->security->xss_clean($numero_tarjeta);
         $numero_ticket_clean = $this->security->xss_clean($numero_ticket);
         $monto_ticket_clean = $this->security->xss_clean($monto_ticket);
         $ditribuidor = $this->ventas_registro_model_datos_distribuidor($DistribuidorId);   
-        $nombre_maestro_pintor = strtoupper($maestro_pintor->UsuarioDetalleNombre) ." ". strtoupper($maestro_pintor->UsuarioDetalleSegundoNombre)." ". strtoupper($maestro_pintor->UsuarioDetalleApellidos);
-        $SQL    = "INSERT INTO Ventas (TarjetaId,TarjetaNumero,VentaUsuarioIdMP,VentaUsuarioNombreMP,DistribuidorId,DistribuidorDetalleId,DistribuidorDetalleCodigo,DistribuidorDetalleRazonSocial,DistribuidorDetalleNombreComercial,UsuarioDetalleId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaUsuarioIdRegistro,VentaUsuarioNombreRegistro,VentaSessionId) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        $this->db->query($SQL, array($maestro_pintor->TarjetaId,$numero_tarjeta_clean,$maestro_pintor->UsuarioId,$nombre_maestro_pintor,$ditribuidor->DistribuidorId,$ditribuidor->DistribuidorDetalleId,$ditribuidor->DistribuidorDetalleCodigo,$ditribuidor->DistribuidorDetalleRazonSocial,$ditribuidor->DistribuidorDetalleNombreComercial,$maestro_pintor->UsuarioDetalleId,$numero_ticket_clean,$monto_ticket_clean,$imagen,$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')),strtoupper(utf8_decode($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_nombre')))),$session_id));
+        $nombre_maestro_pintor = strtoupper($maestro_pintor->UsuarioDetalleNombre);
+        // Simplificado: Solo columnas que existen en tabla Ventas después de desnormalización
+        $SQL    = "INSERT INTO Ventas (TarjetaId,VentaUsuarioIdMP,DistribuidorId,VentaNumeroTicket,VentaMontoTicket,VentaFotoTicket,VentaUsuarioIdRegistro,VentaSessionId,VentaDetalleMontoTicket,VentaDetalleTotalCantidadProdcutos,VentaDetalleCantidadProdcutos) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        $this->db->query($SQL, array($maestro_pintor->TarjetaId,$maestro_pintor->UsuarioId,$ditribuidor->DistribuidorId,$numero_ticket_clean,$monto_ticket_clean,$imagen,$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')),$session_id,$total_monto_detalle,$total_cantidad,$VentaCantidadProdcutos));
 //        echo  $this->db->last_query()."<br>"; 
         $query  = $this->db->query("SELECT IDENT_CURRENT('Ventas') as last_id"); $res = $query->result(); $id = $res[0]->last_id;
         return $id;
@@ -96,16 +102,16 @@ class Ventas_registro_model extends Base_Model {
     }
     public function ventas_registro_model_auditoria_monto($UsuarioId,$VentaFechaRegistro,$monto){
         $VentaFechaRegistroDate = date_create($VentaFechaRegistro); $VentaFechaRegistroAnio = date_format($VentaFechaRegistroDate, 'Y'); $VentaFechaRegistroMes = date_format($VentaFechaRegistroDate, 'm');
-        $SQL    = "SELECT COUNT(VentaId) AS TOTAL FROM Ventas WHERE VentaFechaBaja IS NULL AND VentaMontoTicket = $monto AND YEAR(VentaFechaRegistro) = $VentaFechaRegistroAnio AND MONTH(VentaFechaRegistro) = $VentaFechaRegistroMes AND UsuarioDetalleId = $UsuarioId";
+        $SQL    = "SELECT COUNT(VentaId) AS TOTAL FROM Ventas WHERE VentaFechaBaja IS NULL AND VentaMontoTicket = $monto AND YEAR(VentaFechaRegistro) = $VentaFechaRegistroAnio AND MONTH(VentaFechaRegistro) = $VentaFechaRegistroMes AND VentaUsuarioIdMP = $UsuarioId";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->TOTAL;
     } 
-    public function ventas_registro_model_auditoria_monto_update($UsuarioId,$VentaFechaRegistro,$monto) {
+  /*  public function ventas_registro_model_auditoria_monto_update($UsuarioId,$VentaFechaRegistro,$monto) {
         $VentaFechaRegistroDate = date_create($VentaFechaRegistro); $VentaFechaRegistroAnio = date_format($VentaFechaRegistroDate, 'Y'); $VentaFechaRegistroMes = date_format($VentaFechaRegistroDate, 'm');
-        $SQL    = "UPDATE Ventas SET VentaAuditoriaEntra = 1 WHERE VentaFechaBaja IS NULL AND VentaMontoTicket = $monto AND YEAR(VentaFechaRegistro) = $VentaFechaRegistroAnio AND MONTH(VentaFechaRegistro) = $VentaFechaRegistroMes AND UsuarioDetalleId = $UsuarioId";
+        $SQL    = "UPDATE Ventas SET VentaAuditoriaEntra = 1 WHERE VentaFechaBaja IS NULL AND VentaMontoTicket = $monto AND YEAR(VentaFechaRegistro) = $VentaFechaRegistroAnio AND MONTH(VentaFechaRegistro) = $VentaFechaRegistroMes AND VentaUsuarioIdMP = $UsuarioId";
         $query	= $this->db->query($SQL);
-    }
+    }*/
         public function ventas_registro_model_venta_promocion($VentaId){
         $SQL    = "UPDATE Ventas SET VentaTienePromocion = 1 WHERE VentaId = $VentaId";
         $this->db->query($SQL);
@@ -119,34 +125,20 @@ class Ventas_registro_model extends Base_Model {
 //        echo  $this->db->last_query()."<br>"; 
         return $query->row()->TOTAL;
     }    
-   /* public function ventas_registro_model_distribuidor_activo($distriubidor,$año,$mes){
-        $SQL = "SELECT count(DistribuidorId) AS ACTIVOS FROM DistribuidoresActivos WHERE DistribuidorActivoAnio = $año AND DistribuidorActivoMes = $mes AND DistribuidorId = $distriubidor";
-        $query	= $this->db->query($SQL);
-        //echo  $this->db->last_query()."<br>"; 
-        return $query->row()->ACTIVOS;           
-    }*/
+
      public function ventas_registro_model_ventas_totales($distriubidor,$año,$mes){
-        $SQL = "SELECT count(VentaId) AS total FROM Ventas WHERE DistribuidorDetalleId = $distriubidor AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro) = $año AND MONTH(VentaFechaRegistro) = $mes ";
+        $SQL = "SELECT count(VentaId) AS total FROM Ventas WHERE DistribuidorId = $distriubidor AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro) = $año AND MONTH(VentaFechaRegistro) = $mes ";
         $query	= $this->db->query($SQL);
         //echo  $this->db->last_query()."<br>"; 
         return $query->row()->total;           
     }
-    /* public function ventas_registro_model_ventas_insert_distribuidor_activo($data) {
-        $SQL    = "INSERT INTO DistribuidoresActivos (DistribuidorId,DistribuidorActivoAnio,DistribuidorActivoMes,DistribuidorActivoNoVentas) VALUES ($data)";
-        $query	= $this->db->query($SQL);
-        //echo  $this->db->last_query()."<br>"; 
-    } */
+
     public function ventas_registro_model_count_ticket($ticket, $id_dist){
-        $query	= $this->db->query("SELECT COUNT(VentaNumeroTicket) AS counter FROM ventas WHERE VentaNumeroTicket = '$ticket' AND ventaFechaBaja is null  AND DistribuidorDetalleId= $id_dist");
+        $query	= $this->db->query("SELECT COUNT(VentaNumeroTicket) AS counter FROM Ventas WHERE VentaNumeroTicket = '$ticket' AND VentaFechaBaja is null  AND DistribuidorId= $id_dist");
       //  echo  $this->db->last_query()."<br>"; 
         return $query->row();
     }
-    public function ventas_registro_model_pais_moneda($PaisId){
-        $SQL    = "SELECT PaisMonedaCodigo ,PaisMonedaNombre ,PaisMonedaSimbolo  FROM Paises  WHERE PaisId = $PaisId";
-        $query	= $this->db->query($SQL);
-//        echo  $this->db->last_query()."<br>"; 
-        return $query->row();
-    }
+    
 
     public function ventas_registro_model_auditorias_calculos(){
         $veinte_porciento                       = .2;
@@ -186,7 +178,7 @@ class Ventas_registro_model extends Base_Model {
         $DistribuidorId_clean = $this->security->xss_clean($DistribuidorId);
         $VentaUsuarioIdMP_clean = $this->security->xss_clean($VentaUsuarioIdMP);
         $monto_ticket_clean = $this->security->xss_clean($VentaMontoTicket);
-        $SQL    = "SELECT COUNT(VentaId) as total FROM Ventas WHERE VentaId <> $VentaId AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)= ".funciones_strategix_anio()." AND MONTH(VentaFechaRegistro) = ".funciones_strategix_mes()." AND DistribuidorDetalleId = $DistribuidorId_clean AND UsuarioDetalleId = $VentaUsuarioIdMP_clean AND VentaMontoTicket = $monto_ticket_clean";
+        $SQL    = "SELECT COUNT(VentaId) as total FROM Ventas WHERE VentaId <> $VentaId AND VentaFechaBaja IS NULL AND YEAR(VentaFechaRegistro)= ".funciones_strategix_anio()." AND MONTH(VentaFechaRegistro) = ".funciones_strategix_mes()." AND DistribuidorId = $DistribuidorId_clean AND VentaUsuarioIdMP = $VentaUsuarioIdMP_clean AND VentaMontoTicket = $monto_ticket_clean";
         $query	= $this->db->query($SQL);
         return $query->row()->total;
     }

@@ -1,18 +1,10 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPMEX                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 MARZO 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_actualizar_datos_model extends Base_Model {	
     public function __construct(){ parent::__construct(); }
     public function usuarios_actualizar_datos_model_participante(){
-        $SQL = "SELECT UsuarioDetalleId, UsuarioId, UsuarioDetalleNombre, UsuarioDetalleSegundoNombre, UsuarioDetalleApellidos, UsuarioDetalleEmail, UsuarioDetalleTelefono,UsuarioDetalleCelular, UsuarioDetalleRFC, UsuarioDetalleCP, UsuarioDetalleEstado, UsuarioDetalleCiudad, UsuarioDetalleMunicipio, UsuarioDetalleColonia, UsuarioDetalleCalle, UsuarioDetalleExterior, UsuarioDetalleInterior
+        $SQL = "SELECT UsuarioDetalleId, UsuarioId, UsuarioDetalleNombre, UsuarioDetalleEmail, UsuarioDetalleCelular, UsuarioDetalleRFC, UsuarioDetalleCP, UsuarioDetalleEstado, UsuarioDetalleCiudad, UsuarioDetalleMunicipio, UsuarioDetalleColonia, UsuarioDetalleCalle, UsuarioDetalleExterior, UsuarioDetalleInterior
                 FROM UsuariosDetalles WHERE  (UsuarioDetalleFechaBaja IS NULL) AND (UsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).")";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
@@ -40,22 +32,22 @@ class Usuarios_actualizar_datos_model extends Base_Model {
         $DetalleUsuarioId_clean = $this->security->xss_clean($DetalleUsuarioId);
         $data_clean             = utf8_decode($this->security->xss_clean($data));
         if ($this->session->userdata(funciones_strategix_sitio_alias("s_perfil_id"))<=5){
-            $SQLINSERT          = "INSERT INTO UsuariosDetalles (UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleSessionId,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleObservaciones,UsuarioId,UsuarioDetalleUsuario,UsuarioDetalleUsuarioIdRegistro) 
+            $SQLINSERT          = "INSERT INTO UsuariosDetalles (UsuarioDetalleNombre,UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleCelular,UsuarioDetalleSessionId,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleObservaciones,UsuarioId,UsuarioDetalleUsuarioIdRegistro) 
                                     SELECT                       $data,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,'PRIMERA ACTUALIZACION DE DATOS',UsuarioId,".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
                                     FROM UsuariosDetalles
                                     WHERE UsuarioDetalleId = $DetalleUsuarioId_clean";
         } else {
-            $SQLINSERT          = "INSERT INTO UsuariosDetalles (UsuarioDetalleNombre,UsuarioDetalleSegundoNombre,UsuarioDetalleApellidos,UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleTelefono,UsuarioDetalleCelular,UsuarioDetalleSessionId,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleObservaciones,UsuarioId,UsuarioDetalleUsuario,UsuarioDetalleUsuarioIdRegistro) 
+            $SQLINSERT          = "INSERT INTO UsuariosDetalles (UsuarioDetalleNombre,UsuarioDetalleClave,UsuarioDetalleEmail,UsuarioDetalleCelular,UsuarioDetalleSessionId,UsuarioDetalleRFC,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,UsuarioDetalleObservaciones,UsuarioId,UsuarioDetalleUsuarioIdRegistro) 
                                     SELECT                       $data,UsuarioDetalleCP,UsuarioDetalleEstado,UsuarioDetalleCiudad,UsuarioDetalleMunicipio,UsuarioDetalleColonia,UsuarioDetalleCalle,UsuarioDetalleExterior,UsuarioDetalleInterior,'PRIMERA ACTUALIZACION DE DATOS',UsuarioId,".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."
                                     FROM UsuariosDetalles
                                     WHERE UsuarioDetalleId = $DetalleUsuarioId_clean";
         }
         $this->db->query($SQLINSERT);
         $query  = $this->db->query("SELECT IDENT_CURRENT('UsuariosDetalles') as last_id"); $res = $query->result(); $id = $res[0]->last_id;      
-        $SQLUPDATE              = "UPDATE UsuariosDetalles SET UsuariosDetalles.UsuarioDetalleFechaBaja = GETDATE(),UsuariosDetalles.UsuarioDetalleUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE UsuariosDetalles.UsuarioDetalleId = $DetalleUsuarioId_clean";
+        $SQLUPDATE              = "UPDATE UsuariosDetalles SET UsuariosDetalles.UsuarioDetalleFechaBaja = DATEADD(hour, 3, GETDATE()),UsuariosDetalles.UsuarioDetalleUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE UsuariosDetalles.UsuarioDetalleId = $DetalleUsuarioId_clean";
         $this->db->query($SQLUPDATE);     
         if(funciones_strategix_valida_terminos_condiciones_aviso_privacidad_actualiza_datos($this->session->userdata(funciones_strategix_sitio_alias('s_actualiza_datos')))==0){
-            $SQL    = "UPDATE Usuarios SET UsuarioFechaActualizoDatos = getdate() WHERE UsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
+            $SQL    = "UPDATE Usuarios SET UsuarioFechaActualizoDatos = DATEADD(hour, 3, GETDATE()) WHERE UsuarioId = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'));
             $this->db->query($SQL);
         }        
         return 1;

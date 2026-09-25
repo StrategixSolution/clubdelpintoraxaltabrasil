@@ -1,11 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala  *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 4 abr. 2026 15:31:56                        * 
- */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -14,10 +8,10 @@ $lang['productos_reposicion_captura_controller_lang_titulo_carga']              
 
 $lang['productos_reposicion_captura_controller_lang_etiqueta_distribuidor']                  = 'DISTRIBUIDOR:';
 $lang['productos_reposicion_captura_controller_lang_etiqueta_anio']                          = 'ANO:';
-$lang['productos_reposicion_captura_controller_lang_etiqueta_mes']                           = '*PERÍODO:';
-$lang['productos_reposicion_captura_controller_lang_etiqueta_participante']                  = '*PARTICIPANTE:';
+$lang['productos_reposicion_captura_controller_lang_etiqueta_mes']                           = '*PERÍODO (MÊS DE REFERÊNCIA):';
+$lang['productos_reposicion_captura_controller_lang_etiqueta_participante']                  = '*PARTICIPANTE (PINTOR PARCEIRO):';
 $lang['productos_reposicion_captura_controller_lang_etiqueta_division']                      = '*DIVISÃO:';
-$lang['productos_reposicion_captura_controller_lang_etiqueta_premmio']                       = 'PRÊMIO:';
+$lang['productos_reposicion_captura_controller_lang_etiqueta_premmio']                       = 'PRÊMIO (SELEÇÃO DE RECOMPENSA):';
 $lang['productos_reposicion_captura_controller_lang_etiqueta_total']                         = 'TOTAL:';
 $lang['productos_reposicion_captura_controller_lang_etiqueta_fecha_entrega']                 = '*DATA DE ENTREGA:';
 
@@ -25,11 +19,11 @@ $lang['productos_reposicion_captura_controller_lang_placeholder_mes']           
 $lang['productos_reposicion_captura_controller_lang_placeholder_participante']               = 'SELECIONE UM PARTICIPANTE';
 $lang['productos_reposicion_captura_controller_lang_placeholder_premio']                     = 'SELECIONE UM PRÊMIO';
 
-$lang['productos_reposicion_captura_controller_lang_etiqueta_frase']                         = 'SELECIONE UM TIPO DE ARQUIVO';
+$lang['productos_reposicion_captura_controller_lang_etiqueta_frase']                         = 'SELECIONE UMA OPÇÃO DE ARQUIVO';
 $lang['productos_reposicion_captura_controller_lang_etiqueta_firma']                         = 'ASSINATURAS';
-$lang['productos_reposicion_captura_controller_lang_etiqueta_ganador']                       = 'GANHADORES';
+$lang['productos_reposicion_captura_controller_lang_etiqueta_ganador']                       = 'COMPROVANTE DE GANHADORES';
 
-$lang['productos_reposicion_captura_controller_lang_msg_error_no_acceso']                    = 'O MÓDULO ESTÁ TEMPORARIAMENTE DESATIVADO';
+$lang['productos_reposicion_captura_controller_lang_msg_error_no_acceso']                    = 'O SEÇÃO ESTÁ TEMPORARIAMENTE DESATIVADO';
 $lang['productos_reposicion_captura_controller_lang_msg_succes']                             = 'DADOS SALVOS CORRETAMENTE';
 $lang['productos_reposicion_captura_controller_lang_msg_succes_fotos']                       = 'IMAGENS CARREGADAS';
 $lang['productos_reposicion_captura_controller_lang_msg_reposicion_canjeada']                = 'PRÊMIO RESGATADO';
@@ -48,3 +42,5 @@ $lang['productos_reposicion_captura_controller_lang_form_validate_mes']         
 $lang['productos_reposicion_captura_controller_lang_form_validate_participante']             = 'PARTICIPANTE';
 $lang['productos_reposicion_captura_controller_lang_form_validate_division']                 = 'DIVISÃO';
 $lang['productos_reposicion_captura_controller_lang_form_validate_fecha_entrega']            = 'DATA DE ENTREGA';
+$lang['productos_reposicion_captura_controller_lang_placeholder_distribuidor']                        = 'SELECIONE UM DISTRIBUIDOR';
+$lang['productos_reposicion_captura_controller_lang_placeholder_anio']                        = 'SELECIONE UM ANO';

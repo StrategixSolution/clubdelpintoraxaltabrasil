@@ -1,11 +1,4 @@
 <?php
-/* 
- * Sistema Web Responsivo CDPBR                    *
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Luis Felipe Rangel  * 
- * @CreateDate  15 junio 2026 1:03:17 *  
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <script>
@@ -35,8 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
     });
 </script>
-<div class="card">
-    <div class="row">
+<div class="row">
         <div class="col-lg-12 col-12">
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-axalta" id="Tabla_carga">
@@ -56,4 +48,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-</div>
+<!-- <div class="card">
+    
+</div> -->

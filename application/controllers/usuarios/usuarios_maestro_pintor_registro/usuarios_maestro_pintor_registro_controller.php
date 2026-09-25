@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_maestro_pintor_registro_controller extends Base_Controller {
@@ -31,10 +23,19 @@ public function __construct(){
         $cmbtalla ="<option  value='0'>".$this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_talla')."</option>";
         $tallas         = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_tallas();
         foreach ($tallas as $talla) {            
-             $cmbtalla .="<option value=$talla->UsuarioDetalleTallaId>".$talla->UsuarioDetalleTallaClave." - ".$talla->UsuarioDetalleTallaDescripcion."</option>";
+             $cmbtalla .="<option value=$talla->UsuarioDetalleTallaId>".$talla->UsuarioDetalleTallaClave." - ".utf8_encode($talla->UsuarioDetalleTallaDescripcion)."</option>";
         }
         echo json_encode($cmbtalla);
     }    
+
+        public function usuarios_maestro_pintor_registro_controller_combo_tipo_tarjeta() {
+        $cmbtipo_tarjeta = "";
+        $tipos_tarjeta         = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_tipos_tarjeta();
+        foreach ($tipos_tarjeta as $tipo_tarjeta) {            
+             $cmbtipo_tarjeta .="<option value=$tipo_tarjeta->TarjetasTipoId>".utf8_encode($tipo_tarjeta->TarjetasTipoDescripcion)."</option>";
+        }
+        echo json_encode($cmbtipo_tarjeta);
+    } 
      public function usuarios_maestro_pintor_registro_controller_modal_terminos_y_condiciones(){
         $data['archivo']       = 'application/views/template/sistema/legal/terminos_y_condiciones.pdf';
         $pag = $this->load->view('modals/modals_usuarios/modals_usuarios_registro_maestro_pintor/modals_usuarios_registro_maestro_pintor_termino_view', $data, true);
@@ -104,34 +105,28 @@ public function __construct(){
         }
     }
     public function usuarios_maestro_pintor_registro_controller_set_rules(){
-        $this->form_validation->set_rules('txt_nombre', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre'), 'required|xss_clean|min_length[1]|max_length[100]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ ,.]*$/u]');
-        $this->form_validation->set_rules('txt_segundo_nombre', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_segundo_nombre'), 'xss_clean|min_length[1]|max_length[100]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ ,.]*$/u]');
-        $this->form_validation->set_rules('txt_apellidos', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_apaterno'), 'required|xss_clean|min_length[1]|max_length[50]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ ,.]*$/u]');
-        $this->form_validation->set_rules('txt_rfc', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_rfc'), 'xss_clean|min_length[4]|max_length[25]|callback_usuarios_maestro_pintor_registro_controller_valida_rfc');
+        $_POST['txt_celular'] = preg_replace('/\D/', '', $this->input->post('txt_celular', TRUE));
+        $_POST['txt_rfc']     = preg_replace('/\D/', '', $this->input->post('txt_rfc', TRUE));
+        $this->form_validation->set_rules('txt_nombre', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_nombre'), 'required|xss_clean|min_length[1]|max_length[200]|regex_match[/^[^0-9]+$/]');
+        $this->form_validation->set_rules('txt_rfc', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_rfc'), 'required|numeric|xss_clean|exact_length[11]|callback_usuarios_maestro_pintor_registro_controller_valida_rfc');
         $this->form_validation->set_rules('txt_email', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_email'), 'required|valid_email|xss_clean|min_length[6]|max_length[100]|callback_usuarios_maestro_pintor_registro_controller_valida_email');  
-        $this->form_validation->set_rules('txt_telefono', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_telefono'), 'required|numeric|xss_clean|min_length[6]|max_length[10]');
-        $this->form_validation->set_rules('txt_extencion', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_extencion'), 'required|numeric|xss_clean|min_length[1]|max_length[10]');
-        $this->form_validation->set_rules('txt_celular', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_celular'), 'required|numeric|xss_clean|min_length[6]|max_length[10]|callback_usuarios_maestro_pintor_registro_controller_valida_celular');
+        $this->form_validation->set_rules('txt_celular', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_celular'), 'required|numeric|xss_clean|exact_length[11]|callback_usuarios_maestro_pintor_registro_controller_valida_celular');
         $this->form_validation->set_rules('cmb_puesto', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_puesto'), 'required|callback_usuarios_maestro_pintor_registro_controller_valida_default_puesto');            
         $this->form_validation->set_rules('cmb_talla', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_talla'), 'required|callback_usuarios_maestro_pintor_registro_controller_valida_default_talla');
-        $this->form_validation->set_rules('txt_ciudad', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_ciudad'), 'required|trim|xss_clean|min_length[1]|max_length[100]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ,. ]*$/u]');
+        $this->form_validation->set_rules('txt_ciudad', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_ciudad'), 'required|trim|xss_clean|min_length[1]|max_length[100]|regex_match[/^[^0-9]+$/]');
         $this->form_validation->set_rules('txt_cantidad_personas', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'numeric|max_length[3]|xss_clean');
         $this->form_validation->set_rules('txt_cantidad_autos', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'numeric|max_length[3]|xss_clean');
         $this->form_validation->set_rules('fecha_nacimiento', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_fecha_nacimiento'), 'required|xss_clean');
-        $this->form_validation->set_rules('txt_qr', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_codigoqr'), 'required|trim|xss_clean|min_length[1]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ,.]*$/u]|callback_usuarios_maestro_pintor_registro_controller_valida_tarjeta');
+       if ($this->input->post('cmb_tipo_tarjeta',true)== 1){ $this->form_validation->set_rules('txt_qr', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_codigoqr'), 'required|trim|xss_clean|min_length[1]|regex_match[/^[0-9A-ZÑÁÉÍÓÚÜ,.]*$/u]|callback_usuarios_maestro_pintor_registro_controller_valida_tarjeta');}
         if ($this->input->post('chk_camara',true)== 1){ $this->form_validation->set_rules('txt_identificacion', $this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_identificacion'), 'required|trim|xss_clean|min_length[1]'); }
         if ($this->input->post('chk_archivo',true)== 1){ if(empty($_FILES['file_identificacion']['name'])){ $this->form_validation->set_rules('file_identificacion',$this->lang->line('usuarios_maestro_pintor_registro_controller_lang_placeholder_identificacion'), 'required'); } }
     }    
     public function usuarios_maestro_pintor_registro_controller_form_error(){
-        $json = $json_txt_telefono = $json_txt_extencion = $json_txt_cantidad_personas = $json_txt_cantidad_autos = $json_fecha_nacimiento = $json_txt_nombre = $json_txt_segundo_nombre = $json_txt_apellidos = $json_txt_rfc = $json_txt_email = $json_txt_celular = $json_cmb_compania = $json_cmb_puesto = $json_cmb_talla = $json_txt_ciudad = $json_fecha_nacimiento = $json_txt_qr = $json_txt_identificacion= $json_file_identificacion = array();
+        $json = $json_txt_cantidad_personas = $json_txt_cantidad_autos = $json_fecha_nacimiento = $json_txt_nombre = $json_txt_rfc = $json_txt_email = $json_txt_celular = $json_cmb_compania = $json_cmb_puesto = $json_cmb_talla = $json_txt_ciudad = $json_fecha_nacimiento = $json_txt_qr = $json_txt_identificacion= $json_file_identificacion = array();
         if (!$this->form_validation->run()) {
             if (!empty(form_error('txt_nombre'))) { $json_txt_nombre =  array('txt_nombre' => form_error('txt_nombre', '<small class="mt-3 text-danger">', '</small>')); }
-            if (!empty(form_error('txt_segundo_nombre'))) { $json_txt_segundo_nombre =  array('txt_segundo_nombre' => form_error('txt_segundo_nombre', '<small class="mt-3 text-danger">', '</small>')); }
-            if (!empty(form_error('txt_apellidos'))) { $json_txt_apellidos =  array('txt_apellidos' => form_error('txt_apellidos', '<small class="mt-3 text-danger">', '</small>')); }            
-            if (!empty(form_error('txt_rfc'))) { $json_txt_rfc =  array('txt_rfc' => form_error('txt_rfc', '<small class="mt-3 text-danger">', '</small>')); }
+             if (!empty(form_error('txt_rfc'))) { $json_txt_rfc =  array('txt_rfc' => form_error('txt_rfc', '<small class="mt-3 text-danger">', '</small>')); }
             if (!empty(form_error('txt_email'))) { $json_txt_email =  array('txt_email' => form_error('txt_email', '<small class="mt-3 text-danger">', '</small>')); }
-            if (!empty(form_error('txt_telefono'))) { $json_txt_telefono =  array('txt_telefono' => form_error('txt_telefono', '<small class="mt-3 text-danger">','</p>')); }
-            if (!empty(form_error('txt_extencion'))) { $json_txt_extencion =  array('txt_extencion' => form_error('txt_extencion', '<small class="mt-3 text-danger">','</p>')); }
             if (!empty(form_error('txt_celular'))) { $json_txt_celular =  array('txt_celular' => form_error('txt_celular', '<small class="mt-3 text-danger">','</p>')); }
             if (!empty(form_error('cmb_puesto'))) { $json_cmb_puesto =  array('cmb_puesto' => form_error('cmb_puesto', '<small class="mt-3 text-danger">', '</small>')); }            
             if (!empty(form_error('cmb_talla'))) { $json_cmb_talla =  array('cmb_talla' => form_error('cmb_talla', '<small class="mt-3 text-danger">', '</small>')); }
@@ -142,13 +137,18 @@ public function __construct(){
             if (!empty(form_error('txt_qr'))) { $json_txt_qr =  array('txt_qr' => form_error('txt_qr', '<small class="mt-3 text-danger">', '</small>' )); }
             if (!empty(form_error('file_identificacion'))) { $json_txt_identificacion =  array('file_identificacion' => form_error('file_identificacion', '<small class="mt-3 text-danger">', '</small>' )); }
             if (!empty(form_error('txt_identificacion'))) { $json_file_identificacion =  array('txt_identificacion' => form_error('txt_identificacion', '<small class="mt-3 text-danger">', '</small>' )); }
-        $json = array_merge($json_txt_telefono,$json_txt_extencion,$json_txt_cantidad_autos,$json_txt_cantidad_personas,$json_txt_nombre , $json_txt_segundo_nombre , $json_txt_apellidos , $json_txt_rfc , $json_txt_email , $json_txt_celular , $json_cmb_compania , $json_cmb_puesto , $json_cmb_talla , $json_txt_ciudad , $json_fecha_nacimiento , $json_txt_qr , $json_txt_identificacion,$json_file_identificacion);
+        $json = array_merge($json_txt_cantidad_autos,$json_txt_cantidad_personas,$json_txt_nombre  , $json_txt_rfc , $json_txt_email , $json_txt_celular , $json_cmb_compania , $json_cmb_puesto , $json_cmb_talla , $json_txt_ciudad , $json_fecha_nacimiento , $json_txt_qr , $json_txt_identificacion,$json_file_identificacion);
             return $json; } else { return 1; 
         }   
     }
     public function usuarios_maestro_pintor_registro_controller_guardar() {      
         
-        $valmp=''; $div =0;
+        $valmp=''; $div =0; $numero_tarjeta ='';
+        $cmb_tipo_tarjeta           = $this->input->post('cmb_tipo_tarjeta',TRUE);
+            if($cmb_tipo_tarjeta==2){ //2 digital
+               $numero_tarjeta =  $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_obtener_siguiente_tarjeta_numero();
+            if($numero_tarjeta==0){ $valuemp['estatus'] = 4; return $valuemp;} }
+
         $usuarios_registro_maestro_pintor_view_chk_whatsapp = $this->input->post('usuarios_registro_maestro_pintor_view_chk_whatsapp',true);
         $usuarios_registro_maestro_pintor_view_chk_email = $this->input->post('usuarios_registro_maestro_pintor_view_chk_email',true);        
         $fechanac           = $this->input->post('fecha_nacimiento',TRUE);
@@ -159,7 +159,11 @@ public function __construct(){
         $last_id = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_last_id();
        $contrasena_texto_plano = funciones_strategix_crear_password(6);
         $UsuarioDetalleClave = hash('sha256', $contrasena_texto_plano);
-        $dataDetalle        = "'".trim($this->input->post('txt_nombre',TRUE))."','".trim($this->input->post('txt_segundo_nombre',TRUE))."','".trim($this->input->post('txt_apellidos',TRUE))."','".trim($this->input->post('txt_email',TRUE))."','".trim($this->input->post('txt_telefono',TRUE))."','".trim($this->input->post('txt_extencion',TRUE))."','".trim($this->input->post('txt_celular',TRUE))."','".$txt_rfc."','".trim($this->input->post('txt_ciudad',TRUE))."','".trim($this->input->post('cmb_talla',TRUE))."','".$fechanac."','".trim($this->input->post('cmb_puesto',TRUE))."','".trim($this->input->post('txt_taller',TRUE))."','".trim($this->input->post('txt_cantidad_personas',TRUE))."','".trim($this->input->post('txt_cantidad_autos',TRUE))."','".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."','".$this->uniqueId."','".$observaciones."','".$UsuarioDetalleClave."'";    
+        $txt_celular = preg_replace('/\D/', '', $this->input->post('txt_celular', TRUE));
+        $txt_rfc = preg_replace('/\D/', '', $this->input->post('txt_rfc', TRUE));
+
+
+        $dataDetalle        = "'".trim($this->input->post('txt_nombre',TRUE))."','".trim($this->input->post('txt_email',TRUE))."','".trim($this->input->post('txt_celular',TRUE))."','".$txt_rfc."','".trim($this->input->post('txt_ciudad',TRUE))."','".trim($this->input->post('cmb_talla',TRUE))."','".$fechanac."','".trim($this->input->post('cmb_puesto',TRUE))."','".trim($this->input->post('txt_taller',TRUE))."','".trim($this->input->post('txt_cantidad_personas',TRUE))."','".trim($this->input->post('txt_cantidad_autos',TRUE))."','".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))."','".$this->uniqueId."','".$observaciones."','".$UsuarioDetalleClave."'";    
         $UsuarioId = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_insert_participante($dataHead, utf8_decode($dataDetalle),$iddistribuidora);
         if($UsuarioId!=0){
             if($this->input->post('chk_camara',true)== 1){
@@ -173,7 +177,7 @@ public function __construct(){
                 $identificacion           = "uploads/maestros_pintores/".$UsuarioId."/".funciones_strategix_fecha_hora_actual()."_".$UsuarioId."_identificacion.".$this->input->post('ext_file_identificacion',TRUE);
                 $this->base_controller_valida_crea_carpetas('maestros_pintores');
                 $direccion_documentos     = $this->base_controller_valida_crea_carpetas('maestros_pintores/'.$UsuarioId);
-                $file_identificacion      = funciones_strategix_fecha_hora_actual()."-".$UsuarioId."-identificacion";
+                $file_identificacion      = funciones_strategix_fecha_hora_actual()."_".$UsuarioId."_identificacion";
                 $resultado_identificacion = $this->base_controller_cargas_upload_archivo('file_identificacion', $direccion_documentos, '*', $file_identificacion);
                 if($resultado_identificacion['resultado']==0){
                     $valuemp['estatus'] = 2;
@@ -183,17 +187,44 @@ public function __construct(){
             }
             $this->session->set_userdata('s_maestropintorid',$UsuarioId);
             $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_usaurio_clave($UsuarioId,$identificacion);
-             $updateTarjeta = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_tarjeta($UsuarioId,$iddistribuidora,trim($this->input->post('txt_qr',TRUE)));
+           if($cmb_tipo_tarjeta==2){ //2 digital
+               $numero_tarjeta =  $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_obtener_siguiente_tarjeta_numero();
+            }else{ $numero_tarjeta = trim($this->input->post('txt_qr',TRUE)); }
+                       
+           if($cmb_tipo_tarjeta==2){ //2 digital
+              $updateTarjeta = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_tarjeta_digital($UsuarioId,$iddistribuidora,$numero_tarjeta);
+            }else{ 
+                $updateTarjeta = $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_tarjeta_fisica($UsuarioId,$iddistribuidora,$numero_tarjeta);
+             }
+                $resultado_envio_correo =null;
+                $res_curl['messages'][0]['status']['groupId'] = null;
+
+             if ($usuarios_registro_maestro_pintor_view_chk_whatsapp==1){
+            $celular = $this->input->post('txt_celular',TRUE);
+                   $res_curl =   $this->infobip_library->infobip_library_send_whatsapp(8,"+55".$this->input->post('txt_celular', true),'contrasena_bienvenida','"'.$nombre.'","'.$dataUsuarioDetalles['UsuarioDetalleUsuario'].'"','es',$this->uniqueId);
+                 //$res_curl =   $this->infobip_library->infobip_library_send_whatsapp(8,"+525526745070",'contrasena_bienvenida','"'.$this->input->post('txt_nombre',TRUE).'","'.$this->input->post('txt_email',TRUE).'"','es',$this->uniqueId);
+                
+                         if($res_curl['messages'][0]['status']['groupId'] != 1)
+                            {
+                             $valuemp['estatus'] = 2;
+                              $valuemp['res_text']= $res_curl['messages'][0]['status']['name'] .' - '. $res_curl['messages'][0]['status']['description'];
+                                return $valuemp;
+                            }
+        }
             if ($usuarios_registro_maestro_pintor_view_chk_email==1){
-                 $resultado_envio_correo = $this->usuarios_maestro_pintor_registro_controller_envio_correo_bienvenida($this->input->post('txt_nombre',TRUE),$this->input->post('txt_segundo_nombre',TRUE),$this->input->post('txt_apellidos',TRUE),$this->input->post('txt_email',TRUE),$contrasena_texto_plano);                 
-            }
-          
-            if($resultado_envio_correo){ 
-                $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_email($UsuarioId); 
-                $valuemp['estatus'] = 1;
+                 $resultado_envio_correo = $this->usuarios_maestro_pintor_registro_controller_envio_correo_bienvenida($this->input->post('txt_nombre',TRUE),$this->input->post('txt_email',TRUE),$contrasena_texto_plano,$numero_tarjeta);                 
+                 $this->usuarios_maestro_pintor_registro_model->usuarios_maestro_pintor_registro_model_update_email($UsuarioId); 
+               
+                 }          
+            if($resultado_envio_correo || $res_curl['messages'][0]['status']['groupId'] == 1){ 
+                 $valuemp['estatus'] = 1;
+                $valuemp['contrasena'] = $contrasena_texto_plano;
+                $valuemp['numero_tarjeta'] = $numero_tarjeta;
                 return $valuemp;              
             } else {
                 $valuemp['estatus'] = 2;
+                 $valuemp['contrasena'] = $contrasena_texto_plano;
+                $valuemp['numero_tarjeta'] = $numero_tarjeta;
               return $valuemp;              
             }
         }
@@ -278,10 +309,11 @@ public function __construct(){
         }    
         return $response;
     }    
-    public function usuarios_maestro_pintor_registro_controller_envio_correo_bienvenida($nombre,$segundonombre,$apellidos,$email,$contrasena) {
-        $nombrecompleto = $nombre.' '.$segundonombre.' '.$apellidos;
+    public function usuarios_maestro_pintor_registro_controller_envio_correo_bienvenida($nombre,$email,$contrasena,$numero_tarjeta) {
+        $nombrecompleto = $nombre;
         $data['nombre'] = $nombrecompleto;
         $data['email'] = $email;
+        $data['tarjeta'] = $numero_tarjeta;
        $data['pwd'] = $contrasena;
            $mail       = $this->load->view('mails/mails_usuarios/mails_usuarios_participantes/mails_usuarios_participantes_interno_registro_bienvenida' ,$data, TRUE);
         $to         = array('to' => $email,'cc'=>'','bcc'=>'');

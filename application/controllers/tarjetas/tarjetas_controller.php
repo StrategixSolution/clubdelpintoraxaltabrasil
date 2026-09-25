@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Tarjetas_controller extends Base_Controller {
@@ -28,7 +20,7 @@ class Tarjetas_controller extends Base_Controller {
         $where = $lista = "";
         $txt_distribuidor=null;
         $cmb_estatus            = $this->input->post('cmb_estatus',TRUE);
-        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) <= 4) {
+        if ($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) <= 3 || $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) == 10){ 
         $where                 .=($cmb_estatus==0)?"":" AND Tarjetas.TarjetaEstatusId = ".$cmb_estatus;
         }else{
             $distribuidoresid = $this->tarjetas_model->tarjetas_model_usuario_ditribuidor();
@@ -39,7 +31,7 @@ class Tarjetas_controller extends Base_Controller {
         $resultados_tabla_tarjetas = $this->tarjetas_model->tarjetas_model_lista($where); 
         foreach ($resultados_tabla_tarjetas as $row) {
 
-            if ($row->TarjetaFechaBaja==""){
+            if ($row->TarjetaFechaBaja=="" && $row->TarjetaEstatusId!=2) {
 
                 $btn_edicion    = "edicion";
                 $btn_baja       = '<a href="javascript:tarjetas_tabla_view_js_eliminar('.$row->TarjetaId.',\''.$row->TarjetaNumero.'\')"><i class="fas fa-trash"></i>';
@@ -48,7 +40,7 @@ class Tarjetas_controller extends Base_Controller {
                 $btn_edicion    ='';
                 $btn_baja       ='';
             }            
-            $nombre_usuario = $row->UsuarioDetalleNombre." ".$row->UsuarioDetalleSegundoNombre." ".$row->UsuarioDetalleApellidos;
+            $nombre_usuario = $row->UsuarioDetalleNombre;
             $lista.= '<tr id="id-tarjeta-td-'.$row->TarjetaId.'">
                         <td>'.utf8_encode(strtoupper($row->TarjetaNumero)).'</td>
                         <td>'.utf8_encode(strtoupper($row->DistribuidorDetalleCodigo)).'</td>

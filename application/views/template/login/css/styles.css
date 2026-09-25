@@ -1,11 +1,4 @@
-/* 
- * Sistema Web Responsivo CDPBR 					*
- * @author	Strategic Solutions S.A. de C.V             	* 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
- /* Regular*/
+/* Regular*/
  @font-face {
     font-family: 'Axalta';
     src: url('../fonts/NeoSansProRegular.OTF');
@@ -304,7 +297,7 @@ body {
     font-family: "Axalta", sans-serif !important;
     background-attachment: fixed;
 }
-  
+
 #login .login-container {
     display: grid;
     /*justify-content: center; */
@@ -520,7 +513,7 @@ body {
 ***********************************************/
 
 #password {
-    background-image: url(../imagenes/bgmain.jpg);
+    background-image: url(../imagenes/bgmain-br.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -598,11 +591,11 @@ body {
 }
 #password .form-login .btn-black{
     border-radius: 20px;
-    padding: 10px 70px;
+    /* padding: 10px 70px; */
 }
 #password .form-login .btn-gray{
     border-radius: 20px;
-    padding: 10px 70px;
+    /* padding: 10px 70px; */
 }
 #password .logo-main-responsive{
     display: none;
@@ -1205,4 +1198,27 @@ nav{
     .pll-5 {
     padding-left: 3rem;
 }
+}
+
+/********************************************
+   BOTONES RECUPERACIÓN CONTRASEÑA
+********************************************/
+
+.btn-buscar-posicion{
+    text-align:center;
+    margin-top:1.5em;
+}
+.btn-buscar-ancho{
+    width: 100%;
+}
+.btn-buscar-texto{
+    padding-left: 10px; 
+    font-size: 12px !important;
+}
+
+.pr-20{
+    padding-right: 20px;
+}
+.pl-20{
+    padding-left: 20px;
 }

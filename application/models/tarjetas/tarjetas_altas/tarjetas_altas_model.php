@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Tarjetas_altas_model extends Base_Model
@@ -15,7 +7,7 @@ class Tarjetas_altas_model extends Base_Model
         parent::__construct();
     }   
     public function distribuidores_alta_model_combo_distribuidores() {
-        $SQL = "SELECT Distribuidores.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleNombreComercial FROM Distribuidores INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId WHERE (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL) AND (Distribuidores.DistribuidorFechaBaja IS NULL) ";
+        $SQL = "SELECT Distribuidores.DistribuidorId, DistribuidoresDetalles.DistribuidorDetalleCodigo, DistribuidoresDetalles.DistribuidorDetalleNombreComercial, DistribuidoresDetalles.DistribuidorDetalleRazonSocial FROM Distribuidores INNER JOIN DistribuidoresDetalles ON Distribuidores.DistribuidorId = DistribuidoresDetalles.DistribuidorId WHERE (DistribuidoresDetalles.DistribuidorDetalleFechaBaja IS NULL) AND (Distribuidores.DistribuidorFechaBaja IS NULL) ";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return $query->result();    
@@ -29,7 +21,7 @@ class Tarjetas_altas_model extends Base_Model
     }    
     public function tarjetas_altas_model_crea_tabla($where){
         $SQL = "SELECT Tarjetas.TarjetaId, Tarjetas.TarjetaNumero, Tarjetas.DistribuidorId, FORMAT(Tarjetas.TarjetaFechaRegistro, 'dd/MM/yyyy') AS TarjetaFechaRegistro, Tarjetas.TarjetaEstatusId, TarjetasEstatus.TarjetaEstatusDescripcion, 
-                Tarjetas.TarjetaUsuarioIdCaptura, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, UsuariosDetalles.UsuarioDetalleApellidos, 
+                Tarjetas.TarjetaUsuarioIdCaptura, UsuariosDetalles.UsuarioDetalleNombre, 
                 UsuariosDetalles.UsuarioId,  DistribuidoresDetalles.DistribuidorDetalleNombreComercial,DistribuidoresDetalles.DistribuidorDetalleRazonSocial
                 FROM Tarjetas LEFT OUTER JOIN
                 Usuarios ON Usuarios.UsuarioId = Tarjetas.UsuarioId LEFT OUTER JOIN
@@ -42,9 +34,9 @@ class Tarjetas_altas_model extends Base_Model
         return $query->result();
     }
     public function tarjetas_altas_model_crea_tarjetas($values){
-        $SQL = "INSERT INTO tarjetas (TarjetaNumero, DistribuidorId, TarjetaUsuarioIdCaptura, TarjetaEstatusId) VALUES ($values)";
+        $SQL = "INSERT INTO Tarjetas (TarjetaNumero, DistribuidorId, TarjetaUsuarioIdCaptura, TarjetaEstatusId,TarjetasTipoId) VALUES ($values)";
         $this->db->query($SQL);
-        $SQL2  = "SELECT MAX(TarjetaId) as TarjetaId FROM tarjetas";
+        $SQL2  = "SELECT MAX(TarjetaId) as TarjetaId FROM Tarjetas";
         $query2    = $this->db->query($SQL2);
         //   echo  $this->db->last_query()."<br>"; 
         return $query2->row();

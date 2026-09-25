@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala	* 
- * @author	Strategic Solutions S.A. de C.V                 * 
- * @programmer  Luis Felipe Rangel                              * 
- * @CreateDate 18 jul. 2026 20:11:33                            * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ventas_cortes_ganadores_contoller_lang_titulo']                  = 'GERAÇÃO DE GANHADORES';
@@ -28,4 +21,4 @@ $lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_cuenta'] = 'TOTAL
 $lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_tarjeta'] = 'Nº CARTÃO';
 $lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_codigo'] = 'CÓDIGO';
 $lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_distribuidor'] = 'DISTRIBUIDOR';
-$lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_maestro_pintor'] = 'MESTRE PINTOR';
+$lang['ventas_cortes_ganadores_contoller_lang_datatable_titulo_maestro_pintor'] = 'PINTOR PARCEIRO';

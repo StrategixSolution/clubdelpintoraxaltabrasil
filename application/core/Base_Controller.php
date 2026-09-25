@@ -56,7 +56,8 @@ class Base_Controller extends CI_Controller {
             case 6: $menu = 'menu_administrador_distribuidor'; break;//ADMINISTRADOR DE DISTRIBUIDOR
             case 7: $menu = 'menu_personal_tienda'; break;//PERSONAL DE TIENDA
             case 8: $menu = 'menu_responsable_tienda'; break;//RESPONSABLE DE TIENDA
-            case 9: $menu = 'menu_maestro_pintor'; break;//MAESTRO PINTOR        
+            case 9: $menu = 'menu_maestro_pintor'; break;//MAESTRO PINTOR   
+            case 10: $menu = 'menu_administrador_strategix_sistemas'; break;//ADMINISTRADOR STRATEGIX SISTEMAS
         }
         return $this->load->view('template/sistema/menu/'.$menu,'',true);
     }
@@ -68,7 +69,7 @@ class Base_Controller extends CI_Controller {
             'protocol'      => "smtp",
             'smtp_host'     => "smtp-legacy.office365.com",
             'smtp_user'     => "contacto@clubdelpintoraxalta.com.mx",
-            'smtp_pass'     => "Goh62389",
+            'smtp_pass'     => "a82?Gx!41=EuN",
             'smtp_port'     => "587",
             'smtp_crypto'   => "tls",
             'mailtype'      => "html",
@@ -81,8 +82,8 @@ class Base_Controller extends CI_Controller {
         $this->email->subject($subject);
         $this->email->message($content);
         if ($file != ''){ $this->email->attach($file); }
-		//$this->email->to('luis.rangel@strategix.com.mx');
-        $this->email->to('luis.rangel@strategix.com.mx,luis.mandujano@strategix.com.mx,patricia.carteno@strategix.com.mx');
+		$this->email->to('luis.rangel@strategix.com.mx');
+       // $this->email->to('luis.rangel@strategix.com.mx,luis.mandujano@strategix.com.mx,patricia.carteno@strategix.com.mx,ejecutivocdpbrasil@strategix.com.mx');
 		/*$this->email->to($to['to']); 
 		if (array_key_exists('cc',$to) && $to['cc'] != "" ){ $this->email->cc($to['cc']); };
         $this->email->bcc('contacto@clubdelpintoraxalta.com.mx,patricia.carteno@strategix.com.mx');*/
@@ -111,7 +112,19 @@ class Base_Controller extends CI_Controller {
         return $data;
     }
     public function base_controller_valida_crea_carpetas($carpeta){
-        $folder = set_realpath('uploads/'.$carpeta); if(!is_dir($folder)){ mkdir($folder,777); } return $folder;
+        $carpeta = trim((string)$carpeta, "/\\");
+        $folder = FCPATH . 'uploads' . DIRECTORY_SEPARATOR . $carpeta . DIRECTORY_SEPARATOR;
+
+        if(!is_dir($folder)){
+            // Crea subcarpetas faltantes con permisos correctos para carga de archivos.
+            @mkdir($folder, 0775, true);
+        }
+
+        if(!is_writable($folder)){
+            @chmod($folder, 0775);
+        }
+
+        return $folder;
     }
     public function base_controller_cargas_upload_archivo($input_file_name,$directorio,$extenciones,$nombre_archivo){
         if(!empty($_FILES[$input_file_name]['name'])){
@@ -128,7 +141,7 @@ class Base_Controller extends CI_Controller {
                 $res['file_name']  = strtolower($filenewname);
                 $res['ext']  = strtolower($ext);
             } else {                
-                $res['msg'] = "Error al cargar el archivo ".$this->upload->display_errors();
+                $res['msg'] = "Error al cargar el arquivo ".$this->upload->display_errors();
                 $res['resultado']  = 0; 
             }
         } else {
@@ -192,20 +205,11 @@ class Base_Controller extends CI_Controller {
                 || uri_string() == 'UsuariosActualizarDatosValidaEmail'
                 || uri_string() == 'usuarios/usuarios_participantes/usuarios_participantes_cargar_cartas_controller/usuarios_participantes_cargar_cartas_controller_cargar_pdf'
                 || uri_string() == 'Registromaestropintorexterno'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_registro_mp_externo_controller_cmb_telefonias'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_registro_mp_externo_controller_cmb_distribuidora'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_registro_mp_externo_controller_valida_cp'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_participantes_externo_alta_obtener_datos_distribuidora'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_participantes_externo_alta_validar_formulario'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_participantes_externo_alta_registro'
                 || uri_string() == 'mails/mails_usuarios/mails_usuarios_participantes/mails_usuarios_participantes_externo/mails_usuarios_participantes_interno_registro_bienvenida'
                 || uri_string() == 'Registroexitoso'
                 || uri_string() == 'Registromaestropintorexternodatos'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_datosregistro_controller'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/registro_exitoso_maestro_pintor'
-                || uri_string() == 'usuarios/usuarios_registro_mp_externo/usuarios_registro_mp_externo_controller/usuarios_registro_mp_externo_controller_aceptar_registro'
                 || uri_string() == 'TutorialesAxaltaCDP'
+                || uri_string() == 'tutoriales/tutoriales_externos/tutoriales_externos_controller/tutoriales_externos_controller_modal'
                 ){
             return false;
         } else {
@@ -240,6 +244,10 @@ class Base_Controller extends CI_Controller {
     public function base_controller_valida_corte($tipo,$anio='',$mes='',$CorteIdOtro='') {
         return ($this->Base_Model->base_model_valida_corte($tipo,$anio,$mes,$CorteIdOtro)==0)?0:1;
     }
+
+    public function base_controller_valida_recompensas($anio='',$mes='',$mes_anterior='') {
+        return ($this->Base_Model->base_model_valida_recompensas($anio,$mes,$mes_anterior)==0)?0:1;
+    } 
     public function base_controller_valida_ventas($anio,$mes,$mes_anterior) {
         return ($this->Base_Model->base_model_valida_ventas($anio,$mes,$mes_anterior)==0)?0:1;
     }    

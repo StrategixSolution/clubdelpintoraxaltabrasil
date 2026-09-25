@@ -1,23 +1,16 @@
 <?php
 
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala
- * @author	Strategic Solutions S.A. de C.V  * 
- * @programmer  Amaury Leon Jimenez  * 
- * @CreateDate  15 junio 2026 1:03:17 *  
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['recompensas_controller_titulo']                                          = 'CARGA DE FAIXAS DE RECOMPENSAS';
+$lang['recompensas_controller_titulo']                                          = 'CARREGAR DE FAIXAS DE RECOMPENSAS';
 $lang['recompensas_controller_texto_seleccion']                                 = 'SELECIONE UMA OPÇÃO PARA INSERIR SUAS FAIXAS DE RECOMPENSAS:';
 
 $lang['recompensas_controller_etiqueta_simple']                                 = 'CADASTRO';
-$lang['recompensas_controller_etiqueta_multiple']                               = 'CARGA';
+$lang['recompensas_controller_etiqueta_multiple']                               = 'CARREGAR';
 $lang['recompensas_controller_etiqueta_ano']                                    = '*ANO:';
 $lang['recompensas_controller_etiqueta_mes']                                    = '*MÊS:';
 $lang['recompensas_controller_etiqueta_lugar']                                  = '*LUGAR:';
-$lang['recompensas_controller_etiqueta_tipo']                                   = '*TIPO:';
+$lang['recompensas_controller_etiqueta_tipo']                                   = '*TIPO DE REGISTRO:';
 $lang['recompensas_controller_etiqueta_rango_ini']                              = 'FAIXA INICIAL:';
 $lang['recompensas_controller_etiqueta_rango_fin']                              = 'FAIXA FINAL:';
 $lang['recompensas_controller_etiqueta_excel']                                  = 'ARQUIVO EXCEL:';
@@ -26,7 +19,7 @@ $lang['recompensas_controller_etiqueta_ejemplo']                                
 $lang['recompensas_controller_placeholder_anio']                                = 'SELECIONE UM ANO';
 $lang['recompensas_controller_placeholder_mes']                                 = 'SELECIONE UM MÊS';
 $lang['recompensas_controller_placeholder_lugar']                               = 'SELECIONE UM LUGAR';
-$lang['recompensas_controller_placeholder_tipo']                                = 'SELECIONE UM TIPO';
+$lang['recompensas_controller_placeholder_tipo']                                = 'SELECIONE UMA OPÇÃO';
 $lang['recompensas_controller_placeholder_rango_ini']                           = 'FAIXA INICIAL';
 $lang['recompensas_controller_placeholder_rango_fin']                           = 'FAIXA FINAL';
 
@@ -39,7 +32,7 @@ $lang['recompensas_controller_tabla_rango_ini']                                 
 $lang['recompensas_controller_tabla_rango_fin']                                 = 'FAIXA FINAL';
 $lang['recompensas_controller_tabla_observaciones']                             = 'OBSERVAÇÕES';
 
-$lang['recompensas_controller_msg_carga_exitosa']                               = 'CARGA CONCLUÍDA';
+$lang['recompensas_controller_msg_carga_exitosa']                               = 'CARREGAR CONCLUÍDA';
 $lang['recompensas_controller_msg_error_archivo']                               = 'O ARQUIVO CARREGADO TEM ERROS, VERIFIQUE O RELATÓRIO';
 $lang['recompensas_controller_no_cargo']                                        = 'O ARQUIVO NÃO FOI CARREGADO';
 $lang['recompensas_controller_mes_repetido']                                    = 'ESTE PERÍODO JÁ FOI CADASTRADO';

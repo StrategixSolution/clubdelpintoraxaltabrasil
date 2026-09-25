@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ventas_promociones_controller_lang_titulo']                                              = 'REGISTRO DE PROMOCIONES';
@@ -19,7 +11,7 @@ $lang['ventas_promociones_controller_lang_tabla_titulo_promocion']              
 $lang['ventas_promociones_controller_lang_tabla_titulo_descripcion']                            = 'DESCRIPCIÓN';
 $lang['ventas_promociones_controller_lang_tabla_titulo_gms']                                    = 'GMS';
 $lang['ventas_promociones_controller_lang_tabla_titulo_codigo']                                 = 'CÓDIGO';
-$lang['ventas_promociones_controller_lang_tabla_titulo_presentacion']                           = 'PRESENTACIÓN';
+$lang['ventas_promociones_controller_lang_tabla_titulo_presentacion']                           = 'VOLUMEN';
 $lang['ventas_promociones_controller_lang_tabla_titulo_cantidad']                               = 'CANTIDAD';
 $lang['ventas_promociones_controller_lang_js_btn_aceptar']                                      = 'ACEPTAR';
 $lang['ventas_promociones_controller_lang_js_btn_cancelar']                                     = 'CANCELAR';

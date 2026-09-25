@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPBR                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 MARZO 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ventas_personal_top_controller_lang_pagina_titulo']                                          = 'REPORTE DE VENTAS PERSONAL TOP 40';
@@ -81,7 +74,7 @@ $lang['ventas_personal_top_controller_lang_etiqueta_detalle']                   
 $lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_nombre']                         = 'NOMBRE:';
 $lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_email']                          = 'EMAIL:';
 $lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_celular']                        = 'CELULAR:';
-$lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_rfc']                            = 'NIT:';
+$lang['ventas_personal_top_controller_lang_etiqueta_maestro_pintor_rfc']                            = 'CPF:';
 $lang['ventas_personal_top_controller_lang_input_numero_tarjeta']                                   = '*NÚMERO DE TARJETA:';
 $lang['ventas_personal_top_controller_lang_tooltip_numero_tarjeta']                                 = '*CAMPO OBLIGATORIO *ESCANEA EL NÚMERO CON TU CÁMARA O ESCRIBE SOLO NÚMEROS MÁXIMO 6 DÍGITOS';
 $lang['ventas_personal_top_controller_lang_placeholder_numero_tarjeta']                             = 'NÚMERO DE TARJETA';

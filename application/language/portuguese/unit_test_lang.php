@@ -1,13 +1,4 @@
 <?php
-/**
- * System messages translation for CodeIgniter(tm)
- *
- * @author	CodeIgniter community
- * @author	Iban Eguia
- * @copyright	Copyright (c) 2014-2019, British Columbia Institute of Technology (https://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ut_test_name']		= 'Nombre del test';
@@ -15,7 +6,7 @@ $lang['ut_test_datatype']	= 'Tipo de datos del test';
 $lang['ut_res_datatype']	= 'Tipo de datos esperado';
 $lang['ut_result']			= 'Resultado';
 $lang['ut_undefined']		= 'Nombre del test indefinido';
-$lang['ut_file']			= 'Nombre del archivo';
+$lang['ut_file']			= 'Nombre del arquivo';
 $lang['ut_line']			= 'Número de línea';
 $lang['ut_passed']			= 'Correcto';
 $lang['ut_failed']			= 'Fallido';

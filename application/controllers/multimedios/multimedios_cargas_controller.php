@@ -354,7 +354,7 @@ class Multimedios_cargas_controller extends Base_Controller {
         } else { 
             $tipos = $this->input->post("multimedios_cargas_form_view_cmb_tipos",true);
             $file_array = pathinfo($_FILES["multimedios_cargas_form_view_file2"]["name"]);
-            $msg_error = 'TIPO DE ARCHIVO INVÁLIDO, SOLO USE JPG Y PNG.';
+            $msg_error = 'TIPO DE ARQUIVO INVÁLIDO, SOLO USE JPG Y PNG.';
             if ("jpg"==$file_array["extension"] or "png"==$file_array["extension"]){ $response = TRUE; } else {
                 $this->form_validation->set_message('multimedios_cargas_controller_valida_notificaciones_archivo_secundario', $msg_error); 
                 $response = FALSE;                 

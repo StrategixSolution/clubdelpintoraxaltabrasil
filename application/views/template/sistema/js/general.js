@@ -1,10 +1,3 @@
-/* 
- * Sistema Web Responsivo CDPBR 					*
- * @author	Strategic Solutions S.A. de C.V             	* 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
- 
 $(document).ready( function () { 
     $(".txt-mayus").keyup(function () { this.value = this.value.toLocaleUpperCase(); });
     $('[data-toggle="tooltip"]').tooltip({placement : 'top'}); 
@@ -73,6 +66,13 @@ function js_general_solo_alfanumerico(e,t) { //onKeyPress="return js_general_sol
     var key = String.fromCharCode(!e.charCode ? e.which : e.charCode); 
     if (!regex.test(key)) { e.preventDefault(); return false; }
 }
+function js_general_cep(e,t) { //onKeyPress="return js_general_solo_numero_guion(event,this)"
+    var regex = new RegExp("^[0-9-]+$"); 
+    var key = String.fromCharCode(!e.charCode ? e.which : e.charCode); 
+    if (!regex.test(key)) { e.preventDefault(); return false; }
+}
+
+
 function js_general_valida_uploads_archivos(elemanto,formatos,js_general_msg_tamanio,js_general_msg_formato){
     var elemnto_id = '#'+elemanto;
     $(elemnto_id).on('change', function(){

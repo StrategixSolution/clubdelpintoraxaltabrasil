@@ -696,7 +696,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <td align="left" style="padding:0;Margin:0;width:800px">
                                                         <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                                             <tr>
-                                                                <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="<?= base_url(funciones_strategix_version_url_random("application/views/template/sistema/imagenes/footer-mail.jpg")) ?>" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
+                                                                <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="<?= base_url(funciones_strategix_version_url_random("application/views/template/sistema/imagenes/footer-mail.png")) ?>" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
                                                            </tr>
                                                         </table>
                                                     </td>

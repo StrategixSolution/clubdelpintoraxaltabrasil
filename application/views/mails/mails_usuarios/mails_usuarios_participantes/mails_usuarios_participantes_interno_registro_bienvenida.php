@@ -229,9 +229,9 @@
 </head>
 
 <body class="body" style="width:100%;height:100%;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
-    <div dir="ltr" class="es-wrapper-color" lang="pt" style="background-color:#E9EAE7"><!--[if gte mso 9]>
+    <div dir="ltr" class="es-wrapper-color" lang="pt" style="background-color:#efefef"><!--[if gte mso 9]>
 			<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
-				<v:fill type="tile" color="#e9eae7"></v:fill>
+				<v:fill type="tile" color="#efefef"></v:fill>
 			</v:background>
 		<![endif]-->
         <table width="100%" cellspacing="0" cellpadding="0" class="es-wrapper" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:100%;background-repeat:repeat;background-position:center top">
@@ -416,7 +416,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td align="left" bgcolor="#efefef" class="bf bg be" style="padding:30px 0 25px 10px;Margin:0;background-color:#efefef"><!--[if mso]><table style="width:790px" cellpadding="0" cellspacing="0"><tr><td style="width:471px" valign="top"><![endif]-->
+                                        <td align="left" bgcolor="#e0dfdf" class="bf bg be" style="padding:30px 0 25px 10px;Margin:0;background-color:#e0dfdf"><!--[if mso]><table style="width:790px" cellpadding="0" cellspacing="0"><tr><td style="width:471px" valign="top"><![endif]-->
                                             <table cellpadding="0" cellspacing="0" align="left" class="p" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left">
                                                 <tr>
                                                     <td align="left" class="bh" style="padding:0;Margin:0;width:471px">
@@ -456,7 +456,7 @@
                                                     <td align="left" style="padding:0;Margin:0;width:800px">
                                                         <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                                             <tr>
-                                                                <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="https://zyiycm.stripocdn.email/content/guids/CABINET_f0171cd08479f55bffadad1e7be2f345090215ddf5298d8ed05129ce36eb6abd/images/footermail.png" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
+                                                                <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="<?= base_url(funciones_strategix_version_url_random("application/views/template/sistema/imagenes/footer-mail.png")) ?>" alt="" width="800" class="adapt-img" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none;margin:0"></td>
                                                             </tr>
                                                         </table>
                                                     </td>

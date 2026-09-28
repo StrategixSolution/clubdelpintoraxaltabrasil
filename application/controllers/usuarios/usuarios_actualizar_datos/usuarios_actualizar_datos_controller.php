@@ -32,7 +32,7 @@ class Usuarios_actualizar_datos_controller extends Base_Controller {
     private function usuarios_actualizar_datos_controller_set_rules() {
         $this->form_validation->set_rules('txt_nombre', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_nombre'), 'required|xss_clean|min_length[1]|regex_match[/^[a-zA-ZÑÁÉÍÓÚÜñáéíóú ,.]*$/u]');
          $this->form_validation->set_rules('txt_email', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_email'), 'required|valid_email|xss_clean|min_length[10]|max_length[50]|callback_usuarios_actualizar_datos_controller_valida_email_repetido');
-       $this->form_validation->set_rules('txt_celular', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_celular'), 'numeric|xss_clean|exact_length[10]|callback_usuarios_actualizar_datos_controller_valida_celular_repetido');
+       $this->form_validation->set_rules('txt_celular', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_celular'), 'numeric|xss_clean|exact_length[11]|callback_usuarios_actualizar_datos_controller_valida_celular_repetido');
         $this->form_validation->set_rules('txt_clave_nueva', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_clave'), 'required|xss_clean|trim|min_length[6]|callback_usuarios_actualizar_datos_controller_valida_clave');
         if($this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id'))>=6){
             $this->form_validation->set_rules('txt_rfc', $this->lang->line('usuarios_actualizar_datos_controller_lang_placeholder_rfc'), 'trim|min_length[10]|regex_match[/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/]|callback_usuarios_actualizar_datos_controller_valida_rfc');

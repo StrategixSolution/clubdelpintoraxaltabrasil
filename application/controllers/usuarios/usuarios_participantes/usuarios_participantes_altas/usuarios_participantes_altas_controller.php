@@ -164,8 +164,10 @@ class Usuarios_participantes_altas_controller extends Base_Controller {
     public function usuarios_participantes_altas_controller_guardar_participante() {
         $id_perfil = $this->input->post('cmb_perfil',TRUE);
         $id_distribuidora = $this->input->post('cmb_distribuidoras',TRUE);
+       if($id_perfil==6){
         $count_id = $this->usuarios_participantes_altas_model->participantes_altas_model_count_perfil($id_perfil,$id_distribuidora);
          if($count_id>0){ return 2; };
+            };
         $dataHead       = $this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",".$this->input->post('cmb_perfil',TRUE).",'".$this->uniqueId."'";
         $txt_rfc_trim           = trim($this->input->post('txtrfc',TRUE)); $txt_rfc_utf8_decode = utf8_decode($txt_rfc_trim); $txt_rfc = strtoupper($txt_rfc_utf8_decode);
         $contrasena_texto_plano = funciones_strategix_crear_password(6);

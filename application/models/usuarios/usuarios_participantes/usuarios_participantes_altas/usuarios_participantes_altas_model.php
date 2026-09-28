@@ -132,4 +132,17 @@ class Usuarios_participantes_altas_model extends Base_Model {
         //echo  $this->db->last_query()."<br>"; 
         return $query->row()->tot;           
     }
+
+     public function participantes_altas_model_count_perfil($id_perfil=0,$id_distribuidora=0){
+        $id_perfil_clean = $this->security->xss_clean($id_perfil); 
+        $id_distribuidora_clean = $this->security->xss_clean($id_distribuidora); 
+        $SQL = "SELECT count(Usuarios.UsuarioId) AS total FROM Usuarios 
+        INNER JOIN UsuariosDistribuidores on UsuariosDistribuidores.UsuarioId = Usuarios.UsuarioId 
+        WHERE (Usuarios.UsuarioFechaBajaParticipante IS NULL) 
+        AND (Usuarios.UsuarioFechaBajaDistribuidora IS NULL) 
+        AND (Usuarios.PerfilId = '$id_perfil_clean') AND (UsuariosDistribuidores.DistribuidorId = '$id_distribuidora_clean')";
+        $query	= $this->db->query($SQL);
+        //echo  $this->db->last_query()."<br>"; 
+        return $query->row()->total;           
+    }
 }

@@ -216,6 +216,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   }
                 });
                 break;
+                case 2:
+                Swal.fire({
+                  icon: 'error',
+                  title: '',
+                  text: 'JA EXISTE UM GERENTE DISTRIBUIDOR'
+                });
+                $("#usuarios_participantes_altas_distribuidor_view_boton_guardar").attr('disabled', false);
+                $('#loader_panel').hide();
+                break;
               case 4:
                 Swal.fire({
                   title: '',

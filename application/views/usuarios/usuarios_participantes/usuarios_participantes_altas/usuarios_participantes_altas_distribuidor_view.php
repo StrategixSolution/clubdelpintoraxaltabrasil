@@ -220,7 +220,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 Swal.fire({
                   icon: 'error',
                   title: '',
-                  text: 'JÁ EXISTE UM GERENTE DISTRIBUIDOR'
+                  text: 'JA EXISTE UM GERENTE DISTRIBUIDOR'
                 });
                 $("#usuarios_participantes_altas_distribuidor_view_boton_guardar").attr('disabled', false);
                 $('#loader_panel').hide();

@@ -333,7 +333,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     function distribuidores_alta_view_js_guardar() {
         $('#error').html(" ");
-        var data = '<table>';
+        var data = '<table class="table table-striped table-bordered" style="text-align:left;">';
         var txt_razon_social = $('#txt_razon_social').val();
         var txt_nombre_comercial = $('#txt_nombre_comercial').val();
         var txt_codigo_distribuidor = $('#txt_codigo_distribuidor').val();
@@ -348,20 +348,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
         var txt_telefono = $('#txt_telefono').val();
         var cmb_regiones = $('#cmb_regiones option:selected').text();
         var cmb_oficinas_venta = $('#cmb_oficinas_venta option:selected').text();
-        data = data + '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_razon_social') ?></b></td><td>' + txt_razon_social + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_nombre_comercial') ?></b></td><td>' + txt_nombre_comercial + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_distribuidor') ?></b></td><td>' + txt_codigo_distribuidor + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_agrupamiento') ?></b></td><td>' + cmb_agrupamiento + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_registro_federal') ?></b></td><td>' + txt_registro_federal + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_inscripcion_estatal') ?></b></td><td>' + txt_inscripcion_estatal + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_unidad_federativa') ?></b></td><td>' + cmb_unidad_federativa + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_ciudad') ?></b></td><td>' + txt_ciudad + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_barrio') ?></b></td><td>' + txt_barrio + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_direccion') ?></b></td><td>' + txt_direccion + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_postal') ?></b></td><td>' + txt_codigo_postal + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_telefono') ?></b></td><td>' + txt_telefono + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_combo_etiqueta_regiones') ?></b></td><td>' + cmb_regiones + '</td></tr>' +
-            '<tr><td><b><?= $this->lang->line('distribuidores_alta_controller_lang_combo_etiqueta_oficinas_venta') ?></b></td><td>' + cmb_oficinas_venta + '</td></tr>';
+        data = data + '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_razon_social') ?></b></td><td>' + txt_razon_social + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_nombre_comercial') ?></b></td><td>' + txt_nombre_comercial + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_distribuidor') ?></b></td><td>' + txt_codigo_distribuidor + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_agrupamiento') ?></b></td><td>' + cmb_agrupamiento + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_registro_federal') ?></b></td><td>' + txt_registro_federal + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_inscripcion_estatal') ?></b></td><td>' + txt_inscripcion_estatal + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_unidad_federativa') ?></b></td><td>' + cmb_unidad_federativa + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_ciudad') ?></b></td><td>' + txt_ciudad + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_barrio') ?></b></td><td>' + txt_barrio + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_direccion') ?></b></td><td>' + txt_direccion + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_codigo_postal') ?></b></td><td>' + txt_codigo_postal + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_input_telefono') ?></b></td><td>' + txt_telefono + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_combo_etiqueta_regiones') ?></b></td><td>' + cmb_regiones + '</td></tr>' +
+            '<tr><td class="txt-right"><b><?= $this->lang->line('distribuidores_alta_controller_lang_combo_etiqueta_oficinas_venta') ?></b></td><td>' + cmb_oficinas_venta + '</td></tr>';
         data = data + '</table>';
         Swal.fire({
             title: '<?= $this->lang->line('participantes_altas_js_confirm_titulo') ?>',

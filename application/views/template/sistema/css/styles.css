@@ -1493,3 +1493,42 @@ table.dataTable th, table.dataTable td{
     background-color: var(--rojo);
     border-color: var(--rojo);
 }
+
+/* Modal registro distribuidores */
+
+.swal2-html-container table tbody th,
+.swal2-html-container table td,
+.swal2-html-container table {
+    border: 2px solid #e2e5e9 !important;
+    border-collapse: collapse;
+}
+
+/* .swal2-html-container table th,
+.swal2-html-container table td {
+    text-align: left !important;
+    vertical-align: top;
+} */
+
+.swal2-html-container table td,
+.swal2-html-container table th {
+    white-space: nowrap !important;
+    padding: 0.325rem 0.575rem !important;
+}
+
+.swal2-popup {
+    max-width: none !important;      
+    width: auto !important;          
+}
+
+.swal2-html-container {
+    overflow-x: visible !important;
+    padding: 1rem 1.5rem !important; 
+}
+
+@media (max-width: 576px) {
+    .swal2-popup { max-width: 95vw !important; }
+    .swal2-html-container .table-bordered td,
+    .swal2-html-container .table-bordered th {
+        white-space: normal !important; 
+    }
+}

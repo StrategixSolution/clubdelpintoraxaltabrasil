@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala	* 
- * @author	Strategic Solutions S.A. de C.V                 * 
- * @programmer  Luis Felipe Rangel                              * 
- * @CreateDate 7 nov. 2026 12:04:13                             * 
- */
-
 class infobip_library{
     
     /**
@@ -128,14 +121,10 @@ class infobip_library{
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        $response  = curl_exec($ch);
-        if($response === false){ echo 'Curl error: ' . curl_error($ch); } else { echo 'Operación completada sin errores res: '.$response; }
-        echo "<br>curl_getinfo: ";
-        print_r(curl_getinfo($ch));    
-        echo "<br><br>Response: ";
-        var_dump($response);
+         $response  = curl_exec($ch);
+        $response_array = json_decode($response, true);
         curl_close($ch);   
-        return $response;
+        return $response_array;
     }    
     /**
      * Cretae body of whatsapp -> infobip_library_send_whatsapp_body

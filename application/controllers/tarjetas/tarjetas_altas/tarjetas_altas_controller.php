@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') or exit('No direct script access allowed');
 class Tarjetas_altas_controller extends Base_Controller
 {
@@ -22,9 +14,14 @@ class Tarjetas_altas_controller extends Base_Controller
     public function tarjetas_altas_controller_combo_distribuidor(){
         $combo_distribuidores= ""; 
         $distribuidoras         = $this->tarjetas_altas_model->distribuidores_alta_model_combo_distribuidores();
-        foreach ($distribuidoras as $distribuidora) {            
-                $combo_distribuidores .="<option value=$distribuidora->DistribuidorId>".$distribuidora->DistribuidorDetalleCodigo." ".utf8_encode(strtoupper($distribuidora->DistribuidorDetalleNombreComercial))."</option>";
-            }        
+        foreach ($distribuidoras as $distribuidora) {
+            $nombre = !empty($distribuidora->DistribuidorDetalleNombreComercial)
+                ? $distribuidora->DistribuidorDetalleCodigo . ' - ' . $distribuidora->DistribuidorDetalleNombreComercial
+                : $distribuidora->DistribuidorDetalleCodigo . ' - ' . $distribuidora->DistribuidorDetalleRazonSocial;
+            $combo_distribuidores .= '<option value="' . $distribuidora->DistribuidorId . '">' .
+                strtoupper(utf8_encode($nombre)) .
+                '</option>';
+        }
         echo json_encode($combo_distribuidores);
     }
     public function tarjetas_altas_controller_tabla(){
@@ -32,12 +29,12 @@ class Tarjetas_altas_controller extends Base_Controller
         $txt_tarjeta_final              = trim($this->input->post('fin', true));
         $combo_distribuidores           = $this->input->post('cmb_distribuidor', true);
         $lista = $where = ""; 
-        $where = 'AND  Tarjetas.TarjetaNumero BETWEEN ' . $txt_tarjeta_inicial . ' AND ' . $txt_tarjeta_final . ' AND Tarjetas.DistribuidorId = ' . $combo_distribuidores;
+        $where = 'AND  Tarjetas.TarjetaNumero BETWEEN ' . $txt_tarjeta_inicial . ' AND ' . $txt_tarjeta_final ;
         $tarjetas      = $this->tarjetas_altas_model->tarjetas_altas_model_crea_tabla($where);
       // print_r(count($tarjetas));die;
         if (count($tarjetas) == 0) {
             for ($tarjeta_count = $txt_tarjeta_inicial; $tarjeta_count <= $txt_tarjeta_final; $tarjeta_count++) {
-                $data_inserta_tarjetas = $tarjeta_count . "," . $combo_distribuidores . "," . $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) . ", 1";
+                $data_inserta_tarjetas = $tarjeta_count . "," . $combo_distribuidores . "," . $this->session->userdata(funciones_strategix_sitio_alias('s_perfil_id')) . ", 1,1";
                 $tarjetasId = $this->tarjetas_altas_model->tarjetas_altas_model_crea_tarjetas($data_inserta_tarjetas);
                 $where = 'AND  Tarjetas.TarjetaNumero =' . $tarjeta_count ;
                 $res2 = $this->tarjetas_altas_model->tarjetas_altas_model_crea_tabla($where);
@@ -69,7 +66,7 @@ class Tarjetas_altas_controller extends Base_Controller
                     $TarjetaDis     = $datos->DistribuidorId;
                     $TarjetaRS      = $datos->DistribuidorDetalleRazonSocial;
                     $TarjetaUsId    = ($datos->UsuarioId)?$datos->UsuarioId:"&nbsp";
-                    $nombreMP       = $datos->UsuarioDetalleNombre . ' ' . $datos->UsuarioDetalleSegundoNombre . ' ' . $datos->UsuarioDetalleApellidos ;
+                    $nombreMP       = $datos->UsuarioDetalleNombre;
                     $TarjetaNombre  = ($datos->UsuarioDetalleNombre) ? $nombreMP : "&nbsp";
                     $Tarjetafecha   = $datos->TarjetaFechaRegistro;
                     $TarjetaStatus  = $datos->TarjetaEstatusDescripcion;

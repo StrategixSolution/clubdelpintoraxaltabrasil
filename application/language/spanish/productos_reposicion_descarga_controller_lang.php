@@ -1,11 +1,4 @@
 <?php
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala  *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 4 abr. 2026 15:31:56                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['productos_reposicion_descarga_controller_lang_pagina_titulo']                 = 'DESCARGA DE REGISTRO DE PREMIOS ENTREGADOS';

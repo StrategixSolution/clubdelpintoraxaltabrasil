@@ -1,12 +1,5 @@
 <?php
 
-/*
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             *
- * @programmer  Luis Felipe Rangel                          *
- * @CreateDate 09 MARZO 2026 09:00:00                       *
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $autoload['packages']   = array();
@@ -48,6 +41,20 @@ $autoload['language']   = array(
     'tarjetas_controller_lang',
     'ventas_registro_controller_lang',
     'multimedios_cargas_controller_lang',
-    'ventas_cortes_apertura_cierre_controller_lang'
+    'ventas_cortes_apertura_cierre_controller_lang',
+    'reportes_distribuidores_controller_lang',
+    'reportes_maestro_pintores_controller_lang',
+    'reportes_ventas_registradas_controller_lang',
+    'distribuidores_alta_controller_lang',
+    'distribuidores_controller_lang',
+    'distribuidores_modificacion_controller_lang',
+    'usuarios_participantes_altas_controller_lang',
+    'usuarios_participantes_controller_lang',
+    'usuarios_participantes_modificacion_controller_lang',
+    'reportes_ventas_auditoria_controller_lang',
+    'reportes_usuarios_participantes_controller_lang',
+    'mail_promocion_bimestral_controller_lang',
+    'ganadores_bimestrales_controller_lang',
+    'reportes_auditoria_promociones_controller_lang'
     );
 $autoload['model']      = array();

@@ -30,29 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="error"></div>
                         </div>
                     </div>
-                    <div class="dyncol col-lg-3" id="div_segundo_nombre">
-                        <div class="form-group">
-                            <label for="txt_segundonombre">Segundo Nombre: <span data-toggle='tooltip' title='*MÁXIMO 100 CARACTERES *SOLO TEXTO'><i class="fas fa-question-circle"></i></span></label>
-                            <input type="text" name="txt_segundonombre" id="txt_segundonombre" class="form-control txt-mayus" placeholder="<?=$this->lang->line('usuarios_registro_maestro_pintor_placeholder_segundo_nombre')?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
-                            <div class="error"></div>
-                        </div>
-                    </div>
-                    <div class="dyncol col-lg-3">
-                        <div class="form-group">
-                            <label for="txt_apellidopaterno">Apellido Paterno: <span data-toggle='tooltip' title='*MÁXIMO 100 CARACTERES *CAMPO OBLIGATORIO *SOLO TEXTO'><i class="fas fa-question-circle"></i></span></label>
-                            <input type="text" name="txt_apellidopaterno" id="txt_apellidopaterno" class="form-control txt-mayus" placeholder="<?=$this->lang->line('usuarios_registro_maestro_pintor_placeholder_apaterno')?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
-                            <div class="error"></div>
-                        </div>
-                    </div>
                 </div>
                 <div class="row row-validator">
-                    <div class="dyncol col-lg-3">
-                        <div class="form-group">
-                            <label for="txt_apellidomaterno">Apellido Materno: <span data-toggle='tooltip' title='*MÁXIMO 100 CARACTERES *CAMPO OBLIGATORIO *SOLO TEXTO'><i class="fas fa-question-circle"></i></span></label>
-                            <input type="text" name="txt_apellidomaterno" id="txt_apellidomaterno" class="form-control txt-mayus" placeholder="<?=$this->lang->line('usuarios_registro_maestro_pintor_placeholder_amaterno')?>" onKeyPress="return js_general_solo_texto_espacios(event,this)" maxlength="100">
-                            <div class="error"></div>
-                        </div>
-                    </div>
                     <div class="dyncol col-lg-3" >
                         <div class="form-group">
                             <label for="txt_celular">Celular: <span data-toggle='tooltip' title='*10 CARACTERES *SOLO NÚMEROS *CAMPO OBLIGATORIO'><i class="fas fa-question-circle"></i></span></label>
@@ -96,6 +75,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
+                <div class="row row-validator">
+              <div class="col-lg-3">
+                <div>ENVIAR POR:</div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-check mt-0">
+                  <input type="checkbox" id="usuarios_registro_maestro_pintor_view_chk_email"
+                    name="usuarios_registro_maestro_pintor_view_chk_email" value="1" class="form-check-input">
+                  <label for="" class="form-check-label"> CORREO ELECTRÓNICO</label>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-check mt-0">
+                  <input type="checkbox" id="usuarios_registro_maestro_pintor_view_chk_whatsapp"
+                    name="usuarios_registro_maestro_pintor_view_chk_whatsapp" value="1" class="form-check-input">
+                  <label for="chk_archivo" class="form-check-label"> WHATSAPP</label><br>
+                </div>
+              </div>
+            </div>
+            <br>
                     <div class="row row-validator">
                         <div class="col-lg-4"><b>SELECCIONA UNA OPCIÓN PARA AGREGAR LA FOTO DEL INE DEL MAESTRO PINTOR:</b></div>
                         <div class="col-md-3">
@@ -105,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <div class="form-check form-check-inline">
                                 <input type="checkbox" id="chk_archivo" name="chk_archivo" value="1">
-                                <label for="chk_archivo"> ARCHIVO</label>
+                                <label for="chk_archivo"> ARQUIVO</label>
                             </div>
                             <br>
                         </div>
@@ -134,9 +133,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>          
                     <div class="col-lg-6" id="div_ine_archivo" style="display: none;">
                         <div class="form-group">
-                            <label for="txt_ine_archivo">INE: <span data-toggle='tooltip' title='EL FORMATO DEL ARCHIVO DEBE SER PDF, PNG, JPG, JPEG Y SU TAMAÑO MENOR A 4MB.'><i class="fas fa-question-circle"></i></span></label>
+                            <label for="txt_ine_archivo">INE: <span data-toggle='tooltip' title='EL FORMATO DEL ARQUIVO DEBE SER PDF, PNG, JPG, JPEG Y SU TAMAÑO MENOR A 4MB.'><i class="fas fa-question-circle"></i></span></label>
                             <input type="file" name="txt_ine_archivo" id="txt_ine_archivo" class="form-control" placeholder="INE">
-                            <small class="txt-10"><b>Verifica que la foto no sea borrosa. Archivos permitidos PDF, JPG, PNG, JPEG (El archivo no debe superar 4 MB)</b></small>
+                            <small class="txt-10"><b>Verifica que la foto no sea borrosa. Arquivos permitidos PDF, JPG, PNG, JPEG (El arquivo no debe superar 4 MB)</b></small>
                             <div class="error"></div>
                         </div>
                     </div>   
@@ -180,12 +179,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     $(document).ready(function() {
 
+    $('#usuarios_registro_maestro_pintor_view_chk_email').prop('checked', true);
+    /**************************************************************************************************************************************/
+    $('#usuarios_registro_maestro_pintor_view_chk_email').on('change', function () {
+      if ($('#usuarios_registro_maestro_pintor_view_chk_email').prop('checked')) {
+        $('#usuarios_registro_maestro_pintor_view_chk_whatsapp').prop('checked', false).removeAttr('checked');
+      }
+    });
+    $('#usuarios_registro_maestro_pintor_view_chk_whatsapp').on('change', function () {
+      if ($('#usuarios_registro_maestro_pintor_view_chk_whatsapp').prop('checked')) {
+        $('#usuarios_registro_maestro_pintor_view_chk_email').prop('checked', false).removeAttr('checked');
+      }
+    });
+
         $("#tarjeta_view_btn_qr").click(function(){ ine_view_js_modal_qr(); });
         $("#ine_view_boton_guardar_foto").click(function(){ ine_view_js_camara(); });
 
         $('#txt-qr').on('change', function(){ ine_view_js_valida_qr(); });        
         $('#chk_camara').prop('checked',true);
-        js_general_valida_uploads_archivos('txt_ine_archivo',['pdf','png','jpg','jpeg'],'EL ARCHIVO SUPERA EL LÍMITE PERMITIDO','SOLO SE PERMITEN ARCHIVOS CON EXTENSIÓN PDF, PNG, JPG O JPEG');     
+        js_general_valida_uploads_archivos('txt_ine_archivo',['pdf','png','jpg','jpeg'],'EL ARQUIVO SUPERA EL LÍMITE PERMITIDO','SOLO SE PERMITEN ARQUIVOS CON EXTENSIÓN PDF, PNG, JPG O JPEG');
 
 
         let iduser = $("#idu").val();

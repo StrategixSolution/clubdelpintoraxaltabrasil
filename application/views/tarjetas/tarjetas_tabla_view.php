@@ -61,11 +61,7 @@
                                 cancelButtonText: ''
                             }).then((validacionaltaparticipante) => {
                                 if (validacionaltaparticipante.isConfirmed) {
-                                    $(idtde).html('<?= $this->lang->line('tarjetas_controller_lang_lang_tabla_estatus_baja') ?>');
-                                    $(idtdb).html('');
-                                    if ($('#cmb_estatus').val() == 1) {
-                                        $(idtdr).remove();
-                                    }
+                                    tarjetas_form_view_js_buscar_tabla();
                                 }
                             });
                         } else {}

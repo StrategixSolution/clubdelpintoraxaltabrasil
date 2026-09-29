@@ -1,11 +1,4 @@
 <?php
-/* 
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 4 May. 2026 15:31:56                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Productos_reposicion_captura_controller extends Base_Controller {
@@ -99,7 +92,7 @@ class Productos_reposicion_captura_controller extends Base_Controller {
         $participante 	= $this->productos_reposicion_captura_model->productos_reposicion_captura_model_cmb_participantes($this->input->post("mes"),$anio,$this->input->post("cmb_distribuidor"));
         $cmbParticipante ="<option  value='0'>".$this->lang->line('productos_reposicion_captura_controller_lang_placeholder_participante')."</option>";      
         foreach ($participante as $par) { 
-            $nombre = " LUGAR: ".$par->ReposicionProductoGanadorPremioLugar." - ".utf8_encode($par->UsuarioDetalleNombre)." ".utf8_encode($par->UsuarioDetalleSegundoNombre)." ".utf8_encode($par->UsuarioDetalleApellidos);
+            $nombre = " LUGAR: ".$par->ReposicionProductoGanadorPremioLugar." - ".utf8_encode($par->UsuarioDetalleNombre);
             $cmbParticipante .= "<option value=$par->ReposicionProductoGanadorId>$nombre</option>";                      
         }
         echo json_encode($cmbParticipante);

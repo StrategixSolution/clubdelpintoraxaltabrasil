@@ -1,22 +1,15 @@
 <?php
 
-/*
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             *
- * @programmer  Luis Felipe Rangel                          *
- * @CreateDate 01 MARZO 2026 09:00:00                       *
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ventas_cortes_bimestral_controller_lang_titulo']                               = 'CORTE DE VENDAS BIMESTRAL';
 $lang['ventas_cortes_bimestral_controller_lang_combo_anio']                           = 'ANO:';
 $lang['ventas_cortes_bimestral_controller_lang_select_combo_anio']                    = 'SELECIONE UM ANO';
-$lang['ventas_cortes_bimestral_controller_lang_combo_periodo']                        = 'PERÍODO:';
+$lang['ventas_cortes_bimestral_controller_lang_combo_periodo']                        = 'PERÍODO (MÊS DE REFERÊNCIA):';
 $lang['ventas_cortes_bimestral_controller_lang_select_combo_periodo']                 = 'SELECIONE UM PERÍODO';
 
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_venta']         = 'ID VENDA';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_usuario']       = 'ID MESTRE PINTOR';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_usuario']       = 'ID PINTOR PARCEIRO';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_nombre_pintor']    = 'NOME DO PINTOR';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus_mp']       = 'STATUS MP';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_id_distribuidor']  = 'ID DISTRIBUIDOR';
@@ -26,11 +19,15 @@ $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_nombre_comerc
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_region_distri']    = 'REGIÃO DISTRIBUIDORA';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus_distri']   = 'STATUS DISTRIBUIDORA';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_numero_ticket']    = 'NÚMERO DE TICKETS';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_ticket']     = 'VALOR DO TICKET';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_ticket']     = 'VALOR DO COMPROVANTE';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_monto']             = 'TOTAL PREÇOS UNITÁRIOS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_cantidad']          = 'TOTAL QUANTIDADES';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_total_litros']            = 'TOTAL LITROS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_promociones']             = 'PROMOÇÃO';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_mes']              = 'MÊS';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_estatus']          = 'STATUS';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria']        = 'STATUS AUDITORIA';
-$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha']            = 'DATA DE CADASTRO';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_auditoria']        = 'STATUS DA AUDITORIA';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ventas_titulo_fecha']            = 'DATA DE REGISTRO';
 
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_id_distribuidor']      = 'ID DISTRIBUIDOR';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_codigo']               = 'CÓDIGO DO DISTRIBUIDOR';
@@ -38,12 +35,16 @@ $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_razon_social']   
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_nombre_comercial']     = 'NOME COMERCIAL';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_region_distri']        = 'REGIÃO DISTRIBUIDORA';
 $lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_estatus_distri']       = 'STATUS DISTRIBUIDORA';
-$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_id_usuario']           = 'ID MESTRE PINTOR';
-$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_nombre_pintor']        = 'NOME DO MESTRE PINTOR';
-$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_estatus']              = 'STATUS MP';
-$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_cantidad_tickets']     = 'QUANTIDADE DE TICKETS';
-$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_monto_tickets']        = 'VALOR DOS TICKETS';
-$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_premio']               = 'PRÊMIO';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_id_usuario']           = 'ID PINTOR PARCEIRO';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_nombre_pintor']        = 'NOME DO PINTOR PARCEIRO';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_numero_tickets']        = 'NÚMERO DE TICKET';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_cantidad_tickets']      = 'TOTAL CANTIDADES';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_monto_tickets']         = 'MONTO TICKETS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_precio_unitario']       = 'TOTAL PRECIOS UNITARIOS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_cantidad_productos']    = 'CANTIDAD TOTAL PRODUCTOS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_precio_total']          = 'PRECIO TOTAL';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_total_litros']          = 'TOTAL LITROS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_mp_titulo_premio']                = 'PREMIO';
 
 $lang['ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_id_distribuidor']  = 'ID DISTRIBUIDOR';
 $lang['ventas_cortes_bimestral_controller_lang_excel_perfil_titulo_codigo']           = 'CÓDIGO DO DISTRIBUIDOR';
@@ -66,8 +67,50 @@ $lang['ventas_cortes_bimestral_controller_lang_excel_ds_titulo_region_distri']  
 $lang['ventas_cortes_bimestral_controller_lang_excel_ds_titulo_estatus_distri']        = 'STATUS DISTRIBUIDORA';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ds_titulo_cantidad_tickets']     = 'QUANTIDADE DE TICKETS';
 $lang['ventas_cortes_bimestral_controller_lang_excel_ds_titulo_monto_tickets']        = 'VALOR DOS TICKETS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ds_titulo_precio_unitario']       = 'TOTAL PREÇOS UNITÁRIOS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ds_titulo_ganador']               = 'VENCEDOR';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ds_titulo_total_litros']          = 'TOTAL LITROS';
+$lang['ventas_cortes_bimestral_controller_lang_excel_ds_titulo_cantidad_productos']    = 'QUANTIDADE TOTAL DE PRODUTOS';
 
 $lang['ventas_cortes_bimestral_controller_lang_js_msg_error_corte']                   = 'O CORTE JÁ EXISTE';
 $lang['ventas_cortes_bimestral_controller_lang_js_msg_error_cambio_estatus']          = 'A MUDANÇA DE STATUS DAS VENDAS NÃO FOI REALIZADA';
 $lang['ventas_cortes_bimestral_controller_lang_js_msg_error_auditoria']               = 'AS VENDAS NÃO FORAM AUDITADAS';
 $lang['ventas_cortes_bimestral_controller_lang_js_msg_creacion_corte']                = 'CORTE CRIADO COM SUCESSO';
+
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_id_distribuidora']           = 'ID DISTRIBUIDOR';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_codigo']                     = 'CÓDIGO DISTRIBUIDOR';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_razon_social']               = 'NOME DA EMPRESA';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_nombre_distribuidor']        = 'NOME COMERCIAL';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_id_usuario']                 = 'ID USUARIO';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_maestro_pintor']             = 'PINTOR PARCEIRO';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_tarjeta']                    = 'N° CARTÃO';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_ticket']                     = 'N° TÍQUETE';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_monto_ticket']               = 'VALOR TOTAL DO TÍQUETE';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_linea']                     = 'LINHA DE PRODUTO';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_sector']                     = 'SETOR';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_clase']                      = 'CLASSE';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_marca']                      = 'MARCA';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_descripcion']                = 'DESCRIÇÃO';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_presentacion']               = 'APRESENTAÇÃO';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_cantidad']                   = 'QUANTIDADE';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_precio']                     = 'PREÇO';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_precio_total']               = 'PREÇO TOTAL';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_fecha_registro']             = 'DATA DE REGISTRO';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_estatus']                    = 'ESTADO AUDITORIA';
+$lang['reportes_productos_registrados_controller_lang_tabla_titulo_total_litros']               = 'TOTAL LITROS';
+
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_id_distribuidor']       = 'ID DISTRIBIDOR';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_codigo']                = 'CÓDIGO DISTRIBUIDOR';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_razon_social']          = 'NOME DA EMPRESA';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_nombre_comercial']      = 'NOME COMERCIAL';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_cantidad_tickets']      = 'NÚMERO DE TÍQUETES';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_monto_tickets']         = 'VALOR DOS TÍQUETES';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_cantidad_productos']    = 'QUANTIDADE TOTAL DE PRODUTOS';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_total_litros']          = 'TOTAL LITROS';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_precio_unitario']       = 'TOTAL PREÇOS UNITÁRIOS';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_ganador']               = 'VENCEDOR';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_total_litros']          = 'TOTAL LITROS';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_clase']                 = 'CLASSE';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_total_litros']          = 'TOTAL LITROS';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_clase']                 = 'CLASSE';
+$lang['ventas_cortes_bimestral_controller_lang_excelds_titulo_precio_unitario']       = 'TOTAL PREÇOS UNITÁRIOS';

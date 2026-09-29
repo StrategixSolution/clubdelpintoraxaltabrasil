@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala	* 
- * @author	Strategic Solutions S.A. de C.V                 * 
- * @programmer  Luis Felipe Rangel                              * 
- * @CreateDate 18 jul. 2026 20:11:33                            * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ventas_cortes_ganadores_contoller_lang_titulo']                  = 'GENERACIÓN DE GANADORES';

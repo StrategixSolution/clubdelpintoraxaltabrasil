@@ -1,16 +1,20 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPMEX                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 MARZO 2026 09:00:00                       * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
+
 <section id="inicio" class="home">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <img src="application/views/template/sistema/imagenes/welcome.jpeg" 
+                     class="img-fluid" 
+                     alt="Imagen fija">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section id="inicio" class="home">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -35,4 +39,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-</section>
+</section> -->

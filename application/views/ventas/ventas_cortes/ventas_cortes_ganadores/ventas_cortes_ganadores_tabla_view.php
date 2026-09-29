@@ -1,12 +1,5 @@
 <?php
 
-/*
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             *
- * @programmer  Luis Felipe Rangel                          *
- * @CreateDate 01 ABRIL 2026 09:00:00 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
@@ -33,7 +26,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         dom: '<"row"<"col-xs-4 col-md-4"l><"col-xs-4 col-md-4 botones"B><"col-md-4"f>>rt<"row"<"col-md-6"i><"col-md-6"p>>',
         buttons: [{
             extend: 'excelHtml5',    
-            text: 'DESCARGAR <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
+            customizeData: function(data) {
+                    for (var i = 0; i < data.body.length; i++) {
+                        for (var j = 0; j < data.body[i].length; j++) {
+                            if (data.body[i][j] === null || data.body[i][j] === '') {
+                                data.body[i][j] = ' ';
+                            }
+                        }
+                    }
+                },
+            text: 'BAIXAR <span class="iconify" data-icon="file-icons:microsoft-excel" style=font-size:20px;"></span>',
             className:'btn btn-axalta',
             title: '',
             filename: 'CorteGanadores',

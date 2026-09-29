@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPBR  *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 4 May. 2026 15:31:56                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Productos_reposicion_captura_model extends Base_Model {	
@@ -14,7 +7,7 @@ class Productos_reposicion_captura_model extends Base_Model {
         parent::__construct();
     }
     public function productos_reposicion_captura_model_ganador($ReposicionProductoGanadorTotalProductoPremio,$ReposicionProductoGanadorFechaEntregaTienda,$ReposicionProductoGanadorId,$ReposicionProductoPremioProductoId,$DistribuidorId){
-        $sql= "UPDATE ReposicionesProductosGanadores SET ReposicionProductoGanadorUsuarioNombreEntregaTienda='".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_nombre'))."',ReposicionProductoGanadorFechaEntregaRegistro=GETDATE(),ReposicionProductoGanadorFechaEntregaTienda = '$ReposicionProductoGanadorFechaEntregaTienda', ReposicionProductoGanadorUsuarioIdEntregaTienda = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",ReposicionProductoGanadorTotalProductoPremio = $ReposicionProductoGanadorTotalProductoPremio,ReposicionProductoPremioProductoId=$ReposicionProductoPremioProductoId WHERE ReposicionProductoGanadorId=$ReposicionProductoGanadorId AND DistribuidorId=$DistribuidorId";
+        $sql= "UPDATE ReposicionesProductosGanadores SET ReposicionProductoGanadorUsuarioNombreEntregaTienda='".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_nombre'))."',ReposicionProductoGanadorFechaEntregaRegistro=DATEADD(hour, 3, GETDATE()),ReposicionProductoGanadorFechaEntregaTienda = '$ReposicionProductoGanadorFechaEntregaTienda', ReposicionProductoGanadorUsuarioIdEntregaTienda = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",ReposicionProductoGanadorTotalProductoPremio = $ReposicionProductoGanadorTotalProductoPremio,ReposicionProductoPremioProductoId=$ReposicionProductoPremioProductoId WHERE ReposicionProductoGanadorId=$ReposicionProductoGanadorId AND DistribuidorId=$DistribuidorId";
         $this->db->query($sql);
 //        echo  $this->db->last_query()."<br>";         
         return 1;
@@ -46,8 +39,7 @@ class Productos_reposicion_captura_model extends Base_Model {
         return $query->result();    
     }
     public function productos_reposicion_captura_model_cmb_participantes($mes,$anio,$idDitri){
-        $SQL = "SELECT distinct       ReposicionesProductosGanadores.ReposicionProductoGanadorId, ReposicionesProductosGanadores.ReposicionProductoGanadorPremioLugar, ReposicionesProductosGanadores.TarjetaId, UsuariosDetalles.UsuarioDetalleNombre, UsuariosDetalles.UsuarioDetalleSegundoNombre, 
-                         UsuariosDetalles.UsuarioDetalleApellidos
+        $SQL = "SELECT distinct       ReposicionesProductosGanadores.ReposicionProductoGanadorId, ReposicionesProductosGanadores.ReposicionProductoGanadorPremioLugar, ReposicionesProductosGanadores.TarjetaId, UsuariosDetalles.UsuarioDetalleNombre
                 FROM     ReposicionesProductosGanadores INNER JOIN
                          Tarjetas ON ReposicionesProductosGanadores.TarjetaId = Tarjetas.TarjetaId INNER JOIN
                          Usuarios ON Tarjetas.UsuarioId = Usuarios.UsuarioId INNER JOIN
@@ -83,7 +75,7 @@ AND ReposicionesProductosGanadores.ReposicionProductoGanadorAnio = $anio ;";
         return $query->row()->ReposicionProductoPremioProductoDescripcion;    
     }
     public function productos_reposicion_captura_model_ganador_lugar($ReposicionProductoGanadorId){
-        $SQL = "SELECT ReposicionProductoGanadorId,ReposicionProductoPremioProductoId,ReposicionProductoGanadorAnio,ReposicionProductoGanadorMes,ReposicionProductoGanadorPremioLugar,ReposicionProductoGanadorFechaRegistro,ReposicionProductoGanadorUsuarioIdRegistro,ReposicionProductoGanadorUsuarioNombreRegistro,ReposicionProductoGanadorFechaEntregaTienda,ReposicionProductoGanadorUsuarioIdEntregaTienda,ReposicionProductoGanadorUsuarioNombreEntregaTienda,ReposicionProductoGanadorTotalProductoPremio,ReposicionProductoGanadorTotalSumaVentas,ReposicionProductoGanadorTotalCuentaVentas,ReposicionProductoGanadorObservaciones,DistribuidorId,DistribuidorDetalleCodigo,DistribuidorDetalleNombreComercial,TarjetaId,RecompensaTipoId,UsuarioId,UsuarioNombre FROM ReposicionesProductosGanadores
+        $SQL = "SELECT ReposicionProductoGanadorId,ReposicionProductoPremioProductoId,ReposicionProductoGanadorAnio,ReposicionProductoGanadorMes,ReposicionProductoGanadorPremioLugar,ReposicionProductoGanadorFechaRegistro,ReposicionProductoGanadorUsuarioIdRegistro,ReposicionProductoGanadorFechaEntregaTienda,ReposicionProductoGanadorUsuarioIdEntregaTienda,ReposicionProductoGanadorUsuarioNombreEntregaTienda,ReposicionProductoGanadorTotalProductoPremio,ReposicionProductoGanadorTotalSumaVentas,ReposicionProductoGanadorTotalCuentaVentas,ReposicionProductoGanadorObservaciones,DistribuidorId,TarjetaId,RecompensaTipoId,UsuarioId FROM ReposicionesProductosGanadores
                 WHERE ReposicionProductoGanadorId = $ReposicionProductoGanadorId";
         $query	= $this->db->query($SQL);
         //echo  $this->db->last_query()."<br>"; 

@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPBR                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 May 2026 09:00:00                         * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Productos_reposicion_relacion_premios_productos_model extends Base_Model {	
@@ -50,7 +42,7 @@ class Productos_reposicion_relacion_premios_productos_model extends Base_Model {
         return $query->result();
     }    
     public function productos_reposicion_relacion_premios_productos_model_update($cmb_lugar) {
-        $SQL    = "UPDATE ReposicionesProductosPremiosProductosRelaciones SET ReposicionProductoPremioProductoRelacionFechaBaja =  GETDATE(),ReposicionProductoPremioProductoRelacionUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE ReposicionProductoPremioId = $cmb_lugar";
+        $SQL    = "UPDATE ReposicionesProductosPremiosProductosRelaciones SET ReposicionProductoPremioProductoRelacionFechaBaja =  DATEADD(hour, 3, GETDATE()),ReposicionProductoPremioProductoRelacionUsuarioIdBaja = ".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))." WHERE ReposicionProductoPremioId = $cmb_lugar";
         $query	= $this->db->query($SQL);
 //        echo  $this->db->last_query()."<br>"; 
         return 1;

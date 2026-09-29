@@ -55,6 +55,6 @@ $lang['usuarios_participantes_altas_controller_lang_tabla_js_msg_swal_guardado']
 $lang['usuarios_participantes_altas_controller_lang_tabla_js_msg_swal_ok']                   = 'OK';
 $lang['usuarios_participantes_altas_controller_lang_input_rfc']                              = 'CPF:';
 $lang['usuarios_participantes_altas_controller_lang_error_rfc']                              = 'EL CAMPO CPF ES OBLIGATORIO';
-$lang['usuarios_participantes_altas_controller_lang_tooltip_rfc']                            = '*MÍNIMO 4 CARACTERES MÁXIMO 25 *ALFANUMÉRICO';
+$lang['usuarios_participantes_altas_controller_lang_tooltip_rfc']                            = '*MÍNIMO 4 CARACTERES MÁXIMO 25 *ALFANUMÉRICO *CAMPO OBLIGATORIO';
 $lang['usuarios_participantes_altas_controller_lang_placeholder_rfc']                        = 'CPF';
 $lang['usuarios_participantes_altas_controller_lang_msg_rfc_repetido']                       = 'EL CPF %1$s YA EXISTE EN LA BASE DE DATOS FAVOR DE CAPTURAR OTRO';

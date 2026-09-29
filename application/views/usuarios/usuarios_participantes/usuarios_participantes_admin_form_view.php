@@ -61,7 +61,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script>
     $(document).ready(function() {
         var perfil = '<?= $perfil ?>';
-        if (perfil == 8) {
+        if (perfil == 6) {
             $('#div_distribuidoras').hide();
             $('#div_perfiles').hide();
             $('#div_estatus').hide();

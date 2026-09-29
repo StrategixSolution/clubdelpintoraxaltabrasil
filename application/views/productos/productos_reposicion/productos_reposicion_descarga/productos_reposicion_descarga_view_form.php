@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <select name="cmb_anio" id="cmb_anio" class="form-select"></select>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <div class="form-group" style="display: none;" id="div_mes">
                             <label for="cmb_mes"><?= $this->lang->line('productos_reposicion_descarga_controller_lang_etiqueta_periodo') ?></label>
                             <select name="cmb_mes" id="cmb_mes" class="form-select"></select>
@@ -36,7 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <select name="cmb_distribuidora" id="cmb_distribuidora" class="form-select"></select>
                         </div>
                     </div>
-                    <div class="col-lg-2" style="display: none;" id="div_cmbtipo">
+                    <div class="col-lg-3" style="display: none;" id="div_cmbtipo">
                         <div class="form-group">
                             <label for="cmb_tipo"><?= $this->lang->line('productos_reposicion_descarga_controller_lang_etiqueta_tipo') ?></label>
                             <select name="cmb_tipo" id="cmb_tipo" class="form-select"></select>

@@ -4,20 +4,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <form enctype="multipart/form-data" id="promocion_bimestral_form_view" role="form" method="post" accept-charset="utf-8">
     <section class="PromocionBimestral">
-       <div class="panel-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2><?= $this->lang->line('mail_promocion_bimestral_controller_lang_titulo') ?></h2>
+        <div class="panel-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2><?= $this->lang->line('mail_promocion_bimestral_controller_lang_titulo') ?></h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         <div class="container">
             <div class="panel-white">
                 <div class="row">
                     <div class="col-lg-2">
-                        <div class="form-group"  id="div_anio">
+                        <div class="form-group" id="div_anio">
                             <label
                                 for="cmb_anio"><?= $this->lang->line('mail_promocion_bimestral_controller_lang_etiqueta_anio') ?></label>
                             <select name="cmb_anio" id="cmb_anio" class="form-select"></select>
@@ -43,7 +43,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="form-group">
                             <button type="submit" id="ventas_registradas_mp_btn_buscar" class="btn btn-axalta btn-buscar-ancho"
                                 style="margin-top: 1.68em;"><i class="far fa-save"></i><span class="btn-buscar-texto"><?= $this->lang->line('mail_promocion_bimestral_controller_lang_etiqueta_btn_guardar') ?></span>
-                                </button>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -64,14 +64,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </section>
 </form>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         promocion_bimestral_controller_js_crear_cmbanio();
         promocion_bimestral_controller_check_perfil();
-        $("#promocion_bimestral_form_view").submit(function (event) {
+        $("#promocion_bimestral_form_view").submit(function(event) {
             event.preventDefault();
         });
 
-        $('#cmb_anio').on('change', function () {
+        $('#cmb_anio').on('change', function() {
             var anio = $('#cmb_anio').val();
             if (anio == 0) {
                 $('#div_mes').hide(300);
@@ -83,7 +83,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $('#div_mes').show(300);
             }
         });
-        $('#cmb_mes').on('change', function () {
+        $('#cmb_mes').on('change', function() {
             var mes = $('#cmb_mes').val();
             if (mes == 0) {
                 $('#div_archivo').hide(300);
@@ -96,7 +96,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $('#div_buscar').show(300);
             }
         });
-        $("#ventas_registradas_mp_btn_buscar").click(function () {
+        $("#ventas_registradas_mp_btn_buscar").click(function() {
             promocion_bimestral_controller_js_crear_tabla();
         });
     });
@@ -109,13 +109,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             data: {
                 id: 0
             },
-            success: function (data) {
+            success: function(data) {
                 $('#cmb_anio').empty();
                 $('#cmb_anio').html(data);
                 $('#div_anio').show(300);
             },
-            error: function (data) { },
-            complete: function () { }
+            error: function(data) {},
+            complete: function() {}
         });
     }
 
@@ -128,12 +128,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
             data: {
                 anio: anio
             },
-            success: function (data) {
+            success: function(data) {
                 $('#cmb_mes').empty();
                 $('#cmb_mes').html(data);
             },
-            error: function (data) { },
-            complete: function () { }
+            error: function(data) {},
+            complete: function() {}
         });
     }
 
@@ -143,16 +143,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
         var extPermitidas = /(.jpeg|.jpg|.png|.gif)$/i;
         var formData = new FormData($("#promocion_bimestral_form_view")[0]);
         var checkbox = document.getElementsByName('perfil[]');
-       var contador = 0;
-    for(var i=0; i< checkbox.length; i++) {
-        if(checkbox[i].checked)
-            contador++ }
+        var contador = 0;
+        for (var i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].checked)
+                contador++
+        }
         var cmb_tipo = $('#cmb_tipo').val();
         var fecha_inicio = $('#fecha_inicio').val();
         var fecha_fin = $('#fecha_fin').val();
         var text_area = $('#text_area').val();
         var file = $('#file').val();
-        if(contador ==0){
+        if (contador == 0) {
             Swal.fire({
                 icon: 'error',
                 allowOutsideClick: false,
@@ -186,7 +187,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 cache: false,
                 contentType: false,
                 processData: false,
-                success: function (data) {
+                success: function(data) {
                     if (data.resultados == 1) {
                         Swal.fire({
                             icon: 'error',
@@ -214,13 +215,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         $('#tablaPromocionBimestral').html(data);
                     }
                 },
-                error: function (data) { },
-                complete: function () {
+                error: function(data) {},
+                complete: function() {
                     $('#loader_panel').hide();
                 }
             });
         }
     }
+
     function promocion_bimestral_controller_check_perfil() {
         $('#loader_panel').show();
         $.ajax({
@@ -230,8 +232,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             data: {
                 id: 0
             },
-            success: function (data) {
-                $.each(data, function (d, v) {
+            success: function(data) {
+                $.each(data, function(d, v) {
                     let htmlTags = `<div class="col"  style="border:1px solid #c82127; border-radius:10px; margin:5px 10px;">
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" id="${d}" name="perfil[]" value="${d}" style="margin:6px 0px 0px 0px;">
@@ -242,8 +244,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     $('#check_perfil .row').append(htmlTags);
                 });
             },
-            error: function (data) { console.log(data); },
-            complete: function () {
+            error: function(data) {
+                console.log(data);
+            },
+            complete: function() {
                 $('#loader_panel').hide();
             }
         });

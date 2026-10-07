@@ -551,7 +551,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                                         <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="<?= funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/footer-gif-mails-automaticos.gif") ?>" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="600"></td>
+                                                                                    <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="<?= funciones_strategix_version_url_random_base_url("application/views/template/sistema/imagenes/footer-mail.png") ?>" alt="" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="600"></td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>

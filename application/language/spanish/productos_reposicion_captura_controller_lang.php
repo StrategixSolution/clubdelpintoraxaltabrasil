@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Guatemala  *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 4 abr. 2026 15:31:56                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['productos_reposicion_captura_controller_lang_titulo']                                 = 'REPOSICIÓN DE PRODUCTOS';
@@ -29,7 +21,7 @@ $lang['productos_reposicion_captura_controller_lang_etiqueta_frase']            
 $lang['productos_reposicion_captura_controller_lang_etiqueta_firma']                         = 'FIRMAS';
 $lang['productos_reposicion_captura_controller_lang_etiqueta_ganador']                       = 'GANADORES';
 
-$lang['productos_reposicion_captura_controller_lang_msg_error_no_acceso']                    = 'EL MÓDULO ESTÁ TEMPORALMENTE DESACTIVADO';
+$lang['productos_reposicion_captura_controller_lang_msg_error_no_acceso']                    = 'EL SEÇÃO ESTÁ TEMPORALMENTE DESACTIVADO';
 $lang['productos_reposicion_captura_controller_lang_msg_succes']                             = 'DATOS GUARDADOS CORRECTAMENTE';
 $lang['productos_reposicion_captura_controller_lang_msg_succes_fotos']                       = 'IMÁGENES CARGADAS';
 $lang['productos_reposicion_captura_controller_lang_msg_reposicion_canjeada']                = 'PREMIO CANJEADO';
@@ -48,3 +40,5 @@ $lang['productos_reposicion_captura_controller_lang_form_validate_mes']         
 $lang['productos_reposicion_captura_controller_lang_form_validate_participante']             = 'PARTICIPANTE';
 $lang['productos_reposicion_captura_controller_lang_form_validate_division']                 = 'DIVISIÓN';
 $lang['productos_reposicion_captura_controller_lang_form_validate_fecha_entrega']            = 'FECHA DE ENTREGA';
+$lang['productos_reposicion_captura_controller_lang_placeholder_distribuidor']                        = 'SELECCIONA UN DISTRIBUIDOR';
+$lang['productos_reposicion_captura_controller_lang_placeholder_anio']                        = 'SELECCIONA UN AÑO';

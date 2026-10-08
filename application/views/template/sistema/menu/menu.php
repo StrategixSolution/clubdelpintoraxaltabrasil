@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 09 MARZO 2026 09:00:00                       * 
- */
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 ?>
@@ -39,7 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </div>
                             </div>
                             <div class="col-lg-2 logout">
-                                <a href="logout"><span>SALIR </span> | <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
+                                <a href="logout"><span>CANCELAR </span> | <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -56,8 +49,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <ul class="navbar-nav">
                         <li class="nav-item" id="nav_contacto"><a class="nav-link" aria-current="page" href="<?php echo funciones_strategix_version_url_random_base_url("Reglas") ?>"><?=$this->lang->line('menu_reglas')?></a></li>  
                         <li class="nav-item" id="nav_contacto"><a class="nav-link" aria-current="page" href="<?php echo funciones_strategix_version_url_random_base_url("Productos") ?>"><?=$this->lang->line('menu_productos')?></a></li>  
-                      <!--  <li class="nav-item" id="nav_noticias"><a class="nav-link" href="<?php echo funciones_strategix_version_url_random_base_url("NoticiasCirculares") ?>">NOTICIAS</a></li> 
-                        <li class="nav-item" id="nav_tutoriales"><a class="nav-link" href="<?php echo funciones_strategix_version_url_random_base_url("TutorialesInternos") ?>">TUTORIALES</a></li> -->
+                      <!--  <li class="nav-item" id="nav_tutoriales"><a class="nav-link" href="<?php echo funciones_strategix_version_url_random_base_url("TutorialesInternos") ?>"><?=$this->lang->line('menu_tutoriales')?></a></li> -->
+                        <li class="nav-item" id="nav_noticias"><a class="nav-link" href="<?php echo funciones_strategix_version_url_random_base_url("NoticiasCirculares") ?>"><?=$this->lang->line('menu_noticias')?></a></li>
+                        
                         <!-- <li class="nav-item dropdown" id="nav_catalogos">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$this->lang->line('menu_bases_programas')?></a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

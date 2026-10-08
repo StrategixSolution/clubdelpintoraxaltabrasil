@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPMEX                    *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 ABRIL 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ventas_auditoria_envio_correos_controller extends Base_Controller {
@@ -104,7 +96,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
                     <td>'.utf8_encode(strtoupper($row->ProductoClaseDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper($row->ProductoMarcaDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleCantidad)).'</td>   
-                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleLitros)).'</td>
+                    <td class="txt-center">'.utf8_encode(strtoupper($row->VentaDetalleGalonDescripcion)).'</td>
                     <td class="txt-center">'.utf8_encode(strtoupper(number_format($row->VentaDetalleMonto,2))).'</td>
                     <td class="txt-center">'.utf8_encode(number_format($total_producto,2)).'</td>
                 </tr>' ;
@@ -166,7 +158,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
         $datos_tabla = $this->ventas_auditoria_envio_correos_controller_envio_correo_tabla($VentaId);$correo='';
         $distirbuidores = $this->ventas_auditoria_envio_correos_model->ventas_auditoria_envio_correos_model_datos_distribuidor($datos_tabla["DistribuidorId"]);
         foreach ($distirbuidores as $row) {
-            $nombre = utf8_encode(strtoupper($row->UsuarioDetalleNombre)) . " " . utf8_encode(strtoupper($row->UsuarioDetalleSegundoNombre)) . " " . utf8_encode(strtoupper($row->UsuarioDetalleApellidos));
+            $nombre = utf8_encode(strtoupper($row->UsuarioDetalleNombre));
             $correo .= $row->UsuarioDetalleEmail.',';            
         }
         $correo = substr ($correo, 0, strlen($correo) - 1);  
@@ -197,7 +189,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
         $datos      = array('distribuidora' => $distribuidor, 'nombre' => $email, 'tabla' => $lista, 'mestxt' => $mes);
         $mail       = $this->load->view('mails/mails_ventas/mails_ventas_auditoria/mails_ventas_auditoria_envio_correos/mails_ventas_auditoria_envio_correos_view' ,$datos, TRUE);
         $to         = array('to' => $email,'cc'=>'','bcc'=>$this->config->item('bcc'));
-        $this->base_controller_envio_correos($to,'AUDITORÍA CLUB DEL PINTOR AXALTA', $mail, '');
+        $this->base_controller_envio_correos($to,'AUDITORIA DO CLUBE DE PINTORES AXALTA', $mail, '');
         return 1;
     }
 
@@ -229,7 +221,7 @@ class Ventas_auditoria_envio_correos_controller extends Base_Controller {
             $dat     = array('distribuidora' => "$nom_dist", 'tabla' => $lista, 'mestxt' => $mestxt,'nombre' => $mail_string);
             $mail       = $this->load->view('mails/mails_ventas/mails_ventas_auditoria/mails_ventas_auditoria_envio_correos/mails_ventas_auditoria_envio_correos_view' ,$dat, TRUE);
         $to         = array('to' => $mail_string,'cc'=>'ejecutivodecuenta@clubdelpintoraxalta.com.mx','bcc'=>$this->config->item('bcc'));
-          $this->base_controller_envio_correos($to,'AUDITORÍA CLUB DEL PINTOR AXALTA', $mail, '');
+          $this->base_controller_envio_correos($to,'AUDITORIA DO CLUBE DE PINTORES AXALTA', $mail, '');
         return 1;
     }
 }

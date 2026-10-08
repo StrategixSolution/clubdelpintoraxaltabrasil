@@ -1,13 +1,4 @@
 <?php
-/**
- * System messages translation for CodeIgniter(tm)
- *
- * @author	CodeIgniter community
- * @author	Iban Eguia
- * @copyright	Copyright (c) 2014-2019, British Columbia Institute of Technology (https://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['db_invalid_connection_str'] = 'No ha sido posible determinar la configuración de la base de datos basada en la cadena de conexión introducida.';
@@ -27,7 +18,7 @@ $lang['db_transaction_failure'] = 'Fallo de transacción: Rollback realizado.';
 $lang['db_unable_to_drop'] = 'No ha sido posible borrar la base de datos especificada.';
 $lang['db_unsupported_feature'] = 'Característica no soportada de la plataforma de bases de datos que estás usando.';
 $lang['db_unsupported_compression'] = 'El formato de compresión elegido no está soportado por el servidor.';
-$lang['db_filepath_error'] = 'No ha sido posible escribir los datos en la ruta de archivo especificada.';
+$lang['db_filepath_error'] = 'No ha sido posible escribir los datos en la ruta de arquivo especificada.';
 $lang['db_invalid_cache_path'] = 'La ruta de la caché introducida no es válida o escribible.';
 $lang['db_table_name_required'] = 'Se requiere un nombre de tabla para esa operación.';
 $lang['db_column_name_required'] = 'Se requiere un nombre de columna para esa operación.';

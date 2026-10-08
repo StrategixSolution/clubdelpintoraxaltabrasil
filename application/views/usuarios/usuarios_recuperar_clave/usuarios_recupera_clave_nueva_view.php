@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * Sistema Web Responsivo CDPMEX                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                       * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
@@ -17,9 +10,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <section id="login">
     <div class="login-container animate__animated animate__fadeIn">
         <div class="row">            
-            <div class="col-lg-6 col-12 txt-center">
+            <div class="col-lg-6 col-12 txt-center d-flex align-items-center justify-content-center">
                 <div class="logo-main">
-                    <img src="application/views/template/login/imagenes/logo.png" alt="">
+                    <img src="application/views/template/login/imagenes/logo.png" alt="" style="width: 15rem;">
                     <h2><?=$this->lang->line('usuarios_recupera_clave_nueva_controller_lang_nueva_marca')?></h2>
                 </div>
                 <div class="logo-main-responsive">
@@ -39,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" style="padding-left: 50px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="logo-secondary">
@@ -57,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <div class="row justify-content-center mt-20 form-login">
-                    <div class="col-lg-8 col-11">
+                    <div class="col-lg-8 col-11 mb-4">
                         <div class="form-recovery animate__animated animate__zoomIn" id="axa-form">
                             <p></p>  
                             <div class="form-group mb-0">
@@ -78,9 +71,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-8 mt-30">
+                    <div class="col-lg-6 col-12 mt-30">
                         <div class="botones animate__animated animate__zoomIn">
-                            <button type="button" id="button_crea_clave" class="btn btn-axalta btn-lg" pb-role="submit"><?=$this->lang->line('usuarios_recupera_clave_controller_lang_msg_btn_guardar')?></button>
+                            <button type="button" id="button_crea_clave" class="btn btn-black" pb-role="submit"><?=$this->lang->line('usuarios_recupera_clave_controller_lang_msg_btn_guardar')?></button>
                         </div>
                     </div>
                 </div>             

@@ -1,13 +1,4 @@
 <?php
-/**
- * System messages translation for CodeIgniter(tm)
- *
- * @author	CodeIgniter community
- * @author	Iban Eguia
- * @copyright	Copyright (c) 2014-2019, British Columbia Institute of Technology (https://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['imglib_source_image_required'] = 'Debes especificar una imagen fuente en las preferencias.';
@@ -18,7 +9,7 @@ $lang['imglib_gif_not_supported'] = 'Las imágenes GIF no suelen estar soportada
 $lang['imglib_jpg_not_supported'] = 'Las imágenes JPG no están soportadas.';
 $lang['imglib_png_not_supported'] = 'Las imágenes PNG no están soportadas.';
 $lang['imglib_jpg_or_png_required'] = 'El protocolo de redimensión de imagen especificado en las preferencias solo funciona con imágenes JPEG o PNG.';
-$lang['imglib_copy_error'] = 'Se ha encontrado un error al intentar reemplazar el archivo. Por favor, asegúrate de que la carpeta es escribible.';
+$lang['imglib_copy_error'] = 'Se ha encontrado un error al intentar reemplazar el arquivo. Por favor, asegúrate de que la carpeta es escribible.';
 $lang['imglib_rotate_unsupported'] = 'Parece que la rotación de imágenes no está soportada en el servidor.';
 $lang['imglib_libpath_invalid'] = 'La ruta a la librería de imagen no es correcta. Por favor, configura la ruta correcta en las preferencias de imagen.';
 $lang['imglib_image_process_failed'] = 'Ha fallado el tratamiento de la imagen. Por favor, verifica que el servidor soporta el protocolo elegido y que la ruta a la librería de imagen es correcta.';

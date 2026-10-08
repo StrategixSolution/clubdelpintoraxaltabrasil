@@ -4,3 +4,4 @@ uploads/
 vendors/
 application/config/config.php
 application/core/Base_Controller.php
+application/libraries/Base_Email.php

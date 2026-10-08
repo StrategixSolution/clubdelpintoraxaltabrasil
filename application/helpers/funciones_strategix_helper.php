@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo CDPBR                            *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 09 MARZO 2026 09:00:00                       * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 function funciones_strategix_normalizar_cadena($cadenaOrigen){
@@ -28,7 +20,8 @@ function funciones_strategix_crear_user($txt_nom,$txt_ap,$Id) {
     return funciones_strategix_normalizar_cadena(mb_strtolower(substr($txt_nom, 0, 1).substr(str_replace(" ", "_", $txt_ap),0,3))).$Id;  
 }
 function funciones_strategix_formato_fecha_hora_actual() {    
-    $fecha_actual = date('Y-m-dTH:i:s');
+    $fecha_actual = date('Y-m-d\TH:i:s');
+    $fecha_horario = $fecha_actual; // Inicializar con el valor por defecto
     if(strpos($fecha_actual, "CST") !== false){
         $fecha_horario = str_replace("CST","T",$fecha_actual);
     } else if(strpos($fecha_actual, "MDT") !== false){ 
@@ -41,7 +34,8 @@ function funciones_strategix_formato_fecha_hora_actual() {
     return $fecha_horario;
 }
 function funciones_strategix_convertir_fecha_hora_actual($fecha_hora) {    
-    $fecha = date('Y-m-dTH:i:s', strtotime($fecha_hora));
+    $fecha = date('Y-m-d\TH:i:s', strtotime($fecha_hora));
+    $fecha_horario = $fecha; // Inicializar con el valor por defecto
     if(strpos($fecha, "CST") !== false){
         $fecha_horario = str_replace("CST","T",$fecha);
     } else if(strpos($fecha, "MDT") !== false){ 

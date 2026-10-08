@@ -1,12 +1,4 @@
 <?php
-
-/* 
- * Sistema Web Responsivo Club Del Pintor Axalta Latam      *
- * @author	Strategic Solutions S.A. de C.V             * 
- * @programmer  Luis Felipe Rangel                          * 
- * @CreateDate 01 Mar. 2026 09:00:00                        * 
- */
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ventas_registro_controller extends Base_Controller {
@@ -24,38 +16,45 @@ class Ventas_registro_controller extends Base_Controller {
         $pag = $this->load->view('modals/modals_ventas/modals_ventas_registro/modals_ventas_registro_qr_view', '', true);
         echo json_encode($pag);   
     }
-
     public function ventas_registro_controller_cmb_distribuidor() {  
         $cmb_dist ="";
         $distribuidor =  $this->ventas_registro_model->ventas_registro_model_cmb_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id'))); 
-        foreach ($distribuidor as $dist) {   
-            if($dist->DistribuidorDetalleNombreComercial!=NULL){
-                $nombre = utf8_encode($dist->DistribuidorDetalleNombreComercial);
-            } else {
-                $nombre = utf8_encode($dist->DistribuidorDetalleRazonSocial);
-            }     
-            $cmb_dist .="<option value=$dist->DistribuidorId>".$nombre."</option>";
+        foreach ($distribuidor as $dist) {
+            $nombre = !empty($dist->DistribuidorDetalleNombreComercial)
+                ? $dist->DistribuidorDetalleCodigo . ' - ' . $dist->DistribuidorDetalleNombreComercial
+                : $dist->DistribuidorDetalleCodigo . ' - ' . $dist->DistribuidorDetalleRazonSocial;
+            $cmb_dist .= '<option value="' . $dist->DistribuidorId . '">' .
+                strtoupper(utf8_encode($nombre)) .
+                '</option>';
         }
         echo json_encode($cmb_dist);
     }
+
+    public function ventas_registro_controller_ajax_combo_lista_linea() {
+        $combo_linea = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_linea')."</option>";
+        $lineas         = $this->ventas_registro_model->ventas_registro_model_combo_lineas();
+        foreach ($lineas as $linea) { $combo_linea   .='<option value="'.$linea->ProductoLineaId.'">'.utf8_encode(strtoupper($linea->ProductoLiniaNombre)).'</option>'; } 
+        echo json_encode($combo_linea);
+    }
     public function ventas_registro_controller_ajax_combo_lista_clase() {
-        $cmb_sector = $this->input->post('cmb_sector',TRUE);
+        $cmb_linea = $this->input->post('cmb_linea',TRUE);
         $combo_clase = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_clase')."</option>";
-        $clases         = $this->ventas_registro_model->ventas_registro_model_combo_clases();
+        $clases         = $this->ventas_registro_model->ventas_registro_model_combo_clases($cmb_linea);
         foreach ($clases as $clase) { $combo_clase   .='<option value="'.$clase->ProductoClaseId.'">'.utf8_encode(strtoupper($clase->ProductoClaseDescripcion)).'</option>'; } 
         echo json_encode($combo_clase);
     }
     public function ventas_registro_controller_ajax_combo_lista_marca() {
-        $cmd_clase = $this->input->post('cmd_clase',TRUE);
+        $cmb_linea = $this->input->post('cmb_linea',TRUE);
+        $cmb_clase = $this->input->post('cmb_clase',TRUE);
         $combo_marca = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_marca')."</option>";
-        $marcas         = $this->ventas_registro_model->ventas_registro_model_combo_marcas($cmd_clase);
+        $marcas         = $this->ventas_registro_model->ventas_registro_model_combo_marcas($cmb_linea, $cmb_clase);
         foreach ($marcas as $marca) { $combo_marca   .='<option value="'.$marca->ProductoMarcaId.'">'.utf8_encode(strtoupper($marca->ProductoMarcaDescripcion)).'</option>'; } 
         echo json_encode($combo_marca);
     }
     public function ventas_registro_controller_ajax_combo_lista_litros() {
         $combo_litros = "<option value='0'>".$this->lang->line('ventas_registro_controller_lang_combo_selecciona_litros')."</option>";
         $marcas         = $this->ventas_registro_model->ventas_registro_model_combo_litros();
-        foreach ($marcas as $marca) { $combo_litros   .='<option value="'.$marca->VentaDetalleGalonEquivalencia.'">'.utf8_encode(strtoupper($marca->VentaDetalleGalonDescripcion)).'</option>'; } 
+        foreach ($marcas as $marca) { $combo_litros   .='<option value="'.$marca->VentaDetalleGalonId.'">'.utf8_encode(strtoupper($marca->VentaDetalleGalonDescripcion)).'</option>'; } 
         echo json_encode($combo_litros);
     }    
     public function ventas_registro_controller_ajax_qr_retorno() {
@@ -76,7 +75,7 @@ class Ventas_registro_controller extends Base_Controller {
         if (empty($maestro_pintor)){           
             return '';
         } else {            
-            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleSegundoNombre)." ".utf8_encode($maestro_pintor->UsuarioDetalleApellidos);
+            $nombre = utf8_encode($maestro_pintor->UsuarioDetalleNombre);
                 $maestro_pintor_texto = $this->lang->line('ventas_registro_controller_lang_etiqueta_maestro_pintor')." ".$nombre;
             return $maestro_pintor_texto;
         }        
@@ -113,7 +112,7 @@ class Ventas_registro_controller extends Base_Controller {
             $this->session->unset_userdata('s_venta_foto');
         }
     }
-    public function ventas_registro_controller_valida_venta() {        
+    public function ventas_registro_controller_valida_venta() {         
         $txt_numero_ticket = $this->input->post('txt_numero_ticket');
         $ditribuidor = $this->ventas_registro_model->ventas_registro_model_distribuidor($this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')));
         $idDistribuidor = $ditribuidor->DistribuidorDetalleId;
@@ -162,14 +161,10 @@ class Ventas_registro_controller extends Base_Controller {
         if($this->input->post('chk_archivo')){ $imagen_ticket = $this->ventas_registro_guardar_venta_archivo(); }
         $VentaCantidadProdcutos = count($this->cart->contents());
         foreach ($this->cart->contents() as $items) { $total = $items['monto'] * $items['qty']; $total_monto_detalle = $total_monto_detalle + $total; $total_cantidad = $total_cantidad + $items['qty']; }     
-      //  $entra_auditoria = $this->ventas_registro_entra_auditoria($maestro_pintor->UsuarioId,$total_monto_detalle);
-      //  $data = trim($this->input->post('txt_qr',TRUE)).",".$ditribuidor->DistribuidorDetalleId.",".$maestro_pintor->UsuarioDetalleId.",".$this->session->userdata(funciones_strategix_sitio_alias('s_usuario_id')).",'".utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE))))."','".strtoupper(trim($this->input->post('txt_monto_ticket',TRUE)))."','".$total_monto_detalle."',".$VentaCantidadProdcutos.",".$total_cantidad.",'".$imagen_ticket."','".$this->uniqueId."'";              
-       // $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta($data);
-        $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta(trim($this->input->post('txt_qr',TRUE)),utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE)))),strtoupper(trim($this->input->post('txt_monto_ticket',TRUE))),$imagen_ticket,$this->uniqueId,$datos_maestro_pintor,$this->input->post('cmb_distribuidor',TRUE));
+       $VentaId = $this->ventas_registro_model->ventas_registro_model_guardar_venta(trim($this->input->post('txt_qr',TRUE)),utf8_decode(strtoupper(trim($this->input->post('txt_numero_ticket',TRUE)))),strtoupper(trim($this->input->post('txt_monto_ticket',TRUE))),$imagen_ticket,$this->uniqueId,$datos_maestro_pintor,$this->input->post('cmb_distribuidor',TRUE),$total_monto_detalle,$total_cantidad,$VentaCantidadProdcutos);
         $this->ventas_registro_guardar_venta_detalle($VentaId);
         $this->ventas_registro_controller_entra_auditoria($VentaId,$datos_maestro_pintor->UsuarioId,$this->input->post('txt_monto_ticket',TRUE),$this->input->post('cmb_distribuidor',TRUE));
-      //  $this->ventas_registro_controller_distribuidor_activo($ditribuidor->DistribuidorId,$ditribuidor->DistribuidorDetalleId);
-        return $VentaId;
+       return $VentaId;
     }
     private function ventas_registro_guardar_venta_valida_carpetas() {
         $this->base_controller_valida_crea_carpetas('ventas');
@@ -216,17 +211,6 @@ class Ventas_registro_controller extends Base_Controller {
             }
         }
     }
-
-    private function ventas_registro_entra_auditoria($UsuarioId,$monto) {        
-        $total_ventas_mismo_monto = $this->ventas_registro_model->ventas_registro_model_auditoria_monto($UsuarioId,funciones_strategix_formato_fecha_hora_actual(),$monto);
-        if ($total_ventas_mismo_monto!=0){ $this->ventas_registro_model->ventas_registro_model_auditoria_monto_update($UsuarioId,funciones_strategix_formato_fecha_hora_actual(),$monto); return 1; }
-        if ($this->ventas_registro_entra_auditoria_monto($monto)==1){ return 1; }
-        return 0;
-    }
-    private function ventas_registro_entra_auditoria_monto($monto) {     
-                if($monto>=5000.00 AND $monto<=6000.00){ return 1; }
-                if($monto>=8000.00){ return 1; }     
-    }    
     private function ventas_registro_valida_set_rules() {
         $this->form_validation->set_rules('txt_qr', $this->lang->line('ventas_registro_controller_lang_placeholder_numero_tarjeta'), 'required|numeric');
         $this->form_validation->set_rules('txt_numero_ticket', $this->lang->line('ventas_registro_controller_lang_placeholder_numero_ticket'), 'required|xss_clean');
@@ -256,7 +240,7 @@ class Ventas_registro_controller extends Base_Controller {
     }
     public function ventas_registro_controller_cart_agregar_producto() {
         $id = md5(uniqid(rand(), TRUE));
-        $data = array('id' => $id,'name' => 0,'price' => 0,'qty' => $this->input->post('txt_marca_cantidad'),'clase' => $this->input->post('cmd_clase'),'marca' => $this->input->post('cmb_marca'),'monto' => $this->input->post('txt_marca_monto'),'litros'=>$this->input->post('cmb_marca_litros'));        
+        $data = array('id' => $id,'name' => 0,'price' => 0,'qty' => $this->input->post('txt_marca_cantidad'),'linea' => $this->input->post('cmb_linea'),'clase' => $this->input->post('cmb_clase'),'marca' => $this->input->post('cmb_marca'),'monto' => $this->input->post('txt_marca_monto'),'litros'=>$this->input->post('cmb_marca_litros'));        
         $this->cart->insert($data);
         $tabla = $this->ventas_registro_controller_cart_tabla();
         echo json_encode($tabla);
@@ -274,16 +258,18 @@ class Ventas_registro_controller extends Base_Controller {
     public function ventas_registro_controller_cart_tabla() {
         $data['tabla'] = "";
         foreach ($this->cart->contents() as $items) {
+            $linea  = utf8_encode($this->ventas_registro_model->ventas_registro_model_nombre_lineas($items['linea']));
             $clase  = utf8_encode($this->ventas_registro_model->ventas_registro_model_nombre_clases($items['clase']));
             $marca  = utf8_encode($this->ventas_registro_model->ventas_registro_model_nombre_marcas($items['marca']));
             $litros = utf8_encode($this->ventas_registro_model->ventas_registro_model_nombre_litros($items['litros']));
             $data['tabla'] .='
                 <tr class="grey-text">
+                    <td>'.strtoupper($linea).'</td>
                     <td>'.strtoupper($clase).'</td>
                     <td>'.strtoupper($marca).'</td>
                     <td> '.number_format($items['monto'],2).'</td>
                     <td>'.$items['qty'].'</td>
-                    <td>'.$litros.' GALÃO</td>
+                    <td>'.$litros.'</td>
                     <td class="txt-center"><button type="button" id="'.$items['rowid'].'" data-position="left" data-tooltip="Eliminar" name="agregar" class="romove_cart btn waves-effect waves-light tooltipped red"><i class="fas fa-trash"></i></button></td>                                            
                 </tr> ';            
         }
@@ -294,15 +280,5 @@ class Ventas_registro_controller extends Base_Controller {
         $this->ventas_registro_model->ventas_registro_model_venta_promocion($VentaId);
         echo $VentaId;
     }    
-/*    public function ventas_registro_controller_distribuidor_activo($ditribuidorid,$ditribuidordetalleid) {
-        $distribuidor_activo = $this->ventas_registro_model->ventas_registro_model_distribuidor_activo($ditribuidorid,date('Y'),date('m'));
-        $Ventas_totales = $this->ventas_registro_model->ventas_registro_model_ventas_totales($ditribuidordetalleid,date('Y'),date('m'));
-        if(empty($distribuidor_activo)){
-            if($Ventas_totales>=15){
-                $data_activos = $ditribuidorid.",".date('Y').",".date('m').",15";
-                $this->ventas_registro_model->ventas_registro_model_ventas_insert_distribuidor_activo($data_activos);
-            }    
-        }        
-       return 1;
-    }    */
+
 }
